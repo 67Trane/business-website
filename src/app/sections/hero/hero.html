@@ -1,84 +1,116 @@
 <!-- Hero Section -->
 <section id="top" class="relative overflow-hidden">
-  <!-- Decorative background: soft glows + faded grid -->
+  <!-- Decorative background: parallax glows + static faded grid -->
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <div
-      class="absolute -top-40 left-1/2 size-112 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
-    ></div>
-    <div class="absolute top-40 -left-40 size-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
+    <div class="absolute inset-0" [style.transform]="glowShift()">
+      <div
+        class="absolute -top-40 left-1/2 size-112 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
+      ></div>
+      <div class="absolute top-40 -left-40 size-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
+      <div class="absolute top-20 -right-40 size-96 rounded-full bg-sky-500/5 blur-3xl"></div>
+    </div>
     <div
       class="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"
     ></div>
   </div>
 
   <div
-    class="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-36 pb-24 text-center sm:px-6 sm:pt-44 sm:pb-32 lg:px-8"
+    class="relative mx-auto grid max-w-6xl items-center gap-16 px-4 pt-32 pb-24 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:pt-40 lg:pb-32"
   >
-    <!-- Availability badge -->
-    <span
-      class="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300"
-    >
-      <span class="relative flex size-2">
-        <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-        <span class="relative inline-flex size-2 rounded-full bg-emerald-400"></span>
-      </span>
-      Verfügbar für neue Projekte
-    </span>
-
-    <!-- Headline -->
-    <h1
-      class="animate-fade-up mt-8 max-w-3xl text-4xl font-extrabold tracking-tight text-white [animation-delay:100ms] sm:text-6xl"
-    >
-      Webentwicklung, die
-      <span class="bg-linear-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
-        Ihr Unternehmen voranbringt.
-      </span>
-    </h1>
-
-    <!-- Subline -->
-    <p
-      class="animate-fade-up mt-6 max-w-xl text-lg leading-relaxed text-slate-400 [animation-delay:200ms]"
-    >
-      {{ profile.tagline }}
-    </p>
-
-    <!-- CTA buttons -->
-    <div class="animate-fade-up mt-10 flex flex-wrap justify-center gap-4 [animation-delay:300ms]">
-      <a
-        href="#kontakt"
-        class="rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:shadow-cyan-500/40 hover:brightness-110"
+    <!-- Copy column -->
+    <div class="text-center lg:text-left">
+      <!-- Availability badge -->
+      <span
+        class="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300"
       >
-        Kostenloses Erstgespräch
-      </a>
-      <a
-        href="#referenzen"
-        class="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/10"
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-emerald-400"></span>
+        </span>
+        Verfügbar für neue Projekte
+      </span>
+
+      <!-- Headline -->
+      <h1
+        class="animate-fade-up mt-8 text-4xl font-extrabold tracking-tight text-white [animation-delay:100ms] sm:text-5xl xl:text-6xl"
       >
-        Referenzen ansehen
-      </a>
+        Webentwicklung, die
+        <span class="bg-linear-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
+          Ihr Unternehmen voranbringt.
+        </span>
+      </h1>
+
+      <!-- Subline -->
+      <p
+        class="animate-fade-up mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-400 [animation-delay:200ms] lg:mx-0"
+      >
+        {{ profile.tagline }}
+      </p>
+
+      <!-- CTA buttons -->
+      <div
+        class="animate-fade-up mt-10 flex flex-wrap justify-center gap-4 [animation-delay:300ms] lg:justify-start"
+      >
+        <a
+          href="#kontakt"
+          class="rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:shadow-cyan-500/40 hover:brightness-110"
+        >
+          Kostenloses Erstgespräch
+        </a>
+        <a
+          href="#referenzen"
+          class="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/10"
+        >
+          Referenzen ansehen
+        </a>
+      </div>
+
+      <!-- Trust points -->
+      <ul
+        class="animate-fade-up mt-12 flex flex-col flex-wrap items-center gap-x-8 gap-y-3 [animation-delay:400ms] sm:flex-row sm:justify-center lg:justify-start"
+      >
+        @for (point of trustPoints; track point) {
+          <li class="flex items-center gap-2.5 text-sm text-slate-400">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-4 shrink-0 text-emerald-400"
+              aria-hidden="true"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+            {{ point }}
+          </li>
+        }
+      </ul>
     </div>
 
-    <!-- Trust points -->
-    <ul
-      class="animate-fade-up mt-16 flex flex-col flex-wrap items-center justify-center gap-x-10 gap-y-3 [animation-delay:400ms] sm:flex-row"
-    >
-      @for (point of trustPoints; track point) {
-        <li class="flex items-center gap-2.5 text-sm text-slate-400">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="size-4 shrink-0 text-emerald-400"
-            aria-hidden="true"
-          >
-            <path d="M20 6 9 17l-5-5" />
-          </svg>
-          {{ point }}
-        </li>
-      }
-    </ul>
+    <!-- Portrait column with parallax (transform on the wrapper, entrance animation inside) -->
+    <div class="mx-auto w-fit lg:mx-0 lg:justify-self-end" [style.transform]="portraitShift()">
+      <div class="animate-fade-up relative [animation-delay:200ms]">
+        <!-- Soft glow behind the portrait -->
+        <div
+          class="absolute -inset-8 rounded-full bg-linear-to-br from-cyan-500/20 via-transparent to-indigo-500/20 blur-2xl"
+          aria-hidden="true"
+        ></div>
+        <!-- Offset accent frame -->
+        <div
+          class="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl border border-cyan-400/20"
+          aria-hidden="true"
+        ></div>
+        <img
+          ngSrc="images/profile.webp"
+          width="640"
+          height="800"
+          priority
+          class="relative w-64 max-w-full rounded-3xl border border-white/10 object-cover shadow-2xl shadow-slate-950/50 sm:w-72 lg:w-80"
+          alt="Porträt von Mehmet Deliaci, Webentwickler"
+        />
+      </div>
+    </div>
   </div>
 </section>

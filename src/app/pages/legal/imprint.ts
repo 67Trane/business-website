@@ -18,8 +18,8 @@ import { PROFILE } from '../../data/site.data';
           <h2 class="text-lg font-semibold text-white">Angaben gemäß § 5 DDG</h2>
           <p class="mt-3">
             {{ profile.name }}<br />
-            Musterstraße 1<br />
-            12345 Musterstadt
+            Nördliche Ring str.23<br />
+            91781 Weißenburg<br />
           </p>
         </div>
 
