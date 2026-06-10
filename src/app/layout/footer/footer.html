@@ -1,0 +1,71 @@
+<!-- Footer -->
+<footer class="border-t border-white/10">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-between gap-8 sm:flex-row">
+      <!-- Brand -->
+      <div class="text-center sm:text-left">
+        <a routerLink="/" fragment="top" class="text-lg font-bold tracking-tight text-white">
+          {{ profile.name }}<span class="text-cyan-400">.</span>
+        </a>
+        <p class="mt-1 text-sm text-slate-500">{{ profile.role }}</p>
+      </div>
+
+      <!-- Footer navigation -->
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        @for (item of navItems; track item.anchor) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="item.anchor"
+              class="text-sm text-slate-400 transition-colors hover:text-white"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+
+      <!-- Social links -->
+      <ul class="flex items-center gap-4">
+        @for (link of socialLinks; track link.name) {
+          <li>
+            <a
+              [href]="link.url"
+              [attr.aria-label]="link.name"
+              target="_blank"
+              rel="noopener"
+              class="text-slate-500 transition-colors hover:text-white"
+            >
+              <app-icon [name]="link.icon" class="size-5" />
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Bottom row: copyright + legal links -->
+    <div
+      class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row"
+    >
+      <p class="text-sm text-slate-600">© {{ year }} {{ profile.name }} · Alle Rechte vorbehalten</p>
+      <ul class="flex items-center gap-6">
+        <li>
+          <a
+            routerLink="/impressum"
+            class="text-sm text-slate-500 transition-colors hover:text-white"
+          >
+            Impressum
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/datenschutz"
+            class="text-sm text-slate-500 transition-colors hover:text-white"
+          >
+            Datenschutz
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

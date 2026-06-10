@@ -1,0 +1,73 @@
+<!-- Project Card -->
+<article
+  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/3 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/5"
+>
+  <!-- Visual header with project gradient -->
+  <div class="relative h-40 overflow-hidden bg-linear-to-br" [class]="project().gradient">
+    <!-- Subtle darkening overlay for readability -->
+    <div class="absolute inset-0 bg-slate-950/40"></div>
+    <span
+      class="absolute inset-0 flex items-center justify-center font-mono text-2xl font-bold tracking-tight text-white/90 transition-transform duration-300 group-hover:scale-105"
+    >
+      {{ project().title }}
+    </span>
+    @if (project().featured) {
+      <span
+        class="absolute top-4 right-4 rounded-full border border-white/20 bg-slate-950/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm"
+      >
+        Featured
+      </span>
+    }
+  </div>
+
+  <!-- Card body -->
+  <div class="flex flex-1 flex-col p-6">
+    <p class="flex-1 text-sm leading-relaxed text-slate-400">{{ project().description }}</p>
+
+    <!-- Tech stack tags -->
+    <ul class="mt-5 flex flex-wrap gap-2">
+      @for (tag of project().tags; track tag) {
+        <li class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300">
+          {{ tag }}
+        </li>
+      }
+    </ul>
+
+    <!-- Project links -->
+    <div class="mt-6 flex items-center gap-4 border-t border-white/5 pt-5 text-sm font-medium">
+      @if (project().liveUrl; as liveUrl) {
+        <a
+          [href]="liveUrl"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-1.5 text-cyan-400 transition-colors hover:text-cyan-300"
+        >
+          Live Demo
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-3.5"
+          >
+            <path d="M15 3h6v6" />
+            <path d="M10 14 21 3" />
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          </svg>
+        </a>
+      }
+      @if (project().repoUrl; as repoUrl) {
+        <a
+          [href]="repoUrl"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-1.5 text-slate-400 transition-colors hover:text-white"
+        >
+          Code ansehen
+        </a>
+      }
+    </div>
+  </div>
+</article>

@@ -1,0 +1,61 @@
+<!-- About Section -->
+<section id="ueber-mich" class="border-y border-white/5 bg-white/2 py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <app-section-heading
+      eyebrow="Über mich"
+      title="Ihr direkter Ansprechpartner"
+      description="Bei mir sprechen Sie nicht mit einem Projektmanager – sondern direkt mit dem Entwickler, der Ihr Projekt umsetzt."
+    />
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-5">
+      <!-- Introduction text -->
+      <div class="space-y-5 leading-relaxed text-slate-400 lg:col-span-3">
+        <p>
+          Mein Name ist <span class="font-medium text-white">{{ profile.name }}</span> – ich bin
+          Webentwickler und unterstütze Unternehmen, Selbständige und Start-ups dabei, professionell
+          im Web aufzutreten: mit Websites und Web-Anwendungen, die schnell laden, gut aussehen und
+          messbar funktionieren.
+        </p>
+        <p>
+          Technisch arbeite ich im Frontend mit
+          <span class="font-medium text-white">Angular, TypeScript und Tailwind CSS</span>, im
+          Backend mit <span class="font-medium text-white">Python, Django und REST-APIs</span>. So
+          kann ich Ihr Projekt komplett aus einer Hand umsetzen – ohne Reibungsverluste zwischen
+          mehreren Dienstleistern.
+        </p>
+        <p>
+          Was Sie von mir erwarten können: ehrliche Beratung, transparente Kommunikation und
+          sauberen Code, der auch in zwei Jahren noch wartbar ist.
+        </p>
+
+        <!-- Tech stack chips -->
+        <ul class="flex flex-wrap gap-2 pt-2">
+          @for (tech of techStack; track tech) {
+            <li
+              class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-xs text-slate-300"
+            >
+              {{ tech }}
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Facts card -->
+      <div class="lg:col-span-2">
+        <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-8">
+          <h3 class="text-lg font-semibold text-white">Auf einen Blick</h3>
+          <ul class="mt-6 space-y-4">
+            @for (fact of facts; track fact.label) {
+              <li
+                class="flex items-baseline justify-between gap-4 border-b border-white/5 pb-4 last:border-b-0 last:pb-0"
+              >
+                <span class="text-sm text-slate-500">{{ fact.label }}</span>
+                <span class="text-right text-sm font-medium text-white">{{ fact.value }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

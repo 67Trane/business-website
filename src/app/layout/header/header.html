@@ -1,0 +1,85 @@
+<!-- Header / Navigation -->
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-colors duration-300"
+  [class]="
+    scrolled() || menuOpen()
+      ? 'border-b border-white/10 bg-slate-950/80 backdrop-blur-xl'
+      : 'bg-transparent'
+  "
+>
+  <nav
+    class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
+    aria-label="Hauptnavigation"
+  >
+    <!-- Brand -->
+    <a routerLink="/" fragment="top" class="text-lg font-bold tracking-tight text-white" (click)="closeMenu()">
+      {{ profile.name }}<span class="text-cyan-400">.</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <ul class="hidden items-center gap-8 md:flex">
+      @for (item of navItems; track item.anchor) {
+        <li>
+          <a
+            routerLink="/"
+            [fragment]="item.anchor"
+            class="text-sm font-medium text-slate-400 transition-colors hover:text-white"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Desktop contact CTA -->
+    <a
+      routerLink="/"
+      fragment="kontakt"
+      class="hidden rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-300 transition-colors hover:border-cyan-400/60 hover:bg-cyan-400/20 md:inline-flex"
+    >
+      Projekt anfragen
+    </a>
+
+    <!-- Mobile menu toggle -->
+    <button
+      type="button"
+      class="text-slate-300 transition-colors hover:text-white md:hidden"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Menü öffnen oder schließen"
+    >
+      <app-icon [name]="menuOpen() ? 'close' : 'menu'" class="size-6" />
+    </button>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  @if (menuOpen()) {
+    <div id="mobile-menu" class="border-t border-white/10 md:hidden">
+      <ul class="space-y-1 px-4 py-4">
+        @for (item of navItems; track item.anchor) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="item.anchor"
+              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+              (click)="closeMenu()"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            routerLink="/"
+            fragment="kontakt"
+            class="mt-2 block rounded-lg bg-cyan-400/10 px-3 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/20"
+            (click)="closeMenu()"
+          >
+            Projekt anfragen
+          </a>
+        </li>
+      </ul>
+    </div>
+  }
+</header>

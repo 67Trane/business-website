@@ -1,0 +1,39 @@
+<!-- Services Section -->
+<section id="leistungen" class="py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <app-section-heading
+      eyebrow="Leistungen"
+      title="Was ich für Ihr Unternehmen tun kann"
+      description="Vom ersten Konzept bis zum laufenden Betrieb – alles aus einer Hand, ohne Agentur-Overhead."
+    />
+
+    <!-- Services Grid -->
+    <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      @for (service of services; track service.title) {
+        <!-- Service Card -->
+        <div
+          class="group rounded-2xl border border-white/10 bg-white/3 p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/5"
+        >
+          <span
+            class="flex size-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400 transition-colors duration-300 group-hover:bg-cyan-400/20"
+          >
+            <app-icon [name]="service.icon" class="size-6" />
+          </span>
+
+          <h3 class="mt-6 text-lg font-semibold text-white">{{ service.title }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-400">{{ service.description }}</p>
+
+          <!-- Key points -->
+          <ul class="mt-6 space-y-2.5">
+            @for (point of service.points; track point) {
+              <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                <app-icon name="check" class="size-4 shrink-0 text-emerald-400" />
+                {{ point }}
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
