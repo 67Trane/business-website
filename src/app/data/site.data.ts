@@ -7,7 +7,7 @@ export const PROFILE: Profile = {
   tagline:
     'Ich entwickle moderne Websites und Web-Anwendungen, die Ihr Unternehmen digital ' +
     'voranbringen – maßgeschneidert, performant und zuverlässig betreut.',
-  email: 'mehmet.deliaci.dev@gmail.com',
+  email: 'info@mehmet-deliaci.net',
   location: 'Deutschland',
   githubUrl: 'https://github.com/67Trane',
   linkedinUrl: 'https://www.linkedin.com/',
