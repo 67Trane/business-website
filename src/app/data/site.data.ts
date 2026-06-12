@@ -4,8 +4,8 @@ import { Profile, SocialLink } from '../models/portfolio.models';
 export const PROFILE: Profile = {
   name: 'Mehmet Deliaci',
   email: 'info@mehmet-deliaci.net',
-  githubUrl: 'https://github.com/67Trane',
-  linkedinUrl: 'https://www.linkedin.com/',
+  githubUrl: 'https://www.github.com/67Trane',
+  linkedinUrl: 'https://www.linkedin.com/in/mehmet-deliaci-24285535a',
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [

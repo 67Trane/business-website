@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
+import { Seo } from '../../services/seo';
 
 /**
  * Privacy policy page (GDPR / DSGVO).
@@ -51,12 +52,11 @@ import { PROFILE } from '../../data/site.data';
         </div>
 
         <div>
-          <h2 class="font-serif text-xl font-semibold text-ink">4. Externe Schriftarten</h2>
+          <h2 class="font-serif text-xl font-semibold text-ink">4. Schriftarten</h2>
           <p class="mt-3">
-            Diese Website bindet die Schriftarten „Spectral", „Hanken Grotesk" und „Spline Sans
-            Mono" über Google Fonts ein. Dabei wird eine Verbindung zu Servern von Google
-            hergestellt. Hinweis: Für eine DSGVO-konforme Nutzung sollten die Schriftarten lokal
-            gehostet werden.
+            Die auf dieser Website verwendeten Schriftarten („Spectral", „Hanken Grotesk",
+            „Spline Sans Mono") werden lokal auf dem eigenen Server gehostet. Es findet keine
+            Verbindung zu Servern von Google oder anderen Drittanbietern statt.
           </p>
         </div>
 
@@ -74,4 +74,12 @@ import { PROFILE } from '../../data/site.data';
 })
 export class Privacy {
   protected readonly profile = PROFILE;
+
+  constructor() {
+    inject(Seo).apply({
+      path: '/datenschutz',
+      description: 'Datenschutzerklärung von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
+      noindex: true,
+    });
+  }
 }

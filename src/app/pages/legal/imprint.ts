@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
+import { Seo } from '../../services/seo';
 
 /**
  * Imprint page (legally required for commercial websites in Germany).
@@ -54,4 +55,12 @@ import { PROFILE } from '../../data/site.data';
 })
 export class Imprint {
   protected readonly profile = PROFILE;
+
+  constructor() {
+    inject(Seo).apply({
+      path: '/impressum',
+      description: 'Impressum von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
+      noindex: true,
+    });
+  }
 }

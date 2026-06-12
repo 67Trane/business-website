@@ -1,4 +1,17 @@
-/* Fonts are loaded via <link> in index.html (faster than a render-blocking CSS @import). */
+/* Self-hosted fonts (@fontsource) – bundled locally, no Google Fonts connection (DSGVO).
+   Only the weights actually used: sans 400/500/600/700, serif 400/500/600 (+ italics), mono 400/500. */
+@import '@fontsource/hanken-grotesk/400.css';
+@import '@fontsource/hanken-grotesk/500.css';
+@import '@fontsource/hanken-grotesk/600.css';
+@import '@fontsource/hanken-grotesk/700.css';
+@import '@fontsource/spectral/400.css';
+@import '@fontsource/spectral/500.css';
+@import '@fontsource/spectral/600.css';
+@import '@fontsource/spectral/400-italic.css';
+@import '@fontsource/spectral/500-italic.css';
+@import '@fontsource/spline-sans-mono/400.css';
+@import '@fontsource/spline-sans-mono/500.css';
+
 @import 'tailwindcss';
 
 @theme {
