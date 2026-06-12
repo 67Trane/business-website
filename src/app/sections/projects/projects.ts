@@ -1,17 +1,22 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { PROJECTS } from '../../data/projects.data';
+import { LanguageService } from '../../services/language';
 import { PROFILE } from '../../data/site.data';
 import { ProjectCard } from '../../shared/project-card/project-card';
-import { SectionHeading } from '../../shared/section-heading/section-heading';
 
-/** Projects section rendering the project cards grid. */
 @Component({
   selector: 'app-projects',
-  imports: [SectionHeading, ProjectCard],
+  imports: [ProjectCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './projects.html',
 })
 export class Projects {
-  protected readonly projects = PROJECTS;
+  protected readonly content = inject(LanguageService).content;
   protected readonly profile = PROFILE;
+  protected readonly projects = computed(() =>
+    PROJECTS.map((project, index) => ({
+      ...project,
+      description: this.content().projects.descriptions[index],
+    })),
+  );
 }

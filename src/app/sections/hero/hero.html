@@ -1,116 +1,97 @@
 <!-- Hero Section -->
-<section id="top" class="relative overflow-hidden">
-  <!-- Decorative background: parallax glows + static faded grid -->
-  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <div class="absolute inset-0" [style.transform]="glowShift()">
-      <div
-        class="absolute -top-40 left-1/2 size-112 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
-      ></div>
-      <div class="absolute top-40 -left-40 size-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
-      <div class="absolute top-20 -right-40 size-96 rounded-full bg-sky-500/5 blur-3xl"></div>
-    </div>
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"
-    ></div>
-  </div>
-
+<section id="top" class="relative min-h-screen overflow-hidden bg-canvas">
+  <!-- Parallax color blobs: each layer scrolls at its own speed for depth -->
   <div
-    class="relative mx-auto grid max-w-6xl items-center gap-16 px-4 pt-32 pb-24 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:pt-40 lg:pb-32"
-  >
-    <!-- Copy column -->
-    <div class="text-center lg:text-left">
-      <!-- Availability badge -->
-      <span
-        class="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300"
+    class="pointer-events-none absolute -top-36 -right-28 size-155 rounded-full bg-[radial-gradient(circle,rgb(30_82_204/20%),transparent_68%)] will-change-transform"
+    [style.transform]="blueBlobShift()"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute right-[12%] -bottom-28 size-130 rounded-full bg-[radial-gradient(circle,rgb(244_150_98/22%),transparent_68%)] will-change-transform"
+    [style.transform]="peachBlobShift()"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute top-[28%] right-[25%] size-95 rounded-full bg-[radial-gradient(circle,rgb(92_178_235/20%),transparent_68%)] will-change-transform"
+    [style.transform]="cyanBlobShift()"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative grid min-h-screen lg:grid-cols-[48%_52%]">
+    <!-- Photo column: oversized parallax layer inside a clipping grid cell -->
+    <div class="relative min-h-[54vh] overflow-hidden lg:min-h-screen">
+      <div
+        class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
+        [style.transform]="portraitShift()"
       >
+        <!-- Blue glow behind the person -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"></div>
+        <!-- Portrait, fading out softly towards the left edge -->
+        <div class="absolute inset-x-0 top-20 h-[78%]">
+          <img
+            ngSrc="images/profile.webp"
+            fill
+            priority
+            class="object-contain object-bottom mask-[linear-gradient(to_right,transparent_0%,black_14%,black_100%)]"
+            alt="Mehmet Deliaci"
+          />
+        </div>
+        <!-- Soft blur running out over the left photo edge -->
+        <div
+          class="absolute top-20 left-0 h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)]"
+        ></div>
+        <!-- Blend right and bottom edges into the canvas background -->
+        <div class="absolute inset-y-0 right-0 w-40 bg-linear-to-r from-transparent to-canvas"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-linear-to-b from-transparent to-canvas"></div>
+      </div>
+    </div>
+
+    <!-- Copy column -->
+    <div class="relative z-10 flex flex-col justify-center px-6 pt-8 pb-16 sm:px-12 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28">
+      <span class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand">
         <span class="relative flex size-2">
-          <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex size-2 rounded-full bg-emerald-400"></span>
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-50"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-brand"></span>
         </span>
-        Verfügbar für neue Projekte
+        {{ content().hero.available }}
       </span>
 
-      <!-- Headline -->
-      <h1
-        class="animate-fade-up mt-8 text-4xl font-extrabold tracking-tight text-white [animation-delay:100ms] sm:text-5xl xl:text-6xl"
-      >
-        Webentwicklung, die
-        <span class="bg-linear-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
-          Ihr Unternehmen voranbringt.
-        </span>
+      <h1 class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:100ms]">
+        {{ content().hero.main }}
+        <span class="italic text-brand">{{ content().hero.accent }}</span>
       </h1>
 
-      <!-- Subline -->
-      <p
-        class="animate-fade-up mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-400 [animation-delay:200ms] lg:mx-0"
-      >
-        {{ profile.tagline }}
+      <p class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:200ms]">
+        {{ content().hero.sub }}
       </p>
 
-      <!-- CTA buttons -->
-      <div
-        class="animate-fade-up mt-10 flex flex-wrap justify-center gap-4 [animation-delay:300ms] lg:justify-start"
-      >
-        <a
-          href="#kontakt"
-          class="rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:shadow-cyan-500/40 hover:brightness-110"
-        >
-          Kostenloses Erstgespräch
-        </a>
+      <div class="animate-fade-up mt-9 flex flex-wrap gap-3.5 [animation-delay:300ms]">
+        <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
         <a
           href="#referenzen"
-          class="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/10"
+          class="inline-flex items-center justify-center rounded-lg border border-ink/20 px-6 py-3.5 text-md font-semibold text-ink transition hover:border-brand hover:text-brand"
         >
-          Referenzen ansehen
+          {{ content().hero.secondary }}
         </a>
       </div>
 
-      <!-- Trust points -->
-      <ul
-        class="animate-fade-up mt-12 flex flex-col flex-wrap items-center gap-x-8 gap-y-3 [animation-delay:400ms] sm:flex-row sm:justify-center lg:justify-start"
-      >
-        @for (point of trustPoints; track point) {
-          <li class="flex items-center gap-2.5 text-sm text-slate-400">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="size-4 shrink-0 text-emerald-400"
-              aria-hidden="true"
-            >
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
+      <ul class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:400ms]">
+        @for (point of content().hero.trust; track point) {
+          <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">
+            <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand"></span>
             {{ point }}
           </li>
         }
       </ul>
     </div>
+  </div>
 
-    <!-- Portrait column with parallax (transform on the wrapper, entrance animation inside) -->
-    <div class="mx-auto w-fit lg:mx-0 lg:justify-self-end" [style.transform]="portraitShift()">
-      <div class="animate-fade-up relative [animation-delay:200ms]">
-        <!-- Soft glow behind the portrait -->
-        <div
-          class="absolute -inset-8 rounded-full bg-linear-to-br from-cyan-500/20 via-transparent to-indigo-500/20 blur-2xl"
-          aria-hidden="true"
-        ></div>
-        <!-- Offset accent frame -->
-        <div
-          class="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl border border-cyan-400/20"
-          aria-hidden="true"
-        ></div>
-        <img
-          ngSrc="images/profile.webp"
-          width="640"
-          height="800"
-          priority
-          class="relative w-64 max-w-full rounded-3xl border border-white/10 object-cover shadow-2xl shadow-slate-950/50 sm:w-72 lg:w-80"
-          alt="Porträt von Mehmet Deliaci, Webentwickler"
-        />
-      </div>
-    </div>
+  <!-- Scroll indicator -->
+  <div
+    class="pointer-events-none absolute bottom-9 left-[47%] hidden -translate-x-1/2 flex-col items-center gap-2.5 lg:flex"
+    aria-hidden="true"
+  >
+    <span class="font-mono text-[10.5px] tracking-[0.18em] text-copy/50 uppercase">scroll</span>
+    <div class="scroll-line h-9 w-px bg-brand opacity-50"></div>
   </div>
 </section>

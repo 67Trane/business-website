@@ -2,27 +2,29 @@ import { Project } from '../models/portfolio.models';
 
 /**
  * Reference projects rendered in the references grid.
- * The `gradient` classes are picked up by Tailwind because this file is scanned as a source.
+ * Descriptions here are the German defaults – the projects section overlays
+ * the translated description from `i18n.data.ts` by index.
+ * The muted `gradient` colors match the redesign palette.
  */
 export const PROJECTS: Project[] = [
   {
     title: 'Join',
     description:
       'Projektmanagement-Tool im Kanban-Stil mit Drag & Drop, Kontaktverwaltung und ' +
-      'Nutzer-Authentifizierung – für strukturierte Zusammenarbeit im Team.',
-    tags: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    gradient: 'from-cyan-500 to-blue-600',
-    liveUrl: 'https://example.com/join',
+      'Authentifizierung.',
+    tags: ['Angular', 'TypeScript', 'Firebase', 'Tailwind'],
+    gradient: 'from-[#2c5f8a] to-[#3e7cb1]',
+    liveUrl: 'https://join.mehmet-deliaci.net',
     repoUrl: 'https://github.com/67Trane/join',
     featured: true,
   },
   {
     title: 'Videoflix',
     description:
-      'Video-Streaming-Plattform mit Django-Backend, REST-API, automatischer ' +
-      'Video-Konvertierung und sicherer Authentifizierung – Frontend in Angular.',
-    tags: ['Django', 'Django REST Framework', 'PostgreSQL', 'Docker', 'Angular'],
-    gradient: 'from-indigo-500 to-purple-600',
+      'Video-Streaming-Plattform mit Django-Backend, REST-API und automatischer ' +
+      'Video-Konvertierung.',
+    tags: ['Django', 'DRF', 'PostgreSQL', 'Docker'],
+    gradient: 'from-[#7a2c3e] to-[#b13e5c]',
     repoUrl: 'https://github.com/67Trane/videoflix',
     featured: true,
   },
@@ -30,19 +32,18 @@ export const PROJECTS: Project[] = [
     title: 'Coderr',
     description:
       'REST-API für eine Dienstleister-Plattform mit Angeboten, Bestellungen und ' +
-      'Bewertungen – inklusive Filterung, Pagination, Rechteverwaltung und Tests.',
-    tags: ['Python', 'Django REST Framework', 'SQLite', 'JWT'],
-    gradient: 'from-emerald-500 to-teal-600',
+      'Bewertungssystem.',
+    tags: ['Python', 'DRF', 'JWT'],
+    gradient: 'from-[#2a4e8a] to-[#3a6bb4]',
     repoUrl: 'https://github.com/67Trane/coderr',
   },
   {
     title: 'El Pollo Loco',
     description:
-      'Interaktives Browser-Game auf Canvas-Basis mit eigener Spiellogik, Animationen, ' +
-      'Sound und mobiler Steuerung – komplett in objektorientiertem JavaScript.',
-    tags: ['JavaScript', 'OOP', 'HTML Canvas', 'CSS'],
-    gradient: 'from-amber-500 to-orange-600',
-    liveUrl: 'https://example.com/el-pollo-loco',
+      'Interaktives Browser-Game auf Canvas-Basis mit eigener Spiellogik, Animationen und Sound.',
+    tags: ['JavaScript', 'OOP', 'Canvas'],
+    gradient: 'from-[#7a4a2c] to-[#b17040]',
+    liveUrl: 'https://pollo.mehmet-deliaci.net',
     repoUrl: 'https://github.com/67Trane/el-pollo-loco',
   },
 ];

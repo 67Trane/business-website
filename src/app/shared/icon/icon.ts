@@ -6,17 +6,14 @@ export type IconName =
   | 'mail'
   | 'menu'
   | 'close'
-  | 'monitor'
-  | 'code'
-  | 'database'
-  | 'gauge'
-  | 'wrench'
-  | 'message'
-  | 'check';
+  | 'flag-de'
+  | 'flag-en'
+  | 'flag-tr';
 
 /**
  * Tiny inline SVG icon set – avoids an external icon library.
  * Size is controlled by the host element, e.g. <app-icon name="github" class="size-5" />.
+ * Flags stretch to the host box (like the design mock) via preserveAspectRatio="none".
  */
 @Component({
   selector: 'app-icon',
@@ -70,46 +67,32 @@ export type IconName =
           <path d="M6 6l12 12M6 18L18 6" />
         </svg>
       }
-      @case ('monitor') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2" />
-          <path d="M8 21h8M12 17v4" />
+      @case ('flag-de') {
+        <svg viewBox="0 0 5 3" preserveAspectRatio="none" class="size-full">
+          <rect width="5" height="1" fill="#000" />
+          <rect y="1" width="5" height="1" fill="#dd0000" />
+          <rect y="2" width="5" height="1" fill="#ffce00" />
         </svg>
       }
-      @case ('code') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+      @case ('flag-en') {
+        <svg viewBox="0 0 60 30" preserveAspectRatio="none" class="size-full">
+          <rect width="60" height="30" fill="#012169" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#c8102e" stroke-width="2.5" />
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10" />
+          <path d="M30,0 V30 M0,15 H60" stroke="#c8102e" stroke-width="6" />
         </svg>
       }
-      @case ('database') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <ellipse cx="12" cy="5" rx="9" ry="3" />
-          <path d="M3 5v14a9 3 0 0 0 18 0V5" />
-          <path d="M3 12a9 3 0 0 0 18 0" />
-        </svg>
-      }
-      @case ('gauge') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m12 14 4-4" />
-          <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-        </svg>
-      }
-      @case ('wrench') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path
-            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94
-               7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+      @case ('flag-tr') {
+        <svg viewBox="0 0 30 20" preserveAspectRatio="none" class="size-full">
+          <rect width="30" height="20" fill="#e30a17" />
+          <circle cx="11" cy="10" r="5" fill="#fff" />
+          <circle cx="12.3" cy="10" r="4" fill="#e30a17" />
+          <polygon
+            points="0,-1 0.294,-0.309 0.951,-0.309 0.476,0.118 0.588,0.809 0,0.382 -0.588,0.809 -0.476,0.118 -0.951,-0.309 -0.294,-0.309"
+            transform="translate(18.5,10) scale(2.4) rotate(-15)"
+            fill="#fff"
           />
-        </svg>
-      }
-      @case ('message') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-        </svg>
-      }
-      @case ('check') {
-        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 6 9 17l-5-5" />
         </svg>
       }
     }

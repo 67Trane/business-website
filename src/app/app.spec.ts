@@ -23,4 +23,18 @@ describe('App', () => {
     expect(compiled.querySelector('header')).toBeTruthy();
     expect(compiled.querySelector('footer')).toBeTruthy();
   });
+
+  it('should switch the navigation language', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const englishButton = Array.from(compiled.querySelectorAll('header button')).find(
+      (button) => button.textContent?.trim().toLowerCase().endsWith('en'),
+    ) as HTMLButtonElement;
+
+    englishButton.click();
+    fixture.detectChanges();
+
+    expect(compiled.textContent).toContain('Start a project');
+  });
 });

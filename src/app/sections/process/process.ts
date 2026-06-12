@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROCESS_STEPS } from '../../data/process.data';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { LanguageService } from '../../services/language';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
-/** Process section explaining the collaboration in numbered steps. */
 @Component({
   selector: 'app-process',
   imports: [SectionHeading],
@@ -10,5 +9,5 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   templateUrl: './process.html',
 })
 export class Process {
-  protected readonly steps = PROCESS_STEPS;
+  protected readonly content = inject(LanguageService).content;
 }

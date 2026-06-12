@@ -2,15 +2,9 @@ import type { IconName } from '../shared/icon/icon';
 
 /**
  * Shared domain models for the business website.
- * All content data (services, projects, process steps, ...) is typed against these interfaces.
+ * All translated copy lives in `data/i18n.data.ts`; these models cover
+ * the language-independent data (links, projects).
  */
-
-/** A single entry in the main navigation, pointing to a section anchor on the home page. */
-export interface NavItem {
-  label: string;
-  /** Anchor id of the target section, e.g. "leistungen". */
-  anchor: string;
-}
 
 /** External profile link rendered with an icon (footer, contact, ...). */
 export interface SocialLink {
@@ -19,24 +13,10 @@ export interface SocialLink {
   icon: IconName;
 }
 
-/** A service offering rendered as a card in the services section. */
-export interface Service {
-  icon: IconName;
-  title: string;
-  description: string;
-  /** Short bullet points listed on the card. */
-  points: string[];
-}
-
-/** One step of the collaboration process (rendered with its 1-based index). */
-export interface ProcessStep {
-  title: string;
-  description: string;
-}
-
 /** A reference project rendered as a card in the references section. */
 export interface Project {
   title: string;
+  /** Language-specific descriptions are layered over this in the projects section. */
   description: string;
   /** Tech stack shown as tags on the card. */
   tags: string[];
@@ -48,13 +28,10 @@ export interface Project {
   featured?: boolean;
 }
 
-/** Business and contact information used across hero, contact, footer and legal pages. */
+/** Business and contact information used across the site and legal pages. */
 export interface Profile {
   name: string;
-  role: string;
-  tagline: string;
   email: string;
-  location: string;
   githubUrl: string;
   linkedinUrl: string;
 }

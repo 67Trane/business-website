@@ -1,84 +1,87 @@
-<!-- Header / Navigation -->
 <header
-  class="fixed inset-x-0 top-0 z-50 transition-colors duration-300"
+  class="fixed inset-x-0 top-0 z-50 border-b transition-all duration-300"
   [class]="
     scrolled() || menuOpen()
-      ? 'border-b border-white/10 bg-slate-950/80 backdrop-blur-xl'
-      : 'bg-transparent'
+      ? 'border-brand/10 bg-canvas/95 shadow-sm backdrop-blur-xl'
+      : 'border-transparent bg-canvas/80 backdrop-blur-md'
   "
 >
   <nav
-    class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
-    aria-label="Hauptnavigation"
+    class="mx-auto flex h-18 max-w-330 items-center gap-5 px-5 sm:px-9 lg:px-13"
+    aria-label="Main navigation"
   >
-    <!-- Brand -->
-    <a routerLink="/" fragment="top" class="text-lg font-bold tracking-tight text-white" (click)="closeMenu()">
-      {{ profile.name }}<span class="text-cyan-400">.</span>
+    <a
+      routerLink="/"
+      fragment="top"
+      class="mr-auto font-serif text-[1.3125rem] font-semibold tracking-tight text-ink md:mr-0"
+      (click)="closeMenu()"
+    >
+      {{ profile.name }}<span class="text-brand">.</span>
     </a>
 
-    <!-- Desktop navigation -->
-    <ul class="hidden items-center gap-8 md:flex">
-      @for (item of navItems; track item.anchor) {
-        <li>
-          <a
-            routerLink="/"
-            [fragment]="item.anchor"
-            class="text-sm font-medium text-slate-400 transition-colors hover:text-white"
-          >
-            {{ item.label }}
-          </a>
-        </li>
-      }
+    <ul class="hidden items-center gap-6 lg:flex">
+      <li><a routerLink="/" fragment="leistungen" class="text-sm font-medium text-copy hover:text-brand">{{ i18n.content().nav.services }}</a></li>
+      <li><a routerLink="/" fragment="ablauf" class="text-sm font-medium text-copy hover:text-brand">{{ i18n.content().nav.process }}</a></li>
+      <li><a routerLink="/" fragment="referenzen" class="text-sm font-medium text-copy hover:text-brand">{{ i18n.content().nav.work }}</a></li>
+      <li><a routerLink="/" fragment="ueber-mich" class="text-sm font-medium text-copy hover:text-brand">{{ i18n.content().nav.about }}</a></li>
     </ul>
 
-    <!-- Desktop contact CTA -->
+    <div class="ml-auto hidden items-center gap-1 rounded-lg bg-brand/7 p-1 md:flex" aria-label="Language">
+      @for (language of ['de', 'en', 'tr']; track language) {
+        <button
+          type="button"
+          class="inline-flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[0.7rem] font-bold uppercase transition"
+          [class]="i18n.language() === language ? 'bg-brand text-white' : 'text-copy hover:bg-white'"
+          (click)="setLanguage($any(language))"
+          [attr.aria-pressed]="i18n.language() === language"
+        >
+          <app-icon [name]="flagIcon(language)" class="h-2.75 w-4 overflow-hidden rounded-xs" />
+          {{ language }}
+        </button>
+      }
+    </div>
+
     <a
       routerLink="/"
       fragment="kontakt"
-      class="hidden rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-300 transition-colors hover:border-cyan-400/60 hover:bg-cyan-400/20 md:inline-flex"
+      class="primary-button hidden px-5 py-2.5 text-sm md:inline-flex"
     >
-      Projekt anfragen
+      {{ i18n.content().nav.cta }}
     </a>
 
-    <!-- Mobile menu toggle -->
     <button
       type="button"
-      class="text-slate-300 transition-colors hover:text-white md:hidden"
+      class="flex size-10 items-center justify-center rounded-lg border border-brand/15 text-ink md:hidden"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="mobile-menu"
-      aria-label="Menü öffnen oder schließen"
+      [attr.aria-label]="i18n.content().nav.menu"
     >
-      <app-icon [name]="menuOpen() ? 'close' : 'menu'" class="size-6" />
+      <app-icon [name]="menuOpen() ? 'close' : 'menu'" class="size-5" />
     </button>
   </nav>
 
-  <!-- Mobile menu panel -->
   @if (menuOpen()) {
-    <div id="mobile-menu" class="border-t border-white/10 md:hidden">
-      <ul class="space-y-1 px-4 py-4">
-        @for (item of navItems; track item.anchor) {
-          <li>
-            <a
-              routerLink="/"
-              [fragment]="item.anchor"
-              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-              (click)="closeMenu()"
-            >
-              {{ item.label }}
-            </a>
-          </li>
-        }
-        <li>
-          <a
-            routerLink="/"
-            fragment="kontakt"
-            class="mt-2 block rounded-lg bg-cyan-400/10 px-3 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/20"
-            (click)="closeMenu()"
+    <div id="mobile-menu" class="border-t border-brand/10 bg-canvas px-5 py-4 md:hidden">
+      <div class="mb-3 flex w-fit items-center gap-1 rounded-lg bg-brand/7 p-1">
+        @for (language of ['de', 'en', 'tr']; track language) {
+          <button
+            type="button"
+            class="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-bold uppercase"
+            [class]="i18n.language() === language ? 'bg-brand text-white' : 'text-copy'"
+            (click)="setLanguage($any(language))"
           >
-            Projekt anfragen
-          </a>
-        </li>
+            <app-icon [name]="flagIcon(language)" class="h-2.75 w-4 overflow-hidden rounded-xs" />
+            {{ language }}
+          </button>
+        }
+      </div>
+      <ul class="space-y-1">
+        <li><a routerLink="/" fragment="leistungen" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.services }}</a></li>
+        <li><a routerLink="/" fragment="ablauf" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.process }}</a></li>
+        <li><a routerLink="/" fragment="referenzen" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.work }}</a></li>
+        <li><a routerLink="/" fragment="ueber-mich" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.about }}</a></li>
+        <li><a routerLink="/" fragment="kontakt" class="primary-button mt-3 w-full" (click)="closeMenu()">{{ i18n.content().nav.cta }}</a></li>
       </ul>
     </div>
   }

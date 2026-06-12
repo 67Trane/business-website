@@ -1,119 +1,62 @@
-<!-- Contact Section -->
-<section id="kontakt" class="py-24 sm:py-32">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <app-section-heading
-      eyebrow="Kontakt"
-      title="Lassen Sie uns über Ihr Projekt sprechen"
-      description="Schildern Sie mir kurz Ihr Vorhaben – Sie erhalten in der Regel innerhalb von 24 Stunden eine Antwort."
-    />
+<section id="kontakt" class="border-t border-brand/10 bg-canvas">
+  <div class="site-shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-18">
+    <div data-reveal>
+      <app-section-heading
+        [eyebrow]="content().contact.label"
+        [title]="content().contact.heading"
+        [description]="content().contact.sub"
+      />
 
-    <div class="mt-16 grid gap-12 lg:grid-cols-2">
-      <!-- Contact info -->
-      <div>
-        <h3 class="text-xl font-semibold text-white">Direkter Draht</h3>
-        <p class="mt-3 leading-relaxed text-slate-400">
-          Ob konkretes Projekt oder erste Idee: Das Erstgespräch ist kostenlos und unverbindlich.
-          Danach wissen Sie, was möglich ist – und was es kostet.
-        </p>
+      <p class="micro-label mt-9">
+        {{ content().contact.direct }}
+      </p>
+      <a
+        [href]="'mailto:' + profile.email"
+        class="mt-2 inline-block border-b-2 border-ink/20 pb-1 font-serif text-[clamp(1.25rem,2.5vw,1.5rem)] text-ink hover:border-brand hover:text-brand"
+      >
+        {{ profile.email }}
+      </a>
 
-        <!-- Email card -->
-        <a
-          [href]="'mailto:' + profile.email"
-          class="mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/3 p-5 transition-colors hover:border-cyan-400/40 hover:bg-white/5"
-        >
-          <span
-            class="flex size-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400"
-          >
-            <app-icon name="mail" class="size-5" />
-          </span>
-          <span>
-            <span class="block text-sm text-slate-500">E-Mail</span>
-            <span class="block font-medium text-white">{{ profile.email }}</span>
-          </span>
-        </a>
-
-        <!-- Social links -->
-        <ul class="mt-8 flex items-center gap-4">
-          @for (link of socialLinks; track link.name) {
-            <li>
-              <a
-                [href]="link.url"
-                [attr.aria-label]="link.name"
-                target="_blank"
-                rel="noopener"
-                class="flex size-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition-colors hover:border-white/25 hover:text-white"
-              >
-                <app-icon [name]="link.icon" class="size-5" />
-              </a>
-            </li>
-          }
-        </ul>
-      </div>
-
-      <!-- Inquiry form -->
-      <form class="rounded-2xl border border-white/10 bg-white/3 p-8" (submit)="onSubmit($event)">
-        <div class="grid gap-6 sm:grid-cols-2">
-          <div>
-            <label for="name" class="block text-sm font-medium text-slate-300">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              autocomplete="name"
-              placeholder="Ihr Name"
-              class="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/60 px-4 py-2.5 text-white placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-slate-300">E-Mail</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autocomplete="email"
-              placeholder="sie@unternehmen.de"
-              class="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/60 px-4 py-2.5 text-white placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-            />
-          </div>
-          <div class="sm:col-span-2">
-            <label for="company" class="block text-sm font-medium text-slate-300">
-              Unternehmen <span class="text-slate-600">(optional)</span>
-            </label>
-            <input
-              id="company"
-              name="company"
-              type="text"
-              autocomplete="organization"
-              placeholder="Ihr Unternehmen"
-              class="mt-2 w-full rounded-lg border border-white/10 bg-slate-950/60 px-4 py-2.5 text-white placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-            />
-          </div>
-          <div class="sm:col-span-2">
-            <label for="message" class="block text-sm font-medium text-slate-300">
-              Ihr Projekt
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              placeholder="Worum geht es? Ein paar Sätze genügen."
-              class="mt-2 w-full resize-none rounded-lg border border-white/10 bg-slate-950/60 px-4 py-2.5 text-white placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-            ></textarea>
-          </div>
-        </div>
-        <button
-          type="submit"
-          class="mt-8 w-full rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:shadow-cyan-500/40 hover:brightness-110"
-        >
-          Anfrage senden
-        </button>
-        <p class="mt-4 text-center text-xs text-slate-600">
-          Kostenloses Erstgespräch · 100 % unverbindlich
-        </p>
-      </form>
+      <ul class="mt-7 flex flex-wrap gap-2.5">
+        @for (link of socialLinks; track link.name) {
+          <li>
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-lg border border-ink/15 bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:border-brand hover:text-brand"
+            >
+              <app-icon [name]="link.icon" class="size-4" />
+              {{ link.name }}
+            </a>
+          </li>
+        }
+      </ul>
     </div>
+
+    <form data-reveal class="rounded-[20px] border border-brand/10 bg-white p-6 shadow-[0_24px_52px_-32px_rgb(30_82_204/22%)] sm:p-9" (submit)="onSubmit($event)">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+          {{ content().contact.name }}
+          <input name="name" type="text" required autocomplete="name" [placeholder]="content().contact.namePlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
+        </label>
+        <label class="flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+          E-Mail
+          <input name="email" type="email" required autocomplete="email" [placeholder]="content().contact.emailPlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
+        </label>
+      </div>
+      <label class="mt-4 flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+        {{ content().contact.company }}
+        <input name="company" type="text" autocomplete="organization" [placeholder]="content().contact.companyPlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
+      </label>
+      <label class="mt-4 flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+        {{ content().contact.project }}
+        <textarea name="message" rows="5" required [placeholder]="content().contact.projectPlaceholder" class="resize-y rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none"></textarea>
+      </label>
+      <button type="submit" class="primary-button mt-5 w-full">{{ content().contact.send }}</button>
+      <p class="mt-3 text-center font-mono text-xs text-[#8a9ac4]">
+        {{ content().contact.note }}
+      </p>
+    </form>
   </div>
 </section>

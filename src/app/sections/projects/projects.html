@@ -1,30 +1,26 @@
-<!-- References Section -->
-<section id="referenzen" class="py-24 sm:py-32">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <app-section-heading
-      eyebrow="Referenzen"
-      title="Ausgewählte Projekte"
-      description="Ein Einblick in meine Arbeit – von der Web-Anwendung bis zur kompletten Plattform mit eigenem Backend."
-    />
-
-    <!-- Projects Grid -->
-    <div class="mt-16 grid gap-6 md:grid-cols-2">
-      @for (project of projects; track project.title) {
-        <app-project-card [project]="project" />
-      }
-    </div>
-
-    <!-- GitHub CTA -->
-    <p class="mt-12 text-center text-sm text-slate-500">
-      Weitere Projekte und Code-Beispiele finden Sie auf
+<section id="referenzen" class="bg-ink text-[#d8def0]">
+  <div class="site-shell">
+    <div data-reveal class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <span class="eyebrow text-[#6b96f5]!">{{ content().projects.label }}</span>
+        <h2 class="display-title mt-3 text-[#eef1fb]!">
+          {{ content().projects.heading }}
+        </h2>
+      </div>
       <a
         [href]="profile.githubUrl"
         target="_blank"
         rel="noopener"
-        class="font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+        class="border-b border-[#6b96f5]/30 pb-1 font-mono text-xs text-[#6b96f5] hover:text-white"
       >
-        GitHub →
+        {{ content().projects.github }} ↗
       </a>
-    </p>
+    </div>
+
+    <div data-reveal class="mt-12 grid gap-4 md:grid-cols-2">
+      @for (project of projects(); track project.title) {
+        <app-project-card [project]="project" />
+      }
+    </div>
   </div>
 </section>
