@@ -107,13 +107,40 @@ textarea {
   line-height: 1.08;
 }
 
-/* Tiny uppercase label above secondary content blocks (Stack, contact, ...) */
+/* Tiny uppercase label above secondary content blocks (Stack, contact, ...).
+   Color must keep >= 4.5:1 contrast on white and canvas (WCAG AA). */
 .micro-label {
-  color: #8a9ac4;
+  color: #566185;
   font-family: 'Spline Sans Mono', monospace;
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+/* Visible focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid #1e52cc;
+  outline-offset: 2px;
+}
+
+/* Skip link: invisible until it receives keyboard focus */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: #1e52cc;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-300%);
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 .primary-button {

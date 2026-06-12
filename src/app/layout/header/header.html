@@ -70,6 +70,7 @@
             class="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-bold uppercase"
             [class]="i18n.language() === language ? 'bg-brand text-white' : 'text-copy'"
             (click)="setLanguage($any(language))"
+            [attr.aria-pressed]="i18n.language() === language"
           >
             <app-icon [name]="flagIcon(language)" class="h-2.75 w-4 overflow-hidden rounded-xs" />
             {{ language }}

@@ -9,6 +9,7 @@ export const CONTENT = {
       about: 'Über mich',
       cta: 'Projekt anfragen',
       menu: 'Menü öffnen oder schließen',
+      skip: 'Zum Inhalt springen',
     },
     hero: {
       available: 'Verfügbar für neue Projekte',
@@ -106,6 +107,7 @@ export const CONTENT = {
       about: 'About',
       cta: 'Start a project',
       menu: 'Open or close menu',
+      skip: 'Skip to content',
     },
     hero: {
       available: 'Available for new projects',
@@ -199,6 +201,7 @@ export const CONTENT = {
       about: 'Hakkımda',
       cta: 'Proje başlat',
       menu: 'Menüyü aç veya kapat',
+      skip: 'İçeriğe atla',
     },
     hero: {
       available: 'Yeni projelere açığım',
