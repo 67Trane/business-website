@@ -1,59 +1,61 @@
-# BusinessPortfolio
+# mehmet-deliaci.net – Business-Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+Geschäftliche Website meiner Selbständigkeit als Webentwickler: **[mehmet-deliaci.net](https://mehmet-deliaci.net)**
 
-## Development server
+Eine mehrsprachige One-Page-Site (Deutsch / Englisch / Türkisch) mit Leistungen, Arbeitsablauf, Projekten und Kontakt – gebaut mit Angular 21 und Tailwind CSS 4, vollständig prerendert und auf klassischem Shared Hosting deploybar.
 
-To start a local development server, run:
+## Qualität
 
-```bash
-ng serve
-```
+| Lighthouse | Score |
+| --- | --- |
+| Performance | 100 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Barrierefreiheit nach WCAG AA**: geprüfte Farbkontraste (≥ 4,5:1), Skip-Link, sichtbare Fokus-Ringe, Screenreader-Unterstützung, `prefers-reduced-motion` wird respektiert
+- **DSGVO-freundlich**: keine Cookies, kein Tracking, selbst gehostete Fonts (kein Google-Fonts-CDN), Kontakt ohne serverseitige Datenverarbeitung
+- **SEO**: Prerendering (volles HTML für Crawler), Canonical-URLs, Open Graph + Twitter Cards, strukturierte Daten (JSON-LD), `robots.txt` + `sitemap.xml`
 
-## Code scaffolding
+## Tech-Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Angular 21** – Standalone Components, Signals, neue Control-Flow-Syntax (`@for`/`@if`), OnPush
+- **SSR / Prerendering** via `@angular/ssr` – alle Routen werden beim Build zu statischem HTML
+- **Tailwind CSS 4** – Theme-Tokens (Farben, Typo-Skala) in `src/styles.css`, keine `tailwind.config.js`
+- **Fonts**: Spectral, Hanken Grotesk, Spline Sans Mono – selbst gehostet via `@fontsource`
+- **Tests**: Vitest (jsdom) über den `@angular/build:unit-test`-Builder
+- **i18n**: Eigene, leichtgewichtige Lösung – ein `LanguageService` (Signal) liefert die Texte aus `i18n.data.ts`, Sprachwechsel ohne Reload
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Befehle
 
 ```bash
-ng build
+npm start                              # Dev-Server auf http://localhost:4200
+npm run build                          # Production-Build inkl. Prerendering nach dist/
+npm test                               # Unit-Tests (Vitest)
+npm run serve:ssr:business-portfolio   # Gebaute SSR-App lokal serven (Port 4000)
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Projektstruktur
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```
+src/app/
+├── data/            # Inhalte: i18n-Texte (de/en/tr), Projekte, Profil/Links
+├── services/        # LanguageService (Sprach-Signal), Seo (Canonical/Meta pro Seite)
+├── models/          # Interfaces (Project, Profile, SocialLink)
+├── layout/          # Header (Nav, Sprachumschalter), Footer
+├── sections/        # hero, services, process, projects, about, contact
+├── shared/          # Icon-Set (inline SVG), SectionHeading, ProjectCard
+└── pages/           # home (Komposition der Sections), legal (Impressum, Datenschutz)
 ```
 
-## Running end-to-end tests
+**Inhalte ändern:** Nahezu alle Texte liegen zentral in `src/app/data/i18n.data.ts` (drei Sprachen) bzw. `projects.data.ts` und `site.data.ts` – Templates müssen dafür nicht angefasst werden.
 
-For end-to-end (e2e) testing, run:
+## Deployment (Shared Hosting / FTP)
 
-```bash
-ng e2e
-```
+Die Seite läuft ohne Node-Server – das Prerendering erzeugt fertiges statisches HTML:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. `npm run build`
+2. Den **Inhalt** von `dist/business-portfolio/browser/` per FTP in das DocumentRoot der Domain laden
+3. Wichtig: die versteckte `.htaccess` (HTTPS-Redirect, Fallback-Routing, Caching, Kompression) sowie die Ordner `media/` (Fonts) und `images/` mit hochladen
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+© Mehmet Deliaci – Code darf gern als Referenz gelesen werden.
