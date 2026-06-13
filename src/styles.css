@@ -53,68 +53,39 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
-}
+/* Base element resets must live in @layer base so component classes
+   (@layer components, e.g. .primary-button) can override them — an unlayered
+   `a { color: inherit }` would otherwise beat every layered rule and wash out
+   button text. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-  background: #e9ecf7;
-  color: #566185;
-  font-family: 'Hanken Grotesk', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: #e9ecf7;
+    color: #566185;
+    font-family: 'Hanken Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-a {
-  color: inherit;
-}
+  a {
+    color: inherit;
+  }
 
-button,
-input,
-textarea {
-  font: inherit;
-}
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
 
-::selection {
-  background: #1e52cc;
-  color: #fff;
-}
-
-.site-shell {
-  margin-inline: auto;
-  max-width: 82.5rem;
-  padding: 6rem 3.25rem;
-}
-
-.eyebrow {
-  color: #1e52cc;
-  font-family: 'Spline Sans Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-/* Section headline (h2). Clearly one step below the hero h1
-   (clamp 2.5rem -> 3.875rem) at every viewport width. */
-.display-title {
-  color: #0c1733;
-  font-family: 'Spectral', serif;
-  font-size: clamp(2.1rem, 3.5vw, 2.75rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
-}
-
-/* Tiny uppercase label above secondary content blocks (Stack, contact, ...).
-   Color must keep >= 4.5:1 contrast on white and canvas (WCAG AA). */
-.micro-label {
-  color: #566185;
-  font-family: 'Spline Sans Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  ::selection {
+    background: #1e52cc;
+    color: #fff;
+  }
 }
 
 /* Visible focus ring for keyboard users */
@@ -123,49 +94,93 @@ textarea {
   outline-offset: 2px;
 }
 
-/* Skip link: invisible until it receives keyboard focus */
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 100;
-  border-radius: 0.5rem;
-  background: #1e52cc;
-  padding: 0.6rem 1rem;
-  color: #fff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  transform: translateY(-300%);
-}
+/* Reusable component classes. Must live in @layer components so Tailwind
+   utility classes (hidden, w-full, text-sm, ...) can override them — plain
+   unlayered rules would win over utilities and break responsive helpers. */
+@layer components {
+  .site-shell {
+    margin-inline: auto;
+    max-width: 82.5rem;
+    padding: 6rem 3.25rem;
+  }
 
-.skip-link:focus {
-  transform: none;
-}
+  .eyebrow {
+    color: #1e52cc;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
 
-.primary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  border-radius: 0.55rem;
-  background: #1e52cc;
-  padding: 0.9rem 1.7rem;
-  color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 0.75rem 1.8rem -0.8rem rgb(30 82 204 / 65%);
-  transition:
-    transform 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
-}
+  /* Section headline (h2). Clearly one step below the hero h1
+     (clamp 2.5rem -> 3.875rem) at every viewport width. */
+  .display-title {
+    color: #0c1733;
+    font-family: 'Spectral', serif;
+    font-size: clamp(2.1rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+  }
 
-.primary-button:hover {
-  transform: translateY(-2px);
-  background: #1745b2;
-  box-shadow: 0 1rem 2rem -0.8rem rgb(30 82 204 / 75%);
+  /* Tiny uppercase label above secondary content blocks (Stack, contact, ...).
+     Color must keep >= 4.5:1 contrast on white and canvas (WCAG AA). */
+  .micro-label {
+    color: #566185;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Skip link: invisible until it receives keyboard focus */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    border-radius: 0.5rem;
+    background: #1e52cc;
+    padding: 0.6rem 1rem;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-300%);
+  }
+
+  .skip-link:focus {
+    transform: none;
+  }
+
+  .primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border-radius: 0.55rem;
+    background: #1e52cc;
+    padding: 0.9rem 1.7rem;
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 0.75rem 1.8rem -0.8rem rgb(30 82 204 / 65%);
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  /* Only on devices with a real pointer (mouse) – avoids the sticky-hover
+     effect on touchscreens where :hover lingers after a tap. */
+  @media (hover: hover) {
+    .primary-button:hover {
+      transform: translateY(-2px);
+      background: #1745b2;
+      box-shadow: 0 1rem 2rem -0.8rem rgb(30 82 204 / 75%);
+    }
+  }
 }
 
 /* Scroll-driven reveal: sections fade up as they enter the viewport.

@@ -11,11 +11,9 @@
         {{ content().contact.direct }}
       </p>
       <a
-        [href]="'mailto:' + profile.email"
+        appEmail
         class="mt-2 inline-block border-b-2 border-ink/20 pb-1 font-serif text-[clamp(1.25rem,2.5vw,1.5rem)] text-ink hover:border-brand hover:text-brand"
-      >
-        {{ profile.email }}
-      </a>
+      ></a>
 
       <ul class="mt-7 flex flex-wrap gap-2.5">
         @for (link of socialLinks; track link.name) {

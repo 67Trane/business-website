@@ -8,8 +8,10 @@ export const PROFILE: Profile = {
   linkedinUrl: 'https://www.linkedin.com/in/mehmet-deliaci-24285535a',
 };
 
+// Profile links for the social row. The e-mail has its own prominent link in the
+// contact section (rendered browser-side via the appEmail directive), so it's not
+// duplicated here — that also keeps the address out of the static HTML entirely.
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'GitHub', url: PROFILE.githubUrl, icon: 'github' },
   { name: 'LinkedIn', url: PROFILE.linkedinUrl, icon: 'linkedin' },
-  { name: 'E-Mail', url: `mailto:${PROFILE.email}`, icon: 'mail' },
 ];

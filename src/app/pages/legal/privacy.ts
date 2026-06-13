@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
 import { Seo } from '../../services/seo';
+import { EmailLink } from '../../shared/email-link';
 
 /**
  * Privacy policy page (GDPR / DSGVO).
@@ -9,6 +10,7 @@ import { Seo } from '../../services/seo';
  */
 @Component({
   selector: 'app-privacy',
+  imports: [EmailLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- Privacy Page -->
@@ -22,12 +24,7 @@ import { Seo } from '../../services/seo';
           <p class="mt-3">
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
             {{ profile.name }}, Nördliche Ringstraße 23, 91781 Weißenburg in Bayern,
-            <a
-              [href]="'mailto:' + profile.email"
-              class="font-medium text-brand hover:underline"
-            >
-              {{ profile.email }} </a
-            >.
+            <a appEmail class="font-medium text-brand hover:underline"></a>.
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
 import { Seo } from '../../services/seo';
+import { EmailLink } from '../../shared/email-link';
 
 /**
  * Imprint page (legally required for commercial websites in Germany).
@@ -8,6 +9,7 @@ import { Seo } from '../../services/seo';
  */
 @Component({
   selector: 'app-imprint',
+  imports: [EmailLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- Imprint Page -->
@@ -29,12 +31,7 @@ import { Seo } from '../../services/seo';
           <h2 class="font-serif text-xl font-semibold text-ink">Kontakt</h2>
           <p class="mt-3">
             E-Mail:
-            <a
-              [href]="'mailto:' + profile.email"
-              class="font-medium text-brand hover:underline"
-            >
-              {{ profile.email }}
-            </a>
+            <a appEmail class="font-medium text-brand hover:underline"></a>
           </p>
         </div>
 

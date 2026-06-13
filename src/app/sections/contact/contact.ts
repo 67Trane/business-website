@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language';
 import { PROFILE, SOCIAL_LINKS } from '../../data/site.data';
+import { EmailLink } from '../../shared/email-link';
 import { Icon } from '../../shared/icon/icon';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-contact',
-  imports: [SectionHeading, Icon],
+  imports: [SectionHeading, Icon, EmailLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './contact.html',
 })
