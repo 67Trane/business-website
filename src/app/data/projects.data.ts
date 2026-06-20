@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
       'Authentifizierung.',
     tags: ['Angular', 'TypeScript', 'Firebase', 'Tailwind'],
     gradient: 'from-[#2c5f8a] to-[#3e7cb1]',
-    liveUrl: 'https://join.mehmet-deliaci.net',
+    liveUrl: 'https://mehmet-deliaci.net/nightstalker',
     repoUrl: 'https://github.com/67Trane/join',
     featured: true,
   },
@@ -38,12 +38,12 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/67Trane/coderr',
   },
   {
-    title: 'El Pollo Loco',
+    title: 'Nightstalker',
     description:
       'Interaktives Browser-Game auf Canvas-Basis mit eigener Spiellogik, Animationen und Sound.',
     tags: ['JavaScript', 'OOP', 'Canvas'],
     gradient: 'from-[#7a4a2c] to-[#b17040]',
-    liveUrl: 'https://pollo.mehmet-deliaci.net',
-    repoUrl: 'https://github.com/67Trane/el-pollo-loco',
+    liveUrl: 'https://mehmet-deliaci.net/nightstalker',
+    repoUrl: 'https://github.com/67Trane/nightstalker',
   },
 ];
