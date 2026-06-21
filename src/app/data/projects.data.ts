@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
       'Authentifizierung.',
     tags: ['Angular', 'TypeScript', 'Firebase', 'Tailwind'],
     gradient: 'from-[#2c5f8a] to-[#3e7cb1]',
-    liveUrl: 'https://mehmet-deliaci.net/nightstalker',
+    liveUrl: 'https://mehmet-deliaci.net/join',
     repoUrl: 'https://github.com/67Trane/join',
     featured: true,
   },
