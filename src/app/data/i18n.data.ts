@@ -24,6 +24,12 @@ export const CONTENT = {
         'Ein Ansprechpartner von Konzept bis Launch',
       ],
     },
+    trustBar: [
+      { value: '100/100', label: 'Lighthouse-Score' },
+      { value: 'WCAG AA', label: 'Barrierefrei' },
+      { value: '100 %', label: 'Maßgeschneidert' },
+      { value: 'DSGVO', label: 'Konform gehostet' },
+    ],
     services: {
       label: 'Leistungen',
       heading: 'Alles, was Ihre digitale Präsenz braucht.',
@@ -118,6 +124,12 @@ export const CONTENT = {
       secondary: 'See my work',
       trust: ['Tailor-made, not templates', 'Performance & SEO included', 'One contact from concept to launch'],
     },
+    trustBar: [
+      { value: '100/100', label: 'Lighthouse score' },
+      { value: 'WCAG AA', label: 'Accessible' },
+      { value: '100 %', label: 'Hand-built' },
+      { value: 'GDPR', label: 'Compliant hosting' },
+    ],
     services: {
       label: 'Services',
       heading: 'Everything your digital presence needs.',
@@ -212,6 +224,12 @@ export const CONTENT = {
       secondary: 'Projeleri gör',
       trust: ['Hazır şablon değil, size özel', 'Performans ve SEO dahil', 'Fikirden lansmana tek muhatap'],
     },
+    trustBar: [
+      { value: '100/100', label: 'Lighthouse skoru' },
+      { value: 'WCAG AA', label: 'Erişilebilir' },
+      { value: '100 %', label: 'Özel geliştirme' },
+      { value: 'GDPR', label: 'Uyumlu barındırma' },
+    ],
     services: {
       label: 'Hizmetler',
       heading: 'Dijital varlığınızın ihtiyacı olan her şey.',

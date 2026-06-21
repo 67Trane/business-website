@@ -1,0 +1,16 @@
+<!-- Trust / Proof Bar: real, verifiable credibility signals -->
+<section class="border-y border-ink/10 bg-white">
+  <ul
+    data-reveal
+    class="mx-auto grid max-w-330 grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 sm:grid-cols-4 sm:px-9 lg:px-13"
+  >
+    @for (item of content().trustBar; track item.label) {
+      <li class="text-center">
+        <div class="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
+          {{ item.value }}
+        </div>
+        <div class="micro-label mt-2 block">{{ item.label }}</div>
+      </li>
+    }
+  </ul>
+</section>

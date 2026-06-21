@@ -18,8 +18,10 @@
   ></div>
 
   <div class="relative grid min-h-screen lg:grid-cols-[48%_52%]">
-    <!-- Photo column: oversized parallax layer inside a clipping grid cell -->
-    <div class="relative min-h-[54vh] overflow-hidden lg:min-h-screen">
+    <!-- Photo column: oversized parallax layer inside a clipping grid cell.
+         The entrance animation sits on this cell (no inline transform here),
+         so it never clashes with the parallax transform on the inner layer. -->
+    <div class="animate-fade-in-image relative min-h-[54vh] overflow-hidden [animation-delay:300ms] lg:min-h-screen">
       <div
         class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
         [style.transform]="portraitShift()"

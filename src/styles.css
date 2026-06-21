@@ -30,6 +30,9 @@
   --text-lead: 1.0625rem;
   --text-lead--line-height: 1.65;
   --animate-fade-up: fade-up 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  /* One-time entrance for the hero portrait: fades in while sliding into place,
+     as a counter-motion to the text rising up. Disabled by reduced-motion. */
+  --animate-fade-in-image: fade-in-image 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 
   @keyframes fade-up {
     from {
@@ -39,6 +42,17 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-image {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

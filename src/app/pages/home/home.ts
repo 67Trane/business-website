@@ -5,12 +5,13 @@ import { Hero } from '../../sections/hero/hero';
 import { Process } from '../../sections/process/process';
 import { Projects } from '../../sections/projects/projects';
 import { Services } from '../../sections/services/services';
+import { TrustBar } from '../../sections/trust/trust';
 import { Seo } from '../../services/seo';
 
 /** Landing page composing all sections in order. */
 @Component({
   selector: 'app-home',
-  imports: [Hero, Services, Process, Projects, AboutSection, Contact],
+  imports: [Hero, TrustBar, Services, Process, Projects, AboutSection, Contact],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.html',
 })
