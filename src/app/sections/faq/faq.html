@@ -1,0 +1,30 @@
+<!-- FAQ Section: native details/summary = accessible without JavaScript -->
+<section id="faq" class="border-t border-brand/10 bg-canvas">
+  <div class="site-shell">
+    <app-section-heading data-reveal [eyebrow]="content().faq.label" [title]="content().faq.heading" />
+
+    <div data-reveal class="mx-auto mt-12 max-w-3xl border-b border-ink/10">
+      @for (item of content().faq.items; track item.q) {
+        <details class="group border-t border-ink/10">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-serif text-lg text-ink transition-colors hover:text-brand [&::-webkit-details-marker]:hidden"
+          >
+            {{ item.q }}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              class="size-4 shrink-0 text-brand transition-transform duration-200 group-open:rotate-45"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </summary>
+          <p class="max-w-[65ch] pb-6 text-md text-copy">{{ item.a }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>

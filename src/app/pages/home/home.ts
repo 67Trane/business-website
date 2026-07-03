@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AboutSection } from '../../sections/about/about';
 import { Contact } from '../../sections/contact/contact';
+import { Faq } from '../../sections/faq/faq';
 import { Hero } from '../../sections/hero/hero';
 import { Process } from '../../sections/process/process';
 import { Projects } from '../../sections/projects/projects';
@@ -11,7 +12,7 @@ import { Seo } from '../../services/seo';
 /** Landing page composing all sections in order. */
 @Component({
   selector: 'app-home',
-  imports: [Hero, TrustBar, Services, Process, Projects, AboutSection, Contact],
+  imports: [Hero, TrustBar, Services, Process, Projects, AboutSection, Faq, Contact],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.html',
 })
@@ -20,8 +21,8 @@ export class Home {
     inject(Seo).apply({
       path: '/',
       description:
-        'Webentwicklung aus einer Hand: moderne Websites, Web-Anwendungen und REST-APIs mit ' +
-        'Angular, TypeScript, Python und Django – maßgeschneidert für Ihr Unternehmen.',
+        'Webentwicklung aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen und ' +
+        'Automatisierungen – maßgeschneidert für Ihr Unternehmen, vor Ort und remote.',
     });
   }
 }
