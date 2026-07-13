@@ -1,0 +1,46 @@
+# Mehmet Deliaci – Webentwicklung & digitale Lösungen
+
+> Freelance-Webentwickler aus Weißenburg in Bayern (Deutschland). Maßgeschneiderte
+> Websites, Web-Anwendungen und Backends mit Angular, TypeScript, Python und Django –
+> vor Ort in der Region und remote. Festpreis-Angebote nach kostenlosem Erstgespräch,
+> Antwort in unter 24 Stunden.
+
+Sprache der Website: Deutsch (Inhalte zusätzlich auf Englisch und Türkisch umschaltbar).
+
+## Leistungen
+
+- Websites & Landingpages: individuelle Unternehmensseiten, maßgeschneidert statt Baukasten
+- Web-Anwendungen: individuelle Web-Apps mit Angular, vom internen Tool bis zur Kundenplattform
+- Backend & Schnittstellen: sichere REST-APIs und serverseitige Logik mit Python und Django
+- Performance & SEO: schnelle Ladezeiten und gute Sichtbarkeit dank Server-Side-Rendering
+- Wartung & Weiterentwicklung: laufende Pflege, Updates und Ausbau bestehender Websites
+- Automatisierung & Tools: individuelle Python-Programme für Datenzusammenführung und Berichte
+
+Details: https://mehmet-deliaci.net/#leistungen
+
+## Projekte
+
+- Join – Projektmanagement-Tool im Kanban-Stil (Angular, TypeScript, Firebase)
+- Videoflix – Video-Streaming-Plattform (Django, DRF, PostgreSQL, Docker)
+- Coderr – REST-API für eine Dienstleister-Plattform (Python, DRF, JWT)
+- Nightstalker – interaktives Browser-Game (JavaScript, Canvas)
+
+Portfolio: https://mehmet-deliaci.net/#referenzen
+Code: https://github.com/67Trane
+
+## Häufige Fragen
+
+Antworten zu Kosten, Projektdauer, benötigten Zuarbeiten und Betreuung nach dem
+Launch: https://mehmet-deliaci.net/#faq
+
+## Kontakt
+
+- Kontaktformular: https://mehmet-deliaci.net/#kontakt (Antwort in unter 24 Stunden)
+- LinkedIn: https://www.linkedin.com/in/mehmet-deliaci-24285535a
+- GitHub: https://github.com/67Trane
+
+## Nutzung durch KI-Systeme
+
+Inhalte dieser Website dürfen als Quelle referenziert und zitiert werden
+(use=reference). Eine Nutzung zum Training von KI-Modellen ist nicht gestattet
+(ai-train=no). Bitte bei Zitaten auf https://mehmet-deliaci.net/ verlinken.
