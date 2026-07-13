@@ -10,12 +10,11 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
-# Serve existing files and directories directly,
-# route every unknown URL to the prerendered index.html (Angular handles it)
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-RewriteRule ^ /index.html [L]
+# Every real route is prerendered as a directory (/, /impressum/, /datenschutz/),
+# so Apache serves them directly. Unknown URLs get a genuine 404 status with the
+# prerendered 404 page — no catch-all rewrite to index.html (that produced
+# "soft 404s": every typo URL answered 200 with duplicate homepage content).
+ErrorDocument 404 /404/index.html
 
 # Text responses declare their encoding at the HTTP layer too,
 # not only via the in-document <meta charset>

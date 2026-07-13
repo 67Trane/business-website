@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Mehmet Deliaci · Webentwicklung & digitale Lösungen',
+    title: 'Mehmet Deliaci · Freelance-Webentwickler in Weißenburg – Websites & Web-Apps',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
   {
@@ -16,6 +16,17 @@ export const routes: Routes = [
     title: 'Datenschutz · Mehmet Deliaci',
     loadComponent: () => import('./pages/legal/privacy').then((m) => m.Privacy),
   },
-  // Unknown routes redirect to the home page.
-  { path: '**', redirectTo: '' },
+  {
+    // Explicit route so prerendering emits /404/index.html, which Apache
+    // serves for unknown paths via ErrorDocument (see public/.htaccess).
+    path: '404',
+    title: 'Seite nicht gefunden · Mehmet Deliaci',
+    loadComponent: () => import('./pages/not-found').then((m) => m.NotFound),
+  },
+  // Unknown routes show the 404 page (client-side navigation).
+  {
+    path: '**',
+    title: 'Seite nicht gefunden · Mehmet Deliaci',
+    loadComponent: () => import('./pages/not-found').then((m) => m.NotFound),
+  },
 ];

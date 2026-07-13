@@ -21,8 +21,8 @@ export class Home {
     inject(Seo).apply({
       path: '/',
       description:
-        'Webentwicklung aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen und ' +
-        'Automatisierungen – maßgeschneidert für Ihr Unternehmen, vor Ort und remote.',
+        'Freelance-Webentwickler aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen ' +
+        'und Automatisierungen – maßgeschneidert für Ihr Unternehmen, vor Ort und remote.',
     });
   }
 }
