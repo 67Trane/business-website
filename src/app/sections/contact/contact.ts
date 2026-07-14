@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { LanguageService } from '../../services/language';
-import { PROFILE, SOCIAL_LINKS } from '../../data/site.data';
+import { SOCIAL_LINKS } from '../../data/site.data';
 import { EmailLink } from '../../shared/email-link';
 import { Icon } from '../../shared/icon/icon';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
@@ -12,17 +12,30 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   templateUrl: './contact.html',
 })
 export class Contact {
-  protected readonly profile = PROFILE;
   protected readonly socialLinks = SOCIAL_LINKS;
   protected readonly content = inject(LanguageService).content;
+  protected readonly submitState = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  protected onSubmit(event: Event): void {
+  protected async onSubmit(event: SubmitEvent): Promise<void> {
     event.preventDefault();
-    const data = new FormData(event.target as HTMLFormElement);
-    const company = data.get('company');
-    const sender = company ? `${data.get('name')} (${company})` : `${data.get('name')}`;
-    const subject = encodeURIComponent(`${this.content().contact.subject} ${sender}`);
-    const body = encodeURIComponent(`${data.get('message')}\n\n- ${sender}\n${data.get('email')}`);
-    window.location.href = `mailto:${this.profile.email}?subject=${subject}&body=${body}`;
+    if (this.submitState() === 'sending') return;
+
+    const form = event.currentTarget as HTMLFormElement;
+    this.submitState.set('sending');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!response.ok) throw new Error(`Contact request failed with ${response.status}`);
+
+      form.reset();
+      this.submitState.set('success');
+    } catch {
+      this.submitState.set('error');
+    }
   }
 }
