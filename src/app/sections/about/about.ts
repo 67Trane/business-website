@@ -7,6 +7,7 @@ import { LanguageService } from '../../services/language';
   imports: [NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './about.html',
+  styleUrl: './about.css',
 })
 export class AboutSection {
   readonly content = inject(LanguageService).content;

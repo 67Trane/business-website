@@ -1,30 +1,297 @@
 <!-- About Section -->
 <section id="ueber-mich" class="bg-white">
-  <div class="site-shell grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+  <!-- Zoom-parallax stage (see about.css): the full about section sits in the
+       center card and zooms into place while accent tiles fly past faster.
+       Shown only on large screens with scroll-driven animation support and no
+       reduced-motion preference — otherwise the classic grid below renders. -->
+  <div class="zoom-stage">
+    <div class="zoom-viewport">
+      <!-- Center element: the WHOLE about section, zooming into place.
+           The classic grid below is hidden while this is active. -->
+      <div class="zoom-el zoom-el-1">
+        <figure
+          class="zoom-card relative isolate overflow-hidden rounded-3xl bg-[#070d1f] shadow-[0_1.5rem_4rem_-2rem_rgb(12_23_51/45%)] ring-1 ring-ink/10"
+        >
+          <div
+            class="pointer-events-none absolute bottom-[-18%] left-[-10%] aspect-square w-[58%] animate-glow-pulse rounded-full bg-[radial-gradient(circle,rgb(56_106_228/50%)_0%,rgb(30_82_204/20%)_45%,transparent_70%)] blur-xl"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="pointer-events-none absolute inset-0 bg-[radial-gradient(rgb(127_162_255/14%)_1px,transparent_1.5px)] bg-[size:1.4rem_1.4rem] [mask-image:linear-gradient(to_bottom,black,transparent_72%)]"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="relative z-1 grid h-full grid-cols-[0.42fr_0.58fr] gap-[3cqw] p-[4.5cqw] pb-0"
+          >
+            <!-- Portrait faces right: keep it in the left column, looking into the text -->
+            <div class="relative">
+              <img
+                ngSrc="images/profile.webp"
+                fill
+                class="object-contain object-bottom"
+                alt="Mehmet Deliaci"
+              />
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-[16%] bg-linear-to-t from-[#070d1f]/85 to-transparent"
+                aria-hidden="true"
+              ></div>
+            </div>
+            <div class="flex flex-col justify-center pb-[4.5cqw]">
+              <span class="font-mono text-[1.1cqw] tracking-[0.2em] uppercase text-[#7fa2ff]">
+                {{ content().about.label }}
+              </span>
+              <h2
+                class="mt-[1.4cqw] font-serif text-[3.1cqw] leading-[1.1] font-medium tracking-[-0.025em] text-white"
+              >
+                {{ content().about.heading }}
+              </h2>
+              <p class="mt-[2cqw] font-serif text-[1.7cqw] leading-[1.5] italic text-[#c8d5ff]">
+                {{ content().about.lead }}
+              </p>
+              <div class="mt-[2cqw] space-y-[1.1cqw] text-[1.3cqw] leading-[1.65] text-[#aab5d1]">
+                <p>{{ content().about.p1 }}</p>
+                <p>{{ content().about.p2 }}</p>
+                <p>{{ content().about.p3 }}</p>
+              </div>
+              <div class="mt-[2.4cqw] border-t border-white/10 pt-[2cqw]">
+                <h3 class="font-mono text-[1cqw] tracking-[0.2em] uppercase text-[#7fa2ff]">
+                  {{ content().about.glance }}
+                </h3>
+                <dl class="mt-[1.6cqw] grid grid-cols-2 gap-x-[3cqw] gap-y-[1.5cqw]">
+                  @for (fact of content().about.facts; track fact.label) {
+                    <div>
+                      <dt
+                        class="font-mono text-[0.9cqw] tracking-[0.16em] uppercase text-[#8b96b8]"
+                      >
+                        {{ fact.label }}
+                      </dt>
+                      <dd class="mt-[0.5cqw] text-[1.15cqw] font-bold text-white">
+                        {{ fact.value }}
+                      </dd>
+                    </div>
+                  }
+                </dl>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <!-- Phase 3: decorative "developer workspace" tiles flying past.
+           All hand-built HTML/CSS, sized in cqw so content tracks each tile. -->
+      <!-- Code editor -->
+      <div class="zoom-el zoom-el-2" aria-hidden="true">
+        <div
+          class="zoom-tile bg-[#070d1f] font-mono ring-1 ring-white/10 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <div class="flex items-center gap-[1.2cqw] border-b border-white/8 px-[3cqw] py-[1.8cqw]">
+            <span class="size-[1.6cqw] rounded-full bg-[#ff5f57]"></span>
+            <span class="size-[1.6cqw] rounded-full bg-[#febc2e]"></span>
+            <span class="size-[1.6cqw] rounded-full bg-[#28c840]"></span>
+            <span class="ml-[1.5cqw] text-[2.2cqw] text-white/40">about.ts</span>
+          </div>
+          <div class="p-[3cqw] text-[2.4cqw] leading-[1.7] text-white/75">
+            <p><span class="text-[#f5c98b]">&#64;Component</span>({{ '{' }}</p>
+            <p class="pl-[3cqw]">selector: <span class="text-[#8ee8c1]">'app-about'</span>,</p>
+            <p>{{ '}' }})</p>
+            <p>
+              <span class="text-[#7fa2ff]">export class</span>
+              <span class="text-white">AboutSection</span> {{ '{' }}
+            </p>
+            <p class="pl-[3cqw]"><span class="text-[#7fa2ff]">readonly</span> content =</p>
+            <p class="pl-[6cqw]">inject(LanguageService);</p>
+            <p>{{ '}' }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Kanban board wireframe -->
+      <div class="zoom-el zoom-el-3" aria-hidden="true">
+        <div
+          class="zoom-tile bg-[#eef1fa] ring-1 ring-ink/10 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <!-- cqw on the tile itself would fall back to viewport units (an
+               element cannot be its own query container), so padding lives
+               on this inner wrapper. Same pattern in the tiles below. -->
+          <div class="grid h-full grid-cols-3 gap-[3cqw] p-[4cqw]">
+            <div>
+              <div class="h-[2.2cqw] w-2/3 rounded-full bg-ink/15"></div>
+              <div class="mt-[2.5cqw] space-y-[2.5cqw]">
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-4/5 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-1/2 rounded-full bg-ink/8"></div>
+                </div>
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-3/5 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-2/3 rounded-full bg-ink/8"></div>
+                </div>
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-4/5 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-1/2 rounded-full bg-ink/8"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="h-[2.2cqw] w-2/3 rounded-full bg-ink/15"></div>
+              <div class="mt-[2.5cqw] space-y-[2.5cqw]">
+                <!-- Active card, brand-colored -->
+                <div class="rounded-[1.4cqw] bg-brand p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-4/5 rounded-full bg-white/45"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-1/2 rounded-full bg-white/30"></div>
+                </div>
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-3/5 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-2/3 rounded-full bg-ink/8"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="h-[2.2cqw] w-1/2 rounded-full bg-ink/15"></div>
+              <div class="mt-[2.5cqw] space-y-[2.5cqw]">
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-2/3 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-1/2 rounded-full bg-ink/8"></div>
+                </div>
+                <div class="rounded-[1.4cqw] bg-white p-[2.2cqw] shadow-sm">
+                  <div class="h-[1.8cqw] w-4/5 rounded-full bg-ink/12"></div>
+                  <div class="mt-[1.6cqw] h-[1.8cqw] w-3/5 rounded-full bg-ink/8"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tech stack chips -->
+      <div class="zoom-el zoom-el-4" aria-hidden="true">
+        <div
+          class="zoom-tile bg-[#dde5f8] font-mono ring-1 ring-brand/15 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <div class="h-full p-[7cqw]">
+            <span class="text-[4cqw] tracking-[0.18em] uppercase text-[#3f4d78]">Stack</span>
+            <ul class="mt-[5cqw] space-y-[3.5cqw] text-[4.4cqw] text-ink">
+              <li class="rounded-full bg-brand px-[5cqw] py-[2.8cqw] text-white shadow-sm">
+                Angular
+              </li>
+              <li class="rounded-full bg-white px-[5cqw] py-[2.8cqw] shadow-sm">TypeScript</li>
+              <li class="rounded-full bg-white px-[5cqw] py-[2.8cqw] shadow-sm">Tailwind CSS</li>
+              <li class="rounded-full bg-white px-[5cqw] py-[2.8cqw] shadow-sm">Python</li>
+              <li class="rounded-full bg-white px-[5cqw] py-[2.8cqw] shadow-sm">Django</li>
+              <li class="rounded-full bg-white px-[5cqw] py-[2.8cqw] shadow-sm">REST-APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Terminal -->
+      <div class="zoom-el zoom-el-5" aria-hidden="true">
+        <div
+          class="zoom-tile bg-[#04070f] font-mono ring-1 ring-white/10 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <div class="border-b border-white/8 px-[3cqw] py-[1.6cqw] text-[2.2cqw] text-white/35">
+            mehmet&#64;dev — zsh
+          </div>
+          <div class="space-y-[1cqw] p-[3cqw] text-[2.7cqw] leading-[1.8]">
+            <p><span class="text-[#7fa2ff]">$</span> <span class="text-white/85">ng build</span></p>
+            <p class="text-white/45">Application bundle generation complete.</p>
+            <p class="text-[#8ee8c1]">✔ built in 1.2 s</p>
+            <p>
+              <span class="text-[#7fa2ff]">$</span>
+              <span class="inline-block h-[2.7cqw] w-[1.4cqw] animate-pulse bg-white/70"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Lighthouse scores -->
+      <div class="zoom-el zoom-el-6" aria-hidden="true">
+        <div
+          class="zoom-tile bg-[#070d1f] ring-1 ring-white/10 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <div class="flex h-full flex-col justify-center p-[6cqw]">
+            <span class="font-mono text-[3.4cqw] tracking-[0.18em] uppercase text-white/40">
+              Lighthouse
+            </span>
+            <div class="mt-[4.5cqw] grid grid-cols-3 gap-[3cqw] text-center">
+              @for (score of ['Perf', 'SEO', 'A11y']; track score) {
+                <div>
+                  <div
+                    class="mx-auto flex size-[16cqw] items-center justify-center rounded-full border-[0.9cqw] border-[#41d98d] font-mono text-[4.4cqw] font-bold text-[#7ef0b2]"
+                  >
+                    100
+                  </div>
+                  <div class="mt-[2cqw] font-mono text-[2.7cqw] text-white/45">{{ score }}</div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Git commit graph -->
+      <div class="zoom-el zoom-el-7" aria-hidden="true">
+        <div
+          class="zoom-tile bg-white ring-1 ring-ink/10 shadow-[0_1rem_3rem_-1.5rem_rgb(12_23_51/35%)]"
+        >
+          <div class="h-full p-[8cqw]">
+            <svg viewBox="0 0 100 56" class="h-full w-full" fill="none">
+              <path d="M8 40 H92" stroke="#c7d3f2" stroke-width="3" />
+              <path
+                d="M32 40 C40 40 40 16 50 16 H68 C78 16 78 40 86 40"
+                stroke="#7fa2ff"
+                stroke-width="3"
+              />
+              <circle cx="8" cy="40" r="5.5" fill="#1e52cc" />
+              <circle cx="32" cy="40" r="5.5" fill="#1e52cc" />
+              <circle cx="50" cy="16" r="5.5" fill="#79a0ff" />
+              <circle cx="68" cy="16" r="5.5" fill="#79a0ff" />
+              <circle cx="92" cy="40" r="5.5" fill="#0c1733" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-shell about-grid grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
     <!-- Portrait faces right, so this card must stay in the left column:
          he looks into the text instead of off the page. -->
     <div data-reveal class="order-2 mx-auto w-full max-w-sm lg:order-1 lg:max-w-none">
       <figure
-        class="relative isolate aspect-4/5 overflow-hidden rounded-2xl bg-canvas shadow-[0_1.5rem_4rem_-2rem_rgb(12_23_51/30%)]"
+        class="group relative isolate aspect-4/5 overflow-hidden rounded-3xl bg-[#070d1f] shadow-[0_1.5rem_4rem_-2rem_rgb(12_23_51/45%)] ring-1 ring-ink/10 transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_2.5rem_5.5rem_-2rem_rgb(30_82_204/50%)]"
       >
+        <!-- Slow ambient brand glow breathing behind the portrait -->
         <div
-          class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_48%_30%,rgb(30_82_204/18%),transparent_48%),linear-gradient(160deg,#f2f5fd_0%,#dde5f8_75%)]"
+          class="pointer-events-none absolute top-[6%] left-1/2 aspect-square w-[88%] -translate-x-1/2 animate-glow-pulse rounded-full bg-[radial-gradient(circle,rgb(56_106_228/55%)_0%,rgb(30_82_204/22%)_45%,transparent_70%)] blur-xl"
+          aria-hidden="true"
+        ></div>
+        <!-- Faint dot grid, fading out toward the base -->
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(rgb(127_162_255/16%)_1px,transparent_1.5px)] bg-[size:1.4rem_1.4rem] [mask-image:linear-gradient(to_bottom,black,transparent_72%)]"
+          aria-hidden="true"
+        ></div>
+        <!-- Floating accents, desynced via negative delays -->
+        <div
+          class="pointer-events-none absolute top-[12%] right-[9%] size-20 animate-float-slow rounded-full border border-[#7fa2ff]/35"
           aria-hidden="true"
         ></div>
         <div
-          class="pointer-events-none absolute top-[14%] left-[-18%] size-48 rounded-full border border-brand/15"
+          class="pointer-events-none absolute top-[31%] left-[8%] size-9 animate-float-slower rounded-full border border-[#7fa2ff]/25 [animation-delay:-5s]"
           aria-hidden="true"
         ></div>
         <div
-          class="pointer-events-none absolute top-[20%] left-[-8%] size-32 rounded-full border border-brand/10"
+          class="pointer-events-none absolute top-[22%] left-[24%] size-1.5 animate-float-slow rounded-full bg-[#79a0ff]/80 [animation-delay:-3s]"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="pointer-events-none absolute top-[46%] right-[15%] size-2 animate-float-slower rounded-full bg-[#4775ec]/60 [animation-delay:-9s]"
           aria-hidden="true"
         ></div>
         <img
           ngSrc="images/profile.webp"
           fill
-          class="z-1 object-contain object-bottom"
+          class="z-1 origin-bottom object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           alt="Mehmet Deliaci"
         />
+        <!-- Grounding fade so the cutout settles into the card base -->
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 z-2 h-20 rounded-b-3xl bg-linear-to-t from-[#070d1f]/85 to-transparent"
+          aria-hidden="true"
+        ></div>
       </figure>
     </div>
 
@@ -41,14 +308,17 @@
         <p>{{ content().about.p3 }}</p>
       </div>
 
-      <dl class="mt-9 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-ink/10 pt-7">
-        @for (fact of content().about.facts; track fact.label) {
-          <div>
-            <dt class="micro-label">{{ fact.label }}</dt>
-            <dd class="mt-1.5 text-sm font-bold text-ink">{{ fact.value }}</dd>
-          </div>
-        }
-      </dl>
+      <div class="mt-9 max-w-2xl border-t border-ink/10 pt-7">
+        <h3 class="eyebrow">{{ content().about.glance }}</h3>
+        <dl class="mt-5 grid grid-cols-2 gap-x-8 gap-y-6">
+          @for (fact of content().about.facts; track fact.label) {
+            <div>
+              <dt class="micro-label">{{ fact.label }}</dt>
+              <dd class="mt-1.5 text-sm font-bold text-ink">{{ fact.value }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
     </div>
   </div>
 </section>

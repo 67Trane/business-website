@@ -1,0 +1,143 @@
+/* Zoom-parallax intro for the about section — a CSS scroll-driven port of the
+   framer-motion "zoom parallax" pattern: while the stage is pinned, the
+   portrait card zooms toward the viewer and decorative tiles zoom past at
+   higher speeds, flying out beyond the viewport edges.
+
+   Progressive enhancement: the stage only renders when the browser supports
+   scroll-driven animations AND the user allows motion; in exchange the static
+   portrait column in the grid below is hidden. Everywhere else this file is
+   inert and the section renders exactly as before. The explicit media query
+   is required — the global reduced-motion kill switch zeroes durations, which
+   timeline-driven animations ignore. */
+
+.zoom-stage {
+  display: none;
+}
+
+@supports (animation-timeline: view()) {
+  /* min-width guard: the center card carries the FULL section content, which
+     cannot fit a pinned 100svh card on small screens — phones always get the
+     classic grid layout below. */
+  @media (prefers-reduced-motion: no-preference) and (min-width: 64rem) {
+    .zoom-stage {
+      display: block;
+      height: 300vh;
+      view-timeline-name: --about-zoom;
+    }
+
+    /* The whole section lives inside the center card while the effect is
+       active; the classic grid below is purely the fallback. */
+    .about-grid {
+      display: none;
+    }
+
+    .zoom-viewport {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      overflow: hidden;
+    }
+
+    /* Full-viewport layer that scales while the pinned stage is scrolled.
+       Tile offsets live on the child, so they multiply outward with the
+       parent scale — that is what makes the tiles fly past the edges. */
+    .zoom-el {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      animation: zoom-in linear both;
+      animation-timeline: --about-zoom;
+      animation-range: contain 0% contain 100%;
+    }
+
+    @keyframes zoom-in {
+      to {
+        transform: scale(var(--zoom-scale, 4));
+      }
+    }
+
+    /* Inverted zoom for the center card: starts at the same visual size the
+       tiles' scale-1 state implies (0.345 ≈ 1 / 2.9) and settles at 1. */
+    @keyframes zoom-settle {
+      from {
+        transform: scale(0.345);
+      }
+    }
+
+    /* The center card carries the whole section, so it is laid out at its
+       FINAL size and animated from small scale up to exactly 1 (zoom-settle
+       below) — scaling text past 1 on the compositor would leave it blurry
+       at rest. Type inside uses cqw units so it tracks the card size.
+       pointer-events is restored so the text stays selectable despite the
+       none on .zoom-el. */
+    .zoom-card {
+      pointer-events: auto;
+      container-type: inline-size;
+      width: min(92vw, 148svh);
+      aspect-ratio: 16 / 10;
+    }
+
+    /* Tiles carry miniature "workspace" content (phase 3); cqw units inside
+       track each tile's own width, and overflow crops content that a given
+       viewport ratio doesn't leave room for. */
+    .zoom-tile {
+      container-type: size;
+      overflow: hidden;
+      width: var(--tile-w);
+      height: var(--tile-h);
+      translate: var(--tile-x, 0) var(--tile-y, 0);
+      border-radius: 1.25rem;
+    }
+
+    /* Center card: slowest zoom, on top. Tiles get faster the further
+       out they sit, mirroring the original component's 4–9x spread. */
+    .zoom-el-1 {
+      z-index: 1;
+      animation-name: zoom-settle;
+    }
+    .zoom-el-2 {
+      --zoom-scale: 4.6;
+      --tile-x: -26vw;
+      --tile-y: -27vh;
+      --tile-w: 31vw;
+      --tile-h: 25vh;
+    }
+    .zoom-el-3 {
+      --zoom-scale: 5.2;
+      --tile-x: 27vw;
+      --tile-y: -6vh;
+      --tile-w: 23vw;
+      --tile-h: 27vh;
+    }
+    .zoom-el-4 {
+      --zoom-scale: 6;
+      --tile-x: -25vw;
+      --tile-y: 6vh;
+      --tile-w: 17vw;
+      --tile-h: 36vh;
+    }
+    .zoom-el-5 {
+      --zoom-scale: 7;
+      --tile-x: -18vw;
+      --tile-y: 31vh;
+      --tile-w: 25vw;
+      --tile-h: 21vh;
+    }
+    .zoom-el-6 {
+      --zoom-scale: 8;
+      --tile-x: 23vw;
+      --tile-y: 29vh;
+      --tile-w: 18vw;
+      --tile-h: 22vh;
+    }
+    .zoom-el-7 {
+      --zoom-scale: 9;
+      --tile-x: 15vw;
+      --tile-y: -31vh;
+      --tile-w: 12vw;
+      --tile-h: 14vh;
+    }
+  }
+}
