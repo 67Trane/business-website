@@ -2,10 +2,10 @@
   class="fixed inset-x-0 top-0 z-50 border-b transition-all duration-300"
   [class]="
     dark()
-      ? 'border-transparent bg-[#050914]/30 backdrop-blur-md'
+      ? 'border-transparent bg-transparent backdrop-blur-md'
       : scrolled() || menuOpen()
-        ? 'border-brand/10 bg-canvas/95 shadow-sm backdrop-blur-xl'
-        : 'border-transparent bg-canvas/80 backdrop-blur-md'
+        ? 'border-brand/10 bg-canvas/20 shadow-sm backdrop-blur-xl'
+        : 'border-transparent bg-canvas/15 backdrop-blur-md'
   "
 >
   <nav
@@ -15,11 +15,19 @@
     <a
       routerLink="/"
       fragment="top"
-      class="mr-auto font-serif text-[1.3125rem] font-semibold tracking-tight transition-colors duration-300 md:mr-0"
+      class="mr-auto inline-flex items-center gap-2.5 font-serif text-[1.3125rem] font-semibold tracking-tight transition-colors duration-300 md:mr-0"
       [class]="dark() ? 'text-white' : 'text-ink'"
       (click)="closeMenu()"
     >
-      {{ profile.name }}<span [class]="dark() ? 'text-[#7fa2ff]' : 'text-brand'">.</span>
+      <img
+        [src]="dark() ? 'images/brand/md-monogram-white.svg' : 'images/brand/md-monogram-navy.svg'"
+        alt=""
+        aria-hidden="true"
+        width="38"
+        height="24"
+        class="h-6 w-auto"
+      />
+      <span>{{ profile.name }}<span [class]="dark() ? 'text-[#7fa2ff]' : 'text-brand'">.</span></span>
     </a>
 
     <ul class="hidden items-center gap-6 lg:flex">

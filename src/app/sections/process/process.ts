@@ -7,6 +7,7 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   imports: [SectionHeading],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './process.html',
+  styleUrl: './process.css',
 })
 export class Process {
   protected readonly content = inject(LanguageService).content;

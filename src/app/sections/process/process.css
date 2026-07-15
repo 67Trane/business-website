@@ -1,0 +1,40 @@
+/* Scroll-drawn timeline beam — CSS scroll-driven port of the framer-motion
+   "timeline" pattern: a gradient beam draws itself down the guide line as the
+   timeline scrolls through the viewport.
+
+   Progressive enhancement: without scroll-driven animation support (or with
+   reduced motion) the beam stays hidden and only the static guide line shows.
+   The explicit media query is required — the global reduced-motion kill
+   switch zeroes durations, which timeline-driven animations ignore. */
+
+.process-beam {
+  display: none;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .process-timeline {
+      view-timeline-name: --process-beam;
+    }
+
+    .process-beam {
+      display: block;
+      animation: beam-draw linear both;
+      animation-timeline: --process-beam;
+      /* Fully drawn at 70% of the pass, so the tip roughly tracks the
+         reader's position instead of lagging at the viewport bottom. */
+      animation-range: cover 0% cover 70%;
+    }
+
+    /* clip-path instead of scaleY so the gradient doesn't stretch — the
+       beam is revealed, not resized. */
+    @keyframes beam-draw {
+      from {
+        clip-path: inset(0 0 100% 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+}

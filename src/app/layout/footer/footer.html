@@ -2,17 +2,29 @@
 <footer class="bg-ink text-[#8a9ac4]">
   <div class="mx-auto flex max-w-330 flex-wrap items-center justify-between gap-7 px-6 py-12 sm:px-9 lg:px-13">
     <div>
-      <a routerLink="/" fragment="top" class="font-serif text-[1.3125rem] font-semibold tracking-tight text-[#eef1fb]">
-        {{ profile.name }}<span class="text-[#6b96f5]">.</span>
+      <a
+        routerLink="/"
+        fragment="top"
+        class="inline-flex items-center gap-2.5 font-serif text-[1.3125rem] font-semibold tracking-tight text-[#eef1fb]"
+      >
+        <img
+          src="images/brand/md-monogram-white.svg"
+          alt=""
+          aria-hidden="true"
+          width="38"
+          height="24"
+          class="h-6 w-auto"
+        />
+        <span>{{ profile.name }}<span class="text-[#6b96f5]">.</span></span>
       </a>
       <p class="mt-1 text-sm">{{ content().footer.role }}</p>
     </div>
 
     <ul class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
       <li><a routerLink="/" fragment="leistungen" class="hover:text-white">{{ content().nav.services }}</a></li>
+      <li><a routerLink="/" fragment="ueber-mich" class="hover:text-white">{{ content().nav.about }}</a></li>
       <li><a routerLink="/" fragment="ablauf" class="hover:text-white">{{ content().nav.process }}</a></li>
       <li><a routerLink="/" fragment="referenzen" class="hover:text-white">{{ content().nav.work }}</a></li>
-      <li><a routerLink="/" fragment="ueber-mich" class="hover:text-white">{{ content().nav.about }}</a></li>
     </ul>
 
     <div class="flex items-center gap-4 font-mono text-xs">

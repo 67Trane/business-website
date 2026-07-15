@@ -21,7 +21,9 @@
   @media (prefers-reduced-motion: no-preference) and (min-width: 64rem) {
     .zoom-stage {
       display: block;
-      height: 300vh;
+      /* Tall enough for the zoom plus a dwell at full size (see
+         animation-range on .zoom-el). */
+      height: 380vh;
       view-timeline-name: --about-zoom;
     }
 
@@ -36,6 +38,20 @@
       top: 0;
       height: 100svh;
       overflow: hidden;
+      /* Background rides the zoom: white at 0%, hero-navy once settled. */
+      animation: stage-tint linear both;
+      animation-timeline: --about-zoom;
+      animation-range: contain 0% contain 65%;
+    }
+
+    @keyframes stage-tint {
+      from {
+        background-color: #fff;
+      }
+      to {
+        /* Same as the card background, so the settled card melts into the stage. */
+        background-color: #070d1f;
+      }
     }
 
     /* Full-viewport layer that scales while the pinned stage is scrolled.
@@ -46,10 +62,15 @@
       inset: 0;
       display: grid;
       place-items: center;
+      /* Center content below the fixed 4.5rem header so the settled card
+         isn't cut off at the top. */
+      padding-top: 4.5rem;
       pointer-events: none;
       animation: zoom-in linear both;
       animation-timeline: --about-zoom;
-      animation-range: contain 0% contain 100%;
+      /* Zoom completes at 65% of the pin; the remaining 35% (~1 viewport of
+         scroll) holds the settled card so fast scrollers don't skip past it. */
+      animation-range: contain 0% contain 65%;
     }
 
     @keyframes zoom-in {
@@ -75,7 +96,8 @@
     .zoom-card {
       pointer-events: auto;
       container-type: inline-size;
-      width: min(92vw, 148svh);
+      /* Height cap: (100svh − header − breathing room) × 1.6 aspect factor. */
+      width: min(92vw, calc(160svh - 8.8rem));
       aspect-ratio: 16 / 10;
     }
 
