@@ -9,6 +9,7 @@ Sprache der Website: Deutsch (Inhalte zusätzlich auf Englisch und Türkisch ums
 
 ## Leistungen
 
+- [Leistungsübersicht](https://mehmet-deliaci.net/#leistungen): alle Angebote im Detail
 - Websites & Landingpages: individuelle Unternehmensseiten, maßgeschneidert statt Baukasten
 - Web-Anwendungen: individuelle Web-Apps mit Angular, vom internen Tool bis zur Kundenplattform
 - Backend & Schnittstellen: sichere REST-APIs und serverseitige Logik mit Python und Django
@@ -16,31 +17,27 @@ Sprache der Website: Deutsch (Inhalte zusätzlich auf Englisch und Türkisch ums
 - Wartung & Weiterentwicklung: laufende Pflege, Updates und Ausbau bestehender Websites
 - Automatisierung & Tools: individuelle Python-Programme für Datenzusammenführung und Berichte
 
-Details: https://mehmet-deliaci.net/#leistungen
-
 ## Projekte
 
-- Join – Projektmanagement-Tool im Kanban-Stil (Angular, TypeScript, Firebase)
-- Videoflix – Video-Streaming-Plattform (Django, DRF, PostgreSQL, Docker)
-- Coderr – REST-API für eine Dienstleister-Plattform (Python, DRF, JWT)
-- Nightstalker – interaktives Browser-Game (JavaScript, Canvas)
-
-Portfolio: https://mehmet-deliaci.net/#referenzen
-Code: https://github.com/67Trane
+- [Portfolio-Übersicht](https://mehmet-deliaci.net/#referenzen): alle Referenzprojekte
+- [Join](https://mehmet-deliaci.net/join): Projektmanagement-Tool im Kanban-Stil (Angular, TypeScript, Firebase)
+- [Videoflix](https://mehmet-deliaci.net/#referenzen): Video-Streaming-Plattform (Django, DRF, PostgreSQL, Docker)
+- [Coderr](https://mehmet-deliaci.net/#referenzen): REST-API für eine Dienstleister-Plattform (Python, DRF, JWT)
+- [Nightstalker](https://mehmet-deliaci.net/nightstalker): interaktives Browser-Game (JavaScript, Canvas)
+- [GitHub](https://github.com/67Trane): Quellcode der Projekte
 
 ## Häufige Fragen
 
-Antworten zu Kosten, Projektdauer, benötigten Zuarbeiten und Betreuung nach dem
-Launch: https://mehmet-deliaci.net/#faq
+- [FAQ](https://mehmet-deliaci.net/#faq): Antworten zu Kosten, Projektdauer, benötigten Zuarbeiten und Betreuung nach dem Launch
 
 ## Kontakt
 
-- Kontaktformular: https://mehmet-deliaci.net/#kontakt (Antwort in unter 24 Stunden)
-- LinkedIn: https://www.linkedin.com/in/mehmet-deliaci-24285535a
-- GitHub: https://github.com/67Trane
+- [Kontaktformular](https://mehmet-deliaci.net/#kontakt): Antwort in unter 24 Stunden
+- [LinkedIn](https://www.linkedin.com/in/mehmet-deliaci-24285535a): berufliches Profil
+- [GitHub](https://github.com/67Trane): Open-Source-Projekte und Code
 
 ## Nutzung durch KI-Systeme
 
 Inhalte dieser Website dürfen als Quelle referenziert und zitiert werden
 (use=reference). Eine Nutzung zum Training von KI-Modellen ist nicht gestattet
-(ai-train=no). Bitte bei Zitaten auf https://mehmet-deliaci.net/ verlinken.
+(ai-train=no). Bitte bei Zitaten auf [https://mehmet-deliaci.net/](https://mehmet-deliaci.net/) verlinken.
