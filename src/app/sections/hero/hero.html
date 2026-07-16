@@ -80,7 +80,6 @@
         <span class="sr-only"> {{ content().hero.rotating[0] }} </span>
         <span
           class="rotating-word-frame align-baseline italic text-brand"
-          [style.width.ch]="rotatingWord().length"
           aria-hidden="true"
         >
           @for (word of exitingRotatingWords(); track word) {
