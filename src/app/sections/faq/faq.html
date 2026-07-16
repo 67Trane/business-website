@@ -1,7 +1,11 @@
 <!-- FAQ Section: native details/summary = accessible without JavaScript -->
 <section id="faq" class="border-t border-brand/10 bg-canvas">
   <div class="site-shell">
-    <app-section-heading data-reveal [eyebrow]="content().faq.label" [title]="content().faq.heading" />
+    <app-section-heading
+      data-reveal
+      [eyebrow]="content().faq.label"
+      [title]="content().faq.heading"
+    />
 
     <div data-reveal class="mx-auto mt-12 max-w-3xl border-b border-ink/10">
       @for (item of content().faq.items; track item.q) {
@@ -22,7 +26,7 @@
               <path d="M12 5v14M5 12h14" />
             </svg>
           </summary>
-          <p class="max-w-[65ch] pb-6 text-md text-copy">{{ item.a }}</p>
+          <p class="max-w-prose pb-6 text-md text-copy">{{ item.a }}</p>
         </details>
       }
     </div>

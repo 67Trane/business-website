@@ -12,7 +12,7 @@
     aria-hidden="true"
   ></div>
   <div
-    class="pointer-events-none absolute top-[28%] right-[25%] size-95 rounded-full bg-[radial-gradient(circle,rgb(92_178_235/20%),transparent_68%)] will-change-transform"
+    class="pointer-events-none absolute top-[28%] right-1/4 size-95 rounded-full bg-[radial-gradient(circle,rgb(92_178_235/20%),transparent_68%)] will-change-transform"
     [style.transform]="cyanBlobShift()"
     aria-hidden="true"
   ></div>
@@ -21,13 +21,17 @@
     <!-- Photo column: oversized parallax layer inside a clipping grid cell.
          The entrance animation sits on this cell (no inline transform here),
          so it never clashes with the parallax transform on the inner layer. -->
-    <div class="animate-fade-in-image relative min-h-[54vh] overflow-hidden [animation-delay:300ms] lg:min-h-screen">
+    <div
+      class="animate-fade-in-image relative min-h-[54vh] overflow-hidden [animation-delay:300ms] lg:min-h-screen"
+    >
       <div
         class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
         [style.transform]="portraitShift()"
       >
         <!-- Blue glow behind the person -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"></div>
+        <div
+          class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"
+        ></div>
         <!-- Portrait, fading out softly towards the left edge -->
         <div class="absolute inset-x-0 top-20 h-[78%]">
           <img
@@ -43,27 +47,41 @@
           class="absolute top-20 left-0 h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)]"
         ></div>
         <!-- Blend right and bottom edges into the canvas background -->
-        <div class="absolute inset-y-0 right-0 w-40 bg-linear-to-r from-transparent to-canvas"></div>
-        <div class="absolute inset-x-0 bottom-0 h-44 bg-linear-to-b from-transparent to-canvas"></div>
+        <div
+          class="absolute inset-y-0 right-0 w-40 bg-linear-to-r from-transparent to-canvas"
+        ></div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-44 bg-linear-to-b from-transparent to-canvas"
+        ></div>
       </div>
     </div>
 
     <!-- Copy column -->
-    <div class="relative z-10 flex flex-col justify-center px-6 pt-8 pb-16 sm:px-12 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28">
-      <span class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand">
+    <div
+      class="relative z-10 flex flex-col justify-center px-6 pt-8 pb-16 sm:px-12 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
+    >
+      <span
+        class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand"
+      >
         <span class="relative flex size-2">
-          <span class="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-50"></span>
+          <span
+            class="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-50"
+          ></span>
           <span class="relative inline-flex size-2 rounded-full bg-brand"></span>
         </span>
         {{ content().hero.available }}
       </span>
 
-      <h1 class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:100ms]">
+      <h1
+        class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:100ms]"
+      >
         {{ content().hero.main }}
         <span class="italic text-brand">{{ content().hero.accent }}</span>
       </h1>
 
-      <p class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:200ms]">
+      <p
+        class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:200ms]"
+      >
         {{ content().hero.sub }}
       </p>
 
@@ -77,7 +95,9 @@
         </a>
       </div>
 
-      <ul class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:400ms]">
+      <ul
+        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:400ms]"
+      >
         @for (point of content().hero.trust; track point) {
           <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">
             <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand"></span>
