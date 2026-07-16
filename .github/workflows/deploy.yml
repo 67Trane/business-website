@@ -39,7 +39,7 @@ jobs:
       - name: Verify deployable output
         run: test -f dist/business-portfolio/browser/index.html
 
-      - name: Replace website files over FTPS
+      - name: Synchronize production website over FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -48,7 +48,8 @@ jobs:
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           port: ${{ vars.FTP_PORT || '21' }}
           local-dir: ./dist/business-portfolio/browser/
-          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
-          dangerous-clean-slate: true
+          # This is the domain directory, not the FTPS account root.
+          server-dir: ./mehmet-deliaci.net/
+          # Preserve separately deployed apps that live below the same directory.
+          dangerous-clean-slate: false
           log-level: standard
-

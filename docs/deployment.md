@@ -5,11 +5,17 @@ Actions workflow. It installs the locked dependencies, creates the Angular
 production build, and mirrors `dist/business-portfolio/browser/` to the web
 server over FTPS.
 
-The remote directory is cleared before upload. This removes obsolete Angular
-files with hashes in their names, such as old `main-*.js`, `chunk-*.js`, and
-`styles-*.css` files. For that reason, `FTP_SERVER_DIR` must point to a directory
-dedicated to this website. Do not point it at a directory containing email,
-backups, another website, or other files that need to be preserved.
+The workflow synchronizes the portfolio into `./mehmet-deliaci.net/` without
+clearing that directory. This preserves independently deployed apps such as
+`nightstalker`, `weather-app`, and `videoflix`. The deploy action tracks the
+portfolio files it uploads, so obsolete hashed files from later automated builds
+are removed while unrelated, untracked app directories remain untouched. Hashed
+files that predate the first successful automated deployment may need one manual
+cleanup.
+
+The destination is fixed in the workflow rather than read from a variable. This
+prevents a missing variable from accidentally selecting the FTPS account root;
+root-level hosting directories such as `cgi-bin` and `logs` also remain untouched.
 
 ## One-time GitHub setup
 
@@ -24,8 +30,6 @@ Create these **repository secrets**:
 
 Create these **repository variables** as required by the hosting provider:
 
-- `FTP_SERVER_DIR`: remote web root, including a trailing slash, for example
-  `public_html/`. If omitted, it defaults to `./` (the FTPS account root).
 - `FTP_PORT`: defaults to `21`.
 - `FTP_PROTOCOL`: defaults to `ftps` (explicit FTPS). Use `ftps-legacy` for
   implicit FTPS, which commonly uses port `990`. Use `ftp` only if the provider
