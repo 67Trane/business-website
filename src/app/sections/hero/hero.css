@@ -1,0 +1,56 @@
+.rotating-word-frame {
+  display: inline-grid;
+  overflow: hidden;
+  transition: width 500ms cubic-bezier(0.23, 0.86, 0.39, 0.96);
+  vertical-align: -0.12em;
+}
+
+.rotating-word {
+  grid-area: 1 / 1;
+  display: inline-block;
+  animation: rotating-word-in 620ms cubic-bezier(0.23, 0.86, 0.39, 0.96) both;
+  transform-origin: 50% 100%;
+}
+
+.rotating-word-out {
+  animation-name: rotating-word-out;
+  transform-origin: 50% 0;
+}
+
+@keyframes rotating-word-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(85%) rotateX(-35deg);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes rotating-word-out {
+  from {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) rotateX(0);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-85%) rotateX(35deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-word {
+    animation: none;
+  }
+
+  .rotating-word-frame {
+    transition: none;
+  }
+}

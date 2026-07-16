@@ -73,19 +73,33 @@
       </span>
 
       <h1
-        class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:100ms]"
+        class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:120ms]"
       >
-        {{ content().hero.main }}
-        <span class="italic text-brand">{{ content().hero.accent }}</span>
+        {{ content().hero.headlineStart }}
+        <br />
+        <span class="sr-only"> {{ content().hero.rotating[0] }} </span>
+        <span
+          class="rotating-word-frame align-baseline italic text-brand"
+          [style.width.ch]="rotatingWord().length"
+          aria-hidden="true"
+        >
+          @for (word of exitingRotatingWords(); track word) {
+            <span class="rotating-word rotating-word-out">{{ word }}</span>
+          }
+          @for (word of [rotatingWord()]; track word) {
+            <span class="rotating-word">{{ word }}</span>
+          }
+        </span>
+        {{ content().hero.headlineEnd }}
       </h1>
 
       <p
-        class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:200ms]"
+        class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:240ms]"
       >
         {{ content().hero.sub }}
       </p>
 
-      <div class="animate-fade-up mt-9 flex flex-wrap gap-3.5 [animation-delay:300ms]">
+      <div class="animate-fade-up mt-9 flex flex-wrap gap-3.5 [animation-delay:360ms]">
         <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
         <a
           href="#referenzen"
@@ -96,7 +110,7 @@
       </div>
 
       <ul
-        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:400ms]"
+        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:480ms]"
       >
         @for (point of content().hero.trust; track point) {
           <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">
