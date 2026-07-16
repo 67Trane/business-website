@@ -20,7 +20,7 @@ export const CONTENT = {
       secondary: 'Projekte ansehen',
       trust: [
         'Maßgeschneidert statt Baukasten',
-        'Performance & SEO inklusive',
+        'Schnell & bei Google sichtbar',
         'Ein Ansprechpartner von Konzept bis Launch',
       ],
     },
@@ -59,14 +59,13 @@ export const CONTENT = {
     services: {
       label: 'Leistungen',
       heading: 'Alles, was Ihre digitale Präsenz braucht.',
-      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da – vom ersten Entwurf bis zur laufenden Betreuung.',
-      items: [
-        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten, die Ihre Marke professionell präsentieren. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Klares, modernes Design', 'Wird bei Google gefunden'] },
-        { title: 'Web-Anwendungen', description: 'Maßgeschneiderte Web-Apps mit Angular, vom internen Tool bis zur Kundenplattform. Skalierbar und durchdacht.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
-        { title: 'Backend & Schnittstellen', description: 'Sichere REST-APIs und serverseitige Logik mit Python und Django. Zuverlässig, dokumentiert und wartbar.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
-        { title: 'Performance & SEO', description: 'Schnelle Ladezeiten und gute Sichtbarkeit bei Google, dank SSR, sauberem Markup und gezielter Optimierung.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
+      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da – vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
+        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernen Animationen und Scroll-Effekten – so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
+        { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen – vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
+        { title: 'Anbindungen & Schnittstellen', description: 'Ihre Website spricht mit Kasse, Kalender oder Warenwirtschaft: Ich verbinde Ihre Systeme sicher miteinander, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
+        { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden – damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
         { title: 'Wartung & Weiterentwicklung', description: 'Ihre Website bleibt aktuell und sicher und wächst mit Ihrem Unternehmen. Regelmäßige Updates inklusive.', points: ['Updates & Sicherheit', 'Schnelle Fehlerbehebung', 'Neue Funktionen bei Bedarf'] },
-        { title: 'Automatisierung & Tools', description: 'Individuelle Programme, die Ihnen Handarbeit abnehmen: Daten zusammenführen, Berichte erzeugen, Abläufe automatisieren – maßgeschneidert mit Python.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
+        { title: 'Automatisierung & Tools', description: 'Individuelle Programme, die Ihnen Handarbeit abnehmen: Daten zusammenführen, Berichte erzeugen, Abläufe automatisieren – individuell für Ihren Betrieb entwickelt.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
       ],
     },
     process: {
@@ -88,9 +87,9 @@ export const CONTENT = {
       live: 'Live Demo',
       code: 'Code ansehen',
       descriptions: [
-        'Projektmanagement-Tool im Kanban-Stil mit Drag & Drop, Kontaktverwaltung und Authentifizierung.',
-        'Video-Streaming-Plattform mit Django-Backend, REST-API und automatischer Video-Konvertierung.',
-        'REST-API für eine Dienstleister-Plattform mit Angeboten, Bestellungen und Bewertungssystem.',
+        'Projektmanagement-Tool im Kanban-Stil mit Drag & Drop, Kontaktverwaltung und Nutzer-Anmeldung.',
+        'Video-Streaming-Plattform mit Nutzerkonten und automatischer Video-Verarbeitung – komplett selbst entwickelt.',
+        'Technisches Fundament für eine Dienstleister-Plattform mit Angeboten, Bestellungen und Bewertungssystem.',
         'Interaktives Browser-Game auf Canvas-Basis mit eigener Spiellogik, Animationen und Sound.',
       ],
     },
@@ -151,7 +150,7 @@ export const CONTENT = {
       sub: 'As a freelance web developer based in Weißenburg (Bavaria), I build modern websites and web apps for your business and keep them running reliably – from idea to launch, everything from a single source.',
       primary: 'Free intro call',
       secondary: 'See my work',
-      trust: ['Tailor-made, not templates', 'Performance & SEO included', 'One contact from concept to launch'],
+      trust: ['Tailor-made, not templates', 'Fast & visible on Google', 'One contact from concept to launch'],
     },
     trustBar: [
       { value: '100/100', label: 'Google PageSpeed score' },
@@ -188,14 +187,13 @@ export const CONTENT = {
     services: {
       label: 'Services',
       heading: 'Everything your digital presence needs.',
-      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for – from the first draft to ongoing support.",
-      items: [
-        { title: 'Websites & landing pages', description: 'Custom company sites that present your brand professionally. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Clean, modern design', 'Found on Google'] },
-        { title: 'Web applications', description: 'Custom web apps with Angular, from internal tools to customer platforms. Scalable and thoughtful.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
-        { title: 'Backend & APIs', description: 'Secure REST APIs and server-side logic with Python and Django. Reliable, documented and maintainable.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
-        { title: 'Performance & SEO', description: 'Fast load times and strong Google visibility through SSR, clean markup and targeted optimization.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
+      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for – from the first draft to ongoing support.",      items: [
+        { title: 'Websites & landing pages', description: 'Custom company sites with modern animations and scroll effects – just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
+        { title: 'Web applications', description: 'Custom programs that run in the browser – from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
+        { title: 'Integrations & connections', description: 'Your website talks to your till, calendar or inventory system: I connect your systems securely so data lands automatically where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
+        { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google – so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
         { title: 'Maintenance & growth', description: 'Your site stays current and secure and grows with your business. Regular updates included.', points: ['Updates & security', 'Fast bug fixing', 'New features when needed'] },
-        { title: 'Automation & tools', description: 'Custom programs that take manual work off your plate: merging data, generating reports, automating workflows – tailor-made with Python.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
+        { title: 'Automation & tools', description: 'Custom programs that take manual work off your plate: merging data, generating reports, automating workflows – built individually for your business.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
       ],
     },
     process: {
@@ -217,9 +215,9 @@ export const CONTENT = {
       live: 'Live demo',
       code: 'View code',
       descriptions: [
-        'Kanban-style project management with drag & drop, contact management and authentication.',
-        'Video streaming platform with Django backend, REST API and automatic video conversion.',
-        'REST API for a service-provider platform with offers, orders and a review system.',
+        'Kanban-style project management with drag & drop, contact management and user sign-in.',
+        'Video streaming platform with user accounts and automatic video processing – built entirely from scratch.',
+        'The technical foundation for a service marketplace with offers, orders and reviews.',
         'Interactive canvas-based browser game with custom logic, animations and sound.',
       ],
     },
@@ -280,7 +278,7 @@ export const CONTENT = {
       sub: 'Weißenburg merkezli freelance web geliştirici olarak işletmeniz için modern web siteleri ve web uygulamaları geliştiriyor, sonrasında da güvenilir şekilde destekliyorum – fikirden lansmana, hepsi tek elden.',
       primary: 'Ücretsiz ön görüşme',
       secondary: 'Projeleri gör',
-      trust: ['Hazır şablon değil, size özel', 'Performans ve SEO dahil', 'Fikirden lansmana tek muhatap'],
+      trust: ['Hazır şablon değil, size özel', 'Hızlı & Google’da görünür', 'Fikirden lansmana tek muhatap'],
     },
     trustBar: [
       { value: '100/100', label: 'Google PageSpeed en iyi puan' },
@@ -317,14 +315,13 @@ export const CONTENT = {
     services: {
       label: 'Hizmetler',
       heading: 'Dijital varlığınızın ihtiyacı olan her şey.',
-      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım – ilk taslaktan sürekli desteğe.',
-      items: [
-        { title: 'Web siteleri & açılış sayfaları', description: 'Markanızı profesyonelce sunan özel kurumsal siteler. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Sade, modern tasarım', "Google'da bulunur"] },
-        { title: 'Web uygulamaları', description: 'Angular ile özel web uygulamaları, kurum içi araçtan müşteri platformuna. Ölçeklenebilir ve özenli.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
-        { title: "Backend & API'ler", description: 'Python ve Django ile güvenli REST API ve sunucu tarafı mantığı. Güvenilir, belgeli ve sürdürülebilir.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
-        { title: 'Performans & SEO', description: 'SSR, temiz kod ve hedefli optimizasyon ile hızlı yükleme ve güçlü Google görünürlüğü.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
+      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım – ilk taslaktan sürekli desteğe.',      items: [
+        { title: 'Web siteleri & açılış sayfaları', description: 'Modern animasyonlar ve kaydırma efektleriyle özel kurumsal siteler – tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
+        { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar – kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
+        { title: 'Entegrasyonlar & bağlantılar', description: 'Web siteniz kasa, takvim veya stok sisteminizle konuşur: Sistemlerinizi güvenle birbirine bağlarım, veriler ihtiyacınız olan yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
+        { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur – ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
         { title: 'Bakım & geliştirme', description: 'Siteniz güncel ve güvenli kalır, işinizle birlikte büyür. Düzenli güncellemeler dahil.', points: ['Güncelleme & güvenlik', 'Hızlı hata giderme', 'İhtiyaç halinde yeni özellikler'] },
-        { title: 'Otomasyon & araçlar', description: 'El emeğini üzerinizden alan özel programlar: veri birleştirme, rapor oluşturma, iş akışlarını otomatikleştirme – Python ile size özel.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
+        { title: 'Otomasyon & araçlar', description: 'El emeğini üzerinizden alan özel programlar: veri birleştirme, rapor oluşturma, iş akışlarını otomatikleştirme – işletmenize özel geliştirilir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
       ],
     },
     process: {
@@ -346,9 +343,9 @@ export const CONTENT = {
       live: 'Canlı demo',
       code: 'Kodu gör',
       descriptions: [
-        'Sürükle-bırak, kişi yönetimi ve kimlik doğrulamalı Kanban tarzı proje yönetim aracı.',
-        'Django backend, REST API ve otomatik video dönüştürme özellikli video platformu.',
-        'Teklif, sipariş ve değerlendirme sistemli hizmet platformu için REST API.',
+        'Sürükle-bırak, kişi yönetimi ve kullanıcı girişli Kanban tarzı proje yönetim aracı.',
+        'Kullanıcı hesapları ve otomatik video işleme özellikli video akış platformu – tamamen sıfırdan geliştirildi.',
+        'Teklif, sipariş ve değerlendirme sistemli bir hizmet platformunun teknik altyapısı.',
         'Kendi oyun mantığı, animasyon ve sesli Canvas tabanlı tarayıcı oyunu.',
       ],
     },

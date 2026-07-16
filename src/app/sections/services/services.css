@@ -1,0 +1,350 @@
+/* Spotlight interaction + miniature illustrations for the services list.
+   Colors mirror the theme tokens in styles.css (brand #1e52cc, ink #0c1733).
+   All animations are killed globally by the prefers-reduced-motion rule. */
+
+/* Spotlight states are pure fades (background, shadow, opacity) — no
+   transforms on the rows themselves, so nothing shifts while hovering. */
+.service-row {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+  transition:
+    opacity 300ms ease,
+    background 430ms ease,
+    box-shadow 430ms ease;
+}
+
+/* Soft brand wash, faded in when active */
+.service-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 91% 50%, rgb(30 82 204 / 14%), transparent 28%),
+    linear-gradient(90deg, rgb(30 82 204 / 5%), transparent 55%);
+  transition: opacity 430ms ease;
+}
+
+/* Animated top accent line */
+.service-row::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1e52cc, transparent);
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition:
+    opacity 300ms ease,
+    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.service-row.active {
+  z-index: 2;
+  background: rgb(30 82 204 / 4%);
+  box-shadow: 0 30px 70px -54px rgb(30 82 204 / 90%);
+}
+
+.service-row.active::before,
+.service-row.active::after {
+  opacity: 1;
+}
+
+.service-row.active::after {
+  transform: scaleX(1);
+}
+
+/* Dim the other rows only while the list is actually being explored —
+   never in the resting state (keeps text at full contrast by default). */
+@media (hover: hover) and (min-width: 64rem) {
+  .service-list:hover .service-row:not(.active),
+  .service-list:focus-within .service-row:not(.active) {
+    opacity: 0.55;
+  }
+}
+
+.service-row:focus-visible {
+  outline: 2px solid #1e52cc;
+  outline-offset: -3px;
+}
+
+.row-number {
+  transition: color 300ms ease;
+}
+
+.service-row.active .row-number {
+  color: #1e52cc;
+}
+
+/* Bullet dash: space is always reserved so the text never moves —
+   the dash just scales in when the row is spotlighted. */
+.row-point::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  margin-right: 7px;
+  background: currentColor;
+  vertical-align: middle;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
+}
+
+.service-row.active .row-point::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ---- miniature illustration ---- */
+
+.visual {
+  opacity: 0.55;
+  transform: translateX(12px) scale(0.96);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 90%);
+  transition:
+    opacity 350ms ease,
+    transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 350ms ease,
+    box-shadow 400ms ease;
+}
+
+.service-row.active .visual {
+  opacity: 1;
+  transform: none;
+  border-color: rgb(30 82 204 / 27%);
+  box-shadow:
+    0 18px 38px -28px rgb(30 82 204 / 85%),
+    inset 0 1px 0 white;
+}
+
+.visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 30%, rgb(30 82 204 / 13%), transparent 58%);
+}
+
+/* Shared shape base for the abstract UI elements */
+.fx {
+  position: absolute;
+  border-radius: 4px;
+  background: rgb(12 23 51 / 15%);
+}
+
+/* 01 · browser mockup */
+.browser {
+  position: absolute;
+  inset: 13px 15px;
+  border: 1px solid rgb(12 23 51 / 20%);
+  border-radius: 8px;
+}
+
+.browser::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgb(12 23 51 / 28%);
+  box-shadow:
+    8px 0 rgb(12 23 51 / 20%),
+    16px 0 rgb(12 23 51 / 14%);
+}
+
+.fx-line1 { top: 29px; left: 13px; width: 66px; height: 7px; background: #1e52cc; }
+.fx-line2 { top: 42px; left: 13px; width: 47px; height: 4px; }
+.fx-block { top: 53px; left: 13px; width: 34px; height: 12px; border-radius: 6px; }
+.fx-card { top: 29px; right: 13px; width: 66px; height: 36px; border: 1px solid rgb(30 82 204 / 20%); background: rgb(30 82 204 / 12%); }
+
+.active .fx-line1 { animation: fx-pop 0.5s 0.05s both; }
+.active .fx-line2 { animation: fx-pop 0.5s 0.13s both; }
+.active .fx-block { animation: fx-pop 0.5s 0.21s both; }
+.active .fx-card { animation: fx-pop 0.5s 0.29s both; }
+
+/* 02 · app dashboard */
+.dash-side {
+  position: absolute;
+  inset: 12px auto 12px 12px;
+  width: 48px;
+  border-right: 1px solid rgb(12 23 51 / 15%);
+}
+
+.dash-side::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 24px;
+  height: 5px;
+  border-radius: 3px;
+  background: #1e52cc;
+}
+
+.dash-a { top: 25px; left: 74px; width: 49px; height: 46px; }
+.dash-b { top: 25px; right: 16px; width: 50px; height: 17px; }
+.dash-c { top: 51px; right: 16px; width: 39px; height: 20px; }
+
+.active .dash-a { animation: fx-pop 0.45s 0.05s both; }
+.active .dash-b { animation: fx-pop 0.45s 0.15s both; }
+.active .dash-c { animation: fx-pop 0.45s 0.25s both; }
+
+/* 03 · connected systems */
+.net-wire {
+  position: absolute;
+  top: 49px;
+  left: 38px;
+  width: 130px;
+  height: 1px;
+  background: rgb(30 82 204 / 30%);
+}
+
+.net-wire.up { transform: rotate(-12deg); }
+.net-wire.down { transform: rotate(13deg); }
+
+.node {
+  position: absolute;
+  top: 38px;
+  width: 23px;
+  height: 23px;
+  border: 1px solid rgb(30 82 204 / 25%);
+  border-radius: 50%;
+  background: rgb(30 82 204 / 12%);
+}
+
+.node-a { left: 20px; }
+.node-b { top: 20px; left: 91px; background: #1e52cc; }
+.node-c { right: 20px; }
+
+.packet {
+  position: absolute;
+  top: 48px;
+  left: 31px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1e52cc;
+}
+
+.active .packet { animation: fx-packet 1.8s 0.3s ease-in-out infinite; }
+
+/* 04 · speed gauge */
+.gauge-ring {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  width: 112px;
+  height: 56px;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+
+.gauge-ring::before,
+.gauge-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 9px solid rgb(12 23 51 / 11%);
+  border-bottom: 0;
+  border-radius: 112px 112px 0 0;
+}
+
+.gauge-ring::after {
+  border-color: #1e52cc;
+  border-right-color: transparent;
+  transform: rotate(-20deg);
+  transform-origin: 50% 100%;
+}
+
+.needle {
+  position: absolute;
+  top: 71px;
+  left: 50%;
+  width: 39px;
+  height: 2px;
+  background: #0c1733;
+  transform: rotate(-35deg);
+  transform-origin: left center;
+}
+
+.active .needle { animation: fx-needle 0.7s ease both; }
+
+/* 05 · maintenance checklist */
+.mnt-bar { left: 25px; right: 25px; height: 6px; border-radius: 3px; }
+.mnt-bar.a { top: 25px; right: 66px; }
+.mnt-bar.b { top: 45px; }
+.mnt-bar.c { top: 65px; right: 48px; }
+
+.mnt-status {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #1e52cc;
+  color: #fff;
+}
+
+.active .mnt-status { animation: fx-pulse 1.8s ease-in-out infinite; }
+
+/* 06 · automation flow */
+.flow-box {
+  top: 34px;
+  width: 41px;
+  height: 32px;
+  border: 1px solid rgb(30 82 204 / 22%);
+  background: rgb(30 82 204 / 10%);
+}
+
+.flow-a { left: 17px; }
+.flow-b { left: 82px; background: #1e52cc; }
+.flow-c { right: 17px; }
+
+.flow-arrow {
+  position: absolute;
+  top: 44px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-left: 8px solid #1e52cc;
+}
+
+.flow-arrow.a { left: 63px; }
+.flow-arrow.b { right: 55px; }
+
+.active .flow-a { animation: fx-pop 0.45s 0.04s both; }
+.active .flow-b { animation: fx-pop 0.45s 0.16s both; }
+.active .flow-c { animation: fx-pop 0.45s 0.28s both; }
+
+@keyframes fx-pop {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-packet {
+  0%, 15% { transform: none; }
+  50% { transform: translate(70px, -18px); }
+  85%, 100% { transform: translate(139px, 0); }
+}
+
+@keyframes fx-needle {
+  from { transform: rotate(-70deg); }
+  to { transform: rotate(-8deg); }
+}
+
+@keyframes fx-pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.75; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
