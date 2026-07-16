@@ -1,9 +1,11 @@
 <header
-  class="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-50 border-b transition-all duration-300"
   [class]="
-    scrolled() || menuOpen()
-      ? 'border-white/70 bg-canvas/78 shadow-[inset_0_1px_0_rgb(255_255_255/72%),0_12px_34px_-22px_rgb(12_23_51/38%)]'
-      : 'border-white/55 bg-white/32 shadow-[inset_0_1px_0_rgb(255_255_255/65%),0_10px_30px_-24px_rgb(12_23_51/28%)]'
+    dark()
+      ? 'border-transparent bg-transparent backdrop-blur-md'
+      : scrolled() || menuOpen()
+        ? 'border-brand/10 bg-canvas/20 shadow-sm backdrop-blur-xl'
+        : 'border-transparent bg-canvas/15 backdrop-blur-md'
   "
 >
   <nav
@@ -13,29 +15,31 @@
     <a
       routerLink="/"
       fragment="top"
-      class="mr-auto inline-flex items-center gap-2.5 font-serif text-[1.3125rem] font-semibold tracking-tight text-ink transition-colors duration-300 md:mr-0"
+      class="mr-auto inline-flex items-center gap-2.5 font-serif text-[1.3125rem] font-semibold tracking-tight transition-colors duration-300 md:mr-0"
+      [class]="lightText() ? 'text-white' : 'text-ink'"
       (click)="closeMenu()"
     >
       <img
-        src="images/brand/md-monogram-navy.svg"
+        [src]="lightText() ? 'images/brand/md-monogram-white.svg' : 'images/brand/md-monogram-navy.svg'"
         alt=""
         aria-hidden="true"
         width="38"
         height="24"
         class="h-6 w-auto"
       />
-      <span>{{ profile.name }}<span class="text-brand">.</span></span>
+      <span>{{ profile.name }}<span [class]="lightText() ? 'text-[#7fa2ff]' : 'text-brand'">.</span></span>
     </a>
 
     <ul class="hidden items-center gap-6 lg:flex">
-      <li><a routerLink="/" fragment="leistungen" class="text-sm font-medium text-copy transition-colors duration-300 hover:text-brand">{{ i18n.content().nav.services }}</a></li>
-      <li><a routerLink="/" fragment="ueber-mich" class="text-sm font-medium text-copy transition-colors duration-300 hover:text-brand">{{ i18n.content().nav.about }}</a></li>
-      <li><a routerLink="/" fragment="ablauf" class="text-sm font-medium text-copy transition-colors duration-300 hover:text-brand">{{ i18n.content().nav.process }}</a></li>
-      <li><a routerLink="/" fragment="referenzen" class="text-sm font-medium text-copy transition-colors duration-300 hover:text-brand">{{ i18n.content().nav.work }}</a></li>
+      <li><a routerLink="/" fragment="leistungen" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.services }}</a></li>
+      <li><a routerLink="/" fragment="ueber-mich" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.about }}</a></li>
+      <li><a routerLink="/" fragment="ablauf" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.process }}</a></li>
+      <li><a routerLink="/" fragment="referenzen" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.work }}</a></li>
     </ul>
 
     <div
-      class="ml-auto hidden items-center gap-1 rounded-lg bg-brand/7 p-1 transition-colors duration-300 md:flex"
+      class="ml-auto hidden items-center gap-1 rounded-lg p-1 transition-colors duration-300 md:flex"
+      [class]="dark() ? 'bg-white/10' : 'bg-brand/7'"
       aria-label="Language"
     >
       @for (language of ['de', 'en', 'tr']; track language) {
@@ -45,7 +49,9 @@
           [class]="
             i18n.language() === language
               ? 'bg-brand text-white'
-              : 'text-copy hover:bg-white'
+              : lightText()
+                ? 'text-white/75 hover:bg-white/15'
+                : 'text-copy hover:bg-white'
           "
           (click)="setLanguage($any(language))"
           [attr.aria-pressed]="i18n.language() === language"
@@ -66,7 +72,10 @@
 
     <button
       type="button"
-      class="flex size-11 items-center justify-center rounded-lg border border-brand/15 text-ink transition-colors duration-300 lg:hidden"
+      class="flex size-11 items-center justify-center rounded-lg border transition-colors duration-300 lg:hidden"
+      [class]="dark() ? 'border-white/25' : 'border-brand/15'"
+      [class.text-white]="lightText()"
+      [class.text-ink]="!lightText()"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="mobile-menu"
