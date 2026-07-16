@@ -21,22 +21,27 @@
             aria-hidden="true"
           ></div>
           <div
-            class="relative z-1 grid h-full grid-cols-[0.42fr_0.58fr] gap-[3cqw] p-[4.5cqw] pb-0"
+            class="relative z-1 grid h-full grid-cols-[0.38fr_0.62fr] gap-[4cqw] p-[4.5cqw]"
           >
-            <!-- Portrait faces right: keep it in the left column, looking into the text -->
-            <div class="relative">
-              <img
-                ngSrc="images/profile.webp"
-                fill
-                class="object-contain object-bottom"
-                alt="Mehmet Deliaci"
-              />
-              <div
-                class="pointer-events-none absolute inset-x-0 bottom-0 h-[16%] bg-linear-to-t from-[#070d1f]/85 to-transparent"
-                aria-hidden="true"
-              ></div>
+            <!-- Facts panel in the left column (the portrait now lives in the hero) -->
+            <div class="flex flex-col justify-center border-r border-white/10 pr-[3.5cqw]">
+              <h3 class="font-mono text-[1cqw] tracking-[0.2em] uppercase text-[#7fa2ff]">
+                {{ content().about.glance }}
+              </h3>
+              <dl class="mt-[2.4cqw] space-y-[2.6cqw]">
+                @for (fact of content().about.facts; track fact.label) {
+                  <div>
+                    <dt class="font-mono text-[0.9cqw] tracking-[0.16em] uppercase text-[#8b96b8]">
+                      {{ fact.label }}
+                    </dt>
+                    <dd class="mt-[0.5cqw] text-[1.3cqw] font-bold text-white">
+                      {{ fact.value }}
+                    </dd>
+                  </div>
+                }
+              </dl>
             </div>
-            <div class="flex flex-col justify-center pb-[4.5cqw]">
+            <div class="flex flex-col justify-center">
               <span class="font-mono text-[1.1cqw] tracking-[0.2em] uppercase text-[#7fa2ff]">
                 {{ content().about.label }}
               </span>
@@ -52,25 +57,6 @@
                 <p>{{ content().about.p1 }}</p>
                 <p>{{ content().about.p2 }}</p>
                 <p>{{ content().about.p3 }}</p>
-              </div>
-              <div class="mt-[2.4cqw] border-t border-white/10 pt-[2cqw]">
-                <h3 class="font-mono text-[1cqw] tracking-[0.2em] uppercase text-[#7fa2ff]">
-                  {{ content().about.glance }}
-                </h3>
-                <dl class="mt-[1.6cqw] grid grid-cols-2 gap-x-[3cqw] gap-y-[1.5cqw]">
-                  @for (fact of content().about.facts; track fact.label) {
-                    <div>
-                      <dt
-                        class="font-mono text-[0.9cqw] tracking-[0.16em] uppercase text-[#8b96b8]"
-                      >
-                        {{ fact.label }}
-                      </dt>
-                      <dd class="mt-[0.5cqw] text-[1.15cqw] font-bold text-white">
-                        {{ fact.value }}
-                      </dd>
-                    </div>
-                  }
-                </dl>
               </div>
             </div>
           </div>
@@ -247,55 +233,8 @@
     </div>
   </div>
 
-  <div class="site-shell about-grid grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-    <!-- Portrait faces right, so this card must stay in the left column:
-         he looks into the text instead of off the page. -->
-    <div data-reveal class="order-2 mx-auto w-full max-w-sm lg:order-1 lg:max-w-none">
-      <figure
-        class="group relative isolate aspect-4/5 overflow-hidden rounded-3xl bg-[#070d1f] shadow-[0_1.5rem_4rem_-2rem_rgb(12_23_51/45%)] ring-1 ring-ink/10 transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_2.5rem_5.5rem_-2rem_rgb(30_82_204/50%)]"
-      >
-        <!-- Slow ambient brand glow breathing behind the portrait -->
-        <div
-          class="pointer-events-none absolute top-[6%] left-1/2 aspect-square w-[88%] -translate-x-1/2 animate-glow-pulse rounded-full bg-[radial-gradient(circle,rgb(56_106_228/55%)_0%,rgb(30_82_204/22%)_45%,transparent_70%)] blur-xl"
-          aria-hidden="true"
-        ></div>
-        <!-- Faint dot grid, fading out toward the base -->
-        <div
-          class="pointer-events-none absolute inset-0 bg-[radial-gradient(rgb(127_162_255/16%)_1px,transparent_1.5px)] bg-[size:1.4rem_1.4rem] [mask-image:linear-gradient(to_bottom,black,transparent_72%)]"
-          aria-hidden="true"
-        ></div>
-        <!-- Floating accents, desynced via negative delays -->
-        <div
-          class="pointer-events-none absolute top-[12%] right-[9%] size-20 animate-float-slow rounded-full border border-[#7fa2ff]/35"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="pointer-events-none absolute top-[31%] left-[8%] size-9 animate-float-slower rounded-full border border-[#7fa2ff]/25 [animation-delay:-5s]"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="pointer-events-none absolute top-[22%] left-[24%] size-1.5 animate-float-slow rounded-full bg-[#79a0ff]/80 [animation-delay:-3s]"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="pointer-events-none absolute top-[46%] right-[15%] size-2 animate-float-slower rounded-full bg-[#4775ec]/60 [animation-delay:-9s]"
-          aria-hidden="true"
-        ></div>
-        <img
-          ngSrc="images/profile.webp"
-          fill
-          class="z-1 origin-bottom object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          alt="Mehmet Deliaci"
-        />
-        <!-- Grounding fade so the cutout settles into the card base -->
-        <div
-          class="pointer-events-none absolute inset-x-0 bottom-0 z-2 h-20 rounded-b-3xl bg-linear-to-t from-[#070d1f]/85 to-transparent"
-          aria-hidden="true"
-        ></div>
-      </figure>
-    </div>
-
-    <div data-reveal class="order-1 lg:order-2">
+  <div class="site-shell about-grid grid items-start gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">
+    <div data-reveal>
       <span class="eyebrow">{{ content().about.label }}</span>
       <h2 class="display-title mt-3 max-w-[16em]">{{ content().about.heading }}</h2>
       <p class="mt-5 max-w-136 font-serif text-xl leading-relaxed italic text-brand">
@@ -308,17 +247,19 @@
         <p>{{ content().about.p3 }}</p>
       </div>
 
-      <div class="mt-9 max-w-2xl border-t border-ink/10 pt-7">
-        <h3 class="eyebrow">{{ content().about.glance }}</h3>
-        <dl class="mt-5 grid grid-cols-2 gap-x-8 gap-y-6">
-          @for (fact of content().about.facts; track fact.label) {
-            <div>
-              <dt class="micro-label">{{ fact.label }}</dt>
-              <dd class="mt-1.5 text-sm font-bold text-ink">{{ fact.value }}</dd>
-            </div>
-          }
-        </dl>
-      </div>
+    </div>
+
+    <!-- Facts panel (the portrait now lives in the hero) -->
+    <div data-reveal class="lg:border-l lg:border-ink/10 lg:pt-2 lg:pl-10">
+      <h3 class="eyebrow">{{ content().about.glance }}</h3>
+      <dl class="mt-5 grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-1">
+        @for (fact of content().about.facts; track fact.label) {
+          <div>
+            <dt class="micro-label">{{ fact.label }}</dt>
+            <dd class="mt-1.5 text-sm font-bold text-ink">{{ fact.value }}</dd>
+          </div>
+        }
+      </dl>
     </div>
   </div>
 </section>

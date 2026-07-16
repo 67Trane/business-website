@@ -1,113 +1,99 @@
-<!-- Aether-style hero, adapted to the site's Angular architecture and brand system. -->
-<section
-  id="top"
-  class="relative isolate flex min-h-[max(46rem,100svh)] items-center overflow-hidden bg-[#050914] text-white"
-  (pointermove)="onPointerMove($event)"
-  (pointerleave)="clearPointer()"
->
-  <canvas
-    #networkCanvas
-    class="pointer-events-none absolute inset-0 size-full"
-    aria-hidden="true"
-  ></canvas>
-
-  <!-- Subtle brand-blue atmosphere behind the particle network. -->
+<!-- Hero Section -->
+<section id="top" class="relative min-h-screen overflow-hidden bg-canvas">
+  <!-- Parallax color blobs: each layer scrolls at its own speed for depth -->
   <div
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgb(30_82_204/20%),transparent_38%),radial-gradient(circle_at_12%_15%,rgb(83_132_255/10%),transparent_26%),radial-gradient(circle_at_88%_80%,rgb(30_82_204/12%),transparent_28%)]"
+    class="pointer-events-none absolute -top-36 -right-28 size-155 rounded-full bg-[radial-gradient(circle,rgb(30_82_204/20%),transparent_68%)] will-change-transform"
+    [style.transform]="blueBlobShift()"
     aria-hidden="true"
   ></div>
   <div
-    class="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-b from-transparent to-[#050914]"
+    class="pointer-events-none absolute right-[12%] -bottom-28 size-130 rounded-full bg-[radial-gradient(circle,rgb(244_150_98/22%),transparent_68%)] will-change-transform"
+    [style.transform]="peachBlobShift()"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute top-[28%] right-[25%] size-95 rounded-full bg-[radial-gradient(circle,rgb(92_178_235/20%),transparent_68%)] will-change-transform"
+    [style.transform]="cyanBlobShift()"
     aria-hidden="true"
   ></div>
 
-  <div
-    class="relative z-10 mx-auto flex w-full max-w-330 flex-col items-center px-5 pt-30 pb-24 text-center sm:px-9 sm:pt-34 lg:px-13"
-  >
-    <span
-      class="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-[#7193ff]/25 bg-[#1e52cc]/12 px-4 py-2 font-mono text-xs font-medium text-[#c8d5ff] backdrop-blur-md"
-    >
-      <span class="relative flex size-2">
-        <span class="absolute inline-flex size-full animate-ping rounded-full bg-[#79a0ff] opacity-50"></span>
-        <span class="relative inline-flex size-2 rounded-full bg-[#79a0ff]"></span>
-      </span>
-      {{ content().hero.available }}
-    </span>
-
-    <h1
-      class="animate-fade-up mt-7 max-w-285 font-serif text-[clamp(2.65rem,7.25vw,6.6rem)] leading-[0.98] font-medium tracking-[-0.045em] text-white [animation-delay:100ms]"
-    >
-      {{ content().hero.main }}
-      <span
-        class="block bg-linear-to-b from-[#9bb5ff] to-[#4775ec] bg-clip-text pt-2 text-transparent italic"
+  <div class="relative grid min-h-screen lg:grid-cols-[48%_52%]">
+    <!-- Photo column: oversized parallax layer inside a clipping grid cell.
+         The entrance animation sits on this cell (no inline transform here),
+         so it never clashes with the parallax transform on the inner layer. -->
+    <div class="animate-fade-in-image relative min-h-[54vh] overflow-hidden [animation-delay:300ms] lg:min-h-screen">
+      <div
+        class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
+        [style.transform]="portraitShift()"
       >
-        {{ content().hero.accent }}
-      </span>
-    </h1>
-
-    <p
-      class="animate-fade-up mt-7 max-w-190 text-[clamp(1rem,1.45vw,1.2rem)] leading-relaxed text-[#aab5d1] [animation-delay:200ms]"
-    >
-      {{ content().hero.sub }}
-    </p>
-
-    <div
-      class="animate-fade-up mt-10 flex w-full flex-col justify-center gap-3.5 [animation-delay:300ms] sm:w-auto sm:flex-row"
-    >
-      <a
-        href="#kontakt"
-        class="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-white px-7 py-4 text-md font-bold text-[#071027] shadow-[0_1rem_3rem_-1rem_rgb(66_112_234/75%)] transition hover:-translate-y-0.5 hover:bg-[#e8edff]"
-      >
-        {{ content().hero.primary }}
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          class="size-5 transition-transform group-hover:translate-x-1"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
-      </a>
-      <a
-        href="#referenzen"
-        class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/6 px-7 py-4 text-md font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-[#86a4ff]/55 hover:bg-white/10"
-      >
-        {{ content().hero.secondary }}
-      </a>
+        <!-- Blue glow behind the person -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"></div>
+        <!-- Portrait, fading out softly towards the left edge -->
+        <div class="absolute inset-x-0 top-20 h-[78%]">
+          <img
+            ngSrc="images/profile.webp"
+            fill
+            priority
+            class="object-contain object-bottom mask-[linear-gradient(to_right,transparent_0%,black_14%,black_100%)]"
+            alt="Mehmet Deliaci"
+          />
+        </div>
+        <!-- Soft blur running out over the left photo edge -->
+        <div
+          class="absolute top-20 left-0 h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)]"
+        ></div>
+        <!-- Blend right and bottom edges into the canvas background -->
+        <div class="absolute inset-y-0 right-0 w-40 bg-linear-to-r from-transparent to-canvas"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-linear-to-b from-transparent to-canvas"></div>
+      </div>
     </div>
 
-    <ul
-      class="animate-fade-up mt-12 flex max-w-240 flex-col items-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 [animation-delay:400ms] sm:flex-row sm:flex-wrap sm:justify-center"
-    >
-      @for (point of content().hero.trust; track point) {
-        <li class="flex items-center gap-2 text-sm font-medium text-[#aab5d1]">
-          <svg
-            viewBox="0 0 20 20"
-            class="size-4 shrink-0 text-[#7fa2ff]"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m4 10 3.5 3.5L16 5.5" />
-          </svg>
-          {{ point }}
-        </li>
-      }
-    </ul>
+    <!-- Copy column -->
+    <div class="relative z-10 flex flex-col justify-center px-6 pt-8 pb-16 sm:px-12 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28">
+      <span class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-50"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-brand"></span>
+        </span>
+        {{ content().hero.available }}
+      </span>
+
+      <h1 class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:100ms]">
+        {{ content().hero.main }}
+        <span class="italic text-brand">{{ content().hero.accent }}</span>
+      </h1>
+
+      <p class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:200ms]">
+        {{ content().hero.sub }}
+      </p>
+
+      <div class="animate-fade-up mt-9 flex flex-wrap gap-3.5 [animation-delay:300ms]">
+        <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
+        <a
+          href="#referenzen"
+          class="inline-flex items-center justify-center rounded-lg border border-ink/20 px-6 py-3.5 text-md font-semibold text-ink transition hover:border-brand hover:text-brand"
+        >
+          {{ content().hero.secondary }}
+        </a>
+      </div>
+
+      <ul class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:400ms]">
+        @for (point of content().hero.trust; track point) {
+          <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">
+            <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand"></span>
+            {{ point }}
+          </li>
+        }
+      </ul>
+    </div>
   </div>
 
+  <!-- Scroll indicator -->
   <div
-    class="pointer-events-none absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2.5 lg:flex"
+    class="pointer-events-none absolute bottom-9 left-[47%] hidden -translate-x-1/2 flex-col items-center gap-2.5 lg:flex"
     aria-hidden="true"
   >
-    <span class="font-mono text-[10px] tracking-[0.2em] text-white/40 uppercase">scroll</span>
-    <div class="scroll-line h-8 w-px bg-[#7193ff]/70"></div>
+    <span class="font-mono text-[10.5px] tracking-[0.18em] text-copy/50 uppercase">scroll</span>
+    <div class="scroll-line h-9 w-px bg-brand opacity-50"></div>
   </div>
 </section>
