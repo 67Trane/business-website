@@ -128,6 +128,13 @@ export const CONTENT = {
       note: 'Kostenloses Erstgespräch · 100 % unverbindlich',
       subject: 'Projektanfrage von',
     },
+    consent: {
+      text: 'Diese Website nutzt Google Ads Conversion-Tracking, um zu messen, ob Werbeanzeigen zu Anfragen führen. Cookies werden erst nach Ihrer Zustimmung gesetzt.',
+      privacy: 'Mehr in der Datenschutzerklärung.',
+      accept: 'Akzeptieren',
+      decline: 'Ablehnen',
+      label: 'Cookie-Hinweis',
+    },
     footer: {
       role: 'Webentwicklung & digitale Lösungen',
       imprint: 'Impressum',
@@ -257,6 +264,13 @@ export const CONTENT = {
       note: 'Free intro call · 100% no obligation',
       subject: 'Project inquiry from',
     },
+    consent: {
+      text: 'This site uses Google Ads conversion tracking to measure whether ads lead to enquiries. Cookies are only set after you agree.',
+      privacy: 'More in the privacy policy.',
+      accept: 'Accept',
+      decline: 'Decline',
+      label: 'Cookie notice',
+    },
     footer: {
       role: 'Web development & digital solutions',
       imprint: 'Imprint',
@@ -385,6 +399,13 @@ export const CONTENT = {
       error: 'Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.',
       note: 'Ücretsiz ön görüşme · %100 bağlayıcı değil',
       subject: 'Proje talebi',
+    },
+    consent: {
+      text: 'Bu site, reklamların talebe dönüşüp dönüşmediğini ölçmek için Google Ads dönüşüm izleme kullanır. Çerezler yalnızca onayınızdan sonra ayarlanır.',
+      privacy: 'Ayrıntılar gizlilik politikasında.',
+      accept: 'Kabul et',
+      decline: 'Reddet',
+      label: 'Çerez bildirimi',
     },
     footer: {
       role: 'Web geliştirme & dijital çözümler',

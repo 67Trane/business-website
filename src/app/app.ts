@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { Footer } from './layout/footer/footer';
 import { Header } from './layout/header/header';
 import { LanguageService } from './services/language';
+import { ConsentBanner } from './shared/consent-banner/consent-banner';
 
 /** Root shell: skip link, fixed header, routed page content, footer. */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, Header, Footer, ConsentBanner],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
   styleUrl: './app.css',

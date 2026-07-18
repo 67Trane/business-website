@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
+import { ConsentService } from '../../services/consent';
 import { Seo } from '../../services/seo';
 import { EmailLink } from '../../shared/email-link';
 
@@ -58,7 +59,34 @@ import { EmailLink } from '../../shared/email-link';
         </div>
 
         <div>
-          <h2 class="font-serif text-xl font-semibold text-ink">5. Ihre Rechte</h2>
+          <h2 class="font-serif text-xl font-semibold text-ink">
+            5. Google Ads Conversion-Tracking
+          </h2>
+          <p class="mt-3">
+            Diese Website nutzt das Conversion-Tracking von Google Ads, einen Dienst der Google
+            Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland – jedoch
+            ausschließlich, wenn Sie über den Cookie-Hinweis eingewilligt haben (Art. 6 Abs. 1
+            lit. a DSGVO). Erst nach Ihrer Einwilligung wird das Google-Tag geladen; dabei werden
+            Cookies gesetzt und beim Absenden des Kontaktformulars wird eine Conversion an Google
+            übermittelt, um den Erfolg von Werbeanzeigen zu messen. Dabei können Daten an Server
+            von Google in den USA übertragen werden. Ihre Auswahl wird lokal in Ihrem Browser
+            gespeichert. Ohne Einwilligung findet keinerlei Verbindung zu Google statt.
+          </p>
+          <p class="mt-3">
+            Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder
+            erneut erteilen:
+          </p>
+          <button
+            type="button"
+            class="mt-3 inline-flex items-center rounded-lg border border-ink/15 bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:border-brand hover:text-brand"
+            (click)="consent.reset()"
+          >
+            Cookie-Einstellungen zurücksetzen
+          </button>
+        </div>
+
+        <div>
+          <h2 class="font-serif text-xl font-semibold text-ink">6. Ihre Rechte</h2>
           <p class="mt-3">
             Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung
             der Verarbeitung Ihrer personenbezogenen Daten sowie ein Beschwerderecht bei einer
@@ -71,6 +99,7 @@ import { EmailLink } from '../../shared/email-link';
 })
 export class Privacy {
   protected readonly profile = PROFILE;
+  protected readonly consent = inject(ConsentService);
 
   constructor() {
     inject(Seo).apply({
