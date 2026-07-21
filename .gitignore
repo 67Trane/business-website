@@ -44,3 +44,6 @@ Thumbs.db
 
 # Unoptimized photo original (optimized version lives in public/images)
 /ich-original.png
+
+# Local SMTP credentials (production copy lives outside the document root)
+/private/contact-smtp.php

@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
@@ -21,6 +23,40 @@ function input(string $key): string
 function textLength(string $value): int
 {
     return function_exists('mb_strlen') ? mb_strlen($value, 'UTF-8') : strlen($value);
+}
+
+/** @return array{host: string, port: int, username: string, password: string} */
+function smtpConfig(): array
+{
+    $configPath = $_SERVER['CONTACT_SMTP_CONFIG'] ?? getenv('CONTACT_SMTP_CONFIG');
+    if (!is_string($configPath) || trim($configPath) === '') {
+        $configPath = dirname(__DIR__) . '/private/contact-smtp.php';
+    }
+
+    if (!is_readable($configPath)) {
+        throw new RuntimeException('SMTP configuration is missing.');
+    }
+
+    $config = require $configPath;
+    if (!is_array($config)) {
+        throw new RuntimeException('SMTP configuration is invalid.');
+    }
+
+    $host = trim((string) ($config['host'] ?? ''));
+    $port = (int) ($config['port'] ?? 0);
+    $username = trim((string) ($config['username'] ?? ''));
+    $password = (string) ($config['password'] ?? '');
+
+    if ($host === '' || $port < 1 || $username === '' || $password === '') {
+        throw new RuntimeException('SMTP configuration is incomplete.');
+    }
+
+    return [
+        'host' => $host,
+        'port' => $port,
+        'username' => $username,
+        'password' => $password,
+    ];
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
@@ -57,8 +93,8 @@ if (
 }
 
 $recipient = 'info@mehmet-deliaci.net';
+$sender = 'noreply@mehmet-deliaci.net';
 $subject = 'Neue Projektanfrage von ' . $name;
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 $body = implode("\n", [
     'Neue Anfrage über mehmet-deliaci.net',
     '',
@@ -69,15 +105,37 @@ $body = implode("\n", [
     'Nachricht:',
     $message,
 ]);
-$headers = implode("\r\n", [
-    'From: Website <noreply@mehmet-deliaci.net>',
-    'Reply-To: ' . $email,
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-]);
 
-if (!mail($recipient, $encodedSubject, $body, $headers)) {
+try {
+    $smtp = smtpConfig();
+
+    require_once __DIR__ . '/vendor/phpmailer/src/Exception.php';
+    require_once __DIR__ . '/vendor/phpmailer/src/PHPMailer.php';
+    require_once __DIR__ . '/vendor/phpmailer/src/SMTP.php';
+
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host = $smtp['host'];
+    $mail->Port = $smtp['port'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtp['username'];
+    $mail->Password = $smtp['password'];
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Timeout = 10;
+
+    $mail->CharSet = PHPMailer::CHARSET_UTF8;
+    $mail->Encoding = PHPMailer::ENCODING_QUOTED_PRINTABLE;
+    $mail->Hostname = 'mehmet-deliaci.net';
+    $mail->setFrom($sender, 'Website');
+    $mail->Sender = $sender;
+    $mail->addAddress($recipient);
+    $mail->addReplyTo($email, $name);
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $mail->isHTML(false);
+    $mail->send();
+} catch (Throwable $exception) {
+    error_log('Contact form delivery failed: ' . $exception->getMessage());
     respond(500, 'The message could not be sent.');
 }
 
