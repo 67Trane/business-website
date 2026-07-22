@@ -266,6 +266,40 @@
   }
 }
 
+/* Demo mockup: lies tilted back in 3D and stands upright while scrolling into
+   view – the demos section's own proof of its "scroll effects" claim.
+   Transform-only and scroll-timeline-driven, so it runs off the main thread;
+   without support the mockup simply renders flat. */
+@supports (animation-timeline: view()) {
+  .demo-tilt {
+    /* The 1s duration is a placeholder – scroll timelines map progress to the
+       animation-range; a missing (0s) duration would jump straight to the end.
+       Linear timing: the scroll movement itself provides the easing. */
+    animation: demo-straighten 1s linear both;
+    animation-timeline: view();
+    /* Start once the mockup is 40% visible (still fully tilted in view) and
+       finish just past the viewport center – the whole straightening happens
+       where the visitor is actually looking. */
+    animation-range: entry 40% cover 65%;
+    transform-origin: 50% 100%;
+  }
+}
+
+@keyframes demo-straighten {
+  from {
+    transform: perspective(1100px) rotateX(42deg) scale(0.86) translateY(3rem);
+  }
+  to {
+    transform: perspective(1100px) rotateX(0deg) scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-tilt {
+    animation: none;
+  }
+}
+
 /* Hero scroll indicator line */
 @keyframes scroll-line {
   0% {
