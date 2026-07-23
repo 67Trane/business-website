@@ -103,9 +103,10 @@ export class Privacy {
 
   constructor() {
     inject(Seo).apply({
-      path: '/datenschutz',
+      path: '/datenschutz/',
       description: 'Datenschutzerklärung von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
       noindex: true,
+      breadcrumb: 'Datenschutz',
     });
   }
 }

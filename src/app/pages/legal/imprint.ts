@@ -55,9 +55,10 @@ export class Imprint {
 
   constructor() {
     inject(Seo).apply({
-      path: '/impressum',
+      path: '/impressum/',
       description: 'Impressum von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
       noindex: true,
+      breadcrumb: 'Impressum',
     });
   }
 }

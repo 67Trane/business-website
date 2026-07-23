@@ -17,14 +17,13 @@ Sprache der Website: Deutsch (Inhalte zusätzlich auf Englisch und Türkisch ums
 - Wartung & Weiterentwicklung: laufende Pflege, Updates und Ausbau bestehender Websites
 - Automatisierung & Tools: individuelle Python-Programme für Datenzusammenführung und Berichte
 
-## Projekte
+## Demo-Websites
 
-- [Portfolio-Übersicht](https://mehmet-deliaci.net/#referenzen): alle Referenzprojekte
-- [Join](https://mehmet-deliaci.net/join): Projektmanagement-Tool im Kanban-Stil (Angular, TypeScript, Firebase)
-- [Videoflix](https://mehmet-deliaci.net/#referenzen): Video-Streaming-Plattform (Django, DRF, PostgreSQL, Docker)
-- [Coderr](https://mehmet-deliaci.net/#referenzen): REST-API für eine Dienstleister-Plattform (Python, DRF, JWT)
-- [Nightstalker](https://mehmet-deliaci.net/nightstalker): interaktives Browser-Game (JavaScript, Canvas)
-- [GitHub](https://github.com/67Trane): Quellcode der Projekte
+- [Demo-Übersicht](https://mehmet-deliaci.net/#referenzen): vollständige Demo-Websites für
+  einzelne Branchen – funktionsfähig, mit Scroll-Effekten und Animationen, als Arbeitsprobe
+- [Demo Immobilienmakler](https://mehmet-deliaci.net/demos/immobilienmakler): Beispiel-Website
+  für ein fiktives Maklerbüro („Weber & Stein") – zeigt Design, Ladezeit und Responsive-Umsetzung
+- [GitHub](https://github.com/67Trane): Quellcode und weitere Projekte
 
 ## Häufige Fragen
 

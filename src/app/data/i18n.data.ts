@@ -62,8 +62,8 @@ export const CONTENT = {
     services: {
       label: 'Leistungen',
       heading: 'Alles, was Ihre digitale Präsenz braucht.',
-      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da – vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
-        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernen Animationen und Scroll-Effekten – so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
+      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da – Webdesign und Entwicklung für kleine und mittlere Unternehmen, vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
+        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernem Webdesign, Animationen und Scroll-Effekten – so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
         { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen – vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
         { title: 'Anbindungen & Schnittstellen', description: 'Ihre Website spricht mit Kasse, Kalender oder Warenwirtschaft: Ich verbinde Ihre Systeme sicher miteinander, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
         { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden – damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
@@ -212,8 +212,8 @@ export const CONTENT = {
     services: {
       label: 'Services',
       heading: 'Everything your digital presence needs.',
-      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for – from the first draft to ongoing support.",      items: [
-        { title: 'Websites & landing pages', description: 'Custom company sites with modern animations and scroll effects – just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
+      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for – web design and development for small and medium-sized businesses, from the first draft to ongoing support.",      items: [
+        { title: 'Websites & landing pages', description: 'Custom company sites with modern web design, animations and scroll effects – just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
         { title: 'Web applications', description: 'Custom programs that run in the browser – from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
         { title: 'Integrations & connections', description: 'Your website talks to your till, calendar or inventory system: I connect your systems securely so data lands automatically where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
         { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google – so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
@@ -362,8 +362,8 @@ export const CONTENT = {
     services: {
       label: 'Hizmetler',
       heading: 'Dijital varlığınızın ihtiyacı olan her şey.',
-      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım – ilk taslaktan sürekli desteğe.',      items: [
-        { title: 'Web siteleri & açılış sayfaları', description: 'Modern animasyonlar ve kaydırma efektleriyle özel kurumsal siteler – tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
+      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım – küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme, ilk taslaktan sürekli desteğe.',      items: [
+        { title: 'Web siteleri & açılış sayfaları', description: 'Modern web tasarımı, animasyonlar ve kaydırma efektleriyle özel kurumsal siteler – tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
         { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar – kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
         { title: 'Entegrasyonlar & bağlantılar', description: 'Web siteniz kasa, takvim veya stok sisteminizle konuşur: Sistemlerinizi güvenle birbirine bağlarım, veriler ihtiyacınız olan yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
         { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur – ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },

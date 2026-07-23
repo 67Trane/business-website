@@ -22,7 +22,7 @@
          The entrance animation sits on this cell (no inline transform here),
          so it never clashes with the parallax transform on the inner layer. -->
     <div
-      class="animate-fade-in-image relative min-h-[54vh] overflow-hidden [animation-delay:300ms] lg:min-h-screen"
+      class="animate-fade-in-image relative min-h-[32vh] overflow-hidden [animation-delay:300ms] sm:min-h-[54vh] lg:min-h-screen"
     >
       <div
         class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
@@ -58,7 +58,7 @@
 
     <!-- Copy column -->
     <div
-      class="relative z-10 flex flex-col justify-center px-6 pt-8 pb-16 sm:px-12 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
+      class="relative z-10 flex flex-col justify-center px-6 pt-5 pb-16 sm:px-12 sm:pt-8 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
     >
       <span
         class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand"
@@ -73,7 +73,7 @@
       </span>
 
       <h1
-        class="animate-fade-up mt-6 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:120ms]"
+        class="animate-fade-up mt-5 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:120ms] sm:mt-6"
       >
         {{ content().hero.headlineStart }}
         <br />
@@ -93,12 +93,12 @@
       </h1>
 
       <p
-        class="animate-fade-up mt-6 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:240ms]"
+        class="animate-fade-up mt-3 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:240ms] sm:mt-6"
       >
         {{ content().hero.sub }}
       </p>
 
-      <div class="animate-fade-up mt-9 flex flex-wrap gap-3.5 [animation-delay:360ms]">
+      <div class="animate-fade-up mt-5 flex flex-wrap gap-3.5 [animation-delay:360ms] sm:mt-9">
         <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
         <a
           href="#referenzen"
