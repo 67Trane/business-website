@@ -19,6 +19,8 @@ export const CONTENT = {
       sub: 'Als Freelance-Webentwickler aus Weißenburg entwickle ich moderne Websites und Web-Apps für Ihr Unternehmen und betreue sie zuverlässig weiter – von der Idee bis zum Launch, alles aus einer Hand.',
       primary: 'Kostenloses Erstgespräch',
       secondary: 'Demos ansehen',
+      callLabel: 'Oder rufen Sie direkt an',
+      whatsapp: 'WhatsApp-Chat starten',
       trust: [
         'Maßgeschneidert statt Baukasten',
         'Schnell & bei Google sichtbar',
@@ -136,6 +138,10 @@ export const CONTENT = {
       note: 'Kostenloses Erstgespräch · 100 % unverbindlich',
       subject: 'Projektanfrage von',
     },
+    stickyBar: {
+      call: 'Anrufen',
+      whatsapp: 'WhatsApp',
+    },
     consent: {
       text: 'Diese Website nutzt Google Ads Conversion-Tracking, um zu messen, ob Werbeanzeigen zu Anfragen führen. Cookies werden erst nach Ihrer Zustimmung gesetzt.',
       privacy: 'Mehr in der Datenschutzerklärung.',
@@ -167,6 +173,8 @@ export const CONTENT = {
       sub: 'As a freelance web developer based in Weißenburg (Bavaria), I build modern websites and web apps for your business and keep them running reliably – from idea to launch, everything from a single source.',
       primary: 'Free intro call',
       secondary: 'See the demos',
+      callLabel: 'Or call me directly',
+      whatsapp: 'Start WhatsApp chat',
       trust: ['Tailor-made, not templates', 'Fast & visible on Google', 'One contact from concept to launch'],
     },
     trustBar: [
@@ -280,6 +288,10 @@ export const CONTENT = {
       note: 'Free intro call · 100% no obligation',
       subject: 'Project inquiry from',
     },
+    stickyBar: {
+      call: 'Call',
+      whatsapp: 'WhatsApp',
+    },
     consent: {
       text: 'This site uses Google Ads conversion tracking to measure whether ads lead to enquiries. Cookies are only set after you agree.',
       privacy: 'More in the privacy policy.',
@@ -311,6 +323,8 @@ export const CONTENT = {
       sub: 'Weißenburg merkezli freelance web geliştirici olarak işletmeniz için modern web siteleri ve web uygulamaları geliştiriyor, sonrasında da güvenilir şekilde destekliyorum – fikirden lansmana, hepsi tek elden.',
       primary: 'Ücretsiz ön görüşme',
       secondary: 'Demoları gör',
+      callLabel: 'Ya da doğrudan arayın',
+      whatsapp: 'WhatsApp sohbeti başlat',
       trust: ['Hazır şablon değil, size özel', 'Hızlı & Google’da görünür', 'Fikirden lansmana tek muhatap'],
     },
     trustBar: [
@@ -423,6 +437,10 @@ export const CONTENT = {
       error: 'Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.',
       note: 'Ücretsiz ön görüşme · %100 bağlayıcı değil',
       subject: 'Proje talebi',
+    },
+    stickyBar: {
+      call: 'Ara',
+      whatsapp: 'WhatsApp',
     },
     consent: {
       text: 'Bu site, reklamların talebe dönüşüp dönüşmediğini ölçmek için Google Ads dönüşüm izleme kullanır. Çerezler yalnızca onayınızdan sonra ayarlanır.',

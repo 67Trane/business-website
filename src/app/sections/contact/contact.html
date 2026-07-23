@@ -14,8 +14,28 @@
         appEmail
         class="mt-2 inline-block border-b-2 border-ink/20 pb-1 font-serif text-[clamp(1.25rem,2.5vw,1.5rem)] text-ink hover:border-brand hover:text-brand"
       ></a>
+      <br />
+      <a
+        [href]="profile.phoneHref"
+        class="mt-4 inline-block border-b-2 border-ink/20 pb-1 font-serif text-[clamp(1.25rem,2.5vw,1.5rem)] text-ink hover:border-brand hover:text-brand"
+        (click)="consent.trackContactClick('phone')"
+      >
+        {{ profile.phone }}
+      </a>
 
       <ul class="mt-7 flex flex-wrap gap-2.5">
+        <li>
+          <a
+            [href]="profile.whatsappUrl"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-lg bg-[#25d366] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
+            (click)="consent.trackContactClick('whatsapp')"
+          >
+            <app-icon name="whatsapp" class="size-4" />
+            WhatsApp
+          </a>
+        </li>
         @for (link of socialLinks; track link.name) {
           <li>
             <a
@@ -58,7 +78,7 @@
         {{ content().contact.project }}
         <textarea name="message" rows="5" required [placeholder]="content().contact.projectPlaceholder" class="resize-y rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none"></textarea>
       </label>
-      <div class="absolute -left-[10000px]" aria-hidden="true">
+      <div class="absolute left-[-10000px]" aria-hidden="true">
         <label>
           Website
           <input name="website" type="text" tabindex="-1" autocomplete="off" />

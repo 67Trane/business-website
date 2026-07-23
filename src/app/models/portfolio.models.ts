@@ -27,6 +27,12 @@ export interface DemoSite {
 export interface Profile {
   name: string;
   email: string;
+  /** Display format, e.g. "+49 15567 432567". */
+  phone: string;
+  /** `tel:`-link target (no spaces). */
+  phoneHref: string;
+  /** WhatsApp deep link (wa.me). */
+  whatsappUrl: string;
   githubUrl: string;
   linkedinUrl: string;
 }

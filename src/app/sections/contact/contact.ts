@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ConsentService } from '../../services/consent';
 import { LanguageService } from '../../services/language';
-import { SOCIAL_LINKS } from '../../data/site.data';
+import { PROFILE, SOCIAL_LINKS } from '../../data/site.data';
 import { EmailLink } from '../../shared/email-link';
 import { Icon } from '../../shared/icon/icon';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
@@ -14,8 +14,9 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
 })
 export class Contact {
   protected readonly socialLinks = SOCIAL_LINKS;
+  protected readonly profile = PROFILE;
   protected readonly content = inject(LanguageService).content;
-  private readonly consent = inject(ConsentService);
+  protected readonly consent = inject(ConsentService);
   protected readonly submitState = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   protected async onSubmit(event: SubmitEvent): Promise<void> {

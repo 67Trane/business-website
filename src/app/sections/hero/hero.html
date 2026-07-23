@@ -108,6 +108,39 @@
         </a>
       </div>
 
+      <!-- Direct contact: visible phone number + WhatsApp – the lowest-friction CTAs for ads traffic -->
+      <div
+        class="animate-fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3.5 [animation-delay:420ms]"
+      >
+        <a
+          [href]="profile.phoneHref"
+          class="group inline-flex items-center gap-3 text-ink transition hover:text-brand"
+          (click)="consent.trackContactClick('phone')"
+        >
+          <span
+            class="flex size-11 items-center justify-center rounded-full bg-brand/10 text-brand transition group-hover:bg-brand group-hover:text-white"
+          >
+            <app-icon name="phone" class="size-4.5" />
+          </span>
+          <span class="flex flex-col leading-tight">
+            <span class="text-xs font-medium text-copy">{{ content().hero.callLabel }}</span>
+            <span class="text-lg font-bold tracking-tight whitespace-nowrap">{{
+              profile.phone
+            }}</span>
+          </span>
+        </a>
+        <a
+          [href]="profile.whatsappUrl"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2.5 rounded-lg bg-[#25d366] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
+          (click)="consent.trackContactClick('whatsapp')"
+        >
+          <app-icon name="whatsapp" class="size-4.5" />
+          {{ content().hero.whatsapp }}
+        </a>
+      </div>
+
       <ul
         class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:480ms]"
       >

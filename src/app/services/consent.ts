@@ -62,6 +62,19 @@ export class ConsentService {
     });
   }
 
+  /**
+   * Reports a click on a direct-contact CTA (phone / WhatsApp) to Google Ads.
+   * Uses the lead conversion label until dedicated conversion actions exist in
+   * the Ads account; the event name still separates the channels there.
+   */
+  trackContactClick(channel: 'phone' | 'whatsapp'): void {
+    if (!this.isBrowser || this.status() !== 'granted') return;
+    window.gtag?.('event', 'conversion', {
+      send_to: `${ADS_ID}/${LEAD_CONVERSION_LABEL}`,
+      contact_channel: channel,
+    });
+  }
+
   /* localStorage can be missing or blocked (jsdom tests, locked-down
      browsers); consent then simply isn't persisted across visits. */
   private readStoredChoice(): string | null {
