@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Mehmet Deliaci · Freelance-Webentwickler in Weißenburg – Websites & Web-Apps',
+    title: 'Webentwickler Weißenburg – Websites & Web-Apps | Mehmet Deliaci',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
   {

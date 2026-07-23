@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <title>Mehmet Deliaci · Freelance-Webentwickler in Weißenburg – Websites & Web-Apps</title>
+    <title>Webentwickler Weißenburg – Websites & Web-Apps | Mehmet Deliaci</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
@@ -20,7 +20,7 @@
     <!-- Social sharing (Open Graph + Twitter) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mehmet Deliaci" />
-    <meta property="og:title" content="Mehmet Deliaci · Freelance-Webentwickler in Weißenburg – Websites & Web-Apps" />
+    <meta property="og:title" content="Webentwickler Weißenburg – Websites & Web-Apps | Mehmet Deliaci" />
     <meta
       property="og:description"
       content="Freelance-Webentwickler aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen und Automatisierungen – maßgeschneidert für Ihr Unternehmen."
@@ -33,7 +33,8 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Structured data: linked entity graph (WebSite + Person + ProfessionalService
-         + portfolio). Address stays locality-only, no telephone/email (privacy). -->
+         + demo showcase). Address stays locality-only; the phone number is public
+         (it appears as a CTA on the page and in Google Ads call assets). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -66,6 +67,7 @@
             "name": "Mehmet Deliaci – Webentwicklung & digitale Lösungen",
             "url": "https://mehmet-deliaci.net/",
             "image": "https://mehmet-deliaci.net/images/og.jpg",
+            "telephone": "+4915567432567",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Weißenburg in Bayern",
@@ -90,59 +92,17 @@
           },
           {
             "@type": "ItemList",
-            "name": "Ausgewählte Projekte",
+            "name": "Demo-Websites",
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
                 "item": {
-                  "@type": "SoftwareSourceCode",
-                  "name": "Join",
-                  "description": "Projektmanagement-Tool im Kanban-Stil mit Drag & Drop, Kontaktverwaltung und Authentifizierung.",
-                  "codeRepository": "https://github.com/67Trane/join",
-                  "url": "https://mehmet-deliaci.net/join",
-                  "programmingLanguage": ["TypeScript"],
-                  "keywords": ["Angular", "TypeScript", "Firebase", "Tailwind"],
-                  "author": { "@id": "https://mehmet-deliaci.net/#person" }
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                  "@type": "SoftwareSourceCode",
-                  "name": "Videoflix",
-                  "description": "Video-Streaming-Plattform mit Django-Backend, REST-API und automatischer Video-Konvertierung.",
-                  "codeRepository": "https://github.com/67Trane/videoflix",
-                  "programmingLanguage": ["Python"],
-                  "keywords": ["Django", "DRF", "PostgreSQL", "Docker"],
-                  "author": { "@id": "https://mehmet-deliaci.net/#person" }
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                  "@type": "SoftwareSourceCode",
-                  "name": "Coderr",
-                  "description": "REST-API für eine Dienstleister-Plattform mit Angeboten, Bestellungen und Bewertungssystem.",
-                  "codeRepository": "https://github.com/67Trane/coderr",
-                  "programmingLanguage": ["Python"],
-                  "keywords": ["Python", "DRF", "JWT"],
-                  "author": { "@id": "https://mehmet-deliaci.net/#person" }
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
-                "item": {
-                  "@type": "SoftwareSourceCode",
-                  "name": "Nightstalker",
-                  "description": "Interaktives Browser-Game auf Canvas-Basis mit eigener Spiellogik, Animationen und Sound.",
-                  "codeRepository": "https://github.com/67Trane/nightstalker",
-                  "url": "https://mehmet-deliaci.net/nightstalker",
-                  "programmingLanguage": ["JavaScript"],
-                  "keywords": ["JavaScript", "OOP", "Canvas"],
+                  "@type": "CreativeWork",
+                  "name": "Weber & Stein – Demo-Website für Immobilienmakler",
+                  "description": "Voll funktionsfähige Demo-Website für ein fiktives Münchner Maklerbüro: Scroll-Animationen, responsives Design und klare Führung zur Kontaktanfrage.",
+                  "url": "https://mehmet-deliaci.net/demos/immobilienmakler",
+                  "genre": "Immobilienmakler",
                   "author": { "@id": "https://mehmet-deliaci.net/#person" }
                 }
               }
