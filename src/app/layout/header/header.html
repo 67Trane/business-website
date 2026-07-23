@@ -32,9 +32,9 @@
 
     <ul class="hidden items-center gap-6 lg:flex">
       <li><a routerLink="/" fragment="leistungen" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.services }}</a></li>
-      <li><a routerLink="/" fragment="ueber-mich" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.about }}</a></li>
-      <li><a routerLink="/" fragment="ablauf" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.process }}</a></li>
       <li><a routerLink="/" fragment="referenzen" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.work }}</a></li>
+      <li><a routerLink="/" fragment="ablauf" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.process }}</a></li>
+      <li><a routerLink="/" fragment="ueber-mich" class="text-sm font-medium transition-colors duration-300" [class]="navLinkClass()">{{ i18n.content().nav.about }}</a></li>
     </ul>
 
     <div
@@ -104,9 +104,9 @@
       </div>
       <ul class="space-y-1">
         <li><a routerLink="/" fragment="leistungen" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.services }}</a></li>
-        <li><a routerLink="/" fragment="ueber-mich" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.about }}</a></li>
-        <li><a routerLink="/" fragment="ablauf" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.process }}</a></li>
         <li><a routerLink="/" fragment="referenzen" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.work }}</a></li>
+        <li><a routerLink="/" fragment="ablauf" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.process }}</a></li>
+        <li><a routerLink="/" fragment="ueber-mich" class="block rounded-lg px-3 py-3 text-sm font-semibold text-copy hover:bg-white hover:text-brand" (click)="closeMenu()">{{ i18n.content().nav.about }}</a></li>
         <li class="md:hidden"><a routerLink="/" fragment="kontakt" class="primary-button mt-3 w-full" (click)="closeMenu()">{{ i18n.content().nav.cta }}</a></li>
       </ul>
     </div>

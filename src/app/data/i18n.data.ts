@@ -39,7 +39,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Was kostet eine Website?',
-          a: 'Das hängt vom Umfang ab – eine kompakte Unternehmensseite kostet deutlich weniger als eine individuelle Web-Anwendung. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
+          a: 'Eine kompakte Unternehmensseite startet bei 1.500 € – eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
         },
         {
           q: 'Wie lange dauert die Umsetzung?',
@@ -81,6 +81,9 @@ export const CONTENT = {
         { title: 'Design & Entwicklung', description: 'Ich setze Ihr Projekt in klaren Etappen um, mit regelmäßigen Zwischenständen und direkter Kommunikation.' },
         { title: 'Launch & Support', description: 'Nach dem Go-live übernehme ich auf Wunsch Wartung, Updates und Weiterentwicklung.' },
       ],
+      ctaLead: 'Klingt nach einem guten Plan?',
+      cta: 'Kostenloses Erstgespräch vereinbaren',
+      ctaNote: 'Unverbindlich · Antwort in unter 24 Stunden',
     },
     projects: {
       label: 'Demo-Websites',
@@ -131,11 +134,14 @@ export const CONTENT = {
       companyPlaceholder: 'Ihr Unternehmen',
       project: 'Ihr Projekt',
       projectPlaceholder: 'Worum geht es? Ein paar Sätze genügen.',
-      send: 'Anfrage senden',
+      send: 'Kostenloses Erstgespräch anfordern',
       sending: 'Wird gesendet …',
       success: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.',
       error: 'Das Senden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.',
-      note: 'Kostenloses Erstgespräch · 100 % unverbindlich',
+      note: '100 % unverbindlich · Antwort innerhalb von 24 Stunden',
+      proofLabel: 'Meine Arbeitsprobe',
+      proofText:
+        'Diese Website ist meine Referenz: 100/100 bei Google PageSpeed, barrierefrei nach WCAG AA und in unter einer Sekunde geladen. Ihre Website bekommt denselben Standard – messen Sie gern nach.',
       subject: 'Projektanfrage von',
     },
     stickyBar: {
@@ -189,7 +195,7 @@ export const CONTENT = {
       items: [
         {
           q: 'What does a website cost?',
-          a: 'It depends on the scope – a compact company site costs far less than a custom web application. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
+          a: 'A compact company website starts at €1,500 – a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
         },
         {
           q: 'How long does it take?',
@@ -231,6 +237,9 @@ export const CONTENT = {
         { title: 'Design & build', description: 'I deliver your project in clear stages, with regular updates and direct communication.' },
         { title: 'Launch & support', description: 'After go-live I can handle maintenance, updates and further development.' },
       ],
+      ctaLead: 'Sounds like a plan?',
+      cta: 'Book your free intro call',
+      ctaNote: 'No obligation · Reply within 24 hours',
     },
     projects: {
       label: 'Demo websites',
@@ -281,11 +290,14 @@ export const CONTENT = {
       companyPlaceholder: 'Your company',
       project: 'Your project',
       projectPlaceholder: 'What is it about? A few sentences are enough.',
-      send: 'Send request',
+      send: 'Request your free intro call',
       sending: 'Sending …',
       success: 'Thank you! Your request was sent successfully.',
       error: 'Sending failed. Please try again or email me directly.',
-      note: 'Free intro call · 100% no obligation',
+      note: '100% no obligation · Reply within 24 hours',
+      proofLabel: 'My work sample',
+      proofText:
+        'This website is my reference: 100/100 on Google PageSpeed, WCAG AA accessible and loaded in under a second. Your website gets the same standard – feel free to measure it.',
       subject: 'Project inquiry from',
     },
     stickyBar: {
@@ -339,7 +351,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Bir web sitesi ne kadara mal olur?',
-          a: 'Kapsama bağlıdır – kompakt bir kurumsal site, özel bir web uygulamasından çok daha uygundur. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
+          a: 'Kompakt bir kurumsal web sitesi 1.500 €’dan başlar – özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
         },
         {
           q: 'Ne kadar sürer?',
@@ -381,6 +393,9 @@ export const CONTENT = {
         { title: 'Tasarım & geliştirme', description: 'Projenizi net aşamalarda, düzenli güncellemeler ve doğrudan iletişimle hayata geçiririm.' },
         { title: 'Lansman & destek', description: 'Yayına aldıktan sonra bakım, güncelleme ve geliştirmeyi üstlenebilirim.' },
       ],
+      ctaLead: 'Kulağa iyi bir plan gibi mi geliyor?',
+      cta: 'Ücretsiz ön görüşme ayarlayın',
+      ctaNote: 'Bağlayıcı değil · 24 saatten kısa sürede yanıt',
     },
     projects: {
       label: 'Demo web siteleri',
@@ -431,11 +446,14 @@ export const CONTENT = {
       companyPlaceholder: 'Şirketiniz',
       project: 'Projeniz',
       projectPlaceholder: 'Proje ne hakkında? Birkaç cümle yeterli.',
-      send: 'Talep gönder',
+      send: 'Ücretsiz ön görüşme talep et',
       sending: 'Gönderiliyor …',
       success: 'Teşekkürler! Talebiniz başarıyla gönderildi.',
       error: 'Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.',
-      note: 'Ücretsiz ön görüşme · %100 bağlayıcı değil',
+      note: '%100 bağlayıcı değil · 24 saat içinde yanıt',
+      proofLabel: 'Çalışma örneğim',
+      proofText:
+        'Bu web sitesi benim referansım: Google PageSpeed puanı 100/100, WCAG AA erişilebilirlik ve 1 saniyenin altında yüklenme. Sizin siteniz de aynı standardı alır – dilediğiniz zaman ölçün.',
       subject: 'Proje talebi',
     },
     stickyBar: {

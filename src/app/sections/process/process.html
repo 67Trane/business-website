@@ -50,5 +50,17 @@
         }
       </ol>
     </div>
+
+    <!-- Mid-page CTA: catches visitors convinced by the process, before the long scroll to the form -->
+    <div
+      data-reveal
+      class="mt-16 flex flex-col items-center gap-5 rounded-[20px] border border-brand/10 bg-white px-6 py-10 text-center shadow-[0_24px_52px_-32px_rgb(30_82_204/22%)] sm:py-12"
+    >
+      <p class="font-serif text-2xl font-medium text-ink sm:text-3xl">
+        {{ content().process.ctaLead }}
+      </p>
+      <a href="#kontakt" class="primary-button">{{ content().process.cta }} <span>→</span></a>
+      <p class="font-mono text-xs text-copy">{{ content().process.ctaNote }}</p>
+    </div>
   </div>
 </section>
