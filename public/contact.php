@@ -72,6 +72,7 @@ if (input('website') !== '') {
 $name = input('name');
 $email = input('email');
 $company = input('company');
+$phone = input('phone');
 $message = input('message');
 
 if (
@@ -87,6 +88,7 @@ if (
     textLength($name) > 100 ||
     textLength($email) > 254 ||
     textLength($company) > 150 ||
+    textLength($phone) > 50 ||
     textLength($message) > 5000
 ) {
     respond(422, 'One or more fields are too long.');
@@ -100,6 +102,7 @@ $body = implode("\n", [
     '',
     'Name: ' . $name,
     'E-Mail: ' . $email,
+    'Telefon: ' . ($phone !== '' ? preg_replace('/[\r\n]+/', ' ', $phone) : '–'),
     'Unternehmen: ' . ($company !== '' ? $company : '–'),
     '',
     'Nachricht:',

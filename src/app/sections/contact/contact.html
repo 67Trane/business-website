@@ -76,10 +76,16 @@
           <input name="email" type="email" required autocomplete="email" [placeholder]="content().contact.emailPlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
         </label>
       </div>
-      <label class="mt-4 flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
-        {{ content().contact.company }}
-        <input name="company" type="text" autocomplete="organization" [placeholder]="content().contact.companyPlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
-      </label>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <label class="flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+          {{ content().contact.company }}
+          <input name="company" type="text" autocomplete="organization" [placeholder]="content().contact.companyPlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
+        </label>
+        <label class="flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
+          {{ content().contact.phone }}
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" [placeholder]="content().contact.phonePlaceholder" class="rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none" />
+        </label>
+      </div>
       <label class="mt-4 flex flex-col gap-2 text-xs font-bold tracking-wide text-copy uppercase">
         {{ content().contact.project }}
         <textarea name="message" rows="5" required [placeholder]="content().contact.projectPlaceholder" class="resize-y rounded-lg border-2 border-transparent bg-canvas px-4 py-3 text-base font-normal text-ink normal-case placeholder:text-copy/50 focus:border-brand/35 focus:outline-none"></textarea>
