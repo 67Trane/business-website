@@ -1,0 +1,68 @@
+<!-- Browser chrome for realism -->
+<div class="ba-chrome" aria-hidden="true">
+  <span class="ba-dot" style="background: #ff5f57"></span>
+  <span class="ba-dot" style="background: #febc2e"></span>
+  <span class="ba-dot" style="background: #28c840"></span>
+  <span class="ba-url">weber-stein-immobilien.de</span>
+</div>
+
+<div class="ba-stage">
+  <!-- AFTER: the modern demo screenshot (base layer) -->
+  <img
+    class="ba-after"
+    [src]="demo.image"
+    [width]="demo.imageWidth"
+    [height]="demo.imageHeight"
+    [alt]="content().projects.imageAlt"
+    loading="lazy"
+    draggable="false"
+  />
+
+  <!-- BEFORE: a deliberately dated site, built in markup (not a fabricated
+       client screenshot). Clipped to the left of the handle via --pos. -->
+  <div class="ba-before" aria-hidden="true">
+    <div class="ba-old">
+      <div class="ba-old-band">
+        <span class="ba-old-logo">▲ Weber &amp; Stein</span>
+        <span class="ba-old-sub">IMMOBILIEN · MÜNCHEN</span>
+      </div>
+      <div class="ba-old-nav">
+        <span>Startseite</span>·<span>Objekte</span>·<span>Über&nbsp;uns</span>·<span>Kontakt</span>·<span>Gästebuch</span>
+      </div>
+      <div class="ba-old-welcome">Willkommen auf unserer Homepage!</div>
+      <div class="ba-old-body">
+        <div class="ba-old-photo">Foto folgt<br />in Kürze</div>
+        <p class="ba-old-text">
+          Wir vermitteln seit 1998 hochwertige Wohn&shy;immobilien in München und
+          Umgebung. Klicken Sie auf <u>Objekte</u> für unsere aktuellen Angebote!
+          <span class="ba-old-new">★ NEU ★</span>
+        </p>
+      </div>
+      <div class="ba-old-foot">
+        Sie sind Besucher Nr. 004213 &nbsp;·&nbsp; Beste Ansicht mit 1024×768 &nbsp;·&nbsp;
+        Letzte Aktualisierung: 12.03.2009
+      </div>
+    </div>
+  </div>
+
+  <!-- Corner labels -->
+  <span class="ba-tag ba-tag-before">{{ content().projects.slider.before }}</span>
+  <span class="ba-tag ba-tag-after">{{ content().projects.slider.after }}</span>
+
+  <!-- Handle -->
+  <div class="ba-handle" aria-hidden="true">
+    <span class="ba-grabber">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 7 4 12l5 5M15 7l5 5-5 5" />
+      </svg>
+    </span>
+  </div>
+</div>
+
+<!-- Drag hint -->
+<div class="ba-hint" aria-hidden="true">
+  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 7 4 12l5 5M15 7l5 5-5 5" />
+  </svg>
+  {{ content().projects.slider.hint }}
+</div>

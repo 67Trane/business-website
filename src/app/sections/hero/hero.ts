@@ -30,6 +30,16 @@ export class Hero {
   private readonly destroyRef = inject(DestroyRef);
   private readonly reducedMotion =
     typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /**
+   * Scroll parallax runs only on pointer-fine, large viewports. ~90% of visitors
+   * are on phones (per Google Ads), where the effect is barely visible on the
+   * short hero photo but would cost main-thread work on every scroll frame
+   * (INP/jank/battery). On touch/small screens the transforms stay at identity.
+   */
+  private readonly parallaxEnabled =
+    typeof matchMedia !== 'undefined' &&
+    !this.reducedMotion &&
+    matchMedia('(min-width: 64rem) and (pointer: fine)').matches;
   private readonly scrollY = signal(0);
   private readonly rotatingWordIndex = signal(0);
   private readonly previousRotatingWord = signal<string | null>(null);
@@ -68,7 +78,7 @@ export class Hero {
   }
 
   protected onWindowScroll(): void {
-    if (!this.reducedMotion) {
+    if (this.parallaxEnabled) {
       this.scrollY.set(Math.min(window.scrollY, 1000));
     }
   }

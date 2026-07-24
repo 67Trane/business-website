@@ -24,32 +24,17 @@
       data-reveal
       class="mt-14 grid items-center gap-12 lg:mt-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16"
     >
-      <!-- Device mockup: links straight to the live demo. -->
-      <a
-        [href]="demo.liveUrl"
-        target="_blank"
-        rel="noopener"
-        class="demo-tilt group relative block"
-        [attr.aria-label]="content().projects.cta"
-      >
+      <!-- Interactive before/after relaunch slider (replaces the static mockup). -->
+      <div class="relative">
         <div
           aria-hidden="true"
           class="pointer-events-none absolute inset-x-8 inset-y-12 animate-glow-pulse rounded-full bg-brand/25 blur-3xl"
         ></div>
-        <img
-          [src]="demo.image"
-          [width]="demo.imageWidth"
-          [height]="demo.imageHeight"
-          [alt]="content().projects.imageAlt"
-          loading="lazy"
-          class="relative h-auto w-full drop-shadow-[0_2rem_3rem_rgb(0_0_0/0.45)] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        />
-        <span
-          class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-ink opacity-0 shadow-lg transition duration-300 group-hover:opacity-100"
-        >
-          {{ content().projects.cta }} ↗
-        </span>
-      </a>
+        <app-before-after class="demo-tilt relative block" />
+        <p class="mt-3 text-center font-serif text-sm text-[#8a9ac4] italic">
+          {{ content().projects.slider.caption }}
+        </p>
+      </div>
 
       <!-- Copy + CTAs -->
       <div>

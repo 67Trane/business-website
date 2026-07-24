@@ -21,17 +21,17 @@
       <p class="mt-1 text-sm">{{ content().footer.role }}</p>
     </div>
 
-    <ul class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
-      <li><a routerLink="/" fragment="leistungen" class="hover:text-white">{{ content().nav.services }}</a></li>
-      <li><a routerLink="/" fragment="ueber-mich" class="hover:text-white">{{ content().nav.about }}</a></li>
-      <li><a routerLink="/" fragment="ablauf" class="hover:text-white">{{ content().nav.process }}</a></li>
-      <li><a routerLink="/" fragment="referenzen" class="hover:text-white">{{ content().nav.work }}</a></li>
+    <ul class="flex flex-wrap gap-x-1 gap-y-1 font-mono text-xs sm:gap-x-5 sm:gap-y-2">
+      <li><a routerLink="/" fragment="leistungen" class="inline-flex min-h-11 items-center px-1 hover:text-white sm:min-h-0 sm:px-0">{{ content().nav.services }}</a></li>
+      <li><a routerLink="/" fragment="ueber-mich" class="inline-flex min-h-11 items-center px-1 hover:text-white sm:min-h-0 sm:px-0">{{ content().nav.about }}</a></li>
+      <li><a routerLink="/" fragment="ablauf" class="inline-flex min-h-11 items-center px-1 hover:text-white sm:min-h-0 sm:px-0">{{ content().nav.process }}</a></li>
+      <li><a routerLink="/" fragment="referenzen" class="inline-flex min-h-11 items-center px-1 hover:text-white sm:min-h-0 sm:px-0">{{ content().nav.work }}</a></li>
     </ul>
 
-    <div class="flex items-center gap-4 font-mono text-xs">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs">
       <span>© {{ year }} {{ profile.name }}</span>
-      <a routerLink="/impressum" class="hover:text-white">{{ content().footer.imprint }}</a>
-      <a routerLink="/datenschutz" class="hover:text-white">{{ content().footer.privacy }}</a>
+      <a routerLink="/impressum" class="inline-flex min-h-11 items-center hover:text-white sm:min-h-0">{{ content().footer.imprint }}</a>
+      <a routerLink="/datenschutz" class="inline-flex min-h-11 items-center hover:text-white sm:min-h-0">{{ content().footer.privacy }}</a>
     </div>
   </div>
 </footer>

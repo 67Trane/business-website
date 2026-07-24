@@ -1,0 +1,261 @@
+/* Before/after relaunch slider. The whole component is the browser frame; the
+   split position is a single custom property (--pos, e.g. 55%) updated on drag.
+   Sizes inside the "old" site use cqw so the caricature tracks the frame width
+   at any viewport. */
+
+:host {
+  --pos: 55%;
+  display: block;
+  border-radius: 1rem;
+  background: #0b1225;
+  padding: 0.5rem;
+  box-shadow: 0 2rem 3rem rgb(0 0 0 / 45%);
+  outline: none;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+:host(:focus-visible) {
+  box-shadow:
+    0 0 0 3px #6b96f5,
+    0 2rem 3rem rgb(0 0 0 / 45%);
+}
+
+.ba-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem 0.55rem;
+}
+
+.ba-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+}
+
+.ba-url {
+  margin-left: 0.6rem;
+  overflow: hidden;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  background: #05091a;
+  color: #64719a;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+
+.ba-stage {
+  position: relative;
+  aspect-ratio: 1600 / 1067;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  container-type: inline-size;
+  cursor: ew-resize;
+}
+
+.ba-after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Reveal the old site to the LEFT of the handle; new site shows on the right. */
+.ba-before {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+/* ---- The dated "old website" ---- */
+.ba-old {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #e7e3d1;
+  color: #1a1a1a;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.ba-old-band {
+  display: flex;
+  flex-direction: column;
+  padding: 2cqw 0;
+  background: linear-gradient(#2a4d8f, #16366e);
+  color: #fff;
+  border-bottom: 0.6cqw solid #b59b45;
+}
+
+.ba-old-logo {
+  font-weight: 700;
+  font-size: 5.2cqw;
+  letter-spacing: 0.02em;
+  text-shadow: 0.2cqw 0.2cqw 0 rgb(0 0 0 / 35%);
+}
+
+.ba-old-sub {
+  font-family: Arial, sans-serif;
+  font-size: 2.1cqw;
+  letter-spacing: 0.28em;
+  color: #d8c98a;
+}
+
+.ba-old-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1cqw;
+  padding: 1.6cqw 0;
+  background: #cfc8ad;
+  font-family: Arial, sans-serif;
+  font-size: 2.5cqw;
+  color: #7a3030;
+}
+
+.ba-old-nav span {
+  color: #0000cc;
+  text-decoration: underline;
+}
+
+.ba-old-welcome {
+  padding: 2.2cqw 0 0;
+  color: #b00000;
+  font-weight: 700;
+  font-size: 4cqw;
+}
+
+.ba-old-body {
+  display: flex;
+  gap: 2.5cqw;
+  align-items: center;
+  padding: 2.5cqw 4cqw;
+  text-align: left;
+}
+
+.ba-old-photo {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26cqw;
+  height: 18cqw;
+  background: repeating-conic-gradient(#c9c4ad 0% 25%, #bdb8a0 0% 50%) 50% / 3cqw 3cqw;
+  border: 0.5cqw solid #8a8570;
+  color: #55503c;
+  font-family: Arial, sans-serif;
+  font-size: 2.4cqw;
+  text-align: center;
+}
+
+.ba-old-text {
+  font-size: 3cqw;
+  line-height: 1.5;
+  color: #222;
+}
+
+.ba-old-new {
+  display: inline-block;
+  margin-left: 0.6cqw;
+  color: #c00000;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2.6cqw;
+}
+
+.ba-old-foot {
+  margin-top: auto;
+  padding: 1.6cqw 2cqw;
+  background: #1f3b6e;
+  color: #b9c6e6;
+  font-family: Arial, sans-serif;
+  font-size: 1.9cqw;
+}
+
+/* ---- Handle + labels + hint ---- */
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 12%);
+}
+
+.ba-grabber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: -1.25rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #16366e;
+  box-shadow: 0 0.4rem 1rem rgb(0 0 0 / 35%);
+}
+
+.ba-tag {
+  position: absolute;
+  top: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.ba-tag-before {
+  left: 0.6rem;
+  background: rgb(0 0 0 / 55%);
+  color: #f0ecd8;
+}
+
+.ba-tag-after {
+  right: 0.6rem;
+  background: rgb(30 82 204 / 82%);
+  color: #fff;
+}
+
+.ba-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0 0.15rem;
+  color: #64719a;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+}
+
+/* A one-time nudge so the handle reads as draggable; stops after 2 cycles and
+   is disabled entirely for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  .ba-grabber {
+    animation: ba-nudge 1.6s ease-in-out 0.6s 2;
+  }
+  @keyframes ba-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-0.35rem);
+    }
+    75% {
+      transform: translateX(0.35rem);
+    }
+  }
+}
