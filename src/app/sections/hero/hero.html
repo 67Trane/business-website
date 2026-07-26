@@ -60,20 +60,8 @@
     <div
       class="relative z-10 flex flex-col justify-center px-6 pt-5 pb-16 sm:px-12 sm:pt-8 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
     >
-      <span
-        class="animate-fade-up inline-flex w-fit items-center gap-2.5 rounded-full border border-brand/20 bg-brand/8 px-3.5 py-2 font-mono text-xs font-medium text-brand"
-      >
-        <span class="relative flex size-2">
-          <span
-            class="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-50"
-          ></span>
-          <span class="relative inline-flex size-2 rounded-full bg-brand"></span>
-        </span>
-        {{ content().hero.available }}
-      </span>
-
       <h1
-        class="animate-fade-up mt-5 max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink [animation-delay:120ms] sm:mt-6"
+        class="animate-fade-up max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink"
       >
         {{ content().hero.headlineStart }}
         <br />
@@ -93,12 +81,12 @@
       </h1>
 
       <p
-        class="animate-fade-up mt-3 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:240ms] sm:mt-6"
+        class="animate-fade-up mt-3 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:120ms] sm:mt-6"
       >
         {{ content().hero.sub }}
       </p>
 
-      <div class="animate-fade-up mt-5 flex flex-wrap gap-3.5 [animation-delay:360ms] sm:mt-9">
+      <div class="animate-fade-up mt-5 flex flex-wrap gap-3.5 [animation-delay:240ms] sm:mt-9">
         <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
         <a
           href="#referenzen"
@@ -110,7 +98,7 @@
 
       <!-- Direct contact: visible phone number + WhatsApp – the lowest-friction CTAs for ads traffic -->
       <div
-        class="animate-fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3.5 [animation-delay:420ms]"
+        class="animate-fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3.5 [animation-delay:300ms]"
       >
         <a
           [href]="profile.phoneHref"
@@ -142,7 +130,7 @@
       </div>
 
       <ul
-        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:480ms]"
+        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:360ms]"
       >
         @for (point of content().hero.trust; track point) {
           <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">

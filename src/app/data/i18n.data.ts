@@ -12,7 +12,6 @@ export const CONTENT = {
       skip: 'Zum Inhalt springen',
     },
     hero: {
-      available: 'Verfügbar für neue Projekte',
       headlineStart: 'Ich entwickle Websites, die',
       rotating: ['Kunden gewinnen.', 'Vertrauen schaffen.', 'schnell laden.'],
       headlineEnd: '',
@@ -126,7 +125,6 @@ export const CONTENT = {
         { label: 'Standort', value: 'Weißenburg in Bayern' },
         { label: 'Zusammenarbeit', value: 'Vor Ort in der Region & remote' },
         { label: 'Reaktionszeit', value: 'Unter 24 Stunden' },
-        { label: 'Verfügbarkeit', value: 'Ab sofort' },
       ],
     },
     contact: {
@@ -181,7 +179,6 @@ export const CONTENT = {
       skip: 'Skip to content',
     },
     hero: {
-      available: 'Available for new projects',
       headlineStart: 'I build websites that',
       rotating: ['win customers.', 'earn trust.', 'load fast.'],
       headlineEnd: '',
@@ -291,7 +288,6 @@ export const CONTENT = {
         { label: 'Location', value: 'Weißenburg, Bavaria' },
         { label: 'Collaboration', value: 'On-site regionally & remote' },
         { label: 'Response time', value: 'Under 24 hours' },
-        { label: 'Availability', value: 'Available now' },
       ],
     },
     contact: {
@@ -346,7 +342,6 @@ export const CONTENT = {
       skip: 'İçeriğe atla',
     },
     hero: {
-      available: 'Yeni projelere açığım',
       headlineStart: 'Geliştirdiğim web siteleri',
       rotating: ['müşteri kazandırır.', 'güven oluşturur.', 'hızlı yüklenir.'],
       headlineEnd: '',
@@ -456,7 +451,6 @@ export const CONTENT = {
         { label: 'Konum', value: 'Weißenburg, Bavyera' },
         { label: 'Çalışma', value: 'Bölgede yerinde & uzaktan' },
         { label: 'Yanıt süresi', value: '24 saatten kısa' },
-        { label: 'Müsaitlik', value: 'Hemen müsait' },
       ],
     },
     contact: {
