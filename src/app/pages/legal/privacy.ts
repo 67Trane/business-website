@@ -64,7 +64,7 @@ import { EmailLink } from '../../shared/email-link';
           </h2>
           <p class="mt-3">
             Diese Website nutzt das Conversion-Tracking von Google Ads, einen Dienst der Google
-            Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland – jedoch
+            Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, jedoch
             ausschließlich, wenn Sie über den Cookie-Hinweis eingewilligt haben (Art. 6 Abs. 1
             lit. a DSGVO). Erst nach Ihrer Einwilligung wird das Google-Tag geladen; dabei werden
             Cookies gesetzt und beim Absenden des Kontaktformulars wird eine Conversion an Google
@@ -104,7 +104,7 @@ export class Privacy {
   constructor() {
     inject(Seo).apply({
       path: '/datenschutz/',
-      description: 'Datenschutzerklärung von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
+      description: 'Datenschutzerklärung von Mehmet Deliaci, Webentwicklung & digitale Lösungen.',
       noindex: true,
       breadcrumb: 'Datenschutz',
     });

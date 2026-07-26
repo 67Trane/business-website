@@ -56,7 +56,7 @@ export class Imprint {
   constructor() {
     inject(Seo).apply({
       path: '/impressum/',
-      description: 'Impressum von Mehmet Deliaci – Webentwicklung & digitale Lösungen.',
+      description: 'Impressum von Mehmet Deliaci, Webentwicklung & digitale Lösungen.',
       noindex: true,
       breadcrumb: 'Impressum',
     });

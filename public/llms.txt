@@ -1,7 +1,7 @@
-# Mehmet Deliaci – Webentwicklung & digitale Lösungen
+# Mehmet Deliaci, Webentwicklung & digitale Lösungen
 
 > Freelance-Webentwickler aus Weißenburg in Bayern (Deutschland). Maßgeschneiderte
-> Websites, Web-Anwendungen und Backends mit Angular, TypeScript, Python und Django –
+> Websites, Web-Anwendungen und Backends mit Angular, TypeScript, Python und Django,
 > vor Ort in der Region und remote. Festpreis-Angebote nach kostenlosem Erstgespräch,
 > Antwort in unter 24 Stunden.
 
@@ -20,9 +20,9 @@ Sprache der Website: Deutsch (Inhalte zusätzlich auf Englisch und Türkisch ums
 ## Demo-Websites
 
 - [Demo-Übersicht](https://mehmet-deliaci.net/#referenzen): vollständige Demo-Websites für
-  einzelne Branchen – funktionsfähig, mit Scroll-Effekten und Animationen, als Arbeitsprobe
+  einzelne Branchen, funktionsfähig, mit Scroll-Effekten und Animationen, als Arbeitsprobe
 - [Demo Immobilienmakler](https://mehmet-deliaci.net/demos/immobilienmakler): Beispiel-Website
-  für ein fiktives Maklerbüro („Weber & Stein") – zeigt Design, Ladezeit und Responsive-Umsetzung
+  für ein fiktives Maklerbüro („Weber & Stein"), zeigt Design, Ladezeit und Responsive-Umsetzung
 - [GitHub](https://github.com/67Trane): Quellcode und weitere Projekte
 
 ## Häufige Fragen

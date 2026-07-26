@@ -16,7 +16,7 @@ export const CONTENT = {
       headlineStart: 'Ich entwickle Websites, die',
       rotating: ['Kunden gewinnen.', 'Vertrauen schaffen.', 'schnell laden.'],
       headlineEnd: '',
-      sub: 'Als Freelance-Webentwickler aus Weißenburg entwickle ich moderne Websites und Web-Apps für Ihr Unternehmen und betreue sie zuverlässig weiter – von der Idee bis zum Launch, alles aus einer Hand.',
+      sub: 'Als Freelance-Webentwickler aus Weißenburg entwickle ich moderne Websites und Web-Apps für Ihr Unternehmen und betreue sie zuverlässig weiter, von der Idee bis zum Launch, alles aus einer Hand.',
       primary: 'Kostenloses Erstgespräch',
       secondary: 'Demos ansehen',
       callLabel: 'Oder rufen Sie direkt an',
@@ -39,22 +39,22 @@ export const CONTENT = {
       items: [
         {
           q: 'Was kostet eine Website?',
-          a: 'Eine kompakte Unternehmensseite startet bei 1.500 € – eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
+          a: 'Eine kompakte Unternehmensseite startet bei 1.500 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
         },
         {
           q: 'Wie lange dauert die Umsetzung?',
-          a: 'Eine kompakte Website ist in der Regel in zwei bis vier Wochen online, größere Projekte entsprechend länger. Den verbindlichen Zeitplan bekommen Sie mit dem Angebot – und regelmäßige Zwischenstände während der Umsetzung.',
+          a: 'Eine kompakte Website ist in der Regel in zwei bis vier Wochen online, größere Projekte entsprechend länger. Den verbindlichen Zeitplan bekommen Sie mit dem Angebot, und regelmäßige Zwischenstände während der Umsetzung.',
         },
         {
           q: 'Was muss ich selbst beisteuern?',
-          a: 'Idealerweise Ihr Logo, Texte und Bilder – aber nichts davon ist Pflicht. Ich unterstütze Sie bei Struktur und Inhalten und sage Ihnen konkret, was gebraucht wird. Viele Projekte starten mit einer halben Seite Stichpunkten.',
+          a: 'Idealerweise Ihr Logo, Texte und Bilder, aber nichts davon ist Pflicht. Ich unterstütze Sie bei Struktur und Inhalten und sage Ihnen konkret, was gebraucht wird. Viele Projekte starten mit einer halben Seite Stichpunkten.',
         },
         {
           q: 'Wer kümmert sich danach um die Website?',
-          a: 'Ganz wie Sie möchten: Ich übernehme auf Wunsch Wartung, Updates und Änderungen – oder ich übergebe Ihnen die Website so, dass Sie Inhalte selbst pflegen können. Beides besprechen wir vor dem Start.',
+          a: 'Ganz wie Sie möchten: Ich übernehme auf Wunsch Wartung, Updates und Änderungen, oder ich übergebe Ihnen die Website so, dass Sie Inhalte selbst pflegen können. Beides besprechen wir vor dem Start.',
         },
         {
-          q: 'Ich habe schon eine Website – lohnt sich ein Relaunch?',
+          q: 'Ich habe schon eine Website. Lohnt sich ein Relaunch?',
           a: 'Oft ja: Wenn Ihre Seite langsam lädt, auf dem Handy schlecht aussieht oder keine Anfragen bringt, kostet sie Sie Kunden. Im Erstgespräch schaue ich mir Ihre bestehende Seite an und sage Ihnen ehrlich, ob sich ein Relaunch lohnt.',
         },
       ],
@@ -62,13 +62,13 @@ export const CONTENT = {
     services: {
       label: 'Leistungen',
       heading: 'Alles, was Ihre digitale Präsenz braucht.',
-      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da – Webdesign und Entwicklung für kleine und mittlere Unternehmen, vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
-        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernem Webdesign, Animationen und Scroll-Effekten – so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
-        { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen – vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
+      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da: Webdesign und Entwicklung für kleine und mittlere Unternehmen, vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
+        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernem Webdesign, Animationen und Scroll-Effekten, so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
+        { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen, vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
         { title: 'Anbindungen & Schnittstellen', description: 'Ihre Website spricht mit Kasse, Kalender oder Warenwirtschaft: Ich verbinde Ihre Systeme sicher miteinander, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
-        { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden – damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
+        { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden, damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
         { title: 'Wartung & Weiterentwicklung', description: 'Ihre Website bleibt aktuell und sicher und wächst mit Ihrem Unternehmen. Regelmäßige Updates inklusive.', points: ['Updates & Sicherheit', 'Schnelle Fehlerbehebung', 'Neue Funktionen bei Bedarf'] },
-        { title: 'Automatisierung & Tools', description: 'Individuelle Programme, die Ihnen Handarbeit abnehmen: Daten zusammenführen, Berichte erzeugen, Abläufe automatisieren – individuell für Ihren Betrieb entwickelt.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
+        { title: 'Automatisierung & Tools', description: 'Individuelle Programme, die Ihnen Handarbeit abnehmen: Daten zusammenführen, Berichte erzeugen, Abläufe automatisieren, individuell für Ihren Betrieb entwickelt.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
       ],
     },
     process: {
@@ -88,11 +88,11 @@ export const CONTENT = {
     projects: {
       label: 'Demo-Websites',
       heading: 'So kann Ihre neue Website aussehen.',
-      sub: 'Damit Sie sich nichts vorstellen müssen, zeige ich es Ihnen: komplette Demo-Websites für einzelne Branchen – voll funktionsfähig, mit Scroll-Effekten und Animationen. Klicken Sie sich durch, am besten am Handy und am PC.',
+      sub: 'Damit Sie sich nichts vorstellen müssen, zeige ich es Ihnen: komplette Demo-Websites für einzelne Branchen, voll funktionsfähig, mit Scroll-Effekten und Animationen. Klicken Sie sich durch, am besten am Handy und am PC.',
       live: 'Live-Demo',
       industry: 'Branche: Immobilienmakler',
       title: 'Weber & Stein',
-      description: 'Eine elegante Website für ein Münchner Maklerbüro: großflächige Bilder, sanfte Scroll-Animationen und eine klare Führung zur Kontaktanfrage. Genau so entsteht auch Ihre Website – mit Ihren Inhalten, Ihren Farben und Ihrer Branche.',
+      description: 'Eine elegante Website für ein Münchner Maklerbüro: großflächige Bilder, sanfte Scroll-Animationen und eine klare Führung zur Kontaktanfrage. Genau so entsteht auch Ihre Website, mit Ihren Inhalten, Ihren Farben und Ihrer Branche.',
       features: [
         'Sanfte Scroll-Effekte & Animationen',
         'Perfekt auf Handy, Tablet & PC',
@@ -101,7 +101,7 @@ export const CONTENT = {
       ],
       cta: 'Live-Demo ansehen',
       ctaSecondary: 'So eine Website anfragen',
-      note: 'Weber & Stein ist ein fiktives Unternehmen – die Website dahinter ist voll funktionsfähig.',
+      note: 'Weber & Stein ist ein fiktives Unternehmen, die Website dahinter ist voll funktionsfähig.',
       slider: {
         label: 'Vorher / Nachher',
         caption: 'So wird aus einer veralteten Seite eine, die Anfragen bringt.',
@@ -119,7 +119,7 @@ export const CONTENT = {
       heading: 'Ihr direkter Ansprechpartner, vom ersten Gespräch bis zum Launch.',
       lead: 'Bei mir sprechen Sie nicht mit einem Projektmanager, sondern direkt mit dem Entwickler.',
       p1: 'Ich bin Mehmet Deliaci, Webentwickler aus Weißenburg in Bayern. Ich unterstütze Unternehmen, Selbständige und Start-ups dabei, professionell im Web aufzutreten: mit Websites und Anwendungen, die schnell laden, gut aussehen und messbar funktionieren.',
-      p2: 'Im Frontend arbeite ich mit Angular, TypeScript und Tailwind CSS, im Backend mit Python, Django und REST-APIs – ohne Zwischenstationen und ohne Reibungsverluste.',
+      p2: 'Im Frontend arbeite ich mit Angular, TypeScript und Tailwind CSS, im Backend mit Python, Django und REST-APIs, ohne Zwischenstationen und ohne Reibungsverluste.',
       p3: 'Mein Schwerpunkt wächst dabei stetig in Richtung individueller Software: interne Tools, Automatisierungen und Anwendungen, die Geschäftsprozesse wirklich vereinfachen.',
       glance: 'Auf einen Blick',
       facts: [
@@ -150,7 +150,7 @@ export const CONTENT = {
       note: '100 % unverbindlich · Antwort innerhalb von 24 Stunden',
       proofLabel: 'Meine Arbeitsprobe',
       proofText:
-        'Diese Website ist meine Referenz: 100/100 bei Google PageSpeed, barrierefrei nach WCAG AA und in unter einer Sekunde geladen. Ihre Website bekommt denselben Standard – messen Sie gern nach.',
+        'Diese Website ist meine Referenz: 100/100 bei Google PageSpeed, barrierefrei nach WCAG AA und in unter einer Sekunde geladen. Ihre Website bekommt denselben Standard, messen Sie gern nach.',
       subject: 'Projektanfrage von',
     },
     stickyBar: {
@@ -185,7 +185,7 @@ export const CONTENT = {
       headlineStart: 'I build websites that',
       rotating: ['win customers.', 'earn trust.', 'load fast.'],
       headlineEnd: '',
-      sub: 'As a freelance web developer based in Weißenburg (Bavaria), I build modern websites and web apps for your business and keep them running reliably – from idea to launch, everything from a single source.',
+      sub: 'As a freelance web developer based in Weißenburg (Bavaria), I build modern websites and web apps for your business and keep them running reliably, from idea to launch, everything from a single source.',
       primary: 'Free intro call',
       secondary: 'See the demos',
       callLabel: 'Or call me directly',
@@ -204,22 +204,22 @@ export const CONTENT = {
       items: [
         {
           q: 'What does a website cost?',
-          a: 'A compact company website starts at €1,500 – a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
+          a: 'A compact company website starts at €1,500, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
         },
         {
           q: 'How long does it take?',
-          a: 'A compact website is usually live within two to four weeks; larger projects take longer accordingly. You get a binding timeline with the quote – and regular progress updates during the build.',
+          a: 'A compact website is usually live within two to four weeks; larger projects take longer accordingly. You get a binding timeline with the quote, and regular progress updates during the build.',
         },
         {
           q: 'What do I need to provide?',
-          a: 'Ideally your logo, texts and images – but none of that is mandatory. I help you with structure and content and tell you exactly what is needed. Many projects start with half a page of bullet points.',
+          a: 'Ideally your logo, texts and images, but none of that is mandatory. I help you with structure and content and tell you exactly what is needed. Many projects start with half a page of bullet points.',
         },
         {
           q: 'Who takes care of the website afterwards?',
-          a: 'Entirely up to you: I can handle maintenance, updates and changes – or hand the site over so you can edit content yourself. We agree on this before the project starts.',
+          a: 'Entirely up to you: I can handle maintenance, updates and changes, or hand the site over so you can edit content yourself. We agree on this before the project starts.',
         },
         {
-          q: 'I already have a website – is a relaunch worth it?',
+          q: 'I already have a website. Is a relaunch worth it?',
           a: 'Often yes: if your site loads slowly, looks broken on phones or brings no enquiries, it is costing you customers. In the intro call I review your current site and tell you honestly whether a relaunch pays off.',
         },
       ],
@@ -227,13 +227,13 @@ export const CONTENT = {
     services: {
       label: 'Services',
       heading: 'Everything your digital presence needs.',
-      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for – web design and development for small and medium-sized businesses, from the first draft to ongoing support.",      items: [
-        { title: 'Websites & landing pages', description: 'Custom company sites with modern web design, animations and scroll effects – just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
-        { title: 'Web applications', description: 'Custom programs that run in the browser – from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
+      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for: web design and development for small and medium-sized businesses, from the first draft to ongoing support.",      items: [
+        { title: 'Websites & landing pages', description: 'Custom company sites with modern web design, animations and scroll effects, just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
+        { title: 'Web applications', description: 'Custom programs that run in the browser, from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
         { title: 'Integrations & connections', description: 'Your website talks to your till, calendar or inventory system: I connect your systems securely so data lands automatically where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
-        { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google – so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
+        { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google, so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
         { title: 'Maintenance & growth', description: 'Your site stays current and secure and grows with your business. Regular updates included.', points: ['Updates & security', 'Fast bug fixing', 'New features when needed'] },
-        { title: 'Automation & tools', description: 'Custom programs that take manual work off your plate: merging data, generating reports, automating workflows – built individually for your business.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
+        { title: 'Automation & tools', description: 'Custom programs that take manual work off your plate: merging data, generating reports, automating workflows, built individually for your business.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
       ],
     },
     process: {
@@ -253,11 +253,11 @@ export const CONTENT = {
     projects: {
       label: 'Demo websites',
       heading: 'This is what your new website could look like.',
-      sub: 'So you don’t have to imagine anything, I show you: complete demo websites for individual industries – fully functional, with scroll effects and animations. Click through, ideally on your phone and on your PC.',
+      sub: 'So you don’t have to imagine anything, I show you: complete demo websites for individual industries, fully functional, with scroll effects and animations. Click through, ideally on your phone and on your PC.',
       live: 'Live demo',
       industry: 'Industry: real estate agency',
       title: 'Weber & Stein',
-      description: 'An elegant website for a Munich real estate agency: large imagery, smooth scroll animations and a clear path to the contact enquiry. Your website is built exactly the same way – with your content, your colours and your industry.',
+      description: 'An elegant website for a Munich real estate agency: large imagery, smooth scroll animations and a clear path to the contact enquiry. Your website is built exactly the same way, with your content, your colours and your industry.',
       features: [
         'Smooth scroll effects & animations',
         'Looks right on phone, tablet & PC',
@@ -266,7 +266,7 @@ export const CONTENT = {
       ],
       cta: 'View live demo',
       ctaSecondary: 'Request a site like this',
-      note: 'Weber & Stein is a fictional company – the website behind it is fully functional.',
+      note: 'Weber & Stein is a fictional company, the website behind it is fully functional.',
       slider: {
         label: 'Before / After',
         caption: 'This is how an outdated site becomes one that brings enquiries.',
@@ -284,7 +284,7 @@ export const CONTENT = {
       heading: 'Your direct point of contact, from first call to launch.',
       lead: 'You do not talk to a project manager. You talk directly to the developer.',
       p1: 'I am Mehmet Deliaci, a web developer based in Weißenburg, Bavaria. I help companies, freelancers and start-ups show up professionally online with sites and apps that load fast, look good and work measurably well.',
-      p2: 'I use Angular, TypeScript and Tailwind CSS in the frontend, and Python, Django and REST APIs in the backend – no middlemen, no friction.',
+      p2: 'I use Angular, TypeScript and Tailwind CSS in the frontend, and Python, Django and REST APIs in the backend, no middlemen, no friction.',
       p3: 'My focus keeps growing towards custom software: internal tools, automations and applications that genuinely simplify business processes.',
       glance: 'At a glance',
       facts: [
@@ -315,7 +315,7 @@ export const CONTENT = {
       note: '100% no obligation · Reply within 24 hours',
       proofLabel: 'My work sample',
       proofText:
-        'This website is my reference: 100/100 on Google PageSpeed, WCAG AA accessible and loaded in under a second. Your website gets the same standard – feel free to measure it.',
+        'This website is my reference: 100/100 on Google PageSpeed, WCAG AA accessible and loaded in under a second. Your website gets the same standard, feel free to measure it.',
       subject: 'Project inquiry from',
     },
     stickyBar: {
@@ -350,7 +350,7 @@ export const CONTENT = {
       headlineStart: 'Geliştirdiğim web siteleri',
       rotating: ['müşteri kazandırır.', 'güven oluşturur.', 'hızlı yüklenir.'],
       headlineEnd: '',
-      sub: 'Weißenburg merkezli freelance web geliştirici olarak işletmeniz için modern web siteleri ve web uygulamaları geliştiriyor, sonrasında da güvenilir şekilde destekliyorum – fikirden lansmana, hepsi tek elden.',
+      sub: 'Weißenburg merkezli freelance web geliştirici olarak işletmeniz için modern web siteleri ve web uygulamaları geliştiriyor, sonrasında da güvenilir şekilde destekliyorum, fikirden lansmana, hepsi tek elden.',
       primary: 'Ücretsiz ön görüşme',
       secondary: 'Demoları gör',
       callLabel: 'Ya da doğrudan arayın',
@@ -369,7 +369,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Bir web sitesi ne kadara mal olur?',
-          a: 'Kompakt bir kurumsal web sitesi 1.500 €’dan başlar – özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
+          a: 'Kompakt bir kurumsal web sitesi 1.500 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
         },
         {
           q: 'Ne kadar sürer?',
@@ -377,14 +377,14 @@ export const CONTENT = {
         },
         {
           q: 'Benim ne sağlamam gerekiyor?',
-          a: 'İdeal olarak logonuz, metinleriniz ve görselleriniz – ancak hiçbiri zorunlu değil. Yapı ve içerik konusunda size destek olur, tam olarak neyin gerektiğini söylerim. Birçok proje yarım sayfalık notlarla başlar.',
+          a: 'İdeal olarak logonuz, metinleriniz ve görselleriniz, ancak hiçbiri zorunlu değil. Yapı ve içerik konusunda size destek olur, tam olarak neyin gerektiğini söylerim. Birçok proje yarım sayfalık notlarla başlar.',
         },
         {
           q: 'Sonrasında siteyle kim ilgilenir?',
-          a: 'Tamamen size bağlı: İsterseniz bakım, güncelleme ve değişiklikleri ben üstlenirim – ya da siteyi içerikleri kendiniz yönetebileceğiniz şekilde teslim ederim. Bunu proje başlamadan birlikte kararlaştırırız.',
+          a: 'Tamamen size bağlı: İsterseniz bakım, güncelleme ve değişiklikleri ben üstlenirim, ya da siteyi içerikleri kendiniz yönetebileceğiniz şekilde teslim ederim. Bunu proje başlamadan birlikte kararlaştırırız.',
         },
         {
-          q: 'Zaten bir sitem var – yenilemeye değer mi?',
+          q: 'Zaten bir sitem var. Yenilemeye değer mi?',
           a: 'Çoğu zaman evet: Siteniz yavaş yükleniyor, telefonda kötü görünüyor veya talep getirmiyorsa size müşteri kaybettiriyor demektir. Ön görüşmede mevcut sitenize bakar, yenilemenin gerçekten değip değmeyeceğini dürüstçe söylerim.',
         },
       ],
@@ -392,13 +392,13 @@ export const CONTENT = {
     services: {
       label: 'Hizmetler',
       heading: 'Dijital varlığınızın ihtiyacı olan her şey.',
-      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım – küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme, ilk taslaktan sürekli desteğe.',      items: [
-        { title: 'Web siteleri & açılış sayfaları', description: 'Modern web tasarımı, animasyonlar ve kaydırma efektleriyle özel kurumsal siteler – tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
-        { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar – kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
+      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım: küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme, ilk taslaktan sürekli desteğe.',      items: [
+        { title: 'Web siteleri & açılış sayfaları', description: 'Modern web tasarımı, animasyonlar ve kaydırma efektleriyle özel kurumsal siteler, tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
+        { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar, kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
         { title: 'Entegrasyonlar & bağlantılar', description: 'Web siteniz kasa, takvim veya stok sisteminizle konuşur: Sistemlerinizi güvenle birbirine bağlarım, veriler ihtiyacınız olan yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
-        { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur – ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
+        { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur, ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
         { title: 'Bakım & geliştirme', description: 'Siteniz güncel ve güvenli kalır, işinizle birlikte büyür. Düzenli güncellemeler dahil.', points: ['Güncelleme & güvenlik', 'Hızlı hata giderme', 'İhtiyaç halinde yeni özellikler'] },
-        { title: 'Otomasyon & araçlar', description: 'El emeğini üzerinizden alan özel programlar: veri birleştirme, rapor oluşturma, iş akışlarını otomatikleştirme – işletmenize özel geliştirilir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
+        { title: 'Otomasyon & araçlar', description: 'El emeğini üzerinizden alan özel programlar: veri birleştirme, rapor oluşturma, iş akışlarını otomatikleştirme, işletmenize özel geliştirilir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
       ],
     },
     process: {
@@ -418,11 +418,11 @@ export const CONTENT = {
     projects: {
       label: 'Demo web siteleri',
       heading: 'Yeni web siteniz böyle görünebilir.',
-      sub: 'Hayal etmenize gerek kalmasın diye gösteriyorum: sektörlere özel, tamamen çalışan demo web siteleri – kaydırma efektleri ve animasyonlarla. Gezinin; en iyisi hem telefonda hem bilgisayarda deneyin.',
+      sub: 'Hayal etmenize gerek kalmasın diye gösteriyorum: sektörlere özel, tamamen çalışan demo web siteleri, kaydırma efektleri ve animasyonlarla. Gezinin; en iyisi hem telefonda hem bilgisayarda deneyin.',
       live: 'Canlı demo',
       industry: 'Sektör: Emlak ofisi',
       title: 'Weber & Stein',
-      description: 'Münihli bir emlak ofisi için zarif bir web sitesi: büyük görseller, yumuşak kaydırma animasyonları ve iletişim talebine net yönlendirme. Sizin siteniz de tam böyle yapılır – sizin içeriğiniz, renkleriniz ve sektörünüzle.',
+      description: 'Münihli bir emlak ofisi için zarif bir web sitesi: büyük görseller, yumuşak kaydırma animasyonları ve iletişim talebine net yönlendirme. Sizin siteniz de tam böyle yapılır, sizin içeriğiniz, renkleriniz ve sektörünüzle.',
       features: [
         'Yumuşak kaydırma efektleri & animasyonlar',
         'Telefon, tablet ve PC’de kusursuz',
@@ -431,7 +431,7 @@ export const CONTENT = {
       ],
       cta: 'Canlı demoyu gör',
       ctaSecondary: 'Böyle bir site talep et',
-      note: 'Weber & Stein kurgusal bir şirkettir – arkasındaki web sitesi tamamen çalışır durumdadır.',
+      note: 'Weber & Stein kurgusal bir şirkettir, arkasındaki web sitesi tamamen çalışır durumdadır.',
       slider: {
         label: 'Önce / Sonra',
         caption: 'Eski bir site böyle talep getiren bir siteye dönüşür.',
@@ -449,7 +449,7 @@ export const CONTENT = {
       heading: 'İlk görüşmeden lansmana kadar doğrudan muhatabınız.',
       lead: 'Proje yöneticisiyle değil, doğrudan projeyi geliştiren kişiyle konuşursunuz.',
       p1: 'Ben Mehmet Deliaci, Bavyera Weißenburg’da yaşayan bir web geliştiricisiyim. Şirketlerin, serbest çalışanların ve girişimlerin hızlı, iyi görünen ve ölçülebilir şekilde çalışan site ve uygulamalarla internette profesyonelce yer almasına yardımcı oluyorum.',
-      p2: 'Ön yüzde Angular, TypeScript ve Tailwind CSS; arka yüzde Python, Django ve REST API kullanıyorum – aracı yok, sürtüşme yok.',
+      p2: 'Ön yüzde Angular, TypeScript ve Tailwind CSS; arka yüzde Python, Django ve REST API kullanıyorum, aracı yok, sürtüşme yok.',
       p3: 'Odak noktam giderek özel yazılıma doğru büyüyor: iş süreçlerini gerçekten kolaylaştıran dahili araçlar, otomasyonlar ve uygulamalar.',
       glance: 'Özetle',
       facts: [
@@ -480,7 +480,7 @@ export const CONTENT = {
       note: '%100 bağlayıcı değil · 24 saat içinde yanıt',
       proofLabel: 'Çalışma örneğim',
       proofText:
-        'Bu web sitesi benim referansım: Google PageSpeed puanı 100/100, WCAG AA erişilebilirlik ve 1 saniyenin altında yüklenme. Sizin siteniz de aynı standardı alır – dilediğiniz zaman ölçün.',
+        'Bu web sitesi benim referansım: Google PageSpeed puanı 100/100, WCAG AA erişilebilirlik ve 1 saniyenin altında yüklenme. Sizin siteniz de aynı standardı alır, dilediğiniz zaman ölçün.',
       subject: 'Proje talebi',
     },
     stickyBar: {
