@@ -21,7 +21,7 @@ export class Home {
     inject(Seo).apply({
       path: '/',
       description:
-        'Freelance-Webentwickler aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen ' +
+        'Webentwickler aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen ' +
         'und Automatisierungen, maßgeschneidert für Ihr Unternehmen, vor Ort und remote.',
     });
   }

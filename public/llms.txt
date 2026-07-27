@@ -1,6 +1,7 @@
 # Mehmet Deliaci, Webentwicklung & digitale Lösungen
 
-> Freelance-Webentwickler aus Weißenburg in Bayern (Deutschland). Maßgeschneiderte
+> Webentwickler aus Weißenburg in Bayern (Deutschland). Einzelunternehmen ohne
+> Angestellte, Kunden sprechen direkt mit dem Entwickler. Maßgeschneiderte
 > Websites, Web-Anwendungen und Backends mit Angular, TypeScript, Python und Django,
 > vor Ort in der Region und remote. Festpreis-Angebote nach kostenlosem Erstgespräch,
 > Antwort in unter 24 Stunden.
