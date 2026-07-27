@@ -33,7 +33,10 @@
             </ul>
           </div>
 
-          <p class="max-w-152 text-md text-copy max-md:col-start-2">{{ service.description }}</p>
+          <!-- The bullet points above already carry this message; on phones the
+               paragraph would only stack underneath and double the row height,
+               so it stays for the side-by-side desktop layout only. -->
+          <p class="max-w-152 text-md text-copy max-md:hidden">{{ service.description }}</p>
 
           <!-- Miniature illustration, animates when the row is spotlighted -->
           <div

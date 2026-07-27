@@ -81,15 +81,23 @@
 }
 
 /* Bullet dash: space is always reserved so the text never moves —
-   the dash just scales in when the row is spotlighted. */
+   the dash just scales in when the row is spotlighted. Flex keeps the dash
+   in its own column, so wrapped lines stay aligned with the first one
+   (an inline marker would only indent the first line). */
+.row-point {
+  display: flex;
+  align-items: flex-start;
+}
+
 .row-point::before {
   content: '';
-  display: inline-block;
+  flex: none;
   width: 12px;
   height: 1px;
+  /* sits on the optical middle of the first line */
+  margin-top: 0.6em;
   margin-right: 7px;
   background: currentColor;
-  vertical-align: middle;
   opacity: 0;
   transform: scaleX(0);
   transform-origin: left;

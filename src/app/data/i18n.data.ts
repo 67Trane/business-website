@@ -61,7 +61,7 @@ export const CONTENT = {
     services: {
       label: 'Leistungen',
       heading: 'Alles, was Ihre digitale Präsenz braucht.',
-      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Genau dafür bin ich da: Webdesign und Entwicklung für kleine und mittlere Unternehmen, vom ersten Entwurf bis zur laufenden Betreuung.',      items: [
+      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Webdesign und Entwicklung für kleine und mittlere Unternehmen.',      items: [
         { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernem Webdesign, Animationen und Scroll-Effekten, so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
         { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen, vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
         { title: 'Anbindungen & Schnittstellen', description: 'Ihre Website spricht mit Kasse, Kalender oder Warenwirtschaft: Ich verbinde Ihre Systeme sicher miteinander, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
@@ -73,7 +73,6 @@ export const CONTENT = {
     process: {
       label: 'Ablauf',
       heading: 'So arbeiten wir zusammen.',
-      sub: 'Ein klarer Prozess in vier Schritten, damit Sie jederzeit wissen, wo Ihr Projekt steht.',
       items: [
         { title: 'Kennenlernen & Analyse', description: 'Im kostenlosen Erstgespräch klären wir Ziele, Anforderungen und Rahmen. Unverbindlich und ohne Zeitdruck.' },
         { title: 'Konzept & Angebot', description: 'Sie erhalten ein klares Konzept mit Festpreis-Angebot und Zeitplan. Keine versteckten Kosten.' },
@@ -87,30 +86,13 @@ export const CONTENT = {
     projects: {
       label: 'Demo-Websites',
       heading: 'So kann Ihre neue Website aussehen.',
-      sub: 'Damit Sie sich nichts vorstellen müssen, zeige ich es Ihnen: komplette Demo-Websites für einzelne Branchen, voll funktionsfähig, mit Scroll-Effekten und Animationen. Klicken Sie sich durch, am besten am Handy und am PC.',
-      live: 'Live-Demo',
-      industry: 'Branche: Immobilienmakler',
-      title: 'Weber & Stein',
-      description: 'Eine elegante Website für ein Münchner Maklerbüro: großflächige Bilder, sanfte Scroll-Animationen und eine klare Führung zur Kontaktanfrage. Genau so entsteht auch Ihre Website, mit Ihren Inhalten, Ihren Farben und Ihrer Branche.',
-      features: [
-        'Sanfte Scroll-Effekte & Animationen',
-        'Perfekt auf Handy, Tablet & PC',
-        'Lädt in unter einer Sekunde',
-        'Klare Führung zur Kundenanfrage',
-      ],
+      sub: 'Damit Sie sich nichts vorstellen müssen: komplette Demo-Websites für einzelne Branchen, voll funktionsfähig. Klicken Sie sich durch.',
+      industry: 'Beispiel: Immobilienmakler',
+      description: 'Genau so entsteht auch Ihre Website: mit Ihren Inhalten, Ihren Farben und Ihrer Branche.',
       cta: 'Live-Demo ansehen',
       ctaSecondary: 'So eine Website anfragen',
       note: 'Weber & Stein ist ein fiktives Unternehmen, die Website dahinter ist voll funktionsfähig.',
-      slider: {
-        label: 'Vorher / Nachher',
-        caption: 'So wird aus einer veralteten Seite eine, die Anfragen bringt.',
-        before: 'Alte Seite',
-        after: 'Ihre neue Seite',
-        hint: 'Regler ziehen',
-      },
-      imageAlt: 'Vorschau der Demo-Website für Immobilienmakler in Browser- und Smartphone-Ansicht',
-      upcomingLabel: 'Weitere Branchen-Demos sind in Arbeit',
-      upcoming: ['Handwerk & Bau', 'Gastronomie', 'Autohaus'],
+      imageAlt:'Vorschau der Demo-Website für Immobilienmakler in Browser- und Smartphone-Ansicht',
       yourIndustry: 'Ihre Branche? Einfach anfragen',
     },
     about: {
@@ -118,8 +100,6 @@ export const CONTENT = {
       heading: 'Ihr direkter Ansprechpartner, vom ersten Gespräch bis zum Launch.',
       lead: 'Bei mir sprechen Sie nicht mit einem Projektmanager, sondern direkt mit dem Entwickler.',
       p1: 'Ich bin Mehmet Deliaci, Webentwickler aus Weißenburg in Bayern. Ich unterstütze Unternehmen, Selbständige und Start-ups dabei, professionell im Web aufzutreten: mit Websites und Anwendungen, die schnell laden, gut aussehen und messbar funktionieren.',
-      p2: 'Im Frontend arbeite ich mit Angular, TypeScript und Tailwind CSS, im Backend mit Python, Django und REST-APIs, ohne Zwischenstationen und ohne Reibungsverluste.',
-      p3: 'Mein Schwerpunkt wächst dabei stetig in Richtung individueller Software: interne Tools, Automatisierungen und Anwendungen, die Geschäftsprozesse wirklich vereinfachen.',
       glance: 'Auf einen Blick',
       facts: [
         { label: 'Standort', value: 'Weißenburg in Bayern' },
@@ -148,7 +128,7 @@ export const CONTENT = {
       note: '100 % unverbindlich · Antwort innerhalb von 24 Stunden',
       proofLabel: 'Meine Arbeitsprobe',
       proofText:
-        'Diese Website ist meine Referenz: 100/100 bei Google PageSpeed, barrierefrei nach WCAG AA und in unter einer Sekunde geladen. Ihre Website bekommt denselben Standard, messen Sie gern nach.',
+        'Diese Website ist meine Arbeitsprobe. Was Sie hier an Tempo und Technik sehen, bekommt Ihre Website auch.',
       subject: 'Projektanfrage von',
     },
     stickyBar: {
@@ -224,7 +204,7 @@ export const CONTENT = {
     services: {
       label: 'Services',
       heading: 'Everything your digital presence needs.',
-      sub: "Outdated site, slow load times, too few enquiries? That's exactly what I'm here for: web design and development for small and medium-sized businesses, from the first draft to ongoing support.",      items: [
+      sub: 'Outdated site, slow load times, too few enquiries? Web design and development for small and medium-sized businesses.',      items: [
         { title: 'Websites & landing pages', description: 'Custom company sites with modern web design, animations and scroll effects, just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
         { title: 'Web applications', description: 'Custom programs that run in the browser, from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
         { title: 'Integrations & connections', description: 'Your website talks to your till, calendar or inventory system: I connect your systems securely so data lands automatically where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
@@ -236,7 +216,6 @@ export const CONTENT = {
     process: {
       label: 'Process',
       heading: 'How we work together.',
-      sub: 'A clear four-step process, so you always know where your project stands.',
       items: [
         { title: 'Discovery & analysis', description: 'In a free intro call we clarify goals, requirements and scope. No obligation, no time pressure.' },
         { title: 'Concept & quote', description: 'You get a clear concept with a fixed-price quote and timeline. No hidden costs.' },
@@ -250,30 +229,13 @@ export const CONTENT = {
     projects: {
       label: 'Demo websites',
       heading: 'This is what your new website could look like.',
-      sub: 'So you don’t have to imagine anything, I show you: complete demo websites for individual industries, fully functional, with scroll effects and animations. Click through, ideally on your phone and on your PC.',
-      live: 'Live demo',
-      industry: 'Industry: real estate agency',
-      title: 'Weber & Stein',
-      description: 'An elegant website for a Munich real estate agency: large imagery, smooth scroll animations and a clear path to the contact enquiry. Your website is built exactly the same way, with your content, your colours and your industry.',
-      features: [
-        'Smooth scroll effects & animations',
-        'Looks right on phone, tablet & PC',
-        'Loads in under a second',
-        'Clear path to customer enquiries',
-      ],
+      sub: 'So you don’t have to imagine anything: complete demo websites for individual industries, fully functional. Click through and see for yourself.',
+      industry: 'Example: real estate agency',
+      description: 'Your website is built exactly the same way: with your content, your colours and your industry.',
       cta: 'View live demo',
       ctaSecondary: 'Request a site like this',
       note: 'Weber & Stein is a fictional company, the website behind it is fully functional.',
-      slider: {
-        label: 'Before / After',
-        caption: 'This is how an outdated site becomes one that brings enquiries.',
-        before: 'Old site',
-        after: 'Your new site',
-        hint: 'Drag the slider',
-      },
-      imageAlt: 'Preview of the real estate demo website in browser and smartphone view',
-      upcomingLabel: 'More industry demos are in the works',
-      upcoming: ['Trades & construction', 'Restaurants', 'Car dealers'],
+      imageAlt:'Preview of the real estate demo website in browser and smartphone view',
       yourIndustry: 'Your industry? Just ask',
     },
     about: {
@@ -281,8 +243,6 @@ export const CONTENT = {
       heading: 'Your direct point of contact, from first call to launch.',
       lead: 'You do not talk to a project manager. You talk directly to the developer.',
       p1: 'I am Mehmet Deliaci, a web developer based in Weißenburg, Bavaria. I help companies, freelancers and start-ups show up professionally online with sites and apps that load fast, look good and work measurably well.',
-      p2: 'I use Angular, TypeScript and Tailwind CSS in the frontend, and Python, Django and REST APIs in the backend, no middlemen, no friction.',
-      p3: 'My focus keeps growing towards custom software: internal tools, automations and applications that genuinely simplify business processes.',
       glance: 'At a glance',
       facts: [
         { label: 'Location', value: 'Weißenburg, Bavaria' },
@@ -311,7 +271,7 @@ export const CONTENT = {
       note: '100% no obligation · Reply within 24 hours',
       proofLabel: 'My work sample',
       proofText:
-        'This website is my reference: 100/100 on Google PageSpeed, WCAG AA accessible and loaded in under a second. Your website gets the same standard, feel free to measure it.',
+        'This website is my work sample. What you see here in speed and craft is what your website gets too.',
       subject: 'Project inquiry from',
     },
     stickyBar: {
@@ -387,7 +347,7 @@ export const CONTENT = {
     services: {
       label: 'Hizmetler',
       heading: 'Dijital varlığınızın ihtiyacı olan her şey.',
-      sub: 'Eski site, yavaş yüklenme, az talep mi? Tam da bunun için buradayım: küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme, ilk taslaktan sürekli desteğe.',      items: [
+      sub: 'Eski site, yavaş yüklenme, az talep mi? Küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme.',      items: [
         { title: 'Web siteleri & açılış sayfaları', description: 'Modern web tasarımı, animasyonlar ve kaydırma efektleriyle özel kurumsal siteler, tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
         { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar, kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
         { title: 'Entegrasyonlar & bağlantılar', description: 'Web siteniz kasa, takvim veya stok sisteminizle konuşur: Sistemlerinizi güvenle birbirine bağlarım, veriler ihtiyacınız olan yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
@@ -399,7 +359,6 @@ export const CONTENT = {
     process: {
       label: 'Süreç',
       heading: 'Birlikte nasıl çalışıyoruz.',
-      sub: 'Projenizin hangi aşamada olduğunu her zaman görebileceğiniz dört adımlı net bir süreç.',
       items: [
         { title: 'Tanışma & analiz', description: 'Ücretsiz ön görüşmede hedefleri, gereksinimleri ve kapsamı netleştiririz. Bağlayıcı değildir.' },
         { title: 'Konsept & teklif', description: 'Net konsept, sabit fiyat teklifi ve zaman planı alırsınız. Gizli maliyet yok.' },
@@ -413,30 +372,13 @@ export const CONTENT = {
     projects: {
       label: 'Demo web siteleri',
       heading: 'Yeni web siteniz böyle görünebilir.',
-      sub: 'Hayal etmenize gerek kalmasın diye gösteriyorum: sektörlere özel, tamamen çalışan demo web siteleri, kaydırma efektleri ve animasyonlarla. Gezinin; en iyisi hem telefonda hem bilgisayarda deneyin.',
-      live: 'Canlı demo',
-      industry: 'Sektör: Emlak ofisi',
-      title: 'Weber & Stein',
-      description: 'Münihli bir emlak ofisi için zarif bir web sitesi: büyük görseller, yumuşak kaydırma animasyonları ve iletişim talebine net yönlendirme. Sizin siteniz de tam böyle yapılır, sizin içeriğiniz, renkleriniz ve sektörünüzle.',
-      features: [
-        'Yumuşak kaydırma efektleri & animasyonlar',
-        'Telefon, tablet ve PC’de kusursuz',
-        '1 saniyenin altında yüklenme',
-        'Müşteri talebine net yönlendirme',
-      ],
+      sub: 'Hayal etmenize gerek kalmasın: sektörlere özel, tamamen çalışan demo web siteleri. Gezinin, kendiniz görün.',
+      industry: 'Örnek: Emlak ofisi',
+      description: 'Sizin siteniz de tam böyle yapılır: sizin içeriğiniz, renkleriniz ve sektörünüzle.',
       cta: 'Canlı demoyu gör',
       ctaSecondary: 'Böyle bir site talep et',
       note: 'Weber & Stein kurgusal bir şirkettir, arkasındaki web sitesi tamamen çalışır durumdadır.',
-      slider: {
-        label: 'Önce / Sonra',
-        caption: 'Eski bir site böyle talep getiren bir siteye dönüşür.',
-        before: 'Eski site',
-        after: 'Yeni siteniz',
-        hint: 'Kaydırıcıyı sürükleyin',
-      },
-      imageAlt: 'Emlak demo web sitesinin tarayıcı ve akıllı telefon önizlemesi',
-      upcomingLabel: 'Diğer sektör demoları hazırlanıyor',
-      upcoming: ['Zanaat & inşaat', 'Gastronomi', 'Oto galeri'],
+      imageAlt:'Emlak demo web sitesinin tarayıcı ve akıllı telefon önizlemesi',
       yourIndustry: 'Sizin sektörünüz mü? Hemen sorun',
     },
     about: {
@@ -444,8 +386,6 @@ export const CONTENT = {
       heading: 'İlk görüşmeden lansmana kadar doğrudan muhatabınız.',
       lead: 'Proje yöneticisiyle değil, doğrudan projeyi geliştiren kişiyle konuşursunuz.',
       p1: 'Ben Mehmet Deliaci, Bavyera Weißenburg’da yaşayan bir web geliştiricisiyim. Şirketlerin, serbest çalışanların ve girişimlerin hızlı, iyi görünen ve ölçülebilir şekilde çalışan site ve uygulamalarla internette profesyonelce yer almasına yardımcı oluyorum.',
-      p2: 'Ön yüzde Angular, TypeScript ve Tailwind CSS; arka yüzde Python, Django ve REST API kullanıyorum, aracı yok, sürtüşme yok.',
-      p3: 'Odak noktam giderek özel yazılıma doğru büyüyor: iş süreçlerini gerçekten kolaylaştıran dahili araçlar, otomasyonlar ve uygulamalar.',
       glance: 'Özetle',
       facts: [
         { label: 'Konum', value: 'Weißenburg, Bavyera' },

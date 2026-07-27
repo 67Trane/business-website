@@ -20,89 +20,90 @@
       <p class="mt-5 text-lead text-[#8a9ac4]">{{ content().projects.sub }}</p>
     </div>
 
-    <div
-      data-reveal
-      class="mt-14 grid items-center gap-12 lg:mt-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16"
-    >
-      <!-- Interactive before/after relaunch slider (replaces the static mockup). -->
-      <div class="relative">
+    <!-- Stage: the device mockup gets the full width. It drifts up into place
+         and keeps floating slowly (.demo-rise) while a light sweeps across the
+         screens once (.demo-sheen, masked to the device silhouette). -->
+    <!-- -mx-* lets the mockup bleed past the shell padding on phones, where it
+         is the primary viewport and needs the extra width to stay legible. -->
+    <div data-reveal class="relative mt-14 -mx-[0.85rem] sm:mx-0 lg:mt-20">
+      <a
+        [href]="demo.liveUrl"
+        target="_blank"
+        rel="noopener"
+        class="demo-stage group relative mx-auto block max-w-5xl"
+        [attr.aria-label]="content().projects.cta"
+      >
+        <!-- Glow pool behind the devices: blooms once as the stage arrives
+             instead of pulsing forever, which keeps phones out of a permanent
+             blur-repaint loop. -->
         <div
           aria-hidden="true"
-          class="pointer-events-none absolute inset-x-8 inset-y-12 animate-glow-pulse rounded-full bg-brand/25 blur-3xl"
+          class="demo-glow pointer-events-none absolute inset-x-6 top-10 bottom-16 rounded-[50%] bg-brand/30 blur-3xl"
         ></div>
-        <app-before-after class="demo-tilt relative block" />
-        <p class="mt-3 text-center font-serif text-sm text-[#8a9ac4] italic">
-          {{ content().projects.slider.caption }}
-        </p>
-      </div>
 
-      <!-- Copy + CTAs -->
-      <div>
-        <div class="flex flex-wrap items-center gap-3">
+        <div class="demo-rise relative">
+          <img
+            [src]="demo.image"
+            [width]="demo.imageWidth"
+            [height]="demo.imageHeight"
+            [alt]="content().projects.imageAlt"
+            loading="lazy"
+            class="relative h-auto w-full drop-shadow-[0_2.5rem_4rem_rgb(0_0_0/0.55)]"
+          />
+          <!-- Light sweep, clipped to the mockup's own alpha silhouette -->
+          <span class="demo-sheen" aria-hidden="true"></span>
+        </div>
+
+        <!-- Appears on hover / focus, desktop affordance only -->
+        <span
+          class="pointer-events-none absolute inset-x-0 -bottom-2 hidden justify-center lg:flex"
+        >
           <span
-            class="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 font-mono text-[0.68rem] tracking-wider text-emerald-300 uppercase"
+            class="rounded-full bg-white/95 px-5 py-2.5 text-sm font-bold text-ink opacity-0 shadow-xl transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
           >
-            <span class="relative flex size-1.5">
-              <span
-                class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"
-              ></span>
-              <span class="relative inline-flex size-1.5 rounded-full bg-emerald-400"></span>
-            </span>
-            {{ content().projects.live }}
-          </span>
-          <span class="font-mono text-[0.68rem] tracking-wider text-[#8a9ac4] uppercase">
-            {{ content().projects.industry }}
-          </span>
-        </div>
-
-        <h3 class="mt-5 font-serif text-3xl text-[#eef1fb]">{{ content().projects.title }}</h3>
-        <p class="mt-3 text-md text-[#8a9ac4]">{{ content().projects.description }}</p>
-
-        <ul class="mt-6 space-y-2.5">
-          @for (feature of content().projects.features; track feature) {
-            <li class="flex items-start gap-3 text-md text-[#c3cdea]">
-              <span aria-hidden="true" class="mt-0.5 text-[#6b96f5]">✓</span>
-              {{ feature }}
-            </li>
-          }
-        </ul>
-
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a [href]="demo.liveUrl" target="_blank" rel="noopener" class="primary-button">
             {{ content().projects.cta }} ↗
-          </a>
-          <a
-            href="#kontakt"
-            class="rounded-[0.55rem] border border-white/15 px-6 py-3.5 text-sm font-semibold text-[#eef1fb] transition hover:border-[#6b96f5]/50 hover:text-white"
-          >
-            {{ content().projects.ctaSecondary }}
-          </a>
-        </div>
-
-        <p class="mt-5 font-mono text-[0.68rem] leading-relaxed text-copy">
-          {{ content().projects.note }}
-        </p>
-      </div>
+          </span>
+        </span>
+      </a>
     </div>
 
-    <!-- Upcoming industry demos + "your industry" nudge -->
-    <div data-reveal class="mt-16 border-t border-white/8 pt-9 lg:mt-20">
-      <p class="micro-label text-[#8a9ac4]!">{{ content().projects.upcomingLabel }}</p>
-      <div class="mt-4 flex flex-wrap items-center gap-3">
-        @for (industry of content().projects.upcoming; track industry) {
-          <span
-            class="rounded-full border border-dashed border-white/20 px-4 py-1.5 text-sm text-[#8a9ac4]"
-          >
-            {{ industry }}
-          </span>
-        }
+    <!-- Caption + actions under the stage -->
+    <div data-reveal class="mx-auto mt-12 max-w-2xl text-center lg:mt-14">
+      <p class="font-mono text-[0.68rem] tracking-wider text-[#6b96f5] uppercase">
+        {{ content().projects.industry }}
+      </p>
+      <p class="mt-4 text-lead text-[#c3cdea]">{{ content().projects.description }}</p>
+
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+        <a
+          [href]="demo.liveUrl"
+          target="_blank"
+          rel="noopener"
+          class="primary-button w-full sm:w-auto"
+        >
+          {{ content().projects.cta }} ↗
+        </a>
         <a
           href="#kontakt"
-          class="rounded-full border border-[#6b96f5]/40 bg-[#6b96f5]/10 px-4 py-1.5 text-sm font-semibold text-[#6b96f5] transition hover:bg-[#6b96f5]/20 hover:text-white"
+          class="inline-flex w-full items-center justify-center rounded-[0.55rem] border border-white/15 px-6 py-3.5 text-sm font-semibold text-[#eef1fb] transition hover:border-[#6b96f5]/50 hover:text-white sm:w-auto"
         >
-          {{ content().projects.yourIndustry }} →
+          {{ content().projects.ctaSecondary }}
         </a>
       </div>
+
+      <p class="mt-6 font-mono text-[0.68rem] leading-relaxed text-copy">
+        {{ content().projects.note }}
+      </p>
+    </div>
+
+    <!-- Nudge for visitors whose industry isn't the one shown above -->
+    <div data-reveal class="mt-16 border-t border-white/8 pt-9 text-center lg:mt-20">
+      <a
+        href="#kontakt"
+        class="inline-flex rounded-full border border-[#6b96f5]/40 bg-[#6b96f5]/10 px-5 py-2.5 text-sm font-semibold text-[#6b96f5] transition hover:bg-[#6b96f5]/20 hover:text-white"
+      >
+        {{ content().projects.yourIndustry }} →
+      </a>
     </div>
   </div>
 </section>

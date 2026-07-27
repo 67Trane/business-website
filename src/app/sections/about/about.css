@@ -96,9 +96,11 @@
     .zoom-card {
       pointer-events: auto;
       container-type: inline-size;
-      /* Height cap: (100svh − header − breathing room) × 1.6 aspect factor. */
-      width: min(92vw, calc(160svh - 8.8rem));
-      aspect-ratio: 16 / 10;
+      /* Height cap: (100svh − header − breathing room) × 1.78 aspect factor. */
+      width: min(92vw, calc(178svh - 8.8rem));
+      /* 16/9 rather than 16/10: the section carries one paragraph now, and the
+         taller card left the settled composition looking half empty. */
+      aspect-ratio: 16 / 9;
     }
 
     /* Tiles carry miniature "workspace" content (phase 3); cqw units inside

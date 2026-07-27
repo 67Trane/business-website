@@ -266,37 +266,131 @@
   }
 }
 
-/* Demo mockup: lies tilted back in 3D and stands upright while scrolling into
-   view – the demos section's own proof of its "scroll effects" claim.
-   Transform-only and scroll-timeline-driven, so it runs off the main thread;
-   without support the mockup simply renders flat. */
+/* Demo mockup reveal: the artwork drifts up, grows a touch and fades in, then
+   keeps floating slowly while the visitor scrolls past. No 3D rotation – on a
+   phone the perspective squashes the mockup and reads as a gimmick; a calm
+   rise plus parallax float looks considered at any size. Transform/opacity
+   only, driven by the scroll timeline, so it never touches the main thread.
+   Without scroll-timeline support the mockup simply renders in place. */
 @supports (animation-timeline: view()) {
-  .demo-tilt {
+  .demo-rise {
     /* The 1s duration is a placeholder – scroll timelines map progress to the
        animation-range; a missing (0s) duration would jump straight to the end.
        Linear timing: the scroll movement itself provides the easing. */
-    animation: demo-straighten 1s linear both;
+    animation: demo-rise 1s linear both;
     animation-timeline: view();
-    /* Start once the mockup is 40% visible (still fully tilted in view) and
-       finish just past the viewport center – the whole straightening happens
-       where the visitor is actually looking. */
-    animation-range: entry 40% cover 65%;
-    transform-origin: 50% 100%;
+    animation-range: entry 5% cover 75%;
+    will-change: transform, opacity;
+  }
+
+  .demo-glow {
+    animation: demo-bloom 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 55%;
   }
 }
 
-@keyframes demo-straighten {
+@keyframes demo-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 7%, 0) scale(0.93);
+  }
+  /* Settles near the viewport centre, where the visitor is actually looking. */
+  45% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  /* Keeps drifting a hair afterwards – the parallax that gives it depth. */
+  100% {
+    opacity: 1;
+    transform: translate3d(0, -3.5%, 0) scale(1);
+  }
+}
+
+@keyframes demo-bloom {
   from {
-    transform: perspective(1100px) rotateX(42deg) scale(0.86) translateY(3rem);
+    opacity: 0;
+    transform: scale(0.75);
   }
   to {
-    transform: perspective(1100px) rotateX(0deg) scale(1) translateY(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Light sweep across the mockup, clipped to the artwork's own alpha channel so
+   the highlight only touches the devices, never the transparent gaps around
+   them. Scroll-timeline driven: it plays once as the stage settles instead of
+   looping, which keeps it off the main thread and out of the paint budget. */
+.demo-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgb(255 255 255 / 22%) 47%,
+    rgb(255 255 255 / 6%) 53%,
+    transparent 62%
+  );
+  -webkit-mask-image: url('/images/projects/demo-immobilienmakler.webp');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/images/projects/demo-immobilienmakler.webp');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  opacity: 0;
+}
+
+@supports (animation-timeline: view()) {
+  .demo-sheen {
+    animation: demo-sheen 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 60% cover 80%;
+  }
+}
+
+@keyframes demo-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-45%);
+  }
+  22%,
+  78% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(45%);
+  }
+}
+
+/* Desktop affordance: the whole stage lifts a touch on hover. */
+@media (hover: hover) and (pointer: fine) {
+  .demo-stage {
+    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .demo-stage:hover,
+  .demo-stage:focus-visible {
+    transform: translateY(-0.5rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .demo-tilt {
+  .demo-rise,
+  .demo-glow {
     animation: none;
+  }
+
+  .demo-sheen {
+    animation: none;
+    opacity: 0;
+  }
+
+  .demo-stage:hover,
+  .demo-stage:focus-visible {
+    transform: none;
   }
 }
 
