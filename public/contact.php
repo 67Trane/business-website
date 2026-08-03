@@ -59,14 +59,146 @@ function smtpConfig(): array
     ];
 }
 
+/**
+ * Real visitor IP. Cloudflare sits in front of the site, so REMOTE_ADDR is a
+ * Cloudflare edge address and would rate-limit everyone into one bucket.
+ */
+function clientIp(): string
+{
+    $forwarded = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? '';
+    if (is_string($forwarded) && filter_var($forwarded, FILTER_VALIDATE_IP) !== false) {
+        return $forwarded;
+    }
+
+    return (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+}
+
+/**
+ * Key for the submit tokens. Stored outside the web root on first use; if that
+ * directory is not writable the fallback is still stable per installation and
+ * not derivable from outside, which is all the token needs.
+ */
+function formSecret(): string
+{
+    static $cached = null;
+    if (is_string($cached)) {
+        return $cached;
+    }
+
+    $path = dirname(__DIR__) . '/private/form-secret.txt';
+    if (is_readable($path)) {
+        $stored = trim((string) @file_get_contents($path));
+        if ($stored !== '') {
+            return $cached = $stored;
+        }
+    }
+
+    $directory = dirname($path);
+    if (is_dir($directory) && is_writable($directory)) {
+        try {
+            $generated = bin2hex(random_bytes(32));
+            if (@file_put_contents($path, $generated, LOCK_EX) !== false) {
+                @chmod($path, 0600);
+                return $cached = $generated;
+            }
+        } catch (Throwable $ignored) {
+            // fall through to the derived fallback
+        }
+    }
+
+    // Deliberately without filemtime(): re-uploading this file must not
+    // invalidate the tokens of visitors who already have the form open.
+    return $cached = hash('sha256', __FILE__ . '|' . php_uname('n'));
+}
+
+function tokenFor(int $issuedAt): string
+{
+    return hash_hmac('sha256', (string) $issuedAt, formSecret());
+}
+
+/**
+ * A valid token proves the sender fetched it from this script first, i.e. ran
+ * the page's JavaScript. The scattergun bots that POST straight at any *.php
+ * they find cannot produce one. Deliberately no minimum age: a real visitor
+ * whose token request was slow must never be turned away.
+ */
+function tokenValid(string $token, string $issuedAtRaw): bool
+{
+    if ($token === '' || $issuedAtRaw === '' || !ctype_digit($issuedAtRaw)) {
+        return false;
+    }
+
+    $age = time() - (int) $issuedAtRaw;
+    if ($age < -60 || $age > 43200) {
+        return false;
+    }
+
+    return hash_equals(tokenFor((int) $issuedAtRaw), $token);
+}
+
+/** Caps how often one visitor can submit; degrades open if no writable store. */
+function rateLimited(): bool
+{
+    $directory = sys_get_temp_dir() . '/md-contact-rl';
+    if (!is_dir($directory)) {
+        @mkdir($directory, 0700, true);
+    }
+    if (!is_dir($directory) || !is_writable($directory)) {
+        return false;
+    }
+
+    $file = $directory . '/' . hash('sha256', clientIp()) . '.txt';
+    $now = time();
+    $recent = [];
+
+    if (is_readable($file)) {
+        foreach (explode(',', (string) @file_get_contents($file)) as $entry) {
+            $entry = trim($entry);
+            if (ctype_digit($entry) && $now - (int) $entry < 3600) {
+                $recent[] = (int) $entry;
+            }
+        }
+    }
+
+    // Generous on purpose: most visitors are on mobile networks where many
+    // subscribers share one public address, so a tight cap would eventually
+    // turn away a real enquiry. Still hard enough to make bulk abuse pointless.
+    if (count($recent) >= 10) {
+        return true;
+    }
+
+    $recent[] = $now;
+    @file_put_contents($file, implode(',', $recent), LOCK_EX);
+
+    return false;
+}
+
+// Token handout for the form script.
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'GET' && isset($_GET['token'])) {
+    $issuedAt = time();
+    echo json_encode(['ts' => $issuedAt, 'token' => tokenFor($issuedAt)]);
+    exit;
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
-    header('Allow: POST');
+    header('Allow: GET, POST');
     respond(405, 'Method not allowed.');
 }
 
 // Honeypot: real visitors never see or fill this field.
 if (input('website') !== '') {
     respond(200, 'Message sent.');
+}
+
+// Unlike the honeypot this is answered with a real error: the bots this stops
+// fire and forget, so silence would only mislead a genuine visitor whose token
+// request failed into believing the enquiry went out.
+if (!tokenValid(input('form_token'), input('form_ts'))) {
+    respond(403, 'Invalid or missing form token.');
+}
+
+if (rateLimited()) {
+    respond(429, 'Too many requests. Please try again later.');
 }
 
 $name = input('name');
