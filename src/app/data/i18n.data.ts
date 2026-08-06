@@ -12,10 +12,14 @@ export const CONTENT = {
       skip: 'Zum Inhalt springen',
     },
     hero: {
-      headlineStart: 'Ich entwickle Websites, die',
-      rotating: ['Kunden gewinnen.', 'Vertrauen schaffen.', 'schnell laden.'],
+      headlineStart: 'Ihre Website kann',
+      rotating: [
+        'mehr als gut aussehen.',
+        'Anfragen erfassen.',
+        'Ihnen Arbeit abnehmen.',
+      ],
       headlineEnd: '',
-      sub: 'Für Unternehmen in Weißenburg und Umgebung. Sie sprechen dabei immer direkt mit dem Entwickler: Ich arbeite allein, ohne Team und ohne lange Abstimmungen.',
+      sub: 'Von der professionellen Unternehmenswebsite bis zur individuellen Lösung mit Anfrageformularen, Terminbuchung oder automatisierten Abläufen. Sie erhalten genau die Funktionen, die Ihr Betrieb wirklich braucht.',
       primary: 'Kostenloses Erstgespräch',
       secondary: 'Demos ansehen',
       callLabel: 'Oder rufen Sie direkt an',
@@ -38,7 +42,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Was kostet eine Website?',
-          a: 'Eine kompakte Unternehmensseite startet bei 1.500 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
+          a: 'Eine kompakte Unternehmensseite startet bei 500 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
         },
         {
           q: 'Wie lange dauert die Umsetzung?',
@@ -56,18 +60,22 @@ export const CONTENT = {
           q: 'Ich habe schon eine Website. Lohnt sich ein Relaunch?',
           a: 'Oft ja: Wenn Ihre Seite langsam lädt, auf dem Handy schlecht aussieht oder keine Anfragen bringt, kostet sie Sie Kunden. Im Erstgespräch schaue ich mir Ihre bestehende Seite an und sage Ihnen ehrlich, ob sich ein Relaunch lohnt.',
         },
+        {
+          q: 'Kann meine Website mehr als nur Informationen anzeigen?',
+          a: 'Ja. Ich entwickle bei Bedarf passende Funktionen direkt mit. Ein Reifenhändler kann zum Beispiel Reifengröße, Fahrzeugdaten und Wunschtermin über ein Formular abfragen. Die vollständige Anfrage kommt anschließend per E-Mail an. So gibt es weniger Rückfragen und der Betrieb spart Zeit.',
+        },
       ],
     },
     services: {
       label: 'Leistungen',
-      heading: 'Alles, was Ihre digitale Präsenz braucht.',
-      sub: 'Veraltete Seite, langsame Ladezeiten, zu wenig Anfragen? Webdesign und Entwicklung für kleine und mittlere Unternehmen.',      items: [
-        { title: 'Websites & Landingpages', description: 'Individuelle Unternehmensseiten mit modernem Webdesign, Animationen und Scroll-Effekten, so wie diese Seite hier. Maßgeschneidert statt Baukasten.', points: ['Perfekt auf Handy, Tablet & PC', 'Moderne Animationen & Effekte', 'Wird bei Google gefunden'] },
-        { title: 'Web-Anwendungen', description: 'Individuelle Programme, die im Browser laufen, vom internen Werkzeug bis zum Kundenportal. Genau auf Ihre Abläufe zugeschnitten.', points: ['Ersetzt Excel-Listen & Zettelwirtschaft', 'Wächst mit Ihrem Unternehmen', 'Einfach zu bedienen'] },
-        { title: 'Anbindungen & Schnittstellen', description: 'Ihre Website spricht mit Kasse, Kalender oder Warenwirtschaft: Ich verbinde Ihre Systeme sicher miteinander, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
+      heading: 'So einfach oder funktional, wie Sie es brauchen.',
+      sub: 'Von der professionellen Unternehmenswebsite bis zur Website mit individuellen Funktionen: Sie entscheiden, was zu Ihrem Betrieb und Ihren Abläufen passt.',      items: [
+        { title: 'Websites & Landingpages', description: 'Für Unternehmen, die ihre Leistungen klar präsentieren und professionell gefunden werden möchten. Auf Wunsch bewusst schlank, ohne unnötige Funktionen.', points: ['Professioneller Auftritt', 'Perfekt auf Handy, Tablet & PC', 'Bei Google sichtbar'] },
+        { title: 'Formulare, Buchungen & Web-Anwendungen', description: 'Von Anfrageformularen und Terminbuchungen bis zum Kundenportal: Ihre Kunden übermitteln wichtige Angaben strukturiert und Sie erhalten eine vollständige Anfrage.', points: ['Weniger Rückfragen', 'Vollständige Angaben direkt erhalten', 'Passend zu Ihrem Arbeitsablauf'] },
+        { title: 'Anbindungen & Schnittstellen', description: 'Ich verbinde Website, Kalender, Kasse, Warenwirtschaft oder andere Systeme, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
         { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden, damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
         { title: 'Wartung & Weiterentwicklung', description: 'Ihre Website bleibt aktuell und sicher und wächst mit Ihrem Unternehmen. Regelmäßige Updates inklusive.', points: ['Updates & Sicherheit', 'Schnelle Fehlerbehebung', 'Neue Funktionen bei Bedarf'] },
-        { title: 'Automatisierung & Tools', description: 'Individuelle Programme, die Ihnen Handarbeit abnehmen: Daten zusammenführen, Berichte erzeugen, Abläufe automatisieren, individuell für Ihren Betrieb entwickelt.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
+        { title: 'Automatisierung & Tools', description: 'Individuelle Lösungen, die wiederkehrende Arbeit abnehmen: Daten zusammenführen, Berichte erzeugen oder Abläufe automatisch weiterführen.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
       ],
     },
     process: {
@@ -159,10 +167,14 @@ export const CONTENT = {
       skip: 'Skip to content',
     },
     hero: {
-      headlineStart: 'I build websites that',
-      rotating: ['win customers.', 'earn trust.', 'load fast.'],
+      headlineStart: 'Your website can',
+      rotating: [
+        'do more than look good.',
+        'capture enquiries.',
+        'take work off your plate.',
+      ],
       headlineEnd: '',
-      sub: 'For businesses in Weißenburg and the surrounding area. You always deal directly with the developer: I work on my own, with no team and no long sign-off chains.',
+      sub: 'From a professional company website to a tailored solution with enquiry forms, appointment booking or automated workflows. You get exactly the features your business actually needs.',
       primary: 'Free intro call',
       secondary: 'See the demos',
       callLabel: 'Or call me directly',
@@ -181,7 +193,7 @@ export const CONTENT = {
       items: [
         {
           q: 'What does a website cost?',
-          a: 'A compact company website starts at €1,500, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
+          a: 'A compact company website starts at €500, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
         },
         {
           q: 'How long does it take?',
@@ -199,18 +211,22 @@ export const CONTENT = {
           q: 'I already have a website. Is a relaunch worth it?',
           a: 'Often yes: if your site loads slowly, looks broken on phones or brings no enquiries, it is costing you customers. In the intro call I review your current site and tell you honestly whether a relaunch pays off.',
         },
+        {
+          q: 'Can my website do more than display information?',
+          a: 'Yes. I can build the right functions directly into it. A tyre retailer, for example, can ask for tyre size, vehicle details and a preferred appointment in a form. The complete enquiry then arrives by email. That means fewer follow-up questions and less work for the business.',
+        },
       ],
     },
     services: {
       label: 'Services',
-      heading: 'Everything your digital presence needs.',
-      sub: 'Outdated site, slow load times, too few enquiries? Web design and development for small and medium-sized businesses.',      items: [
-        { title: 'Websites & landing pages', description: 'Custom company sites with modern web design, animations and scroll effects, just like this very page. Tailor-made, not off-the-shelf.', points: ['Looks right on every device', 'Modern animations & effects', 'Found on Google'] },
-        { title: 'Web applications', description: 'Custom programs that run in the browser, from internal tools to customer portals. Built around exactly how you work.', points: ['Replaces spreadsheets & paperwork', 'Grows with your business', 'Easy to use'] },
-        { title: 'Integrations & connections', description: 'Your website talks to your till, calendar or inventory system: I connect your systems securely so data lands automatically where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
+      heading: 'As simple or as functional as you need.',
+      sub: 'From a professional company website to a site with custom features: you decide what fits your business and workflows.',      items: [
+        { title: 'Websites & landing pages', description: 'For businesses that want to present their services clearly and be found professionally online. Kept deliberately simple if that is all you need.', points: ['Professional online presence', 'Looks right on every device', 'Visible on Google'] },
+        { title: 'Forms, bookings & web applications', description: 'From enquiry forms and appointment booking to customer portals: your customers submit important details in a structured way and you receive a complete enquiry.', points: ['Fewer follow-up questions', 'Receive complete details directly', 'Built around your workflow'] },
+        { title: 'Integrations & connections', description: 'I connect your website, calendar, point-of-sale system, inventory software or other tools so data automatically arrives where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
         { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google, so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
         { title: 'Maintenance & growth', description: 'Your site stays current and secure and grows with your business. Regular updates included.', points: ['Updates & security', 'Fast bug fixing', 'New features when needed'] },
-        { title: 'Automation & tools', description: 'Custom programs that take manual work off your plate: merging data, generating reports, automating workflows, built individually for your business.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
+        { title: 'Automation & tools', description: 'Tailored solutions that take care of repetitive work: merging data, generating reports or automatically moving workflows forward.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
       ],
     },
     process: {
@@ -302,10 +318,14 @@ export const CONTENT = {
       skip: 'İçeriğe atla',
     },
     hero: {
-      headlineStart: 'Geliştirdiğim web siteleri',
-      rotating: ['müşteri kazandırır.', 'güven oluşturur.', 'hızlı yüklenir.'],
+      headlineStart: 'Web siteniz',
+      rotating: [
+        'daha fazlasını yapar.',
+        'talepleri toplar.',
+        'iş yükünüzü azaltır.',
+      ],
       headlineEnd: '',
-      sub: 'Weißenburg ve çevresindeki işletmeler için. Her zaman doğrudan geliştiricinin kendisiyle konuşursunuz: Tek başıma çalışıyorum, ekip yok, uzun onay süreçleri yok.',
+      sub: 'Profesyonel bir şirket sitesinden talep formları, randevu sistemi veya otomatik iş akışları içeren size özel çözümlere kadar: İşletmenizin gerçekten ihtiyaç duyduğu işlevleri geliştiriyorum.',
       primary: 'Ücretsiz ön görüşme',
       secondary: 'Demoları gör',
       callLabel: 'Ya da doğrudan arayın',
@@ -324,7 +344,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Bir web sitesi ne kadara mal olur?',
-          a: 'Kompakt bir kurumsal web sitesi 1.500 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
+          a: 'Kompakt bir kurumsal web sitesi 500 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
         },
         {
           q: 'Ne kadar sürer?',
@@ -342,18 +362,22 @@ export const CONTENT = {
           q: 'Zaten bir sitem var. Yenilemeye değer mi?',
           a: 'Çoğu zaman evet: Siteniz yavaş yükleniyor, telefonda kötü görünüyor veya talep getirmiyorsa size müşteri kaybettiriyor demektir. Ön görüşmede mevcut sitenize bakar, yenilemenin gerçekten değip değmeyeceğini dürüstçe söylerim.',
         },
+        {
+          q: 'Web sitem sadece bilgi sunmaktan fazlasını yapabilir mi?',
+          a: 'Evet. İhtiyacınıza uygun işlevleri doğrudan sitenize ekleyebilirim. Örneğin bir lastik satıcısı, lastik ölçüsünü, araç bilgilerini ve istenen randevu tarihini bir form üzerinden toplayabilir. Eksiksiz talep daha sonra e-posta ile işletmeye ulaşır. Böylece ek sorular azalır ve işletme zaman kazanır.',
+        },
       ],
     },
     services: {
       label: 'Hizmetler',
-      heading: 'Dijital varlığınızın ihtiyacı olan her şey.',
-      sub: 'Eski site, yavaş yüklenme, az talep mi? Küçük ve orta ölçekli işletmeler (KOBİ) için web tasarımı ve geliştirme.',      items: [
-        { title: 'Web siteleri & açılış sayfaları', description: 'Modern web tasarımı, animasyonlar ve kaydırma efektleriyle özel kurumsal siteler, tıpkı bu sayfa gibi. Hazır kalıp değil, size özel.', points: ['Her cihazda kusursuz görünüm', 'Modern animasyonlar & efektler', "Google'da bulunur"] },
-        { title: 'Web uygulamaları', description: 'Tarayıcıda çalışan özel programlar, kurum içi araçtan müşteri portalına. Tam olarak iş akışınıza göre.', points: ['Excel listelerinin yerini alır', 'İşinizle birlikte büyür', 'Kullanımı kolay'] },
-        { title: 'Entegrasyonlar & bağlantılar', description: 'Web siteniz kasa, takvim veya stok sisteminizle konuşur: Sistemlerinizi güvenle birbirine bağlarım, veriler ihtiyacınız olan yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
+      heading: 'İhtiyacınız kadar sade veya işlevsel.',
+      sub: 'Profesyonel bir şirket sitesinden özel işlevlere sahip bir web sitesine kadar: İşletmenize ve çalışma şeklinize neyin uygun olduğuna siz karar verirsiniz.',      items: [
+        { title: 'Web siteleri & açılış sayfaları', description: 'Hizmetlerini açıkça tanıtmak ve internette profesyonel şekilde bulunmak isteyen işletmeler için. Yalnızca buna ihtiyacınız varsa siteyi bilinçli olarak sade tutarım.', points: ['Profesyonel internet görünümü', 'Her cihazda kusursuz görünüm', "Google'da görünür"] },
+        { title: 'Formlar, randevular & web uygulamaları', description: 'Talep formlarından randevu sistemlerine ve müşteri portallarına kadar: Müşterileriniz önemli bilgileri düzenli şekilde iletir, siz de eksiksiz bir talep alırsınız.', points: ['Daha az ek soru', 'Eksiksiz bilgileri doğrudan alın', 'İş akışınıza uygun'] },
+        { title: 'Entegrasyonlar & bağlantılar', description: 'Web sitenizi, takvimi, kasa sistemini, stok yazılımını veya diğer araçları birbirine bağlarım; veriler ihtiyaç duyduğunuz yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
         { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur, ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
         { title: 'Bakım & geliştirme', description: 'Siteniz güncel ve güvenli kalır, işinizle birlikte büyür. Düzenli güncellemeler dahil.', points: ['Güncelleme & güvenlik', 'Hızlı hata giderme', 'İhtiyaç halinde yeni özellikler'] },
-        { title: 'Otomasyon & araçlar', description: 'El emeğini üzerinizden alan özel programlar: veri birleştirme, rapor oluşturma, iş akışlarını otomatikleştirme, işletmenize özel geliştirilir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
+        { title: 'Otomasyon & araçlar', description: 'Tekrarlanan işleri üstlenen size özel çözümler: verileri birleştirir, rapor oluşturur veya iş akışlarını otomatik olarak ilerletir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
       ],
     },
     process: {
