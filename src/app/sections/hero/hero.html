@@ -22,7 +22,7 @@
          The entrance animation sits on this cell (no inline transform here),
          so it never clashes with the parallax transform on the inner layer. -->
     <div
-      class="animate-fade-in-image relative min-h-[32vh] overflow-hidden [animation-delay:300ms] sm:min-h-[54vh] lg:min-h-screen"
+      class="animate-fade-in-image relative min-h-[max(21rem,42vh)] overflow-hidden [animation-delay:300ms] sm:min-h-[54vh] lg:min-h-screen"
     >
       <div
         class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
@@ -32,26 +32,33 @@
         <div
           class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"
         ></div>
-        <!-- Portrait, fading out softly towards the left edge -->
-        <div class="absolute inset-x-0 top-20 h-[78%]">
+        <!-- Portrait. Mobile: nearly full width so the face is large, but starting
+             below the fixed header and running down to the visible cell edge
+             (bottom-[20%] of this 125% layer), so torso stays visible instead of
+             dissolving right under the chin.
+             Desktop: contained in the column, fading out towards the left edge. -->
+        <div
+          class="absolute inset-x-8 top-16 bottom-[20%] lg:inset-x-0 lg:top-20 lg:bottom-auto lg:h-[78%]"
+        >
           <img
             ngSrc="images/profile.webp"
             fill
             priority
-            class="object-contain object-bottom mask-[linear-gradient(to_right,transparent_0%,black_14%,black_100%)]"
+            class="object-cover object-top mask-[linear-gradient(to_right,transparent_0%,black_9%,black_100%)] lg:object-contain lg:object-bottom lg:mask-[linear-gradient(to_right,transparent_0%,black_14%,black_100%)]"
             alt="Mehmet Deliaci"
           />
         </div>
         <!-- Soft blur running out over the left photo edge -->
         <div
-          class="absolute top-20 left-0 h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)]"
+          class="absolute top-20 left-0 hidden h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)] lg:block"
         ></div>
-        <!-- Blend right and bottom edges into the canvas background -->
+        <!-- Blend right and bottom edges into the canvas background. The bottom fade
+             sits on the visible cell edge on mobile (bottom-[20%] of the 125% layer). -->
         <div
-          class="absolute inset-y-0 right-0 w-40 bg-linear-to-r from-transparent to-canvas"
+          class="absolute inset-y-0 right-0 hidden w-40 bg-linear-to-r from-transparent to-canvas lg:block"
         ></div>
         <div
-          class="absolute inset-x-0 bottom-0 h-44 bg-linear-to-b from-transparent to-canvas"
+          class="absolute inset-x-0 bottom-[20%] h-16 bg-linear-to-b from-transparent to-canvas lg:bottom-0 lg:h-44"
         ></div>
       </div>
     </div>
@@ -66,10 +73,7 @@
         {{ content().hero.headlineStart }}
         <br />
         <span class="sr-only"> {{ content().hero.rotating[0] }} </span>
-        <span
-          class="rotating-word-frame align-baseline italic text-brand"
-          aria-hidden="true"
-        >
+        <span class="rotating-word-frame align-baseline italic text-brand" aria-hidden="true">
           @for (word of exitingRotatingWords(); track word) {
             <span class="rotating-word rotating-word-out">{{ word }}</span>
           }
