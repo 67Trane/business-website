@@ -38,7 +38,7 @@
              dissolving right under the chin.
              Desktop: contained in the column, fading out towards the left edge. -->
         <div
-          class="absolute inset-x-8 top-16 bottom-[20%] lg:inset-x-0 lg:top-20 lg:bottom-auto lg:h-[78%]"
+          class="absolute inset-x-8 top-16 bottom-[20%] sm:inset-x-0 sm:mx-auto sm:w-104 lg:top-20 lg:bottom-auto lg:h-[78%] lg:w-auto"
         >
           <img
             ngSrc="images/profile.webp"
@@ -63,12 +63,16 @@
       </div>
     </div>
 
-    <!-- Copy column -->
+    <!-- Copy column. It is a container so the headline can size itself off the
+         actually available column width instead of the viewport width. -->
     <div
-      class="relative z-10 flex flex-col justify-center px-6 pt-5 pb-16 sm:px-12 sm:pt-8 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
+      class="@container relative z-10 flex flex-col justify-center px-6 pt-5 pb-16 sm:px-12 sm:pt-8 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
     >
+      <!-- The rotating word sits in a one-line clipping frame, so the longest
+           phrase (9.75em) must never wrap: 9.6cqw keeps it on one line at every
+           width, viewport-based sizing did not (it clipped on phones and 1024-1300). -->
       <h1
-        class="animate-fade-up max-w-[12em] font-serif text-[clamp(2.5rem,5vw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink"
+        class="animate-fade-up max-w-[12em] font-serif text-[clamp(1.875rem,9.6cqw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink"
       >
         {{ content().hero.headlineStart }}
         <br />
