@@ -28,8 +28,8 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    const englishButton = Array.from(compiled.querySelectorAll('header button')).find(
-      (button) => button.textContent?.trim().toLowerCase().endsWith('en'),
+    const englishButton = Array.from(compiled.querySelectorAll('header button')).find((button) =>
+      button.textContent?.trim().toLowerCase().endsWith('en'),
     ) as HTMLButtonElement;
 
     englishButton.click();

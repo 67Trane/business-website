@@ -75,6 +75,11 @@ export class Header {
   }
 
   private hasDarkBackgroundBehindHeader(): boolean {
+    /* Optional DOM API: every browser has it, bare DOM implementations (jsdom in
+       the unit tests) do not. Without a sample we keep the dark text, the same
+       fallback as "nothing opaque found underneath". */
+    if (typeof document.elementsFromPoint !== 'function') return false;
+
     const sampleX = Math.round(window.innerWidth / 2);
     const sampleY = Math.min(36, window.innerHeight - 1);
 
