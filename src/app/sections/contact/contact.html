@@ -18,7 +18,6 @@
       <a
         [href]="profile.phoneHref"
         class="mt-4 inline-block border-b-2 border-ink/20 pb-1 font-serif text-[clamp(1.25rem,2.5vw,1.5rem)] text-ink hover:border-brand hover:text-brand"
-        (click)="consent.trackContactClick('phone')"
       >
         {{ profile.phone }}
       </a>
@@ -30,7 +29,6 @@
             target="_blank"
             rel="noopener"
             class="inline-flex items-center gap-2 rounded-lg bg-[#25d366] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
-            (click)="consent.trackContactClick('whatsapp')"
           >
             <app-icon name="whatsapp" class="size-4" />
             WhatsApp

@@ -1,7 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
-import { ConsentService } from '../../services/consent';
 import { LanguageService } from '../../services/language';
 import { Icon } from '../../shared/icon/icon';
 
@@ -20,7 +19,6 @@ import { Icon } from '../../shared/icon/icon';
 export class ContactBar {
   protected readonly content = inject(LanguageService).content;
   protected readonly profile = PROFILE;
-  protected readonly consent = inject(ConsentService);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   protected readonly visible = signal(false);
 

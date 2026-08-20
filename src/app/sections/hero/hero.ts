@@ -9,7 +9,6 @@ import {
   signal,
 } from '@angular/core';
 import { PROFILE } from '../../data/site.data';
-import { ConsentService } from '../../services/consent';
 import { LanguageService } from '../../services/language';
 import { Icon } from '../../shared/icon/icon';
 
@@ -24,7 +23,6 @@ import { Icon } from '../../shared/icon/icon';
 export class Hero {
   protected readonly content = inject(LanguageService).content;
   protected readonly profile = PROFILE;
-  protected readonly consent = inject(ConsentService);
 
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);

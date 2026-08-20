@@ -5,7 +5,6 @@
     <a
       [href]="profile.phoneHref"
       class="flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-brand"
-      (click)="consent.trackContactClick('phone')"
     >
       <app-icon name="phone" class="size-4.5" />
       {{ content().stickyBar.call }}
@@ -15,7 +14,6 @@
       target="_blank"
       rel="noopener"
       class="flex items-center justify-center gap-2 bg-[#25d366] py-3.5 text-sm font-bold text-white"
-      (click)="consent.trackContactClick('whatsapp')"
     >
       <app-icon name="whatsapp" class="size-4.5" />
       {{ content().stickyBar.whatsapp }}

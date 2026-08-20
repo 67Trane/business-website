@@ -111,7 +111,6 @@
         <a
           [href]="profile.phoneHref"
           class="group inline-flex items-center gap-3 text-ink transition hover:text-brand"
-          (click)="consent.trackContactClick('phone')"
         >
           <span
             class="flex size-11 items-center justify-center rounded-full bg-brand/10 text-brand transition group-hover:bg-brand group-hover:text-white"
@@ -130,7 +129,6 @@
           target="_blank"
           rel="noopener"
           class="inline-flex items-center gap-2.5 rounded-lg bg-[#25d366] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
-          (click)="consent.trackContactClick('whatsapp')"
         >
           <app-icon name="whatsapp" class="size-4.5" />
           {{ content().hero.whatsapp }}
