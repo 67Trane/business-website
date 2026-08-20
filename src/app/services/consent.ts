@@ -3,7 +3,7 @@ import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 
 /** Google Ads conversion tracking (campaign "PMax Webdesign lokale Leads"). */
 const ADS_ID = 'AW-18318016436';
-const LEAD_CONVERSION_LABEL = '5hQOCLKA4dAcELT_2p5E';
+const LEAD_CONVERSION_LABEL = 'v1KFCPqV7-QcELT_2p5E';
 const STORAGE_KEY = 'ads-consent';
 
 export type ConsentStatus = 'unknown' | 'granted' | 'denied';
