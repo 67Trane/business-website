@@ -42,7 +42,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Was kostet eine Website?',
-          a: 'Eine kompakte Unternehmensseite startet bei 500 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
+          a: 'Eine kompakte Unternehmensseite startet bei 1000 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
         },
         {
           q: 'Wie lange dauert die Umsetzung?',
@@ -193,7 +193,7 @@ export const CONTENT = {
       items: [
         {
           q: 'What does a website cost?',
-          a: 'A compact company website starts at €500, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
+          a: 'A compact company website starts at €1000, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
         },
         {
           q: 'How long does it take?',
@@ -344,7 +344,7 @@ export const CONTENT = {
       items: [
         {
           q: 'Bir web sitesi ne kadara mal olur?',
-          a: 'Kompakt bir kurumsal web sitesi 500 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
+          a: 'Kompakt bir kurumsal web sitesi 1000 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
         },
         {
           q: 'Ne kadar sürer?',
