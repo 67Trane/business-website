@@ -1,0 +1,22 @@
+<section class="relative overflow-clip bg-ink" [attr.aria-label]="content().statement.label">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-48 -right-40 size-176 rounded-full bg-[radial-gradient(circle,rgb(30_82_204/30%),transparent_65%)]"
+  ></div>
+
+  <div class="site-shell relative py-28! lg:py-40!">
+    <p class="eyebrow text-brand-soft!">{{ content().statement.label }}</p>
+    <p
+      class="statement-text mt-8 max-w-5xl font-serif text-[clamp(1.875rem,4.4vw,3.875rem)] leading-[1.14] font-medium tracking-[-0.025em] text-white"
+    >
+      @for (word of words(); track $index) {
+        <span
+          class="statement-word"
+          data-scroll-fx
+          [class.statement-accent]="word.accent"
+          [style.--w]="word.at"
+          >{{ word.text }}</span>{{ ' ' }}
+      }
+    </p>
+  </div>
+</section>

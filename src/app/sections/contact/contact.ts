@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ConsentService } from '../../services/consent';
+import { ContactPrefill } from '../../services/contact-prefill';
 import { LanguageService } from '../../services/language';
 import { PROFILE, SOCIAL_LINKS } from '../../data/site.data';
 import { EmailLink } from '../../shared/email-link';
@@ -17,6 +18,8 @@ export class Contact {
   protected readonly profile = PROFILE;
   protected readonly content = inject(LanguageService).content;
   protected readonly consent = inject(ConsentService);
+  /** Message pre-filled by a call to action elsewhere (e.g. "So eine Website anfragen"). */
+  protected readonly prefill = inject(ContactPrefill);
   protected readonly submitState = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   /**

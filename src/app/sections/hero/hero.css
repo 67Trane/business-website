@@ -1,54 +1,101 @@
-.rotating-word-frame {
+/* Phones: copy, then the demo phones, then contact + facts – so the work is
+   on screen right after the first action. Desktop: copy left, phones right. */
+.hero-layout {
   display: grid;
-  width: 100%;
-  height: 1.12em;
-  overflow: hidden;
-  line-height: 1.08;
-  vertical-align: top;
+  grid-template-areas:
+    'top'
+    'visual'
+    'bottom';
 }
 
-.rotating-word {
-  grid-area: 1 / 1;
-  display: inline-block;
-  animation: rotating-word-in 620ms cubic-bezier(0.23, 0.86, 0.39, 0.96) both;
-  transform-origin: 50% 100%;
+.hero-top {
+  grid-area: top;
 }
 
-.rotating-word-out {
-  animation-name: rotating-word-out;
-  transform-origin: 50% 0;
+.hero-visual {
+  grid-area: visual;
 }
 
-@keyframes rotating-word-in {
-  from {
-    opacity: 0;
-    filter: blur(6px);
-    transform: translateY(85%) rotateX(-35deg);
+.hero-bottom {
+  grid-area: bottom;
+}
+
+@media (min-width: 64rem) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-areas:
+      'top visual'
+      'bottom visual';
+    align-content: center;
+    column-gap: clamp(2rem, 4vw, 4rem);
   }
 
+  .hero-visual {
+    align-self: center;
+  }
+}
+
+/* Faint drafting grid, fading out towards the edges. */
+.hero-grid {
+  background-image:
+    linear-gradient(rgb(12 23 51 / 4.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(12 23 51 / 4.5%) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  mask-image: radial-gradient(ellipse 65% 60% at 72% 42%, black, transparent 78%);
+}
+
+/* The stage is a little taller than wide: the front phone plus its label. */
+.phone-stage {
+  aspect-ratio: 1 / 1.06;
+}
+
+.hero-phone-0 {
+  top: 11%;
+  left: 0;
+  width: 38%;
+}
+
+.hero-phone-1 {
+  top: 0;
+  left: 26%;
+  width: 48%;
+}
+
+.hero-phone-2 {
+  top: 11%;
+  right: 0;
+  width: 38%;
+}
+
+/* While the hero scrolls away the phones drift up at different speeds –
+   a little depth, driven by each phone's own view timeline (not the drifting
+   element itself, whose transform must not feed back into its timeline). */
+@supports (animation-timeline: view()) {
+  .hero-phone {
+    view-timeline: --hero-phone block;
+  }
+
+  .hero-drift {
+    animation: hero-drift 1s linear both;
+    animation-timeline: --hero-phone;
+    animation-range: cover 50% cover 100%;
+  }
+
+  .hero-phone-0 .hero-drift {
+    --drift: -9%;
+  }
+
+  .hero-phone-1 .hero-drift {
+    --drift: -4%;
+  }
+
+  .hero-phone-2 .hero-drift {
+    --drift: -14%;
+  }
+}
+
+@keyframes hero-drift {
   to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) rotateX(0);
-  }
-}
-
-@keyframes rotating-word-out {
-  from {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) rotateX(0);
-  }
-
-  to {
-    opacity: 0;
-    filter: blur(6px);
-    transform: translateY(-85%) rotateX(35deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rotating-word {
-    animation: none;
+    transform: translateY(var(--drift, -8%));
   }
 }

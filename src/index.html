@@ -2,12 +2,12 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <title>Webentwickler Weißenburg: Websites & Web-Apps | Mehmet Deliaci</title>
+    <title>Webdesign Weißenburg: Premium-Websites | Mehmet Deliaci</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Webentwickler aus Weißenburg in Bayern: Webdesign, Websites und Web-Anwendungen für kleine und mittlere Unternehmen. Sie sprechen direkt mit dem Entwickler."
+      content="Premium-Webdesign aus Weißenburg: Websites mit Animationen für Gastronomie, Immobilien, Friseure und Werkstätten. Live-Demos ansehen, Festpreis ab 1.000 €."
     />
     <meta name="theme-color" content="#e9ecf7" />
     <!-- Brand icons (from public/images/brand-package). The explicit 32x32 on
@@ -20,10 +20,10 @@
     <!-- Social sharing (Open Graph + Twitter) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mehmet Deliaci" />
-    <meta property="og:title" content="Webentwickler Weißenburg: Websites & Web-Apps | Mehmet Deliaci" />
+    <meta property="og:title" content="Webdesign Weißenburg: Premium-Websites | Mehmet Deliaci" />
     <meta
       property="og:description"
-      content="Webentwickler aus Weißenburg in Bayern: moderne Websites, Web-Anwendungen und Automatisierungen, maßgeschneidert für Ihr Unternehmen."
+      content="Premium-Websites mit Animationen, individuell gestaltet für Ihre Branche. Vier Live-Demos: Gastronomie, Immobilien, Barbershop und Kfz-Service."
     />
     <meta property="og:url" content="https://mehmet-deliaci.net/" />
     <meta property="og:image" content="https://mehmet-deliaci.net/images/og.jpg" />
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Structured data: linked entity graph (WebSite + Person + ProfessionalService
-         + demo showcase). Address stays locality-only; the phone number is public
+         + industry demo showcase, mirrors DEMOS in demos.data.ts). Address stays locality-only; the phone number is public
          (it appears as a CTA on the page and in Google Ads call assets). -->
     <script type="application/ld+json">
       {
@@ -43,19 +43,36 @@
             "@type": "WebSite",
             "@id": "https://mehmet-deliaci.net/#website",
             "url": "https://mehmet-deliaci.net/",
-            "name": "Mehmet Deliaci, Webentwicklung & digitale Lösungen",
+            "name": "Mehmet Deliaci, Premium-Webdesign & Entwicklung",
             "inLanguage": "de",
-            "publisher": { "@id": "https://mehmet-deliaci.net/#business" }
+            "publisher": {
+              "@id": "https://mehmet-deliaci.net/#business"
+            }
           },
           {
             "@type": "Person",
             "@id": "https://mehmet-deliaci.net/#person",
             "name": "Mehmet Deliaci",
             "url": "https://mehmet-deliaci.net/",
-            "jobTitle": "Webentwickler",
-            "worksFor": { "@id": "https://mehmet-deliaci.net/#business" },
-            "knowsLanguage": ["de", "en", "tr"],
-            "knowsAbout": ["Angular", "TypeScript", "Tailwind CSS", "Python", "Django", "REST APIs"],
+            "jobTitle": "Webdesigner & Webentwickler",
+            "worksFor": {
+              "@id": "https://mehmet-deliaci.net/#business"
+            },
+            "knowsLanguage": [
+              "de",
+              "en",
+              "tr"
+            ],
+            "knowsAbout": [
+              "Webdesign",
+              "Web-Animation",
+              "Angular",
+              "Astro",
+              "TypeScript",
+              "Tailwind CSS",
+              "Barrierefreiheit",
+              "Suchmaschinenoptimierung"
+            ],
             "sameAs": [
               "https://www.github.com/67Trane",
               "https://www.linkedin.com/in/mehmet-deliaci-24285535a"
@@ -64,7 +81,7 @@
           {
             "@type": "ProfessionalService",
             "@id": "https://mehmet-deliaci.net/#business",
-            "name": "Mehmet Deliaci, Webentwicklung & digitale Lösungen",
+            "name": "Mehmet Deliaci, Premium-Webdesign & Entwicklung",
             "url": "https://mehmet-deliaci.net/",
             "image": "https://mehmet-deliaci.net/images/og.jpg",
             "telephone": "+4915567432567",
@@ -75,35 +92,122 @@
               "addressCountry": "DE"
             },
             "areaServed": "DE",
-            "founder": { "@id": "https://mehmet-deliaci.net/#person" },
+            "founder": {
+              "@id": "https://mehmet-deliaci.net/#person"
+            },
             "sameAs": [
               "https://www.github.com/67Trane",
               "https://www.linkedin.com/in/mehmet-deliaci-24285535a"
             ],
-            "knowsLanguage": ["de", "en", "tr"],
+            "knowsLanguage": [
+              "de",
+              "en",
+              "tr"
+            ],
             "makesOffer": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Websites & Landingpages" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web-Anwendungen" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Anbindungen & Schnittstellen" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tempo & Google-Sichtbarkeit" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wartung & Weiterentwicklung" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatisierung & Tools" } }
-            ]
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Individuelles Webdesign"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web-Animationen"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mobile-first Websites"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Suchmaschinenoptimierung & Ladezeit"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Anfrageformulare & Terminbuchung"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Wartung & Betreuung"
+                }
+              }
+            ],
+            "description": "Hochwertige Websites mit Animationen für kleine und mittlere Betriebe wie Restaurants, Makler, Friseure und Werkstätten. Jede Seite entsteht ohne Vorlage und zuerst für das Smartphone, Angebote gibt es zum Festpreis."
           },
           {
             "@type": "ItemList",
-            "name": "Demo-Websites",
+            "name": "Branchen-Demos",
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
                 "item": {
                   "@type": "CreativeWork",
+                  "name": "Altstadt-Imbiss Bosporus: Demo-Website für die Gastronomie",
+                  "genre": "Gastronomie",
+                  "url": "https://mehmet-deliaci.net/demos/bosporus/",
+                  "description": "Website für einen Döner-Imbiss in Weißenburg mit großem Food-Foto zum Einstieg, Speisekarte mit Preisen, fester Leiste zum Anrufen und für die Route sowie Instagram-Feed.",
+                  "author": {
+                    "@id": "https://mehmet-deliaci.net/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "CreativeWork",
                   "name": "Weber & Stein: Demo-Website für Immobilienmakler",
-                  "description": "Voll funktionsfähige Demo-Website für ein fiktives Münchner Maklerbüro: Scroll-Animationen, responsives Design und klare Führung zur Kontaktanfrage.",
-                  "url": "https://mehmet-deliaci.net/demos/immobilienmakler",
                   "genre": "Immobilienmakler",
-                  "author": { "@id": "https://mehmet-deliaci.net/#person" }
+                  "url": "https://mehmet-deliaci.net/demos/immobilienmakler/",
+                  "description": "Website für ein fiktives Münchner Maklerbüro mit Video-Einstieg, Objekten mit Lage, Zimmern, Fläche und Preis, Kundenstimmen und Kontaktformular.",
+                  "author": {
+                    "@id": "https://mehmet-deliaci.net/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Barbier Jefferson: Demo-Website für einen Barbershop",
+                  "genre": "Barbershop",
+                  "url": "https://mehmet-deliaci.net/demos/jefferson/",
+                  "description": "Website für einen Barbershop in Weißenburg mit Terminbuchung über Planity, Preisliste, Team, Auszeichnungen und Route über Google Maps.",
+                  "author": {
+                    "@id": "https://mehmet-deliaci.net/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Reifenservice F.Tas: Demo-Website für einen Kfz-Service",
+                  "genre": "Kfz-Service",
+                  "url": "https://mehmet-deliaci.net/demos/reifenservice/",
+                  "description": "Website für einen Reifenservice in Weißenburg mit Preisen auf dem ersten Bildschirm und einer Anfrage in drei Schritten, die den Preis beim Tippen ausrechnet.",
+                  "author": {
+                    "@id": "https://mehmet-deliaci.net/#person"
+                  }
                 }
               }
             ]

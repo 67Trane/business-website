@@ -24,7 +24,9 @@
   font-display: swap;
   font-weight: 500;
   src: url('/fonts/spectral-latin-500-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: 'Spectral';
@@ -32,7 +34,9 @@
   font-display: swap;
   font-weight: 600;
   src: url('/fonts/spectral-latin-600-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: 'Hanken Grotesk';
@@ -40,7 +44,9 @@
   font-display: swap;
   font-weight: 400;
   src: url('/fonts/hanken-grotesk-latin-400-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @theme {
@@ -51,6 +57,14 @@
   --color-copy: #566185;
   --color-canvas: #e9ecf7;
   --color-brand: #1e52cc;
+  /* Light accent on the dark ink ground (eyebrows, links); >= 4.5:1 on ink. */
+  --color-brand-soft: #7fa2ff;
+  /* Secondary copy on the dark ink ground; >= 4.5:1 on ink. */
+  --color-mist: #9aa8cf;
+  /* WhatsApp buttons: a deeper green than the brand's #25d366, which only
+     reaches 2:1 with white text; this one keeps 5:1 (WCAG AA). */
+  --color-whatsapp: #15803d;
+  --color-whatsapp-dark: #166534;
 
   /* Type scale additions: md = small body (cards, dense rows),
      lead = section intros. Keeps one-off rem values out of templates. */
@@ -58,17 +72,11 @@
   --text-md--line-height: 1.65;
   --text-lead: 1.0625rem;
   --text-lead--line-height: 1.65;
-  --animate-fade-up: fade-up 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  /* One-time entrance for the hero portrait: fades in while sliding into place,
-     as a counter-motion to the text rising up. Disabled by reduced-motion. */
-  --animate-fade-in-image: fade-in-image 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  /* About portrait card: slow ambient glow breathing behind the cutout plus a
-     gentle vertical drift for the decorative accents. Desync accents with
-     negative animation-delays per element. Both loops rest at their base
-     state under the global reduced-motion rule. */
-  --animate-glow-pulse: glow-pulse 7s ease-in-out infinite;
-  --animate-float-slow: float-drift 9s ease-in-out infinite;
-  --animate-float-slower: float-drift 14s ease-in-out infinite;
+
+  /* Long, soft deceleration: the house curve for every entrance. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes fade-up {
     from {
@@ -80,43 +88,12 @@
       transform: translateY(0);
     }
   }
-
-  @keyframes fade-in-image {
-    from {
-      opacity: 0;
-      transform: translateX(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes glow-pulse {
-    0%,
-    100% {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.08);
-    }
-  }
-
-  @keyframes float-drift {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-0.75rem);
-    }
-  }
 }
 
 :root {
   color-scheme: light;
+  /* Fixed header height – sticky elements and anchor targets park below it. */
+  --header-h: 4.5rem;
 }
 
 *,
@@ -132,7 +109,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: var(--header-h);
   }
 
   body {
@@ -142,6 +119,7 @@
     color: #566185;
     font-family: 'Hanken Grotesk', sans-serif;
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 
   a {
@@ -173,10 +151,13 @@
   .site-shell {
     margin-inline: auto;
     max-width: 82.5rem;
-    padding: 6rem 3.25rem;
+    padding: 6.5rem 3.25rem;
   }
 
   .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     color: #1e52cc;
     font-family: 'Spline Sans Mono', monospace;
     font-size: 0.72rem;
@@ -184,18 +165,26 @@
     text-transform: uppercase;
   }
 
-  /* Section headline (h2). Clearly one step below the hero h1
-     (clamp 2.5rem -> 3.875rem) at every viewport width. */
+  /* Short rule in front of every eyebrow – the editorial "chapter" mark. */
+  .eyebrow::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  /* Section headline (h2). Clearly one step below the hero h1 at every width. */
   .display-title {
     color: #0c1733;
     font-family: 'Spectral', serif;
-    font-size: clamp(2.1rem, 3.5vw, 2.75rem);
+    font-size: clamp(2.15rem, 4.2vw, 3.5rem);
     font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.08;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+    text-wrap: balance;
   }
 
-  /* Tiny uppercase label above secondary content blocks (Stack, contact, ...).
+  /* Tiny uppercase label above secondary content blocks (contact, facts, ...).
      Color must keep >= 4.5:1 contrast on white and canvas (WCAG AA). */
   .micro-label {
     color: #566185;
@@ -225,197 +214,272 @@
     transform: none;
   }
 
+  /* Primary action. Steps up on hover (pointer devices only, so taps don't
+     leave a sticky hover state) and presses down on click. */
   .primary-button {
     display: inline-flex;
+    min-height: 3.25rem;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    border-radius: 0.55rem;
+    border-radius: 999px;
     background: #1e52cc;
-    padding: 0.9rem 1.7rem;
+    padding: 0.85rem 1.75rem;
     color: #fff;
     font-size: 0.9375rem;
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 0.75rem 1.8rem -0.8rem rgb(30 82 204 / 65%);
     transition:
-      transform 180ms ease,
-      background 180ms ease,
-      box-shadow 180ms ease;
+      transform 220ms var(--ease-out-soft),
+      background 220ms ease,
+      box-shadow 220ms ease;
   }
 
-  /* Only on devices with a real pointer (mouse) – avoids the sticky-hover
-     effect on touchscreens where :hover lingers after a tap. */
+  .ghost-button {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 1px solid rgb(12 23 51 / 18%);
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
+    color: #0c1733;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      transform 220ms var(--ease-out-soft),
+      border-color 220ms ease,
+      color 220ms ease,
+      background 220ms ease;
+  }
+
+  .primary-button:active,
+  .ghost-button:active {
+    transform: scale(0.97);
+  }
+
+  /* Arrow icons inside buttons and links nudge forward on hover. */
+  .nudge {
+    transition: transform 260ms var(--ease-out-soft);
+  }
+
   @media (hover: hover) {
     .primary-button:hover {
       transform: translateY(-2px);
       background: #1745b2;
       box-shadow: 0 1rem 2rem -0.8rem rgb(30 82 204 / 75%);
     }
-  }
-}
 
-/* Scroll-driven reveal: sections fade up as they enter the viewport.
-   Pure CSS (runs off the main thread); browsers without support simply
-   show the content statically. */
-@supports (animation-timeline: view()) {
-  [data-reveal] {
-    animation: fade-up 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    animation-timeline: view();
-    animation-range: entry 4% cover 20%;
-  }
-}
+    .ghost-button:hover {
+      transform: translateY(-2px);
+      border-color: #1e52cc;
+      color: #1e52cc;
+    }
 
-/* Demo mockup reveal: the artwork drifts up, grows a touch and fades in, then
-   keeps floating slowly while the visitor scrolls past. No 3D rotation – on a
-   phone the perspective squashes the mockup and reads as a gimmick; a calm
-   rise plus parallax float looks considered at any size. Transform/opacity
-   only, driven by the scroll timeline, so it never touches the main thread.
-   Without scroll-timeline support the mockup simply renders in place. */
-@supports (animation-timeline: view()) {
-  .demo-rise {
-    /* The 1s duration is a placeholder – scroll timelines map progress to the
-       animation-range; a missing (0s) duration would jump straight to the end.
-       Linear timing: the scroll movement itself provides the easing. */
-    animation: demo-rise 1s linear both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 75%;
-    will-change: transform, opacity;
+    a:hover > .nudge,
+    button:hover > .nudge {
+      transform: translateX(3px);
+    }
+
+    a:hover > .nudge-diagonal {
+      transform: translate(2px, -2px);
+    }
   }
 
-  .demo-glow {
-    animation: demo-bloom 1s linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 55%;
+  /* Text inputs of the contact form. Labels around them are small caps, so
+     every inherited text property is reset explicitly. */
+  .form-field {
+    border: 2px solid transparent;
+    border-radius: 0.85rem;
+    background: #e9ecf7;
+    padding: 0.8rem 1rem;
+    color: #0c1733;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+    transition:
+      border-color 200ms ease,
+      background 200ms ease;
   }
-}
 
-@keyframes demo-rise {
-  0% {
+  .form-field::placeholder {
+    color: rgb(86 97 133 / 60%);
+  }
+
+  .form-field:focus {
+    border-color: rgb(30 82 204 / 40%);
+    background: #fff;
+    outline: none;
+  }
+
+  /* ---------- Device frames ---------- */
+
+  /* Phone: the outer ratio includes the bezel, so the inner screen keeps the
+     exact 480×1038 ratio of the recordings and posters (no cropping). */
+  .device-phone {
+    position: relative;
+    aspect-ratio: 479 / 1000;
+    padding: 3.2%;
+    border-radius: 14% / 6.7%;
+    background: linear-gradient(150deg, #3a404d 0%, #10131a 38%, #1d212b 100%);
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 12%),
+      0 2.5rem 3.5rem -1.75rem rgb(12 23 51 / 55%),
+      0 1rem 1.5rem -1rem rgb(12 23 51 / 35%);
+  }
+
+  .device-screen {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10.8% / 5%;
+    background: #0b0d12;
+    /* Keeps the rounded clip intact while the video layer is composited. */
+    isolation: isolate;
+  }
+
+  .device-screen > img,
+  .device-screen > video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* A video sits on top of its still frame, invisible until it plays. */
+  .device-screen > video {
     opacity: 0;
-    transform: translate3d(0, 7%, 0) scale(0.93);
+    transition: opacity 400ms ease;
   }
-  /* Settles near the viewport centre, where the visitor is actually looking. */
-  45% {
+
+  .device-screen > video.is-playing {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
   }
-  /* Keeps drifting a hair afterwards – the parallax that gives it depth. */
-  100% {
-    opacity: 1;
-    transform: translate3d(0, -3.5%, 0) scale(1);
+
+  /* Browser window around a desktop screenshot. */
+  .device-browser {
+    overflow: hidden;
+    border-radius: 0.9rem;
+    background: var(--frame, #f1f3f8);
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 8%),
+      0 2.5rem 4rem -2rem rgb(0 0 0 / 55%);
+  }
+
+  .device-browser-bar {
+    display: flex;
+    height: 2rem;
+    align-items: center;
+    gap: 0.4rem;
+    padding-inline: 0.8rem;
+  }
+
+  .device-browser-bar > i {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.35;
+  }
+
+  .device-browser-url {
+    margin-left: 0.6rem;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 0.4rem;
+    background: rgb(127 127 127 / 14%);
+    padding: 0.15rem 0.6rem;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
-@keyframes demo-bloom {
+/* ---------- Motion ----------
+   Everything below animates transform/opacity only (compositor-friendly) and
+   rests in its final state under prefers-reduced-motion (see the end of file).
+   Scroll-driven parts sit behind @supports: browsers without scroll timelines
+   simply show the finished layout. */
+
+/* Hero headline: each word rises out of its own clipping mask, one after
+   another. --i is the word's index, set in the template. */
+.word-mask {
+  display: inline-block;
+  overflow: clip;
+  /* room for descenders and the italic overhang inside the clip */
+  padding: 0 0.06em 0.12em;
+  margin: 0 -0.06em -0.12em;
+  vertical-align: top;
+}
+
+.word-mask > span {
+  display: inline-block;
+  animation: word-rise 1s var(--ease-out-soft) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 60ms);
+}
+
+@keyframes word-rise {
+  from {
+    transform: translateY(108%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* One-time entrance for hero copy and devices; --d staggers them. */
+.enter {
+  animation: fade-up 1s var(--ease-out-soft) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Transform-only variant for the hero's largest text block: it is visible from
+   the very first frame (no opacity fade), so the browser can count it as the
+   Largest Contentful Paint right away instead of waiting for the animation. */
+.enter-rise {
+  animation: rise 0.9s var(--ease-out-soft) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.enter-device {
+  animation: device-rise 1.3s var(--ease-out-soft) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes device-rise {
   from {
     opacity: 0;
-    transform: scale(0.75);
+    transform: translateY(70px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Light sweep across the mockup, clipped to the artwork's own alpha channel so
-   the highlight only touches the devices, never the transparent gaps around
-   them. Scroll-timeline driven: it plays once as the stage settles instead of
-   looping, which keeps it off the main thread and out of the paint budget. */
-.demo-sheen {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    105deg,
-    transparent 38%,
-    rgb(255 255 255 / 22%) 47%,
-    rgb(255 255 255 / 6%) 53%,
-    transparent 62%
-  );
-  -webkit-mask-image: url('/images/projects/demo-immobilienmakler.webp');
-  -webkit-mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-image: url('/images/projects/demo-immobilienmakler.webp');
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  opacity: 0;
-}
-
+/* Section headings drift up as they enter the viewport. Headings only –
+   cards and rows stay put, so the page never feels like it is fading in. */
 @supports (animation-timeline: view()) {
-  .demo-sheen {
-    animation: demo-sheen 1s linear both;
+  [data-reveal] {
+    animation: fade-up 1s linear both;
     animation-timeline: view();
-    animation-range: entry 60% cover 80%;
+    animation-range: entry 0% entry 70%;
   }
-}
-
-@keyframes demo-sheen {
-  0% {
-    opacity: 0;
-    transform: translateX(-45%);
-  }
-  22%,
-  78% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(45%);
-  }
-}
-
-/* Desktop affordance: the whole stage lifts a touch on hover. */
-@media (hover: hover) and (pointer: fine) {
-  .demo-stage {
-    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .demo-stage:hover,
-  .demo-stage:focus-visible {
-    transform: translateY(-0.5rem);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .demo-rise,
-  .demo-glow {
-    animation: none;
-  }
-
-  .demo-sheen {
-    animation: none;
-    opacity: 0;
-  }
-
-  .demo-stage:hover,
-  .demo-stage:focus-visible {
-    transform: none;
-  }
-}
-
-/* Hero scroll indicator line */
-@keyframes scroll-line {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform: scaleY(1);
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-}
-
-.scroll-line {
-  animation: scroll-line 2s ease 1s infinite;
 }
 
 @media (max-width: 1024px) {
@@ -426,7 +490,7 @@
 
 @media (max-width: 780px) {
   .site-shell {
-    padding: 4rem 1.35rem;
+    padding: 4.5rem 1.25rem;
   }
 }
 
@@ -442,5 +506,11 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* Scroll-driven animations ignore duration, so switch them off outright. */
+  [data-reveal],
+  [data-scroll-fx] {
+    animation: none !important;
   }
 }

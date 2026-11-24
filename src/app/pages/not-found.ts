@@ -18,8 +18,8 @@ import { Seo } from '../services/seo';
       <span class="eyebrow">Fehler 404</span>
       <h1 class="display-title mt-3">Diese Seite gibt es nicht.</h1>
       <p class="mt-6 max-w-130 leading-relaxed text-copy">
-        Die aufgerufene Adresse existiert nicht oder wurde verschoben. Alles Wichtige
-        wie Leistungen, Projekte und Kontakt finden Sie auf der Startseite.
+        Diese Adresse gibt es nicht, oder die Seite ist umgezogen. Die Branchen-Demos, die
+        Leistungen und das Kontaktformular finden Sie auf der Startseite.
       </p>
       <a routerLink="/" class="primary-button mt-9">Zur Startseite <span>→</span></a>
     </section>
@@ -29,7 +29,7 @@ export class NotFound {
   constructor() {
     inject(Seo).apply({
       path: '/404',
-      description: 'Seite nicht gefunden. Mehmet Deliaci, Webentwicklung aus Weißenburg.',
+      description: 'Seite nicht gefunden. Mehmet Deliaci, Webdesign aus Weißenburg.',
       noindex: true,
     });
   }

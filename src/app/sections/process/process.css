@@ -1,40 +1,93 @@
-/* Scroll-drawn timeline beam — CSS scroll-driven port of the framer-motion
-   "timeline" pattern: a gradient beam draws itself down the guide line as the
-   timeline scrolls through the viewport.
-
-   Progressive enhancement: without scroll-driven animation support (or with
-   reduced motion) the beam stays hidden and only the static guide line shows.
-   The explicit media query is required — the global reduced-motion kill
-   switch zeroes durations, which timeline-driven animations ignore. */
-
-.process-beam {
-  display: none;
+/* Phones: steps stacked, dot on the left, line running down through the dots. */
+.process-steps {
+  position: relative;
+  display: grid;
+  gap: 2.25rem;
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
 
+.process-step {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.process-line {
+  position: absolute;
+  top: 1.375rem;
+  bottom: 1.375rem;
+  left: 1.375rem;
+  width: 1px;
+  background: rgb(30 82 204 / 15%);
+}
+
+.process-beam {
+  position: absolute;
+  inset: 0;
+  background: #1e52cc;
+  transform-origin: 50% 0;
+}
+
+/* Desktop: four columns, the line runs across through the dots. */
+@media (min-width: 64rem) {
+  .process-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+
+  .process-step {
+    display: block;
+  }
+
+  .process-line {
+    top: 1.375rem;
+    right: 1.375rem;
+    bottom: auto;
+    left: 1.375rem;
+    width: auto;
+    height: 1px;
+  }
+
+  .process-beam {
+    transform-origin: 0 50%;
+  }
+}
+
+/* The beam draws while the steps travel up through the viewport. */
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .process-timeline {
-      view-timeline-name: --process-beam;
-    }
+  .process-track {
+    view-timeline: --process block;
+  }
 
+  .process-beam {
+    animation: beam-down 1s linear both;
+    animation-timeline: --process;
+    animation-range: entry 40% cover 55%;
+  }
+
+  @media (min-width: 64rem) {
     .process-beam {
-      display: block;
-      animation: beam-draw linear both;
-      animation-timeline: --process-beam;
-      /* Fully drawn at 70% of the pass, so the tip roughly tracks the
-         reader's position instead of lagging at the viewport bottom. */
-      animation-range: cover 0% cover 70%;
+      animation-name: beam-across;
     }
+  }
+}
 
-    /* clip-path instead of scaleY so the gradient doesn't stretch — the
-       beam is revealed, not resized. */
-    @keyframes beam-draw {
-      from {
-        clip-path: inset(0 0 100% 0);
-      }
-      to {
-        clip-path: inset(0 0 0 0);
-      }
-    }
+@keyframes beam-down {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes beam-across {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }

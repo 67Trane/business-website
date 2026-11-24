@@ -1,0 +1,28 @@
+.statement-accent {
+  color: #7fa2ff;
+  font-style: italic;
+}
+
+/* Words light up in reading order while the paragraph crosses the middle of
+   the screen. Each word animates on the paragraph's timeline, offset by its
+   position (--w, 0..1), so the light runs across lines like a reading eye. */
+@supports (animation-timeline: view()) {
+  .statement-text {
+    view-timeline: --statement block;
+  }
+
+  .statement-word {
+    animation: word-light 1s linear both;
+    animation-timeline: --statement;
+    animation-range: cover calc(18% + var(--w) * 34%) cover calc(23% + var(--w) * 34%);
+  }
+}
+
+@keyframes word-light {
+  from {
+    opacity: 0.16;
+  }
+  to {
+    opacity: 1;
+  }
+}

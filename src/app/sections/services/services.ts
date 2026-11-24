@@ -1,26 +1,24 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language';
+import { Icon, IconName } from '../../shared/icon/icon';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
-/**
- * Services section with a spotlight interaction: hovering or focusing a row
- * highlights it (accent line, brand wash, animated miniature illustration)
- * while the other rows dim slightly. The first row starts highlighted.
- */
+/** Services as six tiles; the icon order matches `services.items` in i18n.data.ts. */
 @Component({
   selector: 'app-services',
-  imports: [SectionHeading],
+  imports: [Icon, SectionHeading],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './services.html',
   styleUrl: './services.css',
 })
 export class Services {
   protected readonly content = inject(LanguageService).content;
-
-  /** Index of the currently spotlighted row. */
-  protected readonly activeIndex = signal(0);
-
-  protected activate(index: number): void {
-    this.activeIndex.set(index);
-  }
+  protected readonly icons: IconName[] = [
+    'design',
+    'motion',
+    'smartphone',
+    'speed',
+    'form',
+    'care',
+  ];
 }

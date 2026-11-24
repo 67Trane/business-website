@@ -1,9 +1,10 @@
+import { DEMOS } from './demos.data';
 import { CONTENT, Language } from './i18n.data';
 
 const LANGUAGES: Language[] = ['de', 'en', 'tr'];
 
-/** Intentionally empty: the headline ends after the rotating phrase. */
-const ALLOWED_EMPTY = ['hero.headlineEnd'];
+/** Paths that may legitimately hold an empty string (none at the moment). */
+const ALLOWED_EMPTY: string[] = [];
 
 /**
  * Every leaf of the content tree as "path -> text", e.g. "hero.rotating.1".
@@ -44,35 +45,27 @@ describe('i18n content', () => {
     });
   }
 
-  describe('hero headline', () => {
-    /*
-     * The rotating phrase sits in a frame exactly one line high
-     * (.rotating-word-frame, overflow: hidden). Anything that wraps loses its
-     * second line without a trace – that bug shipped once. The type scales with
-     * the column width (9.6cqw), which leaves a budget of about 9.6em per
-     * phrase; measured in the browser, the longest current phrase needs 9.75em
-     * at 22 characters.
-     *
-     * Character count is only a rough proxy for that width – it catches a
-     * phrase that is plainly too long, it does not prove one fits. The real
-     * width still has to be checked in a browser.
-     */
-    const ROUGH_CHARACTER_BUDGET = 26;
-
+  describe('hero headline markup', () => {
+    // `|` starts a new line, `*…*` marks the accent run (see Hero.headline).
     for (const language of LANGUAGES) {
-      it(`"${language}" keeps every rotating phrase short enough for one line`, () => {
-        const tooLong = CONTENT[language].hero.rotating.filter(
-          (phrase) => phrase.length > ROUGH_CHARACTER_BUDGET,
-        );
+      it(`"${language}" has one closed accent run and no empty lines`, () => {
+        const headline: string = CONTENT[language].hero.headline;
 
-        expect(tooLong).toEqual([]);
+        expect(headline.split('*').length - 1).toBe(2);
+        expect(headline.split('|').every((line) => line.replaceAll('*', '').trim() !== '')).toBe(
+          true,
+        );
       });
     }
+  });
 
+  describe('showcase', () => {
     for (const language of LANGUAGES) {
-      it(`"${language}" offers a rotating phrase for the screen-reader fallback`, () => {
-        // The template reads rotating[0] for the sr-only copy of the headline.
-        expect(CONTENT[language].hero.rotating[0]).toBeTruthy();
+      it(`"${language}" has copy for every listed demo`, () => {
+        const demos: Record<string, unknown> = CONTENT[language].showcase.demos;
+        const missing = DEMOS.map((demo) => demo.industry).filter((industry) => !demos[industry]);
+
+        expect(missing).toEqual([]);
       });
     }
   });

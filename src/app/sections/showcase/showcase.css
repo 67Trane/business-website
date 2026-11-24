@@ -1,0 +1,299 @@
+/* ---------- Industry index ---------- */
+
+.industry-chip {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgb(12 23 51 / 12%);
+  border-radius: 999px;
+  background: #fff;
+  padding: 0.55rem 1.1rem;
+  color: #0c1733;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms var(--ease-out-soft);
+}
+
+.industry-chip.is-active {
+  border-color: #0c1733;
+  background: #0c1733;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .industry-chip:not(.is-active):hover {
+    transform: translateY(-2px);
+    border-color: #1e52cc;
+  }
+}
+
+/* ---------- Cards ---------- */
+
+.showcase-stack {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  margin-block: 0;
+}
+
+/* Phones: name first, then the demo playing on a phone, then what it does. */
+.showcase-card {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    'head'
+    'visual'
+    'body'
+    'actions';
+  overflow: clip;
+  border-radius: 1.75rem;
+  background: var(--d-bg);
+  padding: 1.75rem 1.35rem 1.9rem;
+  color: var(--d-ink);
+  box-shadow:
+    inset 0 0 0 1px var(--d-line),
+    0 2rem 4rem -2.5rem rgb(12 23 51 / 55%);
+}
+
+.card-head {
+  grid-area: head;
+}
+
+.card-visual {
+  position: relative;
+  grid-area: visual;
+  margin-block: 1.75rem 1.9rem;
+}
+
+.card-body {
+  grid-area: body;
+}
+
+.card-actions {
+  grid-area: actions;
+  margin-top: 2rem;
+}
+
+.card-phone {
+  position: relative;
+  width: min(64%, 15.5rem);
+  margin-inline: auto;
+}
+
+/* Soft pool of the demo's accent colour behind the devices. */
+.card-glow {
+  position: absolute;
+  inset: 8% 4%;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--d-accent) 32%, transparent),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.card-browser {
+  --frame: color-mix(in srgb, var(--d-ink) 9%, var(--d-bg));
+  color: var(--d-ink);
+}
+
+/* Actions in the demo's own palette. */
+.demo-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--d-accent);
+  padding: 0.85rem 1.6rem;
+  color: var(--d-on-accent);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 220ms var(--ease-out-soft);
+}
+
+.demo-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--d-ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--d-line);
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color 220ms ease;
+}
+
+.demo-button:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .demo-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .demo-link:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* ---------- Large screens: two columns, stacking cards ---------- */
+
+@media (min-width: 64rem) {
+  .showcase-stack {
+    gap: 2.5rem;
+  }
+
+  .showcase-card {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'head visual'
+      'body visual'
+      'actions visual';
+    column-gap: 2rem;
+    padding: clamp(2.25rem, 3.5vw, 3.5rem);
+    min-height: 40rem;
+  }
+
+  .card-body {
+    margin-top: 2.25rem;
+  }
+
+  .card-actions {
+    align-self: end;
+  }
+
+  .card-visual {
+    margin: 0;
+    min-height: 32rem;
+  }
+
+  .card-glow {
+    inset: 10% 0 0 0;
+  }
+
+  /* Browser window upper right, phone overlapping its lower left corner. */
+  .card-browser {
+    position: absolute;
+    top: 6%;
+    right: 0;
+    width: 90%;
+  }
+
+  .card-phone {
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    width: 31%;
+    margin: 0;
+  }
+}
+
+/* Stacking: each card parks below the header (a little lower than the one
+   before, so the edges of the stack stay visible) and the next card slides
+   over it. Only where a whole card fits on screen. */
+@media (min-width: 64rem) and (min-height: 46rem) {
+  .showcase-item {
+    position: sticky;
+    top: calc(var(--header-h) + 1rem + var(--n) * 0.85rem);
+  }
+
+  .showcase-card {
+    height: calc(100svh - var(--header-h) - 2.5rem - 3 * 0.85rem);
+    min-height: 0;
+  }
+
+  .card-visual {
+    min-height: 0;
+  }
+
+  /* A card being covered recedes: it shrinks a touch and dims. Driven by the
+     NEXT card's entry, shared through timeline-scope on the list.
+     One rule per position – extend when a fifth demo is added. */
+  @supports (timeline-scope: --a) {
+    .showcase-stack {
+      timeline-scope: --stack-2, --stack-3, --stack-4;
+    }
+
+    .showcase-item:nth-child(2) {
+      view-timeline: --stack-2 block;
+    }
+
+    .showcase-item:nth-child(3) {
+      view-timeline: --stack-3 block;
+    }
+
+    .showcase-item:nth-child(4) {
+      view-timeline: --stack-4 block;
+    }
+
+    .showcase-item:nth-child(-n + 3) > .showcase-card {
+      animation: card-recede 1s linear both;
+      animation-range: entry 10% entry 100%;
+      transform-origin: 50% 0;
+    }
+
+    .showcase-item:nth-child(-n + 3) > .showcase-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: #05070d;
+      pointer-events: none;
+      animation: card-dim 1s linear both;
+      animation-range: entry 10% entry 100%;
+    }
+
+    .showcase-item:nth-child(1) > .showcase-card,
+    .showcase-item:nth-child(1) > .showcase-card::after {
+      animation-timeline: --stack-2;
+    }
+
+    .showcase-item:nth-child(2) > .showcase-card,
+    .showcase-item:nth-child(2) > .showcase-card::after {
+      animation-timeline: --stack-3;
+    }
+
+    .showcase-item:nth-child(3) > .showcase-card,
+    .showcase-item:nth-child(3) > .showcase-card::after {
+      animation-timeline: --stack-4;
+    }
+  }
+}
+
+@keyframes card-recede {
+  to {
+    transform: scale(0.94);
+  }
+}
+
+@keyframes card-dim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-card,
+  .showcase-card::after {
+    animation: none !important;
+  }
+}

@@ -1,159 +1,153 @@
 <!-- Hero Section -->
-<section id="top" class="relative min-h-screen overflow-hidden bg-canvas">
-  <!-- Parallax color blobs: each layer scrolls at its own speed for depth -->
-  <div
-    class="pointer-events-none absolute -top-36 -right-28 size-155 rounded-full bg-[radial-gradient(circle,rgb(30_82_204/20%),transparent_68%)] will-change-transform"
-    [style.transform]="blueBlobShift()"
-    aria-hidden="true"
-  ></div>
-  <div
-    class="pointer-events-none absolute right-[12%] -bottom-28 size-130 rounded-full bg-[radial-gradient(circle,rgb(244_150_98/22%),transparent_68%)] will-change-transform"
-    [style.transform]="peachBlobShift()"
-    aria-hidden="true"
-  ></div>
-  <div
-    class="pointer-events-none absolute top-[28%] right-1/4 size-95 rounded-full bg-[radial-gradient(circle,rgb(92_178_235/20%),transparent_68%)] will-change-transform"
-    [style.transform]="cyanBlobShift()"
-    aria-hidden="true"
-  ></div>
-
-  <div class="relative grid min-h-screen lg:grid-cols-[48%_52%]">
-    <!-- Photo column: oversized parallax layer inside a clipping grid cell.
-         The entrance animation sits on this cell (no inline transform here),
-         so it never clashes with the parallax transform on the inner layer. -->
+<section id="top" class="hero relative overflow-clip bg-canvas">
+  <!-- Static ambience: two soft colour pools and a faint drafting grid -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0">
     <div
-      class="animate-fade-in-image relative min-h-[max(21rem,42vh)] overflow-hidden [animation-delay:300ms] sm:min-h-[54vh] lg:min-h-screen"
-    >
-      <div
-        class="absolute inset-x-0 top-0 h-[125%] bg-linear-to-b from-[#dfe5f6] to-[#cbd6f2] will-change-transform"
-        [style.transform]="portraitShift()"
-      >
-        <!-- Blue glow behind the person -->
-        <div
-          class="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_38%,rgb(30_82_204/34%),transparent_70%)]"
-        ></div>
-        <!-- Portrait. Mobile: nearly full width so the face is large, but starting
-             below the fixed header and running down to the visible cell edge
-             (bottom-[20%] of this 125% layer), so torso stays visible instead of
-             dissolving right under the chin.
-             Desktop: contained in the column, fading out towards the left edge. -->
-        <div
-          class="absolute inset-x-8 top-16 bottom-[20%] sm:inset-x-0 sm:mx-auto sm:w-104 lg:top-20 lg:bottom-auto lg:h-[78%] lg:w-auto"
-        >
-          <img
-            ngSrc="images/profile.webp"
-            fill
-            priority
-            class="object-cover object-top mask-[linear-gradient(to_right,transparent_0%,black_9%,black_100%)] lg:object-contain lg:object-bottom lg:mask-[linear-gradient(to_right,transparent_0%,black_14%,black_100%)]"
-            alt="Mehmet Deliaci"
-          />
-        </div>
-        <!-- Soft blur running out over the left photo edge -->
-        <div
-          class="absolute top-20 left-0 hidden h-[78%] w-28 backdrop-blur-[9px] mask-[linear-gradient(to_right,black_0%,black_30%,transparent_100%)] lg:block"
-        ></div>
-        <!-- Blend right and bottom edges into the canvas background. The bottom fade
-             sits on the visible cell edge on mobile (bottom-[20%] of the 125% layer). -->
-        <div
-          class="absolute inset-y-0 right-0 hidden w-40 bg-linear-to-r from-transparent to-canvas lg:block"
-        ></div>
-        <div
-          class="absolute inset-x-0 bottom-[20%] h-16 bg-linear-to-b from-transparent to-canvas lg:bottom-0 lg:h-44"
-        ></div>
-      </div>
-    </div>
-
-    <!-- Copy column. It is a container so the headline can size itself off the
-         actually available column width instead of the viewport width. -->
+      class="absolute -top-40 -right-32 size-160 rounded-full bg-[radial-gradient(circle,rgb(30_82_204/22%),transparent_66%)]"
+    ></div>
     <div
-      class="@container relative z-10 flex flex-col justify-center px-6 pt-5 pb-16 sm:px-12 sm:pt-8 lg:px-[clamp(2.25rem,5vw,5rem)] lg:pt-28"
-    >
-      <!-- The rotating word sits in a one-line clipping frame, so the longest
-           phrase (9.75em) must never wrap: 9.6cqw keeps it on one line at every
-           width, viewport-based sizing did not (it clipped on phones and 1024-1300). -->
+      class="absolute top-[45%] -left-48 size-136 rounded-full bg-[radial-gradient(circle,rgb(244_150_98/16%),transparent_66%)]"
+    ></div>
+    <div class="hero-grid absolute inset-0"></div>
+  </div>
+
+  <div
+    class="hero-layout relative mx-auto max-w-330 px-5 pt-[calc(var(--header-h)+1.75rem)] sm:px-9 lg:min-h-svh lg:px-13 lg:pt-[calc(var(--header-h)+1rem)] lg:pb-12"
+  >
+    <!-- Copy: message + primary action -->
+    <div class="hero-top lg:self-end">
+      <p class="eyebrow enter max-sm:tracking-[0.13em]">{{ content().hero.eyebrow }}</p>
+
       <h1
-        class="animate-fade-up max-w-[12em] font-serif text-[clamp(1.875rem,9.6cqw,3.875rem)] leading-[1.04] font-medium tracking-[-0.03em] text-ink"
+        class="mt-5 font-serif text-[clamp(2.75rem,6.2vw,5.75rem)] leading-[0.98] font-medium tracking-[-0.035em] text-ink"
       >
-        {{ content().hero.headlineStart }}
-        <br />
-        <span class="sr-only"> {{ content().hero.rotating[0] }} </span>
-        <span class="rotating-word-frame align-baseline italic text-brand" aria-hidden="true">
-          @for (word of exitingRotatingWords(); track word) {
-            <span class="rotating-word rotating-word-out">{{ word }}</span>
-          }
-          @for (word of [rotatingWord()]; track word) {
-            <span class="rotating-word">{{ word }}</span>
-          }
-        </span>
-        {{ content().hero.headlineEnd }}
+        @for (line of headline(); track $index) {
+          <span class="block">
+            @for (run of line; track $index) {
+              <!-- The accent run wraps as a whole, so it never breaks mid-phrase -->
+              <span [class]="run.accent ? 'whitespace-nowrap text-brand italic' : ''">
+                @for (word of run.words; track word.index) {
+                  <span class="word-mask"
+                    ><span [style.--i]="word.index">{{ word.text }}</span></span
+                  >{{ ' ' }}
+                }
+              </span>
+            }
+          </span>
+        }
       </h1>
 
       <p
-        class="animate-fade-up mt-3 max-w-124 text-[clamp(1rem,1.3vw,1.125rem)] leading-relaxed text-copy [animation-delay:120ms] sm:mt-6"
+        class="enter-rise mt-6 max-w-xl text-lead text-copy [--d:300ms] sm:text-lg sm:leading-relaxed"
       >
         {{ content().hero.sub }}
       </p>
 
-      <div class="animate-fade-up mt-5 flex flex-wrap gap-3.5 [animation-delay:240ms] sm:mt-9">
-        <a href="#kontakt" class="primary-button">{{ content().hero.primary }} <span>→</span></a>
+      <div
+        class="enter mt-8 flex flex-col items-stretch gap-3 [--d:480ms] sm:flex-row sm:flex-wrap sm:items-center"
+      >
+        <a href="#kontakt" class="primary-button sm:whitespace-nowrap">
+          {{ content().hero.primary }}
+          <app-icon name="arrow-right" class="nudge size-4" />
+        </a>
+        <a href="#referenzen" class="ghost-button whitespace-nowrap max-sm:hidden">
+          {{ content().hero.secondary }}
+        </a>
+        <!-- On phones the secondary action is a quiet link, so one button rules the screen -->
         <a
           href="#referenzen"
-          class="inline-flex items-center justify-center rounded-lg border border-ink/20 px-6 py-3.5 text-md font-semibold text-ink transition hover:border-brand hover:text-brand"
+          class="inline-flex min-h-11 items-center justify-center gap-1.5 text-sm font-semibold text-ink underline decoration-ink/25 underline-offset-4 sm:hidden"
         >
           {{ content().hero.secondary }}
         </a>
       </div>
+    </div>
 
-      <!-- Direct contact: visible phone number + WhatsApp – the lowest-friction CTAs for ads traffic -->
-      <div
-        class="animate-fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3.5 [animation-delay:300ms]"
-      >
-        <a
-          [href]="profile.phoneHref"
-          class="group inline-flex items-center gap-3 text-ink transition hover:text-brand"
-        >
-          <span
-            class="flex size-11 items-center justify-center rounded-full bg-brand/10 text-brand transition group-hover:bg-brand group-hover:text-white"
+    <!-- Three live demos on phones, each labelled with its industry -->
+    <div class="hero-visual relative mx-auto mt-7 w-full max-w-md lg:mt-0 lg:max-w-152">
+      <div class="phone-stage relative">
+        @for (demo of phones; track demo.industry; let i = $index) {
+          <div class="hero-phone hero-phone-{{ i }} absolute" [class.z-10]="i === 1">
+            <div class="enter-device" [style.--d]="260 + (i === 1 ? 0 : 160 + i * 60) + 'ms'">
+              <div class="hero-drift" data-scroll-fx>
+                <div class="device-phone">
+                  <div class="device-screen">
+                    <!-- 300w covers phones and standard screens, 480w sharp ones. Only the
+                         front phone loads with high priority: the side phones must not
+                         compete with fonts and CSS for the first screen. -->
+                    <img
+                      [src]="small(demo.poster)"
+                      [attr.srcset]="small(demo.poster) + ' 300w, ' + demo.poster + ' 480w'"
+                      [attr.sizes]="
+                        i === 1
+                          ? '(min-width: 64rem) 18rem, 46vw'
+                          : '(min-width: 64rem) 14rem, 37vw'
+                      "
+                      width="300"
+                      height="650"
+                      [attr.fetchpriority]="i === 1 ? 'high' : 'low'"
+                      decoding="async"
+                      [alt]="content().showcase.demos[demo.industry].name"
+                    />
+                  </div>
+                </div>
+                <!-- Side labels hug the outer edge: the front phone covers the inner one -->
+                <span
+                  class="enter absolute -bottom-3.5 flex w-fit items-center gap-1.5 rounded-full bg-white py-1.5 pr-3 pl-2.5 text-xs font-semibold whitespace-nowrap text-ink shadow-[0_0.75rem_1.5rem_-0.75rem_rgb(12_23_51/40%)] sm:gap-2 sm:py-2 sm:pr-4 sm:pl-3 sm:text-sm"
+                  [class]="i === 0 ? '-left-2' : i === 2 ? '-right-2' : 'inset-x-0 mx-auto'"
+                  [style.--d]="900 + i * 90 + 'ms'"
+                >
+                  <span class="size-2 rounded-full" [style.background]="demo.theme.accent"></span>
+                  {{ content().showcase.demos[demo.industry].industry }}
+                </span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Personal contact + hard facts -->
+    <div class="hero-bottom mt-14 pb-14 lg:mt-10 lg:self-start lg:pb-0">
+      <div class="enter flex flex-wrap items-center gap-x-4 gap-y-3 [--d:600ms]">
+        <img
+          ngSrc="images/profile-avatar.webp"
+          width="128"
+          height="128"
+          alt=""
+          class="size-13 rounded-full bg-[#dfe5f6] ring-2 ring-white"
+        />
+        <div class="mr-1 leading-tight">
+          <p class="text-xs font-medium text-copy">{{ content().hero.contactLabel }}</p>
+          <a
+            [href]="profile.phoneHref"
+            class="mt-0.5 inline-block text-lg font-bold tracking-tight whitespace-nowrap text-ink transition-colors hover:text-brand"
+            >{{ profile.phone }}</a
           >
-            <app-icon name="phone" class="size-4.5" />
-          </span>
-          <span class="flex flex-col leading-tight">
-            <span class="text-xs font-medium text-copy">{{ content().hero.callLabel }}</span>
-            <span class="text-lg font-bold tracking-tight whitespace-nowrap">{{
-              profile.phone
-            }}</span>
-          </span>
-        </a>
+        </div>
         <a
           [href]="profile.whatsappUrl"
           target="_blank"
           rel="noopener"
-          class="inline-flex items-center gap-2.5 rounded-lg bg-[#25d366] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
+          class="inline-flex min-h-11 items-center gap-2 rounded-full bg-whatsapp px-4 text-sm font-semibold text-white transition hover:bg-whatsapp-dark active:scale-[0.97]"
         >
           <app-icon name="whatsapp" class="size-4.5" />
           {{ content().hero.whatsapp }}
         </a>
       </div>
 
-      <ul
-        class="animate-fade-up mt-11 flex max-w-2xl flex-wrap gap-x-7 gap-y-3 border-t border-ink/10 pt-7 [animation-delay:360ms]"
+      <dl
+        class="enter mt-8 grid max-w-xl grid-cols-3 gap-4 border-t border-ink/10 pt-6 [--d:700ms]"
       >
-        @for (point of content().hero.trust; track point) {
-          <li class="flex max-w-56 items-start gap-2 text-sm leading-snug font-medium text-copy">
-            <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand"></span>
-            {{ point }}
-          </li>
+        @for (fact of content().hero.facts; track fact.label) {
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-xs leading-snug text-copy">{{ fact.label }}</dt>
+            <dd class="font-serif text-[clamp(1.125rem,2vw,1.5rem)] leading-none text-ink">
+              {{ fact.value }}
+            </dd>
+          </div>
         }
-      </ul>
+      </dl>
     </div>
-  </div>
-
-  <!-- Scroll indicator -->
-  <div
-    class="pointer-events-none absolute bottom-9 left-[47%] hidden -translate-x-1/2 flex-col items-center gap-2.5 lg:flex"
-    aria-hidden="true"
-  >
-    <span class="font-mono text-[10.5px] tracking-[0.18em] text-copy/50 uppercase">scroll</span>
-    <div class="scroll-line h-9 w-px bg-brand opacity-50"></div>
   </div>
 </section>

@@ -3,121 +3,201 @@ export type Language = 'de' | 'en' | 'tr';
 export const CONTENT = {
   de: {
     nav: {
+      work: 'Branchen',
       services: 'Leistungen',
       process: 'Ablauf',
-      work: 'Demos',
       about: 'Über mich',
       cta: 'Projekt anfragen',
       menu: 'Menü öffnen oder schließen',
       skip: 'Zum Inhalt springen',
     },
     hero: {
-      headlineStart: 'Ihre Website kann',
-      rotating: [
-        'mehr als gut aussehen.',
-        'Anfragen erfassen.',
-        'Ihnen Arbeit abnehmen.',
-      ],
-      headlineEnd: '',
-      sub: 'Von der professionellen Unternehmenswebsite bis zur individuellen Lösung mit Anfrageformularen, Terminbuchung oder automatisierten Abläufen. Sie erhalten genau die Funktionen, die Ihr Betrieb wirklich braucht.',
+      eyebrow: 'Webdesign aus Weißenburg in Bayern',
+      // `|` starts a new line, `*…*` is the accent (italic, brand blue, never split).
+      headline: 'So kann Ihre|neue Website *aussehen.*',
+      sub: 'Ich baue hochwertige Websites mit Animationen für Restaurants, Makler, Friseure, Werkstätten und andere Betriebe. Jede Seite entsteht einzeln und zuerst fürs Handy, und den Preis kennen Sie, bevor es losgeht.',
       primary: 'Kostenloses Erstgespräch',
-      secondary: 'Demos ansehen',
-      callLabel: 'Oder rufen Sie direkt an',
-      whatsapp: 'WhatsApp-Chat starten',
-      trust: [
-        'Maßgeschneidert statt Baukasten',
-        'Schnell & bei Google sichtbar',
-        'Ein Ansprechpartner von Konzept bis Launch',
+      secondary: 'Branchen-Demos ansehen',
+      contactLabel: 'Ihr direkter Ansprechpartner',
+      whatsapp: 'WhatsApp',
+      facts: [
+        { value: 'ab 1.000 €', label: 'Festpreis-Angebot' },
+        { value: '2–4 Wochen', label: 'bis zum Start' },
+        { value: '< 24 h', label: 'Antwortzeit' },
       ],
     },
-    trustBar: [
-      { value: '100/100', label: 'Google-PageSpeed-Bestwert' },
-      { value: 'Barrierefrei', label: 'Nach WCAG-AA-Standard' },
-      { value: '< 24 h', label: 'Antwortzeit auf Anfragen' },
-      { value: 'DSGVO', label: 'Konform & sicher gehostet' },
-    ],
-    faq: {
-      label: 'FAQ',
-      heading: 'Häufige Fragen, ehrlich beantwortet.',
-      items: [
-        {
-          q: 'Was kostet eine Website?',
-          a: 'Eine kompakte Unternehmensseite startet bei 1000 €, eine individuelle Web-Anwendung liegt je nach Umfang darüber. Nach dem kostenlosen Erstgespräch erhalten Sie ein Festpreis-Angebot: Sie wissen vor Projektstart auf den Euro genau, was auf Sie zukommt. Versteckte Kosten gibt es nicht.',
+    showcase: {
+      label: 'Branchen-Demos',
+      heading: 'Jede Branche sieht bei mir anders aus.',
+      sub: 'Ein Döner-Imbiss braucht eine andere Website als ein Immobilienmakler, deshalb fange ich bei jedem Betrieb neu an. Die vier Beispiele unten laufen live, Sie können sie auf dem Handy durchklicken.',
+      index: 'Zur Branche springen',
+      live: 'Live-Demo öffnen',
+      request: 'So eine Website anfragen',
+      videoLabel: 'Bildschirmaufnahme der Demo-Website auf dem Smartphone',
+      demos: {
+        gastronomie: {
+          industry: 'Gastronomie',
+          name: 'Altstadt-Imbiss Bosporus',
+          place: 'Döner & Pizza · Weißenburg',
+          text: 'Wer die Seite öffnet, sieht zuerst ein großes Döner-Foto und direkt darunter die Telefonnummer zum Bestellen.',
+          features: [
+            'Speisekarte mit Fotos und Preisen',
+            'Feste Leiste zum Anrufen und für die Route',
+            'Instagram-Feed auf der Seite',
+          ],
         },
-        {
-          q: 'Wie lange dauert die Umsetzung?',
-          a: 'Eine kompakte Website ist in der Regel in zwei bis vier Wochen online, größere Projekte entsprechend länger. Den verbindlichen Zeitplan bekommen Sie mit dem Angebot, und regelmäßige Zwischenstände während der Umsetzung.',
+        immobilien: {
+          industry: 'Immobilien',
+          name: 'Weber & Stein Immobilien',
+          place: 'Maklerbüro · München (fiktives Beispiel)',
+          text: 'Die Seite beginnt mit einem Video, das durch ein Haus führt, und lässt den Objektfotos viel Platz. Gedeckte Farben und eine feine Serifenschrift passen zu einem Büro, das teure Wohnungen und Häuser vermittelt.',
+          features: [
+            'Objekte mit Lage, Zimmern, Fläche und Preis',
+            'Kundenstimmen und ein Kontaktformular',
+          ],
         },
-        {
-          q: 'Was muss ich selbst beisteuern?',
-          a: 'Idealerweise Ihr Logo, Texte und Bilder, aber nichts davon ist Pflicht. Ich unterstütze Sie bei Struktur und Inhalten und sage Ihnen konkret, was gebraucht wird. Viele Projekte starten mit einer halben Seite Stichpunkten.',
+        barbershop: {
+          industry: 'Barbershop',
+          name: 'Barbier Jefferson',
+          place: 'Barbershop · Weißenburg',
+          text: 'Schwarze Blockschrift auf Weiß, dazu Türkis wie die Lichtleisten im Laden. Einen Termin buchen Kunden über den Button oben rechts.',
+          features: [
+            'Terminbuchung über Planity',
+            'Preisliste für Haar, Bart und Rasur',
+            'Eigene Abschnitte für Team und Auszeichnungen',
+            'Route über Google Maps',
+          ],
         },
-        {
-          q: 'Wer kümmert sich danach um die Website?',
-          a: 'Ganz wie Sie möchten: Ich übernehme auf Wunsch Wartung, Updates und Änderungen, oder ich übergebe Ihnen die Website so, dass Sie Inhalte selbst pflegen können. Beides besprechen wir vor dem Start.',
+        kfz: {
+          industry: 'Kfz-Service',
+          name: 'Reifenservice F.Tas',
+          place: 'Reifen & Räder · Weißenburg',
+          text: 'Schwarz und Gelb wie in der Werkstatt, und die Preise stehen schon auf dem ersten Bildschirm. Wer neue Reifen braucht, weiß nach ein paar Sekunden, was der Wechsel kostet.',
+          features: [
+            'Anfrage in drei Schritten, der Preis rechnet sich beim Tippen mit',
+            'Die fertige Anfrage geht per WhatsApp oder E-Mail raus',
+          ],
         },
-        {
-          q: 'Ich habe schon eine Website. Lohnt sich ein Relaunch?',
-          a: 'Oft ja: Wenn Ihre Seite langsam lädt, auf dem Handy schlecht aussieht oder keine Anfragen bringt, kostet sie Sie Kunden. Im Erstgespräch schaue ich mir Ihre bestehende Seite an und sage Ihnen ehrlich, ob sich ein Relaunch lohnt.',
-        },
-        {
-          q: 'Kann meine Website mehr als nur Informationen anzeigen?',
-          a: 'Ja. Ich entwickle bei Bedarf passende Funktionen direkt mit. Ein Reifenhändler kann zum Beispiel Reifengröße, Fahrzeugdaten und Wunschtermin über ein Formular abfragen. Die vollständige Anfrage kommt anschließend per E-Mail an. So gibt es weniger Rückfragen und der Betrieb spart Zeit.',
-        },
-      ],
+      },
+      moreTitle: 'Ihre Branche ist nicht dabei?',
+      moreText:
+        'Die vier sind nur Beispiele. Eine Website für einen Handwerksbetrieb, eine Praxis oder ein Hotel entwerfe ich genauso von vorn.',
+      moreCta: 'Über Ihr Projekt sprechen',
+    },
+    statement: {
+      label: 'Warum Design zählt',
+      text: 'Viele Kunden sehen Ihre Website, bevor sie Ihren Laden sehen. Wirkt die Seite alt oder lieblos, rufen sie eher bei der Konkurrenz an.',
     },
     services: {
       label: 'Leistungen',
-      heading: 'So einfach oder funktional, wie Sie es brauchen.',
-      sub: 'Von der professionellen Unternehmenswebsite bis zur Website mit individuellen Funktionen: Sie entscheiden, was zu Ihrem Betrieb und Ihren Abläufen passt.',      items: [
-        { title: 'Websites & Landingpages', description: 'Für Unternehmen, die ihre Leistungen klar präsentieren und professionell gefunden werden möchten. Auf Wunsch bewusst schlank, ohne unnötige Funktionen.', points: ['Professioneller Auftritt', 'Perfekt auf Handy, Tablet & PC', 'Bei Google sichtbar'] },
-        { title: 'Formulare, Buchungen & Web-Anwendungen', description: 'Von Anfrageformularen und Terminbuchungen bis zum Kundenportal: Ihre Kunden übermitteln wichtige Angaben strukturiert und Sie erhalten eine vollständige Anfrage.', points: ['Weniger Rückfragen', 'Vollständige Angaben direkt erhalten', 'Passend zu Ihrem Arbeitsablauf'] },
-        { title: 'Anbindungen & Schnittstellen', description: 'Ich verbinde Website, Kalender, Kasse, Warenwirtschaft oder andere Systeme, damit Daten automatisch dort ankommen, wo Sie sie brauchen.', points: ['Ihre Systeme sprechen miteinander', 'Sichere Logins & Benutzerrechte', 'Daten sauber & geschützt'] },
-        { title: 'Tempo & Google-Sichtbarkeit', description: 'Ihre Seite lädt blitzschnell und wird bei Google gefunden, damit Besucher bleiben und aus Klicks Anfragen werden.', points: ['Ladezeit unter einer Sekunde', 'Bessere Google-Platzierung', 'Weniger Absprünge, mehr Anfragen'] },
-        { title: 'Wartung & Weiterentwicklung', description: 'Ihre Website bleibt aktuell und sicher und wächst mit Ihrem Unternehmen. Regelmäßige Updates inklusive.', points: ['Updates & Sicherheit', 'Schnelle Fehlerbehebung', 'Neue Funktionen bei Bedarf'] },
-        { title: 'Automatisierung & Tools', description: 'Individuelle Lösungen, die wiederkehrende Arbeit abnehmen: Daten zusammenführen, Berichte erzeugen oder Abläufe automatisch weiterführen.', points: ['Weniger Handarbeit, weniger Fehler', 'Daten fließen automatisch', 'Passgenau für Ihren Arbeitsablauf'] },
+      heading: 'Was Sie bei mir bekommen.',
+      sub: 'Ich mache alles selbst, vom ersten Entwurf bis zu den Updates nach dem Start. Für jede Frage haben Sie also dieselbe Telefonnummer.',
+      items: [
+        {
+          title: 'Eigenes Design',
+          text: 'Ich arbeite ohne Vorlagen. Farben und Schriften leite ich aus Ihrem Logo und Ihren Räumen ab, damit die Website zu dem passt, was Kunden bei Ihnen vor Ort sehen.',
+        },
+        {
+          title: 'Animationen',
+          text: 'Bilder bauen sich beim Scrollen auf, Überschriften gleiten ins Bild. Ich setze das nur dort ein, wo der Blick hinsoll, zum Beispiel auf Ihr Angebot oder den Anruf-Button.',
+        },
+        {
+          title: 'Zuerst fürs Handy',
+          text: 'Die meisten Besucher kommen übers Smartphone. Deshalb entwerfe ich jede Seite zuerst für den kleinen Bildschirm und lege Anruf und WhatsApp dorthin, wo der Daumen ohnehin ist.',
+        },
+        {
+          title: 'Schnell und bei Google sichtbar',
+          text: 'Die Seiten laden auch mit Animationen schnell, das prüfe ich vor dem Start mit Google PageSpeed. Damit man Sie bei Suchen wie „Friseur Weißenburg“ findet, stehen Ort und Leistungen im Seitentitel und in den Überschriften.',
+        },
+        {
+          title: 'Formulare und Buchungen',
+          text: 'Eine Speisekarte, eine Terminbuchung oder ein Anfrageformular, das den Preis gleich ausrechnet: Solche Funktionen beantworten Fragen, die sonst bei Ihnen am Telefon landen.',
+        },
+        {
+          title: 'Betreuung nach dem Start',
+          text: 'Auf Wunsch halte ich die Seite technisch aktuell und sicher und baue Änderungen ein. Neue Öffnungszeiten oder ein neues Foto schicken Sie mir einfach per WhatsApp.',
+        },
       ],
     },
     process: {
       label: 'Ablauf',
-      heading: 'So arbeiten wir zusammen.',
+      heading: 'In vier Schritten zur neuen Website.',
       items: [
-        { title: 'Kennenlernen & Analyse', description: 'Im kostenlosen Erstgespräch klären wir Ziele, Anforderungen und Rahmen. Unverbindlich und ohne Zeitdruck.' },
-        { title: 'Konzept & Angebot', description: 'Sie erhalten ein klares Konzept mit Festpreis-Angebot und Zeitplan. Keine versteckten Kosten.' },
-        { title: 'Design & Entwicklung', description: 'Ich setze Ihr Projekt in klaren Etappen um, mit regelmäßigen Zwischenständen und direkter Kommunikation.' },
-        { title: 'Launch & Support', description: 'Nach dem Go-live übernehme ich auf Wunsch Wartung, Updates und Weiterentwicklung.' },
+        {
+          title: 'Kennenlernen',
+          description:
+            'Im kostenlosen Erstgespräch erzählen Sie mir von Ihrem Betrieb und Ihren Kunden. Das Gespräch verpflichtet Sie zu nichts.',
+        },
+        {
+          title: 'Konzept und Festpreis',
+          description:
+            'Danach bekommen Sie ein Angebot mit Festpreis und Zeitplan. Dazu skizziere ich, welche Seiten und Abschnitte es geben wird.',
+        },
+        {
+          title: 'Design und Umsetzung',
+          description:
+            'Ich gestalte und programmiere die Website und zeige Ihnen unterwegs Zwischenstände, damit Sie früh mitreden können.',
+        },
+        {
+          title: 'Start und Betreuung',
+          description:
+            'Ich stelle die Seite online. Wenn Sie möchten, kümmere ich mich auch danach um sie.',
+        },
       ],
-      ctaLead: 'Klingt nach einem guten Plan?',
+      ctaLead: 'Erzählen Sie mir von Ihrem Betrieb.',
       cta: 'Kostenloses Erstgespräch vereinbaren',
       ctaNote: 'Unverbindlich · Antwort in unter 24 Stunden',
     },
-    projects: {
-      label: 'Demo-Websites',
-      heading: 'So kann Ihre neue Website aussehen.',
-      sub: 'Damit Sie sich nichts vorstellen müssen: komplette Demo-Websites für einzelne Branchen, voll funktionsfähig. Klicken Sie sich durch.',
-      industry: 'Beispiel: Immobilienmakler',
-      description: 'Genau so entsteht auch Ihre Website: mit Ihren Inhalten, Ihren Farben und Ihrer Branche.',
-      cta: 'Live-Demo ansehen',
-      ctaSecondary: 'So eine Website anfragen',
-      note: 'Weber & Stein ist ein fiktives Unternehmen, die Website dahinter ist voll funktionsfähig.',
-      imageAlt:'Vorschau der Demo-Website für Immobilienmakler in Browser- und Smartphone-Ansicht',
-      yourIndustry: 'Ihre Branche? Einfach anfragen',
-    },
     about: {
       label: 'Über mich',
-      heading: 'Ihr direkter Ansprechpartner, vom ersten Gespräch bis zum Launch.',
-      lead: 'Bei mir sprechen Sie nicht mit einem Projektmanager, sondern direkt mit dem Entwickler.',
-      p1: 'Ich bin Mehmet Deliaci, Webentwickler aus Weißenburg in Bayern. Ich unterstütze Unternehmen, Selbständige und Start-ups dabei, professionell im Web aufzutreten: mit Websites und Anwendungen, die schnell laden, gut aussehen und messbar funktionieren.',
-      glance: 'Auf einen Blick',
+      heading: 'Ich baue jede Website selbst.',
+      lead: 'Wenn Sie anrufen, sprechen Sie mit dem Menschen, der Ihre Website baut.',
+      p1: 'Ich bin Mehmet Deliaci, Webdesigner und Entwickler aus Weißenburg in Bayern. Weil ich die Seiten von Grund auf programmiere, kann ich auch Sonderwünsche umsetzen, etwa den Preisrechner beim Reifenservice.',
+      portraitAlt: 'Mehmet Deliaci, Webdesigner aus Weißenburg in Bayern',
       facts: [
         { label: 'Standort', value: 'Weißenburg in Bayern' },
-        { label: 'Zusammenarbeit', value: 'Vor Ort in der Region & remote' },
-        { label: 'Reaktionszeit', value: 'Unter 24 Stunden' },
+        { label: 'Zusammenarbeit', value: 'Vor Ort in der Region und remote' },
+        { label: 'Sprachen', value: 'Deutsch, Englisch, Türkisch' },
+        { label: 'Antwortzeit', value: 'Unter 24 Stunden' },
+      ],
+    },
+    faq: {
+      label: 'FAQ',
+      heading: 'Häufige Fragen',
+      items: [
+        {
+          q: 'Was kostet eine Website?',
+          a: 'Eine kompakte Unternehmensseite kostet ab 1.000 €. Mehr Unterseiten, aufwendigere Animationen oder eine Terminbuchung machen sie teurer. Nach dem Erstgespräch bekommen Sie ein Angebot mit Festpreis, und dabei bleibt es auch.',
+        },
+        {
+          q: 'Wie lange dauert die Umsetzung?',
+          a: 'Eine kompakte Website ist meist nach zwei bis vier Wochen online, größere Projekte dauern länger. Den verbindlichen Zeitplan bekommen Sie mit dem Angebot, Zwischenstände während der Arbeit sowieso.',
+        },
+        {
+          q: 'Machen Animationen meine Website langsam?',
+          a: 'Nicht spürbar. Ich bewege fast nur Position und Transparenz von Elementen, das schaffen auch ältere Handys ohne Ruckeln. Wer am Handy Animationen abgeschaltet hat (beim iPhone „Bewegung reduzieren“), sieht die Seite ohne sie.',
+        },
+        {
+          q: 'Kann ich eine der Demos für meinen Betrieb bekommen?',
+          a: 'Eine Kopie bekommen Sie nicht, Ihre Seite soll ja nach Ihrem Betrieb aussehen. Gefällt Ihnen eine Demo, nehmen wir sie aber gern als Ausgangspunkt und bauen sie mit Ihren Fotos und Farben um.',
+        },
+        {
+          q: 'Was muss ich selbst beisteuern?',
+          a: 'Am besten Ihr Logo, ein paar Stichpunkte zu Ihrem Angebot und gute Fotos. Die Fotos machen den größten Unterschied. Was fehlt, klären wir zusammen: Bei den Texten helfe ich, und ich sage Ihnen genau, welche Bilder noch gebraucht werden.',
+        },
+        {
+          q: 'Wer kümmert sich danach um die Website?',
+          a: 'Das entscheiden Sie. Ich kann die Seite weiter pflegen, oder ich richte sie so ein, dass Sie Texte und Bilder selbst ändern können. Das klären wir vor dem Start.',
+        },
+        {
+          q: 'Ich habe schon eine Website. Lohnt sich ein Relaunch?',
+          a: 'Meistens ja, wenn die Seite langsam lädt, auf dem Handy schlecht aussieht oder kaum Anfragen bringt. Im Erstgespräch schaue ich sie mir an und sage Ihnen, ob sich ein Neustart lohnt oder ob ein paar Änderungen reichen.',
+        },
       ],
     },
     contact: {
       label: 'Kontakt',
-      heading: 'Lassen Sie uns über Ihr Projekt sprechen.',
+      heading: 'Lassen Sie uns über Ihre neue Website sprechen.',
       sub: 'Schildern Sie mir kurz Ihr Vorhaben. Sie erhalten in der Regel innerhalb von 24 Stunden eine Antwort.',
       direct: 'Direkter Kontakt',
       name: 'Name',
@@ -129,14 +209,18 @@ export const CONTENT = {
       phonePlaceholder: 'Für einen Rückruf',
       project: 'Ihr Projekt',
       projectPlaceholder: 'Worum geht es? Ein paar Sätze genügen.',
+      prefill:
+        'Mir gefällt die Demo „{demo}“. Ich hätte gern eine ähnliche Website für meinen Betrieb.',
       send: 'Kostenloses Erstgespräch anfordern',
       sending: 'Wird gesendet …',
-      success: 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.',
-      error: 'Das Senden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.',
+      success:
+        'Danke, Ihre Anfrage ist angekommen. Ich melde mich in der Regel innerhalb von 24 Stunden.',
+      error:
+        'Das Senden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.',
       note: '100 % unverbindlich · Antwort innerhalb von 24 Stunden',
-      proofLabel: 'Meine Arbeitsprobe',
+      proofLabel: 'Meine Arbeitsproben',
       proofText:
-        'Diese Website ist meine Arbeitsprobe. Was Sie hier an Tempo und Technik sehen, bekommt Ihre Website auch.',
+        'Diese Website und die vier Branchen-Demos oben habe ich selbst gestaltet und programmiert.',
       subject: 'Projektanfrage von',
     },
     stickyBar: {
@@ -151,124 +235,206 @@ export const CONTENT = {
       label: 'Cookie-Hinweis',
     },
     footer: {
-      role: 'Webentwicklung & digitale Lösungen',
+      role: 'Premium-Webdesign & Entwicklung',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
     },
   },
   en: {
     nav: {
+      work: 'Industries',
       services: 'Services',
       process: 'Process',
-      work: 'Demos',
       about: 'About',
       cta: 'Start a project',
       menu: 'Open or close menu',
       skip: 'Skip to content',
     },
     hero: {
-      headlineStart: 'Your website can',
-      rotating: [
-        'do more than look good.',
-        'capture enquiries.',
-        'take work off your plate.',
-      ],
-      headlineEnd: '',
-      sub: 'From a professional company website to a tailored solution with enquiry forms, appointment booking or automated workflows. You get exactly the features your business actually needs.',
+      eyebrow: 'Web design from Weißenburg, Bavaria',
+      headline: 'Your website|could look *like this.*',
+      sub: 'I build high-end websites with animation for restaurants, estate agents, barbers, workshops and other businesses. Each site is designed on its own and for phones first, and you know the price before work starts.',
       primary: 'Free intro call',
-      secondary: 'See the demos',
-      callLabel: 'Or call me directly',
-      whatsapp: 'Start WhatsApp chat',
-      trust: ['Tailor-made, not templates', 'Fast & visible on Google', 'One contact from concept to launch'],
-    },
-    trustBar: [
-      { value: '100/100', label: 'Google PageSpeed score' },
-      { value: 'Accessible', label: 'WCAG AA standard' },
-      { value: '< 24 h', label: 'Response time' },
-      { value: 'GDPR', label: 'Compliant & secure hosting' },
-    ],
-    faq: {
-      label: 'FAQ',
-      heading: 'Frequently asked questions, answered honestly.',
-      items: [
-        {
-          q: 'What does a website cost?',
-          a: 'A compact company website starts at €1000, a custom web application costs more depending on scope. After the free intro call you receive a fixed-price quote: you know the exact cost before the project starts. There are no hidden fees.',
-        },
-        {
-          q: 'How long does it take?',
-          a: 'A compact website is usually live within two to four weeks; larger projects take longer accordingly. You get a binding timeline with the quote, and regular progress updates during the build.',
-        },
-        {
-          q: 'What do I need to provide?',
-          a: 'Ideally your logo, texts and images, but none of that is mandatory. I help you with structure and content and tell you exactly what is needed. Many projects start with half a page of bullet points.',
-        },
-        {
-          q: 'Who takes care of the website afterwards?',
-          a: 'Entirely up to you: I can handle maintenance, updates and changes, or hand the site over so you can edit content yourself. We agree on this before the project starts.',
-        },
-        {
-          q: 'I already have a website. Is a relaunch worth it?',
-          a: 'Often yes: if your site loads slowly, looks broken on phones or brings no enquiries, it is costing you customers. In the intro call I review your current site and tell you honestly whether a relaunch pays off.',
-        },
-        {
-          q: 'Can my website do more than display information?',
-          a: 'Yes. I can build the right functions directly into it. A tyre retailer, for example, can ask for tyre size, vehicle details and a preferred appointment in a form. The complete enquiry then arrives by email. That means fewer follow-up questions and less work for the business.',
-        },
+      secondary: 'See industry demos',
+      contactLabel: 'Your direct contact',
+      whatsapp: 'WhatsApp',
+      facts: [
+        { value: 'from €1,000', label: 'fixed-price quote' },
+        { value: '2–4 weeks', label: 'until launch' },
+        { value: '< 24 h', label: 'response time' },
       ],
+    },
+    showcase: {
+      label: 'Industry demos',
+      heading: 'Each industry gets a different design.',
+      sub: 'A kebab shop needs a different website than an estate agent, so I start from scratch for every business. The four examples below are live, and you can click through them on your phone.',
+      index: 'Jump to industry',
+      live: 'Open live demo',
+      request: 'Request a site like this',
+      videoLabel: 'screen recording of the demo website on a smartphone',
+      demos: {
+        gastronomie: {
+          industry: 'Restaurants',
+          name: 'Altstadt-Imbiss Bosporus',
+          place: 'Kebab & pizza · Weißenburg',
+          text: 'The first thing visitors see is a big photo of a döner, with the phone number for orders right below it.',
+          features: [
+            'Menu with photos and prices',
+            'Fixed bar for calling and directions',
+            'Instagram feed on the page',
+          ],
+        },
+        immobilien: {
+          industry: 'Real estate',
+          name: 'Weber & Stein Immobilien',
+          place: 'Estate agency · Munich (fictional example)',
+          text: 'The site opens with a video walking through a house and gives the property photos plenty of room. Muted colours and a fine serif typeface suit an agency that sells expensive homes.',
+          features: [
+            'Listings with location, rooms, size and price',
+            'Client reviews and a contact form',
+          ],
+        },
+        barbershop: {
+          industry: 'Barbershop',
+          name: 'Barbier Jefferson',
+          place: 'Barbershop · Weißenburg',
+          text: 'Black block letters on white, with the same turquoise as the light strips in the shop. Customers book an appointment with the button in the top right corner.',
+          features: [
+            'Booking through Planity',
+            'Price list for hair, beard and shave',
+            'Sections for the team and its awards',
+            'Directions via Google Maps',
+          ],
+        },
+        kfz: {
+          industry: 'Car service',
+          name: 'Reifenservice F.Tas',
+          place: 'Tyres & wheels · Weißenburg',
+          text: 'Black and yellow like the workshop itself, with prices on the very first screen. Anyone who needs new tyres knows within seconds what the change will cost.',
+          features: [
+            'Three-step enquiry that works out the price as you type',
+            'The finished enquiry goes out by WhatsApp or email',
+          ],
+        },
+      },
+      moreTitle: 'Your industry is not here?',
+      moreText:
+        'These four are only examples. A site for a tradesman, a practice or a hotel gets designed from the ground up in the same way.',
+      moreCta: 'Talk about your project',
+    },
+    statement: {
+      label: 'Why design matters',
+      text: 'Many customers see your website before they see your shop. If the site looks dated or careless, they are more likely to call a competitor.',
     },
     services: {
       label: 'Services',
-      heading: 'As simple or as functional as you need.',
-      sub: 'From a professional company website to a site with custom features: you decide what fits your business and workflows.',      items: [
-        { title: 'Websites & landing pages', description: 'For businesses that want to present their services clearly and be found professionally online. Kept deliberately simple if that is all you need.', points: ['Professional online presence', 'Looks right on every device', 'Visible on Google'] },
-        { title: 'Forms, bookings & web applications', description: 'From enquiry forms and appointment booking to customer portals: your customers submit important details in a structured way and you receive a complete enquiry.', points: ['Fewer follow-up questions', 'Receive complete details directly', 'Built around your workflow'] },
-        { title: 'Integrations & connections', description: 'I connect your website, calendar, point-of-sale system, inventory software or other tools so data automatically arrives where you need it.', points: ['Your systems talk to each other', 'Secure logins & permissions', 'Clean, protected data'] },
-        { title: 'Speed & Google visibility', description: 'Your site loads instantly and gets found on Google, so visitors stay and clicks turn into enquiries.', points: ['Loads in under a second', 'Better Google rankings', 'Fewer drop-offs, more enquiries'] },
-        { title: 'Maintenance & growth', description: 'Your site stays current and secure and grows with your business. Regular updates included.', points: ['Updates & security', 'Fast bug fixing', 'New features when needed'] },
-        { title: 'Automation & tools', description: 'Tailored solutions that take care of repetitive work: merging data, generating reports or automatically moving workflows forward.', points: ['Less manual work, fewer errors', 'Data flows automatically', 'Built around your workflow'] },
+      heading: 'What you get.',
+      sub: 'I do everything myself, from the first draft to the updates after launch, so every question goes to the same phone number.',
+      items: [
+        {
+          title: 'Your own design',
+          text: 'I work without templates. I take colours and fonts from your logo and your premises, so the website matches what customers see when they visit you.',
+        },
+        {
+          title: 'Animation',
+          text: 'Images build up as you scroll and headings slide into view. I only use this where the eye should go, such as your offer or the call button.',
+        },
+        {
+          title: 'Phone first',
+          text: 'Most visitors arrive on a smartphone. So I design every page for the small screen first and put call and WhatsApp where the thumb already is.',
+        },
+        {
+          title: 'Fast and visible on Google',
+          text: 'The pages load quickly even with animation, and I check that with Google PageSpeed before launch. To show up for searches like "barber Weissenburg", your town and services go into the page title and headings.',
+        },
+        {
+          title: 'Forms and booking',
+          text: 'A menu, online booking or an enquiry form that works out the price: features like these answer questions that would otherwise reach you by phone.',
+        },
+        {
+          title: 'Care after launch',
+          text: 'If you like, I keep the site up to date and secure and make changes. Send me new opening hours or a new photo on WhatsApp and I put them in.',
+        },
       ],
     },
     process: {
       label: 'Process',
-      heading: 'How we work together.',
+      heading: 'Your new website in four steps.',
       items: [
-        { title: 'Discovery & analysis', description: 'In a free intro call we clarify goals, requirements and scope. No obligation, no time pressure.' },
-        { title: 'Concept & quote', description: 'You get a clear concept with a fixed-price quote and timeline. No hidden costs.' },
-        { title: 'Design & build', description: 'I deliver your project in clear stages, with regular updates and direct communication.' },
-        { title: 'Launch & support', description: 'After go-live I can handle maintenance, updates and further development.' },
+        {
+          title: 'Getting to know you',
+          description:
+            'In a free intro call you tell me about your business and your customers. The call does not commit you to anything.',
+        },
+        {
+          title: 'Concept and fixed price',
+          description:
+            'You then get a quote with a fixed price and timeline, plus a sketch of the pages and sections the site will have.',
+        },
+        {
+          title: 'Design and build',
+          description:
+            'I design and build the website and show you progress along the way, so you can weigh in early.',
+        },
+        {
+          title: 'Launch and care',
+          description: 'I put the site online. If you want, I keep looking after it afterwards.',
+        },
       ],
-      ctaLead: 'Sounds like a plan?',
+      ctaLead: 'Tell me about your business.',
       cta: 'Book your free intro call',
       ctaNote: 'No obligation · Reply within 24 hours',
     },
-    projects: {
-      label: 'Demo websites',
-      heading: 'This is what your new website could look like.',
-      sub: 'So you don’t have to imagine anything: complete demo websites for individual industries, fully functional. Click through and see for yourself.',
-      industry: 'Example: real estate agency',
-      description: 'Your website is built exactly the same way: with your content, your colours and your industry.',
-      cta: 'View live demo',
-      ctaSecondary: 'Request a site like this',
-      note: 'Weber & Stein is a fictional company, the website behind it is fully functional.',
-      imageAlt:'Preview of the real estate demo website in browser and smartphone view',
-      yourIndustry: 'Your industry? Just ask',
-    },
     about: {
       label: 'About',
-      heading: 'Your direct point of contact, from first call to launch.',
-      lead: 'You do not talk to a project manager. You talk directly to the developer.',
-      p1: 'I am Mehmet Deliaci, a web developer based in Weißenburg, Bavaria. I help companies, freelancers and start-ups show up professionally online with sites and apps that load fast, look good and work measurably well.',
-      glance: 'At a glance',
+      heading: 'I build every website myself.',
+      lead: 'When you call, you speak to the person who builds your website.',
+      p1: 'I am Mehmet Deliaci, a web designer and developer from Weißenburg in Bavaria. Because I code the sites from scratch, I can build unusual requests too, such as the price calculator on the tyre service demo.',
+      portraitAlt: 'Mehmet Deliaci, web designer from Weißenburg, Bavaria',
       facts: [
         { label: 'Location', value: 'Weißenburg, Bavaria' },
-        { label: 'Collaboration', value: 'On-site regionally & remote' },
+        { label: 'Collaboration', value: 'On-site regionally and remote' },
+        { label: 'Languages', value: 'German, English, Turkish' },
         { label: 'Response time', value: 'Under 24 hours' },
+      ],
+    },
+    faq: {
+      label: 'FAQ',
+      heading: 'Common questions',
+      items: [
+        {
+          q: 'What does a website cost?',
+          a: 'A compact company website costs from €1,000. More pages, more elaborate animation or online booking add to that. After the intro call you get a quote with a fixed price, and that is the price you pay.',
+        },
+        {
+          q: 'How long does it take?',
+          a: 'A compact website is usually online after two to four weeks; larger projects take longer. You get a binding timeline with the quote, and progress updates while I work.',
+        },
+        {
+          q: 'Will animations slow my website down?',
+          a: 'Not noticeably. I mostly animate position and transparency, which even older phones handle without stutter. Visitors who switched off animation on their phone (on iPhone: "Reduce Motion") see the site without it.',
+        },
+        {
+          q: 'Can I get one of the demos for my business?',
+          a: 'Not as a copy, because your site should look like your business. If you like one of the demos, we can use it as a starting point and rework it with your photos and colours.',
+        },
+        {
+          q: 'What do I need to provide?',
+          a: 'Ideally your logo, a few notes about what you offer and good photos. The photos make the biggest difference. Anything missing we sort out together: I help with the copy and tell you exactly which pictures are still needed.',
+        },
+        {
+          q: 'Who takes care of the website afterwards?',
+          a: 'That is up to you. I can keep maintaining the site, or set it up so you can change text and images yourself. We decide before the project starts.',
+        },
+        {
+          q: 'I already have a website. Is a relaunch worth it?',
+          a: 'Usually yes, if your site loads slowly, looks poor on phones or brings few enquiries. In the intro call I look at it and tell you whether a full relaunch makes sense or a few changes will do.',
+        },
       ],
     },
     contact: {
       label: 'Contact',
-      heading: "Let's talk about your project.",
+      heading: "Let's talk about your new website.",
       sub: 'Tell me briefly about your plan. You will usually get a reply within 24 hours.',
       direct: 'Direct contact',
       name: 'Name',
@@ -280,14 +446,14 @@ export const CONTENT = {
       phonePlaceholder: 'If you prefer a call back',
       project: 'Your project',
       projectPlaceholder: 'What is it about? A few sentences are enough.',
+      prefill: 'I like the "{demo}" demo and would like a similar website for my business.',
       send: 'Request your free intro call',
       sending: 'Sending …',
-      success: 'Thank you! Your request was sent successfully.',
+      success: 'Thank you, your request has arrived. I usually reply within 24 hours.',
       error: 'Sending failed. Please try again or email me directly.',
       note: '100% no obligation · Reply within 24 hours',
-      proofLabel: 'My work sample',
-      proofText:
-        'This website is my work sample. What you see here in speed and craft is what your website gets too.',
+      proofLabel: 'My work samples',
+      proofText: 'I designed and built this website and the four industry demos above myself.',
       subject: 'Project inquiry from',
     },
     stickyBar: {
@@ -302,124 +468,206 @@ export const CONTENT = {
       label: 'Cookie notice',
     },
     footer: {
-      role: 'Web development & digital solutions',
+      role: 'Premium web design & development',
       imprint: 'Imprint',
       privacy: 'Privacy',
     },
   },
   tr: {
     nav: {
+      work: 'Sektörler',
       services: 'Hizmetler',
       process: 'Süreç',
-      work: 'Demolar',
       about: 'Hakkımda',
       cta: 'Proje başlat',
       menu: 'Menüyü aç veya kapat',
       skip: 'İçeriğe atla',
     },
     hero: {
-      headlineStart: 'Web siteniz',
-      rotating: [
-        'daha fazlasını yapar.',
-        'talepleri toplar.',
-        'iş yükünüzü azaltır.',
-      ],
-      headlineEnd: '',
-      sub: 'Profesyonel bir şirket sitesinden talep formları, randevu sistemi veya otomatik iş akışları içeren size özel çözümlere kadar: İşletmenizin gerçekten ihtiyaç duyduğu işlevleri geliştiriyorum.',
+      eyebrow: 'Weißenburg, Bavyera’dan web tasarım',
+      headline: 'Yeni web siteniz|böyle *görünebilir.*',
+      sub: 'Restoranlar, emlakçılar, berberler, atölyeler ve diğer işletmeler için animasyonlu, kaliteli web siteleri yapıyorum. Her siteyi ayrı ayrı ve önce telefon için tasarlıyorum; fiyatı iş başlamadan önce bilirsiniz.',
       primary: 'Ücretsiz ön görüşme',
-      secondary: 'Demoları gör',
-      callLabel: 'Ya da doğrudan arayın',
-      whatsapp: 'WhatsApp sohbeti başlat',
-      trust: ['Hazır şablon değil, size özel', 'Hızlı & Google’da görünür', 'Fikirden lansmana tek muhatap'],
-    },
-    trustBar: [
-      { value: '100/100', label: 'Google PageSpeed en iyi puan' },
-      { value: 'Erişilebilir', label: 'WCAG AA standardı' },
-      { value: '< 24 sa', label: 'Yanıt süresi' },
-      { value: 'GDPR', label: 'Uyumlu ve güvenli barındırma' },
-    ],
-    faq: {
-      label: 'SSS',
-      heading: 'Sık sorulan sorular, dürüst yanıtlar.',
-      items: [
-        {
-          q: 'Bir web sitesi ne kadara mal olur?',
-          a: 'Kompakt bir kurumsal web sitesi 1000 €’dan başlar, özel bir web uygulaması kapsama göre daha yüksektir. Ücretsiz ön görüşmeden sonra sabit fiyat teklifi alırsınız: Proje başlamadan önce maliyeti kuruşuna kadar bilirsiniz. Gizli ücret yoktur.',
-        },
-        {
-          q: 'Ne kadar sürer?',
-          a: 'Kompakt bir web sitesi genellikle iki ila dört hafta içinde yayında olur; daha büyük projeler buna göre uzar. Teklifle birlikte bağlayıcı bir zaman planı ve süreç boyunca düzenli ara bilgilendirmeler alırsınız.',
-        },
-        {
-          q: 'Benim ne sağlamam gerekiyor?',
-          a: 'İdeal olarak logonuz, metinleriniz ve görselleriniz, ancak hiçbiri zorunlu değil. Yapı ve içerik konusunda size destek olur, tam olarak neyin gerektiğini söylerim. Birçok proje yarım sayfalık notlarla başlar.',
-        },
-        {
-          q: 'Sonrasında siteyle kim ilgilenir?',
-          a: 'Tamamen size bağlı: İsterseniz bakım, güncelleme ve değişiklikleri ben üstlenirim, ya da siteyi içerikleri kendiniz yönetebileceğiniz şekilde teslim ederim. Bunu proje başlamadan birlikte kararlaştırırız.',
-        },
-        {
-          q: 'Zaten bir sitem var. Yenilemeye değer mi?',
-          a: 'Çoğu zaman evet: Siteniz yavaş yükleniyor, telefonda kötü görünüyor veya talep getirmiyorsa size müşteri kaybettiriyor demektir. Ön görüşmede mevcut sitenize bakar, yenilemenin gerçekten değip değmeyeceğini dürüstçe söylerim.',
-        },
-        {
-          q: 'Web sitem sadece bilgi sunmaktan fazlasını yapabilir mi?',
-          a: 'Evet. İhtiyacınıza uygun işlevleri doğrudan sitenize ekleyebilirim. Örneğin bir lastik satıcısı, lastik ölçüsünü, araç bilgilerini ve istenen randevu tarihini bir form üzerinden toplayabilir. Eksiksiz talep daha sonra e-posta ile işletmeye ulaşır. Böylece ek sorular azalır ve işletme zaman kazanır.',
-        },
+      secondary: 'Sektör demolarını gör',
+      contactLabel: 'Doğrudan muhatabınız',
+      whatsapp: 'WhatsApp',
+      facts: [
+        { value: '1.000 €’dan', label: 'sabit fiyat teklifi' },
+        { value: '2–4 hafta', label: 'yayına kadar' },
+        { value: '< 24 sa', label: 'yanıt süresi' },
       ],
+    },
+    showcase: {
+      label: 'Sektör demoları',
+      heading: 'Her sektör bende farklı görünür.',
+      sub: 'Bir döner salonunun sitesi bir emlak ofisininkine benzememeli, bu yüzden her işletmede sıfırdan başlıyorum. Aşağıdaki dört örnek canlı, telefonunuzda gezinebilirsiniz.',
+      index: 'Sektöre git',
+      live: 'Canlı demoyu aç',
+      request: 'Böyle bir site talep et',
+      videoLabel: 'demo web sitesinin akıllı telefondaki ekran kaydı',
+      demos: {
+        gastronomie: {
+          industry: 'Yeme-içme',
+          name: 'Altstadt-Imbiss Bosporus',
+          place: 'Döner & pizza · Weißenburg',
+          text: 'Siteyi açan ilk olarak büyük bir döner fotoğrafı görür, hemen altında da sipariş için telefon numarasını.',
+          features: [
+            'Fotoğraflı ve fiyatlı menü',
+            'Arama ve yol tarifi için sabit çubuk',
+            'Sayfada Instagram akışı',
+          ],
+        },
+        immobilien: {
+          industry: 'Emlak',
+          name: 'Weber & Stein Immobilien',
+          place: 'Emlak ofisi · Münih (kurgusal örnek)',
+          text: 'Site, bir evin içinde dolaşan bir videoyla açılır ve mülk fotoğraflarına bolca yer bırakır. Sade renkler ve ince bir serif yazı tipi, pahalı evler satan bir ofise yakışır.',
+          features: [
+            'Konum, oda sayısı, alan ve fiyatıyla mülkler',
+            'Müşteri yorumları ve iletişim formu',
+          ],
+        },
+        barbershop: {
+          industry: 'Berber',
+          name: 'Barbier Jefferson',
+          place: 'Berber · Weißenburg',
+          text: 'Beyaz üzerine siyah blok harfler ve dükkândaki ışık şeritleriyle aynı turkuaz. Müşteriler randevuyu sağ üstteki butondan alır.',
+          features: [
+            'Planity üzerinden randevu',
+            'Saç, sakal ve tıraş fiyat listesi',
+            'Ekip ve ödüller için ayrı bölümler',
+            'Google Haritalar ile yol tarifi',
+          ],
+        },
+        kfz: {
+          industry: 'Oto servis',
+          name: 'Reifenservice F.Tas',
+          place: 'Lastik & jant · Weißenburg',
+          text: 'Atölye gibi siyah ve sarı, fiyatlar daha ilk ekranda. Lastik değiştirmek isteyen, birkaç saniyede ne ödeyeceğini görür.',
+          features: [
+            'Yazarken fiyatı hesaplayan üç adımlı talep formu',
+            'Hazır talep WhatsApp veya e-posta ile gider',
+          ],
+        },
+      },
+      moreTitle: 'Sektörünüz listede yok mu?',
+      moreText:
+        'Bu dördü sadece örnek. Bir zanaat işletmesi, muayenehane veya otel için de siteyi aynı şekilde sıfırdan tasarlarım.',
+      moreCta: 'Projenizi konuşalım',
+    },
+    statement: {
+      label: 'Tasarım neden önemli',
+      text: 'Birçok müşteri dükkânınızı görmeden önce web sitenizi görür. Site eski ya da özensiz görünüyorsa, rakibinizi arama ihtimalleri artar.',
     },
     services: {
       label: 'Hizmetler',
-      heading: 'İhtiyacınız kadar sade veya işlevsel.',
-      sub: 'Profesyonel bir şirket sitesinden özel işlevlere sahip bir web sitesine kadar: İşletmenize ve çalışma şeklinize neyin uygun olduğuna siz karar verirsiniz.',      items: [
-        { title: 'Web siteleri & açılış sayfaları', description: 'Hizmetlerini açıkça tanıtmak ve internette profesyonel şekilde bulunmak isteyen işletmeler için. Yalnızca buna ihtiyacınız varsa siteyi bilinçli olarak sade tutarım.', points: ['Profesyonel internet görünümü', 'Her cihazda kusursuz görünüm', "Google'da görünür"] },
-        { title: 'Formlar, randevular & web uygulamaları', description: 'Talep formlarından randevu sistemlerine ve müşteri portallarına kadar: Müşterileriniz önemli bilgileri düzenli şekilde iletir, siz de eksiksiz bir talep alırsınız.', points: ['Daha az ek soru', 'Eksiksiz bilgileri doğrudan alın', 'İş akışınıza uygun'] },
-        { title: 'Entegrasyonlar & bağlantılar', description: 'Web sitenizi, takvimi, kasa sistemini, stok yazılımını veya diğer araçları birbirine bağlarım; veriler ihtiyaç duyduğunuz yere otomatik ulaşır.', points: ['Sistemleriniz birbiriyle konuşur', 'Güvenli giriş & yetkiler', 'Düzenli ve korunan veriler'] },
-        { title: 'Hız & Google görünürlüğü', description: 'Siteniz anında yüklenir ve Google’da bulunur, ziyaretçiler kalır, tıklamalar talebe dönüşür.', points: ['1 saniyenin altında yüklenme', 'Daha iyi Google sıralaması', 'Daha az kayıp, daha çok talep'] },
-        { title: 'Bakım & geliştirme', description: 'Siteniz güncel ve güvenli kalır, işinizle birlikte büyür. Düzenli güncellemeler dahil.', points: ['Güncelleme & güvenlik', 'Hızlı hata giderme', 'İhtiyaç halinde yeni özellikler'] },
-        { title: 'Otomasyon & araçlar', description: 'Tekrarlanan işleri üstlenen size özel çözümler: verileri birleştirir, rapor oluşturur veya iş akışlarını otomatik olarak ilerletir.', points: ['Daha az el emeği, daha az hata', 'Veriler otomatik akar', 'İş akışınıza özel'] },
+      heading: 'Benimle çalışınca neler alırsınız.',
+      sub: 'İlk taslaktan yayın sonrası güncellemelere kadar her şeyi kendim yapıyorum. Her soru için aynı telefon numarasını ararsınız.',
+      items: [
+        {
+          title: 'Size ait tasarım',
+          text: 'Şablon kullanmıyorum. Renkleri ve yazı tiplerini logonuzdan ve mekânınızdan alırım, böylece site müşterilerin sizde gördüğüyle uyumlu olur.',
+        },
+        {
+          title: 'Animasyonlar',
+          text: 'Görseller kaydırdıkça belirir, başlıklar kayarak gelir. Bunu yalnızca bakışın gitmesi gereken yerlerde kullanırım, örneğin teklifinizde veya arama butonunda.',
+        },
+        {
+          title: 'Önce mobil',
+          text: 'Ziyaretçilerin çoğu akıllı telefondan gelir. Bu yüzden her sayfayı önce küçük ekran için tasarlar, arama ve WhatsApp butonlarını başparmağın zaten olduğu yere koyarım.',
+        },
+        {
+          title: 'Hızlı ve Google’da görünür',
+          text: 'Sayfalar animasyonla bile hızlı yüklenir, bunu yayından önce Google PageSpeed ile kontrol ederim. "Berber Weißenburg" gibi aramalarda bulunmanız için şehriniz ve hizmetleriniz sayfa başlığında ve başlıklarda yer alır.',
+        },
+        {
+          title: 'Formlar ve randevular',
+          text: 'Menü, online randevu ya da fiyatı kendisi hesaplayan bir talep formu: Bu tür işlevler, normalde telefonla gelecek soruları yanıtlar.',
+        },
+        {
+          title: 'Yayından sonra destek',
+          text: 'İsterseniz siteyi güncel ve güvenli tutar, değişiklikleri yaparım. Yeni çalışma saatlerini veya yeni bir fotoğrafı bana WhatsApp’tan göndermeniz yeterli.',
+        },
       ],
     },
     process: {
       label: 'Süreç',
-      heading: 'Birlikte nasıl çalışıyoruz.',
+      heading: 'Dört adımda yeni web sitenize.',
       items: [
-        { title: 'Tanışma & analiz', description: 'Ücretsiz ön görüşmede hedefleri, gereksinimleri ve kapsamı netleştiririz. Bağlayıcı değildir.' },
-        { title: 'Konsept & teklif', description: 'Net konsept, sabit fiyat teklifi ve zaman planı alırsınız. Gizli maliyet yok.' },
-        { title: 'Tasarım & geliştirme', description: 'Projenizi net aşamalarda, düzenli güncellemeler ve doğrudan iletişimle hayata geçiririm.' },
-        { title: 'Lansman & destek', description: 'Yayına aldıktan sonra bakım, güncelleme ve geliştirmeyi üstlenebilirim.' },
+        {
+          title: 'Tanışma',
+          description:
+            'Ücretsiz ön görüşmede bana işletmenizi ve müşterilerinizi anlatırsınız. Görüşme sizi hiçbir şeye bağlamaz.',
+        },
+        {
+          title: 'Konsept ve sabit fiyat',
+          description:
+            'Ardından sabit fiyatlı ve zaman planlı bir teklif alırsınız. Sitenin hangi sayfa ve bölümlerden oluşacağını da kabaca çizerim.',
+        },
+        {
+          title: 'Tasarım ve geliştirme',
+          description:
+            'Web sitesini tasarlar ve kodlarım, ara sonuçları size gösteririm. Böylece erkenden fikrinizi söyleyebilirsiniz.',
+        },
+        {
+          title: 'Yayın ve destek',
+          description: 'Siteyi yayına alırım. İsterseniz sonrasında da ilgilenmeye devam ederim.',
+        },
       ],
-      ctaLead: 'Kulağa iyi bir plan gibi mi geliyor?',
+      ctaLead: 'Bana işletmenizi anlatın.',
       cta: 'Ücretsiz ön görüşme ayarlayın',
       ctaNote: 'Bağlayıcı değil · 24 saatten kısa sürede yanıt',
     },
-    projects: {
-      label: 'Demo web siteleri',
-      heading: 'Yeni web siteniz böyle görünebilir.',
-      sub: 'Hayal etmenize gerek kalmasın: sektörlere özel, tamamen çalışan demo web siteleri. Gezinin, kendiniz görün.',
-      industry: 'Örnek: Emlak ofisi',
-      description: 'Sizin siteniz de tam böyle yapılır: sizin içeriğiniz, renkleriniz ve sektörünüzle.',
-      cta: 'Canlı demoyu gör',
-      ctaSecondary: 'Böyle bir site talep et',
-      note: 'Weber & Stein kurgusal bir şirkettir, arkasındaki web sitesi tamamen çalışır durumdadır.',
-      imageAlt:'Emlak demo web sitesinin tarayıcı ve akıllı telefon önizlemesi',
-      yourIndustry: 'Sizin sektörünüz mü? Hemen sorun',
-    },
     about: {
       label: 'Hakkımda',
-      heading: 'İlk görüşmeden lansmana kadar doğrudan muhatabınız.',
-      lead: 'Proje yöneticisiyle değil, doğrudan projeyi geliştiren kişiyle konuşursunuz.',
-      p1: 'Ben Mehmet Deliaci, Bavyera Weißenburg’da yaşayan bir web geliştiricisiyim. Şirketlerin, serbest çalışanların ve girişimlerin hızlı, iyi görünen ve ölçülebilir şekilde çalışan site ve uygulamalarla internette profesyonelce yer almasına yardımcı oluyorum.',
-      glance: 'Özetle',
+      heading: 'Her web sitesini kendim yapıyorum.',
+      lead: 'Aradığınızda, web sitenizi yapan kişiyle konuşursunuz.',
+      p1: 'Ben Mehmet Deliaci, Bavyera Weißenburg’dan bir web tasarımcısı ve geliştiricisiyim. Siteleri sıfırdan kodladığım için özel istekleri de yapabilirim, örneğin lastik servisi demosundaki fiyat hesaplayıcı gibi.',
+      portraitAlt: 'Weißenburg’lu web tasarımcısı Mehmet Deliaci',
       facts: [
         { label: 'Konum', value: 'Weißenburg, Bavyera' },
-        { label: 'Çalışma', value: 'Bölgede yerinde & uzaktan' },
+        { label: 'Çalışma', value: 'Bölgede yerinde ve uzaktan' },
+        { label: 'Diller', value: 'Almanca, İngilizce, Türkçe' },
         { label: 'Yanıt süresi', value: '24 saatten kısa' },
+      ],
+    },
+    faq: {
+      label: 'SSS',
+      heading: 'Sık sorulan sorular',
+      items: [
+        {
+          q: 'Bir web sitesi ne kadara mal olur?',
+          a: 'Kompakt bir kurumsal site 1.000 €’dan başlar. Daha fazla sayfa, daha kapsamlı animasyonlar veya online randevu fiyatı artırır. Ön görüşmeden sonra sabit fiyatlı bir teklif alırsınız ve ödediğiniz fiyat o olur.',
+        },
+        {
+          q: 'Ne kadar sürer?',
+          a: 'Kompakt bir site genellikle iki ila dört hafta içinde yayında olur, büyük projeler daha uzun sürer. Bağlayıcı zaman planını teklifle birlikte alırsınız, çalışma sırasında da ara sonuçları görürsünüz.',
+        },
+        {
+          q: 'Animasyonlar sitemi yavaşlatır mı?',
+          a: 'Fark edilecek kadar değil. Çoğunlukla öğelerin konumunu ve saydamlığını hareket ettiririm, bunu eski telefonlar bile takılmadan kaldırır. Telefonunda animasyonları kapatmış olanlar (iPhone’da "Hareketi Azalt") siteyi animasyonsuz görür.',
+        },
+        {
+          q: 'Demolardan birini işletmem için alabilir miyim?',
+          a: 'Birebir kopya olmaz, çünkü siteniz kendi işletmenize benzemeli. Bir demoyu beğendiyseniz onu başlangıç noktası yapar, kendi fotoğraflarınız ve renklerinizle yeniden düzenleriz.',
+        },
+        {
+          q: 'Benim ne sağlamam gerekiyor?',
+          a: 'İdeal olarak logonuz, sunduklarınız hakkında birkaç not ve iyi fotoğraflar. En büyük farkı fotoğraflar yaratır. Eksik kalanları birlikte hallederiz: Metinlerde yardım eder, hangi görsellerin gerektiğini açıkça söylerim.',
+        },
+        {
+          q: 'Sonrasında siteyle kim ilgilenir?',
+          a: 'Buna siz karar verirsiniz. Siteyle ilgilenmeye devam edebilirim ya da metinleri ve görselleri kendiniz değiştirebileceğiniz şekilde kurarım. Bunu başlamadan önce konuşuruz.',
+        },
+        {
+          q: 'Zaten bir sitem var. Yenilemeye değer mi?',
+          a: 'Siteniz yavaş yükleniyor, telefonda kötü görünüyor veya az talep getiriyorsa çoğu zaman evet. Ön görüşmede sitenize bakar, baştan yapmanın mı yoksa birkaç değişikliğin mi yeteceğini söylerim.',
+        },
       ],
     },
     contact: {
       label: 'İletişim',
-      heading: 'Projenizi konuşalım.',
+      heading: 'Yeni web siteniz hakkında konuşalım.',
       sub: 'Planınızı kısaca anlatın. Genellikle 24 saat içinde yanıt alırsınız.',
       direct: 'Doğrudan iletişim',
       name: 'Ad',
@@ -431,14 +679,14 @@ export const CONTENT = {
       phonePlaceholder: 'Aranmayı tercih ederseniz',
       project: 'Projeniz',
       projectPlaceholder: 'Proje ne hakkında? Birkaç cümle yeterli.',
+      prefill: '"{demo}" demosunu beğendim, işletmem için benzer bir web sitesi istiyorum.',
       send: 'Ücretsiz ön görüşme talep et',
       sending: 'Gönderiliyor …',
-      success: 'Teşekkürler! Talebiniz başarıyla gönderildi.',
+      success: 'Teşekkürler, talebiniz ulaştı. Genellikle 24 saat içinde yanıt veririm.',
       error: 'Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.',
       note: '%100 bağlayıcı değil · 24 saat içinde yanıt',
-      proofLabel: 'Çalışma örneğim',
-      proofText:
-        'Bu web sitesi benim referansım: Google PageSpeed puanı 100/100, WCAG AA erişilebilirlik ve 1 saniyenin altında yüklenme. Sizin siteniz de aynı standardı alır, dilediğiniz zaman ölçün.',
+      proofLabel: 'Çalışma örneklerim',
+      proofText: 'Bu web sitesini ve yukarıdaki dört sektör demosunu kendim tasarlayıp kodladım.',
       subject: 'Proje talebi',
     },
     stickyBar: {
@@ -453,7 +701,7 @@ export const CONTENT = {
       label: 'Çerez bildirimi',
     },
     footer: {
-      role: 'Web geliştirme & dijital çözümler',
+      role: 'Premium web tasarım & geliştirme',
       imprint: 'Künye',
       privacy: 'Gizlilik',
     },

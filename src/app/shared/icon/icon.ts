@@ -8,6 +8,15 @@ export type IconName =
   | 'whatsapp'
   | 'menu'
   | 'close'
+  | 'arrow-right'
+  | 'arrow-up-right'
+  | 'check'
+  | 'design'
+  | 'motion'
+  | 'smartphone'
+  | 'speed'
+  | 'form'
+  | 'care'
   | 'flag-de'
   | 'flag-en'
   | 'flag-tr';
@@ -88,6 +97,53 @@ export type IconName =
       @case ('close') {
         <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round">
           <path d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      }
+      @case ('arrow-right') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      }
+      @case ('arrow-up-right') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M8 7h9v9" />
+        </svg>
+      }
+      @case ('check') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      }
+      @case ('design') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.7-.9 1.4-1.9l-.4-1.2c-.4-1.2.5-2.4 1.8-2.4H17a4 4 0 0 0 4-4c0-4.7-4-8.5-9-8.5Z" />
+          <circle cx="7.5" cy="11" r="1.2" /><circle cx="10.5" cy="7" r="1.2" /><circle cx="15.5" cy="7.5" r="1.2" />
+        </svg>
+      }
+      @case ('motion') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7h6M3 12h4M3 17h6" />
+          <path d="M14.5 4.5l1.3 3.2 3.2 1.3-3.2 1.3-1.3 3.2-1.3-3.2L10 9l3.2-1.3 1.3-3.2ZM18 14.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8Z" />
+        </svg>
+      }
+      @case ('smartphone') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6.5" y="2.5" width="11" height="19" rx="2.5" /><path d="M10.5 18.5h3" />
+        </svg>
+      }
+      @case ('speed') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.2 17.5a9 9 0 1 1 15.6 0" /><path d="M12 13.5l4-5" /><circle cx="12" cy="14" r="1.4" />
+        </svg>
+      }
+      @case ('form') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" /><path d="M7.5 8.5h9M7.5 12h9M7.5 15.5h5" />
+        </svg>
+      }
+      @case ('care') {
+        <svg viewBox="0 0 24 24" class="size-full stroke-current" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l7.5 3v5.5c0 4.4-3.1 8.3-7.5 9.5-4.4-1.2-7.5-5.1-7.5-9.5V6L12 3Z" /><path d="M8.8 12.2l2.2 2.2 4.3-4.6" />
         </svg>
       }
       @case ('flag-de') {

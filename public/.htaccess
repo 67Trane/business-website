@@ -34,8 +34,8 @@ AddDefaultCharset UTF-8
   <FilesMatch "\.(js|css|woff2?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  # Images keep their names -> cache for 30 days
-  <FilesMatch "\.(webp|jpe?g|png|ico|svg)$">
+  # Images and the demo videos keep their names -> cache for 30 days
+  <FilesMatch "\.(webp|jpe?g|png|ico|svg|mp4)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   # HTML must always be revalidated so deployments show up immediately

@@ -1,83 +1,71 @@
-import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { DEMOS } from '../../data/demos.data';
 import { PROFILE } from '../../data/site.data';
+import { DemoIndustry, DemoSite } from '../../models/portfolio.models';
 import { LanguageService } from '../../services/language';
 import { Icon } from '../../shared/icon/icon';
 
+interface HeadlineWord {
+  text: string;
+  /** Position across the whole headline – drives the entrance stagger. */
+  index: number;
+}
+
+/** A run of words inside one headline line; accent runs are italic, blue and never split. */
+interface HeadlineRun {
+  accent: boolean;
+  words: HeadlineWord[];
+}
+
+/** Phones in the hero, left to right. The middle one sits in front. */
+const HERO_PHONES: DemoIndustry[] = ['immobilien', 'gastronomie', 'kfz'];
+
+/**
+ * Hero: value proposition on the left, three live demos on phones on the right
+ * (below the copy on phones). Everything enters once on load; the phones drift
+ * apart a little while the hero scrolls away (CSS scroll timeline, no JS).
+ */
 @Component({
   selector: 'app-hero',
   imports: [NgOptimizedImage, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './hero.html',
   styleUrl: './hero.css',
-  host: { '(window:scroll)': 'onWindowScroll()' },
 })
 export class Hero {
   protected readonly content = inject(LanguageService).content;
   protected readonly profile = PROFILE;
 
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly reducedMotion =
-    typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  protected readonly phones = HERO_PHONES.map(
+    (industry) => DEMOS.find((demo) => demo.industry === industry) as DemoSite,
+  );
+
+  /** Path of the 300px-wide hero variant of a demo poster (`x.webp` → `x-300.webp`). */
+  protected small(poster: string): string {
+    return poster.replace(/\.webp$/, '-300.webp');
+  }
+
   /**
-   * Scroll parallax runs only on pointer-fine, large viewports. ~90% of visitors
-   * are on phones (per Google Ads), where the effect is barely visible on the
-   * short hero photo but would cost main-thread work on every scroll frame
-   * (INP/jank/battery). On touch/small screens the transforms stay at identity.
+   * Headline as lines of word runs, so each word can rise out of its own mask.
+   * Markup in i18n: `|` starts a new line, `*…*` marks the accent run.
    */
-  private readonly parallaxEnabled =
-    typeof matchMedia !== 'undefined' &&
-    !this.reducedMotion &&
-    matchMedia('(min-width: 64rem) and (pointer: fine)').matches;
-  private readonly scrollY = signal(0);
-  private readonly rotatingWordIndex = signal(0);
-  private readonly previousRotatingWord = signal<string | null>(null);
-
-  protected readonly rotatingWord = computed(() => {
-    const words = this.content().hero.rotating;
-    return words[this.rotatingWordIndex() % words.length];
+  protected readonly headline = computed<HeadlineRun[][]>(() => {
+    let index = 0;
+    return this.content()
+      .hero.headline.split('|')
+      .map((line) =>
+        line
+          .split('*')
+          .map((part, position) => ({
+            // Text between the asterisks lands on odd positions.
+            accent: position % 2 === 1,
+            words: part
+              .split(' ')
+              .filter(Boolean)
+              .map((text) => ({ text, index: index++ })),
+          }))
+          .filter((run) => run.words.length > 0),
+      );
   });
-  protected readonly exitingRotatingWords = computed(() => {
-    const word = this.previousRotatingWord();
-    return word ? [word] : [];
-  });
-
-  protected readonly blueBlobShift = computed(
-    () => `translate3d(0, ${this.scrollY() * 0.15}px, 0)`,
-  );
-  protected readonly peachBlobShift = computed(
-    () => `translate3d(0, ${this.scrollY() * -0.18}px, 0)`,
-  );
-  protected readonly cyanBlobShift = computed(
-    () => `translate3d(0, ${this.scrollY() * 0.25}px, 0)`,
-  );
-  protected readonly portraitShift = computed(
-    () => `translate3d(0, ${this.scrollY() * 0.4}px, 0)`,
-  );
-
-  constructor() {
-    if (isPlatformBrowser(this.platformId) && !this.reducedMotion) {
-      const rotationTimer = window.setInterval(() => {
-        this.previousRotatingWord.set(this.rotatingWord());
-        this.rotatingWordIndex.update((index) => index + 1);
-      }, 3200);
-
-      this.destroyRef.onDestroy(() => window.clearInterval(rotationTimer));
-    }
-  }
-
-  protected onWindowScroll(): void {
-    if (this.parallaxEnabled) {
-      this.scrollY.set(Math.min(window.scrollY, 1000));
-    }
-  }
 }

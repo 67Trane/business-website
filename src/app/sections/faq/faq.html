@@ -1,32 +1,41 @@
 <!-- FAQ Section: native details/summary = accessible without JavaScript -->
-<section id="faq" class="border-t border-brand/10 bg-canvas">
-  <div class="site-shell">
-    <app-section-heading
-      data-reveal
-      [eyebrow]="content().faq.label"
-      [title]="content().faq.heading"
-    />
+<section id="faq" class="bg-white">
+  <div class="site-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <div class="lg:sticky lg:top-[calc(var(--header-h)+2.5rem)] lg:self-start">
+      <app-section-heading
+        data-reveal
+        data-scroll-fx
+        [eyebrow]="content().faq.label"
+        [title]="content().faq.heading"
+      />
+    </div>
 
-    <div data-reveal class="mx-auto mt-12 max-w-3xl border-b border-ink/10">
+    <div class="border-b border-ink/10">
       @for (item of content().faq.items; track item.q) {
         <details class="group border-t border-ink/10">
           <summary
-            class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-serif text-lg text-ink transition-colors hover:text-brand [&::-webkit-details-marker]:hidden"
+            class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 py-5 font-serif text-[1.1875rem] leading-snug text-ink transition-colors hover:text-brand sm:text-xl [&::-webkit-details-marker]:hidden"
           >
             {{ item.q }}
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              class="size-4 shrink-0 text-brand transition-transform duration-200 group-open:rotate-45"
+            <span
+              class="flex size-9 shrink-0 items-center justify-center rounded-full border border-ink/12 text-brand transition duration-300 group-open:rotate-45 group-open:border-brand group-open:bg-brand group-open:text-white"
               aria-hidden="true"
             >
-              <path d="M12 5v14M5 12h14" />
-            </svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                class="size-4"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
           </summary>
-          <p class="max-w-prose pb-6 text-md text-copy">{{ item.a }}</p>
+          <p class="max-w-prose pr-12 pb-6 text-md text-copy sm:text-base sm:leading-relaxed">
+            {{ item.a }}
+          </p>
         </details>
       }
     </div>
