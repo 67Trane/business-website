@@ -21,7 +21,7 @@ export class Home {
     inject(Seo).apply({
       path: '/',
       description:
-        'Premium-Webdesign aus Weißenburg in Bayern: Websites mit Animationen für Gastronomie, ' +
+        'Webdesign aus Weißenburg in Bayern: Websites mit Animationen für Gastronomie, ' +
         'Immobilien, Friseure und Werkstätten. Live-Demos ansehen, Festpreis ab 1.000 €.',
     });
   }

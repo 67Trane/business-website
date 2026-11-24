@@ -235,7 +235,7 @@ export const CONTENT = {
       label: 'Cookie-Hinweis',
     },
     footer: {
-      role: 'Premium-Webdesign & Entwicklung',
+      role: 'Webdesign & Entwicklung',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
     },
@@ -468,7 +468,7 @@ export const CONTENT = {
       label: 'Cookie notice',
     },
     footer: {
-      role: 'Premium web design & development',
+      role: 'Web design & development',
       imprint: 'Imprint',
       privacy: 'Privacy',
     },
@@ -701,7 +701,7 @@ export const CONTENT = {
       label: 'Çerez bildirimi',
     },
     footer: {
-      role: 'Premium web tasarım & geliştirme',
+      role: 'Web tasarım & geliştirme',
       imprint: 'Künye',
       privacy: 'Gizlilik',
     },

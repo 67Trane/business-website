@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Webdesign Weißenburg: Premium-Websites | Mehmet Deliaci',
+    title: 'Webdesign Weißenburg: Websites für Betriebe | Mehmet Deliaci',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
   {

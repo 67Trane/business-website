@@ -30,8 +30,8 @@ npm run serve:ssr:business-portfolio   # Serve built SSR app on port 4000
 
 - Prettier: 100 chars, single quotes, Angular parser for HTML. TS strict + strict templates — code must be diagnostics-clean.
 - Component naming without suffixes (`hero.ts` / class `Hero`); prefer signals for state.
-- Site copy is German (Sie-Form), de/en/tr in i18n.data.ts. Positioning: premium websites with animations for local businesses, shown per industry. Design is light/editorial with a dark statement band and per-demo coloured showcase cards.
+- Site copy is German (Sie-Form), de/en/tr in i18n.data.ts. Positioning: high-quality websites with animations for local businesses, shown per industry (never label them "Premium" in visible text; the owner finds it unserious). Design is light/editorial with a dark statement band and per-demo coloured showcase cards.
 - Motion: transform/opacity only, entrances once on load, scroll effects via CSS scroll timelines behind `@supports` (mark them `data-scroll-fx` so reduced motion switches them off). No always-on multi-path SVG animations (tried and rejected; they broke Chrome paint). Keep the hero's largest text block free of opacity fades (LCP).
 - Verify visual/runtime changes in a real browser before calling them done (headless Playwright with `channel: 'chrome'` works; a port conflict on :4200 means the user's dev server is already running — use it).
-- Deploy = FTP upload of `dist/business-portfolio/browser` contents (incl. `.htaccess` + `media/`) to all-inkl. Changes to `public/` files only affect live Lighthouse audits after upload.
+- Deploy is automatic: every push to `main` runs `.github/workflows/deploy.yml` (npm ci, prod build, FTPS sync of `dist/business-portfolio/browser` into `./mehmet-deliaci.net/` on all-inkl). Sync never clean-slates, so `/demos/` and other manually uploaded apps stay. Details: `docs/deployment.md`. No manual FTP upload needed.
 - End each change with a copyable `git commit -am "..."` (kurz, deutsch, lowercase, prefix style `fix:`/`feat:`/`rework:`).
