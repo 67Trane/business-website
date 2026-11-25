@@ -34,7 +34,9 @@
 
     <!-- Structured data: linked entity graph (WebSite + Person + ProfessionalService
          + industry demo showcase, mirrors DEMOS in demos.data.ts). Address stays locality-only; the phone number is public
-         (it appears as a CTA on the page and in Google Ads call assets). -->
+         (it appears as a CTA on the page and in Google Ads call assets). Hours, service towns and the
+         alternateName mirror the Google Business Profile ("Mehmet Deliaci Webentwicklung", CID in hasMap):
+         change both together. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -82,20 +84,41 @@
             "@type": "ProfessionalService",
             "@id": "https://mehmet-deliaci.net/#business",
             "name": "Mehmet Deliaci, Webdesign & Entwicklung",
+            "alternateName": "Mehmet Deliaci Webentwicklung",
             "url": "https://mehmet-deliaci.net/",
             "image": "https://mehmet-deliaci.net/images/og.jpg",
             "telephone": "+4915567432567",
+            "priceRange": "ab 1.000 €",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Weißenburg in Bayern",
               "postalCode": "91781",
               "addressCountry": "DE"
             },
-            "areaServed": "DE",
+            "areaServed": [
+              { "@type": "City", "name": "Weißenburg in Bayern" },
+              { "@type": "City", "name": "Treuchtlingen" },
+              { "@type": "City", "name": "Gunzenhausen" },
+              { "@type": "City", "name": "Pleinfeld" },
+              { "@type": "City", "name": "Roth" },
+              { "@type": "City", "name": "Eichstätt" },
+              { "@type": "City", "name": "Ansbach" },
+              { "@type": "Country", "name": "Deutschland" }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:00",
+                "closes": "19:00"
+              }
+            ],
+            "hasMap": "https://maps.google.com/?cid=1316972623301301534",
             "founder": {
               "@id": "https://mehmet-deliaci.net/#person"
             },
             "sameAs": [
+              "https://maps.google.com/?cid=1316972623301301534",
               "https://www.github.com/67Trane",
               "https://www.linkedin.com/in/mehmet-deliaci-24285535a"
             ],
